@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kreafdemy - Trial Page</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body class="bg-gray-100">
+    <header class="navbar">
+        <div class="logo"><img src="logo.webp" alt=""> Kreafdemy</div>
+        <nav>
+            <ul>
+              <li><a href="programpage.html">Program</a></li>
+              <li><a href="classpage.html">Kelas</a></li>
+              <li><a href="about.html">Tentang Kami</a></li>
+              <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="relative">
+  <!-- Background decorative shapes -->
+  <div class="absolute top-0 left-0 w-1/2 h-full bg-yellow-300" style="clip-path: polygon(0 0, 100% 0, 55% 100%, 0% 100%);">
+    <!-- Yellow shape -->
+  </div>
+  <div class="absolute top-0 left-0 w-1/3 h-full bg-white" style="clip-path: polygon(0 0, 68% 0, 22% 100%, 0% 100%);">
+    <!-- White overlay shape -->
+  </div>
+
+          <!-- Content container -->
+  <div class="container mx-auto px-6 py-12 relative">
+  <!-- Text and Form Container -->
+  <div class="bg-white shadow-xl rounded-lg p-8 md:p-12 lg:p-16">
+    
+                 <!-- Header Text -->
+      <div class="mb-10 text-center">
+        <h1 class="font-bold text-4xl text-gray-800 mb-3">Book Free Trial</h1>
+        <p class="text-gray-600 text-lg">Nikmati uji coba gratis kami sekarang dan mulai jelajahi dunia pemrograman yang menarik</p>
+      </div>
+                    <!-- Form and Image Wrapper -->
+            <div class="flex flex-col md:flex-row items-center justify-center bg-white shadow-xl rounded-xl md:rounded-none overflow-hidden">
+   <!-- Decorative Image Section -->
+<div class="md:flex-shrink-0 hidden md:block w-1/2">
+    <img class="h-full w-full object-cover object-center" src="trialpage.png" alt="Decorative">
+</div>
+
+
+                 <!-- Form Section -->
+                 <div class="p-8 w-full md:w-1/2">
+                    <form action="#" method="POST" class="space-y-6">
+                        <div class="grid gap-6 sm:grid-cols-2">
+                        <!-- Nama Anak Input -->
+
+                        <div>
+                            <label for="child_name" class="block text-sm font-medium text-gray-700">Nama Anak</label>
+                            <input type="text" id="child_name" name="child_name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="child_age" class="block text-sm font-medium text-gray-700">Usia Anak</label>
+                            <select id="child_age" name="child_age" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500">
+                                <option value="">Pilih Usia</option>
+        
+                  <option value="7">7 tahun</option>
+                  <option value="8">8 tahun</option>
+                  <!-- Add more options as needed -->
+                </select>
+            </div>
+    
+              <!-- Kota Domisili Dropdown -->
+              <div>
+                <label for="child-age" class="block text-sm font-semibold text-gray-700">Usia Anak</label>
+                <select id="child-age" name="child-age" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                    <option value="">Pilih Kota</option>
+                  <option value="jakarta">Jakarta</option>
+                  <option value="bandung">Bandung</option>
+                  <!-- Add more options as needed -->
+                </select>
+                </div>
+                </div>
+
+               <!-- Nama Orang Tua Input -->
+                        <div>
+                            <label for="parent-name" class="block text-sm font-semibold text-gray-700">Nama Orang Tua</label>
+                            <input type="text" id="parent-name" name="parent-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+              <!-- Nomor Handphone/WhatsApp Input -->
+              <div class="grid gap-6">
+                <div>
+                    <label for="phone" class="block text-sm font-semibold text-gray-700">Nomor Handphone/WhatsApp</label>
+                    <div class="mt-1 flex rounded-md shadow-sm">
+                      <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                        +62
+                      </span>
+                      <input type="tel" id="phone" name="phone" class="flex-1 block w-full rounded-none rounded-r-md border-gray-300 focus:ring-indigo-500 focus:border-indigo-500" placeholder="812-3456-7890">
+                    </div>
+                  </div>
+               <!-- Email Input -->
+               <div>
+                <label for="email" class="block text-sm font-semibold text-gray-700">Email (Untuk Konfirmasi)</label>
+                <input type="email" id="email" name="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="email@example.com">
+              </div>
+                  <!-- Privacy Checkbox -->
+                  <div>
+                    <input type="checkbox" id="privacy-policy" name="privacy-policy" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                    <label for="privacy-policy" class="ml-2 block text-sm text-gray-700">
+                      Saya menyetujui/kebijakan privasi
+                    </label>
+                  </div>
+              </div>
+            <!-- Submit Button -->
+        <div>
+            <button type="submit" class="w-full flex justify-center py-4 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Daftar Trial Class
+            </button>
+          </div>
+        </form>
+      </div>
+        </div>
+
+         <!-- Floating Child Image -->
+    <div class="absolute top-0 right-0 mt-16 hidden md:block">
+        <img class="h-48 w-48 rounded-full shadow-xl" src="URL_TO_CHILD_IMAGE" alt="Child smiling">
+      </div>
+    </div>
+      </section>
+      
+      
+    
+    <!-- Footer Section -->
+    <footer class="footer bg-white p-5">
+      <div class="container mx-auto px-6">
+          <div class="sm:flex sm:mt-8">
+              <div class="sm:w-1/3 flex flex-col">
+                  <img src="logo.webp" alt="Kreafdemy Logo" class="footer-logo">
+                  <span class="footer-tagline text-sm mt-2">Code the future where kids shape Tomorrow</span>
+              </div>
+              <div class="sm:w-1/3 mt-8 sm:mt-0 flex flex-col">
+                  <h2 class="text-gray-700 uppercase mb-2">KREAFDEMY</h2>
+                  <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Beranda</a></span>
+                  <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Tentang Kami</a></span>
+                  <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">FAQ</a></span>
+              </div>
+              <div class="sm:w-1/3 mt-8 sm:mt-0 flex flex-col">
+                  <h2 class="text-gray-700 uppercase mb-2">PROGRAM</h2>
+                  <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Scratch</a></span>
+                  <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">ScratchJr</a></span>
+                  <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Minecraft</a></span>
+              </div>
+              <div class="sm:w-1/3 mt-8 sm:mt-0 flex flex-col">
+                  <h2 class="text-gray-700 uppercase mb-2">KONTAK KAMI</h2>
+                  <span class="my-2"><a href="tel:+62123456789" class="text-blue-700  text-md hover:text-blue-500">+62 812 3456 789</a></span>
+                  <span class="my-2"><a href="mailto:info@kreafdemy.id" class="text-blue-700  text-md hover:text-blue-500">info@kreafdemy.id</a></span>
+              </div>
+          </div>
+      </div>
+      <div class="border-t mt-8">
+          <div class="container mx-auto px-6 py-4">
+              <div class="flex flex-col items-center">
+                  <div class="sm:w-2/3 text-center py-4">
+                      <p class="text-sm text-blue-700 font-bold mb-2">
+                          © 2024 Kreafdemy. Semua hak dilindungi undang-undang.
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </footer>
+    
+</body>
+</html>

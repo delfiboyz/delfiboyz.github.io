@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kreafademy - Program Kelas</title>
+<link rel="stylesheet" href="output.css">
+
+
+<style>
+  .carousel-image {
+    /* Adjust the height automatically based on the width while keeping the aspect ratio */
+    height: auto; 
+    /* Limit the width to a percentage of its parent container, adjust as needed */
+    max-width: 100%; 
+    /* Optionally, limit the maximum height */
+    max-height: 500px; /* Adjust this value based on your requirement */
+    /* Maintain the aspect ratio */
+    object-fit: cover; 
+    /* Center the image within the element */
+    object-position: center; 
+  }
+  
+  /* Make sure to remove any @apply directives if not using Tailwind CSS post-processing */
+  .carousel-control {
+    height: 10px;
+    width: 10px;
+    background-color: #D1D5DB; /* Gray color */
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 4px;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+  
+  .carousel-control.active {
+    background-color: #F59E0B; /* Orange color */
+  }
+  
+  .carousel-control:hover {
+    transform: scale(1.1);
+  }
+  
+
+  /* Custom colors */
+  .bg-custom-orange {
+    background-color: #ffedd5;
+  }
+  .text-custom-orange {
+    color: #fb923c;
+  }
+
+     .hero-section {
+            /* Assuming you have a specific background image for the hero section */
+            background-image: url('path-to-hero-background.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+        .benefit-card {
+            /* For rounded corners and shadows */
+            border-radius: 0.5rem; /* 8px */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Style adjustments for the carousel dots */
+         /* Karusel Item Styling */
+  .carousel-item {
+    @apply min-w-0 flex-auto px-4; /* flex-auto allows the item to grow and shrink */
+  }
+
+  /* Responsive image styling */
+  .carousel-image {
+    @apply h-auto max-w-full rounded-lg shadow-md; /* Ensure the image is responsive and has rounded corners */
+  }
+
+  /* Description styling */
+  .carousel-description {
+    @apply text-lg text-gray-600 mt-4; /* Text styling for the description */
+  }
+
+  /* Navigation dots */
+  .carousel-dot {
+    height: 10px;
+    width: 10px;
+    background-color: #D1D5DB; /* Gray color */
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 4px;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+  
+  .carousel-dot.active {
+    background-color: #F59E0B; /* Orange color */
+  }
+  
+  .carousel-dot:hover {
+    transform: scale(1.1);
+  }
+  /* Tambahkan custom CSS jika diperlukan */
+  .dot {
+    height: 10px;
+    width: 10px;
+    background-color: #D1D5DB; /* Warna abu-abu */
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 4px;
+  }
+
+  .dot.active {
+    background-color: #F59E0B; /* Warna oranye */
+  }
+        /* Ensuring the correct font is used */
+        body {
+            font-family: 'Your Custom Font', sans-serif;
+        }
+
+    .benefit-icon {
+      width: 50px; /* Example size, replace with actual sizes and add more as needed */
+    }
+
+   
+
+   
+    .custom-font {
+      font-family: 'Inter', sans-serif; /* Replace 'Inter' with your custom font */
+    }
+    /* You may need to add a link to the font in the <head> if it's not included yet */
+  
+    /* Responsive design adjustments */
+    @media (min-width: 768px) {
+      .carousel-item {
+        @apply w-1/2;
+      }
+    }
+  
+    /* Custom colors */
+    :root {
+      --primary-color: #5b21b6; /* Purple, for example */
+      --secondary-color: #10b981; /* Green, for example */
+    }
+  
+    .text-primary {
+      color: var(--primary-color);
+    }
+    .bg-secondary {
+      background-color: var(--secondary-color);
+    }
+  
+    /* Adding custom transition effects */
+    .carousel-control:hover {
+      transform: scale(1.1); /* Slightly enlarge dots on hover */
+      transition: transform 0.3s ease-in-out;
+    }
+
+</style>
+
+
+</head>
+<header class="navbar">
+    <div class="logo"><img src="logo.webp" alt=""> Kreafdemy</div>
+    <nav>
+        <ul>
+            <li><a href="programpage.html">Program</a></li>
+            <li><a href="classpage.html">Kelas</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Main Content -->
+<main>
+<!-- Hero Section -->
+ <section class="bg-hero-pattern bg-cover bg-center text-center py-32 text-white" style="background-image: url('path-to-hero-background.jpg');">
+    <div class="container mx-auto px-6">
+      <h1 class="text-5xl font-bold mb-6">Empower Your Child's Future with Coding Skills</h1>
+      <p class="text-xl mb-8">Nyalakan kreativitas anak Anda dengan menciptakan kode yang memukau!</p>
+      <a href="#courses" class="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-full transition duration-300 hover:bg-blue-100">Find a course</a>
+    </div>
+  </section>
+
+ <!-- Benefits Section -->
+ <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Manfaat Coding untuk Anak</h2>
+      <div class="flex flex-wrap justify-center items-center gap-10">
+      <!-- Each benefit card -->
+     <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-10">
+          <div class="benefit-card bg-benefit-background bg-cover bg-no-repeat bg-center p-10 text-center rounded-lg shadow-xl">
+            <img src="/images/critical-thinking-icon.svg" alt="Critical Thinking" class="mx-auto mb-6 h-20 w-20">
+            <h3 class="text-2xl font-semibold mb-4 text-custom-orange">Critical Thinking</h3>
+            <p class="text-gray-600">Critical thinking membantu anak-anak dalam memecahkan masalah secara sistematis dan efektif.</p>
+          </div>
+        </div>
+     
+    <!-- Benefit 2 -->
+    <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-10">
+      <div class="benefit-card bg-benefit-background bg-cover bg-no-repeat bg-center p-10 text-center rounded-lg shadow-xl">
+        <img src="/images/critical-thinking-icon.svg" alt="Collaboration" class="mx-auto mb-6 h-20 w-20">
+        <h3 class="text-2xl font-semibold mb-4 text-custom-orange">Collaboration</h3>
+       <p class="text-gray-600">Anak-anak belajar bagaimana bekerja sama, memecahkan masalah, dan berbagi ide dengan teman sebaya mereka.</p>
+      </div>
+    </div>
+    <!-- Benefit 3 -->
+    <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-10">
+      <div class="benefit-card bg-benefit-background bg-cover bg-no-repeat bg-center p-10 text-center rounded-lg shadow-xl">
+        <img src="/images/critical-thinking-icon.svg" alt="Creativity" class="mx-auto mb-6 h-20 w-20">
+        <h3 class="text-2xl font-semibold mb-4 text-custom-orange">Creativity</h3>
+       <p class="text-gray-600">Coding membuka dunia kreativitas dan inovasi, memungkinkan anak-anak untuk menciptakan proyek mereka sendiri.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- What Will Your Child Learn Section -->
+  <section class="flex items-center justify-between bg-orange-100 px-4 py-8">
+    <div class="flex flex-col items-start">
+      <h2 class="text-3xl font-bold text-gray-800 mb-3">Apa yang akan dipelajari anak anda?</h2>
+      <p class="text-gray-600 mb-2">Scratch</p>
+      <p class="text-sm text-gray-500">Memperkenalkan konsep pemrograman dasar menggunakan platform Scratch yang berfokus pada pemrograman visual. Anak-anak diajak untuk mengembangkan kreasi digital.</p>
+      <!-- Dots for carousel control -->
+      <div class="mt-4">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+    <div>
+      <!-- Tempatkan gambar kucing Scratch dari assets atau sumber eksternal -->
+      <img src="path-to-your-scratch-cat-image.png" alt="Scratch Cat" class="h-32">
+    </div>
+  </section>
+
+<!-- Program Kelas Section -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Program Kelas</h2>
+    <div class="flex flex-wrap justify-center items-center gap-10">
+      <!-- private class card -->
+      <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-10">
+        <div class="class-card bg-white rounded-lg overflow-hidden shadow-xl">
+          <img src="/images/private-class-image.jpg" alt="Private Class" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold mb-4 text-gray-800">Private Class</h3>
+            <p class="text-gray-600 mb-6">Program yang dirancang khusus untuk mengembangkan kreativitas anak dengan bimbingan individual.</p>
+            <a href="#" class="text-blue-600 hover:text-blue-700 font-semibold">Lihat Program Kelas</a>
+          </div>
+        </div>
+      </div>
+     
+
+    <!-- Regular Class -->
+    <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-10">
+      <div class="class-card bg-white rounded-lg overflow-hidden shadow-xl">
+        <img src="/images/private-class-image.jpg" alt="Regular Class" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Regular Class</h3>
+          <p class="text-gray-600 mb-6">Kelas reguler dengan kurikulum yang dirancang untuk memperkenalkan dunia teknologi dan coding.</p>
+          <a href="#" class="text-blue-600 hover:text-blue-700 font-semibold">Lihat Program Kelas</a>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+<!-- Call to Action Section -->
+<section class="bg-blue-600 py-20 text-center text-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-8">Jadikan Kreafademy sebagai Pilihan Course Coding Anak Anda!</h2>
+    <a href="#enroll" class="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-full transition duration-300 hover:bg-blue-100">Daftar Sekarang</a>
+  </div>
+</section>
+</main>
+<!-- Footer Section -->
+<footer class="footer bg-white p-5">
+  <div class="container mx-auto px-6">
+      <div class="sm:flex sm:mt-8">
+          <div class="sm:w-1/3 flex flex-col">
+              <img src="logo.webp" alt="Kreafdemy Logo" class="footer-logo">
+              <span class="footer-tagline text-sm mt-2">Code the future where kids shape Tomorrow</span>
+          </div>
+          <div class="sm:w-1/3 mt-8 sm:mt-0 flex flex-col">
+              <h2 class="text-gray-700 uppercase mb-2">KREAFDEMY</h2>
+              <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Beranda</a></span>
+              <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Tentang Kami</a></span>
+              <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">FAQ</a></span>
+          </div>
+          <div class="sm:w-1/3 mt-8 sm:mt-0 flex flex-col">
+              <h2 class="text-gray-700 uppercase mb-2">PROGRAM</h2>
+              <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Scratch</a></span>
+              <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">ScratchJr</a></span>
+              <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Minecraft</a></span>
+          </div>
+          <div class="sm:w-1/3 mt-8 sm:mt-0 flex flex-col">
+              <h2 class="text-gray-700 uppercase mb-2">KONTAK KAMI</h2>
+              <span class="my-2"><a href="tel:+62123456789" class="text-blue-700  text-md hover:text-blue-500">+62 812 3456 789</a></span>
+              <span class="my-2"><a href="mailto:info@kreafdemy.id" class="text-blue-700  text-md hover:text-blue-500">info@kreafdemy.id</a></span>
+          </div>
+      </div>
+  </div>
+  <div class="border-t mt-8">
+      <div class="container mx-auto px-6 py-4">
+          <div class="flex flex-col items-center">
+              <div class="sm:w-2/3 text-center py-4">
+                  <p class="text-sm text-blue-700 font-bold mb-2">
+                      © 2024 Kreafdemy. Semua hak dilindungi undang-undang.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
+
+
+<script>
+  // This is a simple example. For a production site, consider using a library or more robust code.
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const controls = document.querySelectorAll('.carousel-control');
+    controls.forEach((control, index) => {
+      control.addEventListener('click', () => {
+        // Your logic to show the corresponding item goes here
+        // For example, you can change the item by applying and removing a 'hidden' class to your slides
+        
+        // Remove 'active' class from all controls
+        controls.forEach(c => c.classList.remove('active'));
+        
+        // Add 'active' class to the clicked control
+        control.classList.add('active');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
