@@ -4,7 +4,7 @@ module.exports = {
     
     "about.html",
     "classpage.html",
-    "home.html",
+    "index.html",
     "kontak.html",
     "programpage.html",
     "trialpage.html"
