@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kreafademy - Program Kelas</title>
+<title>Kreafdemy - Program Kelas</title>
 <link rel="stylesheet" href="output.css">
 
 
@@ -42,38 +42,7 @@
     }
     .hero p { color: #ffffff; text-align: center; font-size: 1.5em; }
 
-  .carousel-image {
-    /* Adjust the height automatically based on the width while keeping the aspect ratio */
-    height: auto; 
-    /* Limit the width to a percentage of its parent container, adjust as needed */
-    max-width: 100%; 
-    /* Optionally, limit the maximum height */
-    max-height: 500px; /* Adjust this value based on your requirement */
-    /* Maintain the aspect ratio */
-    object-fit: cover; 
-    /* Center the image within the element */
-    object-position: center; 
-  }
   
-  /* Make sure to remove any @apply directives if not using Tailwind CSS post-processing */
-  .carousel-control {
-    height: 10px;
-    width: 10px;
-    background-color: #D1D5DB; /* Gray color */
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 4px;
-    transition: background-color 0.3s, transform 0.3s;
-    cursor: pointer;
-  }
-  
-  .carousel-control.active {
-    background-color: #F59E0B; /* Orange color */
-  }
-  
-  .carousel-control:hover {
-    transform: scale(1.1);
-  }
   
 
   /* Custom colors */
@@ -97,52 +66,91 @@
         }
         /* Style adjustments for the carousel dots */
          /* Karusel Item Styling */
-  .carousel-item {
-    @apply min-w-0 flex-auto px-4; /* flex-auto allows the item to grow and shrink */
+         .carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  min-height: 400px; /* Contoh, atur sesuai dengan tinggi maksimum gambar */
+}
+
+
+.carousel-slide {
+  display: none; /* Semua slide tersembunyi kecuali yang aktif */
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  /* Tidak perlu 'position: absolute;' disini */
+}
+
+.carousel-slide.active {
+  display: block; /* Hanya menampilkan slide yang aktif */
+}
+
+
+
+
+
+.carousel-slide img {
+  max-width: 100%; /* membatasi lebar gambar agar tidak lebih dari container */
+  max-height: 400px; /* mengatur tinggi maksimum gambar */
+  height: auto; /* memastikan rasio aspek tetap */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+
+
+  @keyframes fadeEffect {
+    from {opacity: 0.4}
+    to {opacity: 1}
   }
 
-  /* Responsive image styling */
-  .carousel-image {
-    @apply h-auto max-w-full rounded-lg shadow-md; /* Ensure the image is responsive and has rounded corners */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
   }
 
-  /* Description styling */
-  .carousel-description {
-    @apply text-lg text-gray-600 mt-4; /* Text styling for the description */
-  }
-
-  /* Navigation dots */
-  .carousel-dot {
-    height: 10px;
-    width: 10px;
-    background-color: #D1D5DB; /* Gray color */
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 4px;
-    transition: background-color 0.3s, transform 0.3s;
-    cursor: pointer;
-  }
-  
-  .carousel-dot.active {
-    background-color: #F59E0B; /* Orange color */
-  }
-  
-  .carousel-dot:hover {
-    transform: scale(1.1);
-  }
-  /* Tambahkan custom CSS jika diperlukan */
   .dot {
-    height: 10px;
-    width: 10px;
-    background-color: #D1D5DB; /* Warna abu-abu */
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
     border-radius: 50%;
-    display: inline-block;
-    margin: 0 4px;
+    display: block;
+    transition: background-color 0.6s ease;
   }
 
-  .dot.active {
-    background-color: #F59E0B; /* Warna oranye */
+  .dot.active, .dot:hover {
+    background-color: #717171;
   }
+
+  .slide-content {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .slide-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .slide-text {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+  }
+
         /* Ensuring the correct font is used */
         body {
             font-family: 'Your Custom Font', sans-serif;
@@ -152,9 +160,7 @@
       width: 50px; /* Example size, replace with actual sizes and add more as needed */
     }
 
-   
 
-   
     .custom-font {
       font-family: 'Inter', sans-serif; /* Replace 'Inter' with your custom font */
     }
@@ -162,9 +168,7 @@
   
     /* Responsive design adjustments */
     @media (min-width: 768px) {
-      .carousel-item {
-        @apply w-1/2;
-      }
+      
       .hero {
             height: 1000px; /* Adjusted for smaller screens */
         }
@@ -189,17 +193,17 @@
     }
   
     /* Adding custom transition effects */
-    .carousel-control:hover {
-      transform: scale(1.1); /* Slightly enlarge dots on hover */
-      transition: transform 0.3s ease-in-out;
-    }
+  body{
+    background-image: url("headerkontak.jpg");
+  }
 
 </style>
 
 
 </head>
+<body>
 <header class="navbar">
-    <div class="logo"><img src="logo.webp" alt=""> Kreafdemy</div>
+    <div class="logo"><a href="index.html"><img src="logo.webp" alt=""></a> Kreafdemy</div>
     <nav>
         <ul>
             <li><a href="programpage.html">Program</a></li>
@@ -259,33 +263,92 @@
 
 
   <!-- What Will Your Child Learn Section -->
-  <section class="flex items-center justify-between bg-orange-100 px-4 py-8">
-    <div class="flex flex-col items-start">
-      <h2 class="text-3xl font-bold text-gray-800 mb-3">Apa yang akan dipelajari anak anda?</h2>
-      <p class="text-gray-600 mb-2">Scratch</p>
-      <p class="text-sm text-gray-500">Memperkenalkan konsep pemrograman dasar menggunakan platform Scratch yang berfokus pada pemrograman visual. Anak-anak diajak untuk mengembangkan kreasi digital.</p>
-      <!-- Dots for carousel control -->
-      <div class="mt-4">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+  <div class="carousel-container relative shadow-md">
+    <!-- Slide 1 (active by default) -->
+    <div class="carousel-slide active absolute w-full active" id="slide-1">
+      <img src="scratch.png" alt="Slide 1" class="w-full h-auto rounded-lg shadow-md">
+      <div class="slide-content bg-white p-4 rounded-lg mt-2 shadow-md">
+        <div class="slide-title text-2xl font-bold text-gray-800">Apa yang akan dipelajari anak anda?</div>
+        <div class="slide-text font-bold text-2xl text-blue-500 mt-2">Scratch</div>
+        <div class="slide-text text-gray-500 mt-2">Pernahkah kalian mengetahui tentang Scartch 3.0 ? Jika belum, yuk kita kenalan sedikit tentang Scratch 3.0. Aplikasi Scratch 3.0 merupakan bahasa pemrograman yang berbasis visual block dan sangat cocok digunakan oleh pemula. Nah, jika teman teman belajar menggunakan aplikasi Scratch 3.0, maka teman-teman bisa membuat beberapa project seperti story, animasi, dan game. Code pada Scratch 3.0 dapat disusun dengan cara drag and drop saja loh, disini teman-teman juga bisa belajar dan berlatih tentang computational thinking, algoritma, pemecahan masalah, kreatifitas dan lain-lain. </div>
       </div>
     </div>
-    <div>
-      <!-- Tempatkan gambar kucing Scratch dari assets atau sumber eksternal -->
-      <img src="path-to-your-scratch-cat-image.png" alt="Scratch Cat" class="h-32">
+    <!-- Slides 2 to 5 (additional slides with different content for each) -->
+    <!-- ... -->
+    <div class="carousel-slide active absolute w-full" id="slide-2">
+      <img src="scratchjr.png" alt="Slide 2" class="w-full h-auto rounded-lg shadow-md">
+      <div class="slide-content bg-white p-4 rounded-lg mt-2 shadow-md">
+        <div class="slide-title text-2xl font-bold text-gray-800">Apa yang akan dipelajari anak anda?</div>
+        <div class="slide-text font-bold text-2xl text-blue-500 mt-2">ScratchJR</div>
+        <div class="slide-text text-gray-500 mt-2">Apakah teman-teman tahu atau pernah mendengar tentang Scratch JR ? Scratch JR ialah
+          salah satu aplikasi pemrograman yang berbasis visual block, aplikasi ini bisa diinstal di
+          laptop atau handphone lohh. Aplikasi Scratch JR sangat cocok untuk teman-teman yang
+          baru belajar pemrograman, karena hanya Menyusun block codenya seperti bermain
+          puzzle. Dengan aplikasi ini teman-teman bisa belajar mengenai pengenalan pola,
+          pemecahan masalah, algoritma, dan ketrampilan, disini teman-teman bisa membuat
+          game dan animasi yang sangat seru. Yuk kita cari tahu lebih lanjut tentang Scratch JR!</div>
+      </div>
     </div>
-  </section>
+
+    <div class="carousel-slide active absolute w-full" id="slide-3">
+      <img src="minecraft.png" alt="Slide 3" class="w-full h-auto rounded-lg shadow-md">
+      <div class="slide-content bg-white p-4 rounded-lg mt-2 shadow-md">
+        <div class="slide-title text-2xl font-bold text-gray-800">Apa yang akan dipelajari anak anda?</div>
+        <div class="slide-text font-bold text-2xl text-blue-500 mt-2">Minecraft</div>
+        <div class="slide-text text-gray-500 mt-2">Minecraft adalah sebuah permainan bak pasir 3D yang memungkinkan pemainnya
+          untuk menjelajahi, membangun, dan berkreasi dalam dunia yang luas dan penuh dengan
+          kemungkinan. Permainan ini terkenal dengan gameplaynya yang terbuka dan tanpa
+          tujuan yang pasti, memberikan kebebasan kepada pemain untuk menentukan cara
+          bermain mereka sendiri.
+          </div>
+      </div>
+    </div>
+
+
+    <div class="carousel-slide active absolute w-full" id="slide-4">
+      <img src="roblox.jpg" alt="Slide 4" class="w-full h-auto rounded-lg shadow-md">
+      <div class="slide-content bg-white p-4 rounded-lg mt-2 shadow-md">
+        <div class="slide-title text-2xl font-bold text-gray-800">Apa yang akan dipelajari anak anda?</div>
+        <div class="slide-text font-bold text-2xl text-blue-500 mt-2">Roblox</div>
+        <div class="slide-text text-gray-500 mt-2">Pernahkan kalian bermain Roblox Player? Tahukah kalian jika kalian bisa membuat game
+          Roblox kalian sendiri ? Nah, untuk membuat game roblox kalian sendiri, kalian perlu
+          aplikasi bernama Roblox Studio. Roblox studio adalah platform game gratis yang
+          memberikan kebebasan untuk membuat dan memainkan game sendiri. Dengan
+          menggunakan Roblox Studio teman-teman tidak hanya membuat game tetapi juga dapat
+          bermain game Bersama teman-teman kalian yang lainnya. Dengan belajar Roblox Studio
+          teman-teman bisa belajar tentang Computational Thinking, Kreativitas, Problem Solving,
+          bahkan Desain. Karena dalam Roblox Studio perlu membuat alur game dan desain
+          tersendiri.</div>
+      </div>
+    </div>
+
+    <div class="carousel-slide active absolute w-full" id="slide-5">
+      <img src="AI.jpg" alt="Slide 5" class="w-full h-auto rounded-lg shadow-md">
+      <div class="slide-content bg-white p-4 rounded-lg mt-2 shadow-md">
+        <div class="slide-title text-2xl font-bold text-gray-800">Apa yang akan dipelajari anak anda?</div>
+        <div class="slide-text font-bold text-2xl text-blue-500 mt-2">AI programming</div>
+        <div class="slide-text text-gray-500 mt-2">Di bagian AI Programming ini, anak Anda akan berkenalan dengan dunia kecerdasan buatan yang menarik. Mereka akan mempelajari dasar-dasar membuat program yang bisa "berpikir" dan "belajar" mirip seperti manusia. Lewat permainan dan proyek kreatif, anak Anda akan diajak untuk mengembangkan kemampuan problem solving dan kreativitasnya. Kami akan menggunakan platform yang ramah anak untuk menjelaskan konsep AI secara sederhana dan menyenangkan. Bersiaplah untuk petualangan teknologi yang akan membuka pintu ke masa depan!</div>
+      </div>
+    </div>
+    <div class="carousel-dots flex justify-center p-4 absolute bottom-0 w-full">
+      <!-- Dots for each slide -->
+      <span class="dot active cursor-pointer block" onclick="currentSlide(1)"></span>
+      <span class="dot cursor-pointer block" onclick="currentSlide(2)"></span>
+      <span class="dot cursor-pointer block" onclick="currentSlide(3)"></span>
+      <span class="dot cursor-pointer block" onclick="currentSlide(4)"></span>
+      <span class="dot cursor-pointer block" onclick="currentSlide(5)"></span>
+    </div>
+  </div>
 
 <!-- Program Kelas Section -->
-<section class="py-20 bg-white">
+<section class="py-96 bg-white">
   <div class="container mx-auto px-6">
     <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Program Kelas</h2>
     <div class="flex flex-wrap justify-center items-center gap-10">
       <!-- private class card -->
       <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-10">
-        <div class="class-card bg-white rounded-lg overflow-hidden shadow-xl">
-          <img src="/images/private-class-image.jpg" alt="Private Class" class="w-full h-64 object-cover">
+        <div class="class-card bg-custom-light-gray rounded-lg overflow-hidden shadow-xl">
+          <img src="privateclass.jpg" alt="Private Class" class="w-full h-64 object-cover">
           <div class="p-6">
             <h3 class="text-2xl font-semibold mb-4 text-gray-800">Private Class</h3>
             <p class="text-gray-600 mb-6">Program yang dirancang khusus untuk mengembangkan kreativitas anak dengan bimbingan individual.</p>
@@ -297,8 +360,8 @@
 
     <!-- Regular Class -->
     <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-10">
-      <div class="class-card bg-white rounded-lg overflow-hidden shadow-xl">
-        <img src="/images/private-class-image.jpg" alt="Regular Class" class="w-full h-64 object-cover">
+      <div class="class-card bg-custom-light-gray rounded-lg overflow-hidden shadow-xl">
+        <img src="regularclass.jpg" alt="Regular Class" class="w-full h-64 object-cover">
         <div class="p-6">
           <h3 class="text-2xl font-semibold mb-4 text-gray-800">Regular Class</h3>
           <p class="text-gray-600 mb-6">Kelas reguler dengan kurikulum yang dirancang untuk memperkenalkan dunia teknologi dan coding.</p>
@@ -310,10 +373,10 @@
 
 
 <!-- Call to Action Section -->
-<section class="bg-blue-600 py-20 text-center text-white">
+<section class="bg-orange-400 py-20 text-center text-white">
   <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-bold mb-8">Jadikan Kreafademy sebagai Pilihan Course Coding Anak Anda!</h2>
-    <a href="#enroll" class="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-full transition duration-300 hover:bg-blue-100">Daftar Sekarang</a>
+    <h2 class="text-4xl font-bold mb-8">Jadikan Kreafdemy sebagai Pilihan Course Coding Anak Anda!</h2>
+    <a href="kontak.html" class="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-full transition duration-300 hover:bg-blue-100">Daftar Sekarang</a>
   </div>
 </section>
 </main>
@@ -327,20 +390,23 @@
           </div>
           <div class="sm:w-1/3 mt-8 sm:mt-0 flex flex-col">
               <h2 class="text-gray-700 uppercase mb-2">KREAFDEMY</h2>
-              <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Beranda</a></span>
-              <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Tentang Kami</a></span>
-              <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">FAQ</a></span>
+              <span class="my-2"><a href="index.html" class="text-blue-700  text-md hover:text-blue-500">Beranda</a></span>
+              <span class="my-2"><a href="about.html" class="text-blue-700  text-md hover:text-blue-500">Tentang Kami</a></span>
+              <span class="my-2"><a href="kontak.html" class="text-blue-700  text-md hover:text-blue-500">FAQ</a></span>
           </div>
           <div class="sm:w-1/3 mt-8 sm:mt-0 flex flex-col">
               <h2 class="text-gray-700 uppercase mb-2">PROGRAM</h2>
-              <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Scratch</a></span>
-              <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">ScratchJr</a></span>
-              <span class="my-2"><a href="#" class="text-blue-700  text-md hover:text-blue-500">Minecraft</a></span>
+              <span class="my-2"><a href="programpage.html" class="text-blue-700  text-md hover:text-blue-500">Scratch</a></span>
+              <span class="my-2"><a href="programpage.html" class="text-blue-700  text-md hover:text-blue-500">ScratchJr</a></span>
+              <span class="my-2"><a href="programpage.html" class="text-blue-700  text-md hover:text-blue-500">Minecraft</a></span>
+              <span class="my-2"><a href="programpage.html" class="text-blue-700  text-md hover:text-blue-500">Roblox</a></span>
+              <span class="my-2"><a href="programpage.html" class="text-blue-700  text-md hover:text-blue-500">AI Programming</a></span>
           </div>
           <div class="sm:w-1/3 mt-8 sm:mt-0 flex flex-col">
               <h2 class="text-gray-700 uppercase mb-2">KONTAK KAMI</h2>
-              <span class="my-2"><a href="tel:+62123456789" class="text-blue-700  text-md hover:text-blue-500">+62 812 3456 789</a></span>
+              <span class="my-2"><a href="https://wa.me/qr/RWBCTLARAUE3H1" class="text-blue-700  text-md hover:text-blue-500">+62 823-1211-4235</a></span>
               <span class="my-2"><a href="mailto:info@kreafdemy.id" class="text-blue-700  text-md hover:text-blue-500">info@kreafdemy.id</a></span>
+              <span class="my-2"><a href="https://www.instagram.com/kreaf_demyid?igsh=cnNhbmljdDZvMXdt" class="text-blue-700  text-md hover:text-blue-500">instagram @kreaf_demyid</a></span>              
           </div>
       </div>
   </div>
@@ -361,21 +427,34 @@
 
 <script>
   // This is a simple example. For a production site, consider using a library or more robust code.
-  document.addEventListener('DOMContentLoaded', (event) => {
-    const controls = document.querySelectorAll('.carousel-control');
-    controls.forEach((control, index) => {
-      control.addEventListener('click', () => {
-        // Your logic to show the corresponding item goes here
-        // For example, you can change the item by applying and removing a 'hidden' class to your slides
-        
-        // Remove 'active' class from all controls
-        controls.forEach(c => c.classList.remove('active'));
-        
-        // Add 'active' class to the clicked control
-        control.classList.add('active');
-      });
-    });
-  });
+  let currentSlideIndex = 1;
+    let slides = document.getElementsByClassName("carousel-slide");
+    let dots = document.getElementsByClassName("dot");
+  
+    function currentSlide(n) {
+      showSlides(currentSlideIndex = n);
+    }
+  
+    function showSlides(n) {
+  var i;
+  if (n > slides.length) { currentSlideIndex = 1 }
+  if (n < 1) { currentSlideIndex = slides.length }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[currentSlideIndex - 1].style.display = "block";
+  dots[currentSlideIndex - 1].className += " active";
+}
+
+    // Auto-advance slides every 3 seconds
+    setInterval(function() {
+      currentSlideIndex++;
+      if (currentSlideIndex > slides.length) { currentSlideIndex = 1; }
+      showSlides(currentSlideIndex);
+    }, 3000);
 </script>
 
 </body>
