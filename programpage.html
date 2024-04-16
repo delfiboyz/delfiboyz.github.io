@@ -44,7 +44,7 @@
             <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Program Kursus</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Single Program Card -->
-                <div class="program-card bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="program-card bg-white shadow-lg rounded-lg overflow-hidden" onclick="changeCourse('scratch')">
                     <div class="program-image bg-orange-300 p-4">
                         <img src="scratch.png" alt="Scratch" class="h-32 mx-auto">
                     </div>
@@ -55,7 +55,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="program-card bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="program-card bg-white shadow-lg rounded-lg overflow-hidden" onclick="changeCourse('scratchjr')">
                     <div class="program-image bg-orange-300 p-4">
                         <img src="scratchjr.png" alt="Scratch" class="h-32 mx-auto">
                     </div>
@@ -66,7 +66,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="program-card bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="program-card bg-white shadow-lg rounded-lg overflow-hidden" onclick="changeCourse('minecraft')">
                     <div class="program-image bg-orange-300 p-4">
                         <img src="minecraft.png" alt="Scratch" class="h-32 mx-auto">
                     </div>
@@ -77,7 +77,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="program-card bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="program-card bg-white shadow-lg rounded-lg overflow-hidden" onclick="changeCourse('roblox')">
                     <div class="program-image bg-orange-300 p-4">
                         <img src="roblox.jpg" alt="Scratch" class="h-32 mx-auto">
                     </div>
@@ -88,14 +88,14 @@
                         </p>
                     </div>
                 </div>
-                <div class="program-card bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="program-card bg-white shadow-lg rounded-lg overflow-hidden"onclick="changeCourse('thunkable')">
                     <div class="program-image bg-orange-300 p-4">
                         <img src="AI.jpg" alt="Scratch" class="h-32 mx-auto">
                     </div>
                     <div class="p-4">
-                        <h2 class="font-bold text-xl mb-2">AI programming</h2>
+                        <h2 class="font-bold text-xl mb-2">Thunkable</h2>
                         <p class="text-gray-700 text-base">
-                            Memperkenalkan anak-anak pada kecerdasan buatan, memungkinkan mereka untuk membuat aplikasi sederhana yang menggunakan teknologi AI.
+                            Thunkable adalah platform pengembangan aplikasi yang memanfaatkan drag and drop untuk memungkinkan pembuatan aplikasi mobile tanpa pengalaman coding. Thunkable mendukung platform Android dan iOS, membuatnya menjadi pilihan yang fleksibel untuk pengembang di semua level.
                         </p>
                     </div>
                 </div>
@@ -104,60 +104,101 @@
         </div>
     </section>
 
-    <!-- Detailed Course Section Scratch-->
+    <!-- Detailed Course Section-->
     <section class="course-detail bg-gray-100 py-8">
+        <!-- Detailed Course Section scratch-->
         <div class="container mx-auto px-6">
             <div class="flex flex-wrap md:flex-nowrap bg-white shadow-lg rounded-lg p-6">
                 <!-- Image and Course Description Container -->
                 <div class="md:flex-shrink-0 flex justify-center md:justify-start md:w-1/3">
-                    <img src="R.jpg" alt="Scratch Logo" class="h-48">
+                    <img id="course-image" src="R.jpg" alt="Scratch Logo" class="h-48">
                 </div>
                 <div class="md:w-2/3 md:ml-6">
                     <div class="text-lg">
-                        <h1 class="text-3xl font-bold text-gray-800 mb-2">Scratch</h1>
-                        <p class="text-gray-700 mb-4">
+                        <h1 id="course-title"class="text-3xl font-bold text-gray-800 mb-2">Scratch</h1>
+                        <p id="course-description"class="text-gray-700 mb-4">
                             Scratch adalah pemrograman yang dirancang khusus untuk anak-anak. Ini adalah lingkungan pemrograman visual yang memungkinkan anak-anak untuk membuat proyek-proyek kreatif seperti permainan, animasi, dan cerita interaktif dengan cara yang menyenangkan dan intuitif . scratch membantu anak-anak memahami konsep-konsep dasar pemrograman sambil merangsang kreativitas dan imajinasi mereka .
                         </p>
                     </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Materi Belajar</h3>
                     <!-- Learning Materials -->
                     <div class="learning-materials">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Materi Belajar</h3>
+                        
                         <!-- Dropdown for Material Item -->
                         <div class="mb-4">
                             <details class="material-item bg-gray-200 p-4 rounded-lg">
                                 <summary class="font-bold text-lg text-blue-700 cursor-pointer">Pengenalan Dasar Scratch</summary>
-                                <div class="text-gray-600 text-sm mt-2">
-                                    <p>Pengantar scratch</p>
-                                    <p>mengenal antar muka scratch</p>
-                                    <p>dasar-dasar pemrograman dengan scratch</p>
+                                <div class="text-black font-serif text-sm mt-2">
+                                    <p>Pernahkah kalian mengetahui tentang Scartch 3.0 ? Jika belum, yuk kita kenalan sedikit tentang Scratch 3.0. Aplikasi Scratch 3.0 merupakan bahasa pemrograman yang berbasis visual block dan sangat cocok digunakan oleh pemula. Nah, jika teman teman belajar menggunakan aplikasi Scratch 3.0, maka teman-teman bisa membuat beberapa project seperti story, animasi, dan game. Code pada Scratch 3.0 dapat disusun dengan cara drag and drop saja loh, disini teman-teman juga bisa belajar dan berlatih tentang </p>
                                     <!-- Add more content here if needed -->
                                 </div>
                             </details>
                         </div>
                         <div class="mb-4">
                             <details class="material-item bg-gray-200 p-4 rounded-lg">
-                                <summary class="font-bold text-lg text-blue-700 cursor-pointer">instalasi scratch</summary>
-                                <div class="text-gray-600 text-sm mt-2">
-                                    <p>Dasar-dasar lingkungan Scratch dan bagaimana memulai dengan coding.</p>
+                                <summary class="font-bold text-lg text-blue-700 cursor-pointer">Pengantar Scratch</summary>
+                                <div class="text-black font-serif text-sm mt-2">
+                                    <p>Seperti yang teman-teman ketahui sebelumnya, aplikasi Scratch 3.0 bisa digunakan untuk membuat game dan animasi yang teman-teman sukai. Nah, sebelum kita membuat project di Scratch 3.0 kita kenalan dulu yuk dengan bagian-bagian dan fitur di Scratch 3.0</p>
                                     <!-- Add more content here if needed -->
                                 </div>
                             </details>
                         </div>
                         <div class="mb-4">
                             <details class="material-item bg-gray-200 p-4 rounded-lg">
-                                <summary class="font-bold text-lg text-blue-700 cursor-pointer">membuat aplikasi dengan scratch</summary>
-                                <div class="text-gray-600 text-sm mt-2">
-                                    <p>Dasar-dasar lingkungan Scratch dan bagaimana memulai dengan coding.</p>
+                                <summary class="font-bold text-lg text-blue-700 cursor-pointer">Antarmuka Scratch 3.0</summary>
+                                <div class="text-black font-serif text-sm mt-2">
+                                    <p>Berikut ini adalah bagian-bagian yang ada di dalam Scratch 3.0, di Simak ya supaya kenal lebih dekat dengan Scratch 3.0 </p>
+                                    <b>Canvas dan Sprite </b>
+                                    <p>Blok blok kode yang sudah kalian rancang akan berjalan dan tampil di canvas (bisa juga disebut Window). Di dalam canvas ini terdapat logo bendera hijau dan lingkaran merah yang berfungsi untuk menjalankan dan memberhentikan program. Di dalam Canvas terdapat karakter yang kalian pilih atau gunakan yang disebut dengan “Sprite”, dalam Sprite akan berisi code atau block-block perintah yang dirancang agar bisa bergerak, memiliki suara, berubah warna, dan lain-lain. Kalian juga bisa mengganti dan menambah </p>
+                                    <p>Sprite di menu New sprite  dan pilih Choose sprite from library. Di sana akan ada banyak pilihan Sprite yang telah disediakan Scratch atau bisa juga menggunakan Sprite di luar Scratch. Pilih menu Upload sprite from file. </p>
+                                </br>
+                                    <b>Backdrop </b>     
+                                    <p>Backdrop adalah gambar latar belakang pada canvas. Pada menu New backdrop kalian bisa pilih backdrop yang sudah disediakan Scratch, yaitu di Choose backdrop from library atau bisa juga memilih backdrop yang ada di luar Scratch. Pilih Upload backdrop from file.</p>  
+                                    </br>
+                                    <b>Script</b>
+                                    <p>Scripts adalah kumpulan blok blok perintah yang akan kalian gunakan untuk memprogram. Masing-masing blok memiliki fungsi-fungsi yang berbeda. </p>
+                                    <p>-> Motion Blocks digunakan untuk menggerakan Sprite. </p>
+                                    <p>-> Looks Blocks digunakan untuk sesuatu yang berhubungan dengan tampilan pada program. Seperti say, think, change color, dll. </p>
+                                    <p>-> Sound digunakan untuk memberikan atau memunculkan suara pada Sprite. </p>
+                                    <p>-> Events Block digunakan sebagai triggering atau permulaan code supaya program dapat berjalan. Events adalah block yang sangat penting dan sering digunakan di awal pembuatan program. </p>
+                                    <p>-> Control Block berfungsi mengontrol script yang digunakan. </p>
+                                    <p>-> Sensing berfungsi mendeteksi objek atau untuk sentuhan. </p>
+                                    <p>->  Operator berfungsi sebagai operasi aritmatika atau matematika dalam sebuah program.</p>
+                                    <p>-> Variables atau data blocks berfungsi menyimpan data pada program dengan menggunakan sebuah variable. </p>
+                                </br>
+                               
+                                </div>
+                            </details>
+                        </div>
+                        <div class="mb-4">
+                            <details class="material-item bg-gray-200 p-4 rounded-lg">
+                                <summary class="font-bold text-lg text-blue-700 cursor-pointer">Instalasi Scratch 3.0</summary>
+                                <div class="text-black font-serif text-sm mt-2">
+                                    <p>Setelah teman-teman tahu tentang Scratch 3.0, yuk sekarang kita install aplikasinya dulu supaya kalian bisa coba buat project di aplikasi ini. Nah,Scratch 3.0 memiliki 2 versi yang berbasis web dan juga desktop. Untuk versi web, kunjungi alamatnya di link ini ya <a class="text-blue-700" href="https://scratch.mit.edu">https://scratch.mit.edu</a> dan pilih menu “Create”, maka tampilannya akan seperti gambar berikut ini. Namun Ketika kalian menggunakan Scratch 3.0 berbasis web, diperlukan untuk membuat akun dan Sign Up supaya kalian dapat menyimpan project kalian secara online.  </p>
+                                    <p>Jika ingin menggunakan aplikasi offline atau desktop, kalian perlu mendownload Scratch dengan mengunjungi link berikut ini <a class="text-blue-700">https://scratch.mit.edu/download/scratchlink.</a> </p> 
+                                    <p>Jika sudah terdownload, lakukan installasi seperti biasa sampai selesai terinstall dan buka aplikasi Scratch 3.0</p>  
                                     <!-- Add more content here if needed -->
                                 </div>
                             </details>
                         </div>
                         <div class="mb-4">
                             <details class="material-item bg-gray-200 p-4 rounded-lg">
-                                <summary class="font-bold text-lg text-blue-700 cursor-pointer">Studi kasus</summary>
-                                <div class="text-gray-600 text-sm mt-2">
-                                    <p>Dasar-dasar lingkungan Scratch dan bagaimana memulai dengan coding.</p>
-                                    <!-- Add more content here if needed -->
+                                <summary class="font-bold text-lg text-blue-700 cursor-pointer"> Membuat Project Dengan Scratch 3.0 </summary>
+                                <div class="text-black font-serif text-sm mt-2">
+                                    <p>Sekarang, yuk kita buat project pertama kalian menggunakan Scratch 3.0. Project ini adalah animasi sederhana yaitu balon yang memantul dan bergerak secara terus menerus, siapkan dulu sprite dan backgroundnya ya. </p>
+                                    <p>Setelah itu kita akan membuat code sederhana dengan langkah-langkah sebagai berikut </p>
+                                    <p>Klik block pada “Events” dan tambahakn block When Green Flag Clicked </p>
+                                    <p>Kemudian cari di bagian “Control” dan tambahkan Forever</p>
+                                    <p>Setelah itu pergi ke block “Motion” dan tambahkan code “Move 10 Steps” dan “if on edge, bounce” masukkan kedua block motion tersebut ke dalam Forever</p>
+                                    <p>Selesai deh! Sangat mudah kan ? </p>
+                                </div>
+                            </details>
+                        </div>
+                        <div class="mb-4">
+                            <details class="material-item bg-gray-200 p-4 rounded-lg">
+                                <summary class="font-bold text-lg text-blue-700 cursor-pointer"> Studi Kasus</summary>
+                                <div class="text-black font-serif text-sm mt-2">
+                                    <p>Dari animasi balon yang sudah kalian buat sebelumnya. Bisakah kalian menambahkan sebuah program, supaya balon tersebut bisa bertambah banyak dan Ketika di klik akan menghilang serta mendapatkan score jika berhasil klik balon tersebut ? </p>
                                 </div>
                             </details>
                         </div>
@@ -166,6 +207,8 @@
                 </div>
             </div>
         </div>
+         <!-- Detailed Course Section scratch-->
+        
     </section>
 
 
@@ -174,7 +217,7 @@
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold text-white mb-8">Siap untuk Memulai Perjalanan Coding Bersama?Ikuti Kelas Kami Sekarang!</h2>
            
-            <a href="#signup" class="btn-signup bg-white text-orange-500 font-bold py-2 px-4 rounded-full">daftar trial class</a>
+            <a href="kontak.html" class="bg-white text-orange-500 text-3xl font-bold py-2 px-4 rounded-full"> Daftar Trial Class</a>
         </div>
     </section>
 </main>
@@ -222,7 +265,291 @@
         </div>
     </div>
   </footer>
-  
+  <script>
+    const courseDetails = {
+    scratch: {
+        title: "Scratch",
+        description: "Scratch adalah pemrograman yang dirancang khusus untuk anak-anak. Ini adalah lingkungan pemrograman visual yang memungkinkan anak-anak untuk membuat proyek-proyek kreatif seperti permainan, animasi, dan cerita interaktif dengan cara yang menyenangkan dan intuitif . scratch membantu anak-anak memahami konsep-konsep dasar pemrograman sambil merangsang kreativitas dan imajinasi mereka .",
+        image: "R.jpg",
+        learningMaterials: [
+            { title: "Pengenalan Dasar Scratch", 
+            content: "<p>Pernahkah kalian mengetahui tentang Scartch 3.0 ? Jika belum, yuk kita kenalan sedikit tentang Scratch 3.0. Aplikasi Scratch 3.0 merupakan bahasa pemrograman yang berbasis visual block dan sangat cocok digunakan oleh pemula. Nah, jika teman teman belajar menggunakan aplikasi Scratch 3.0, maka teman-teman bisa membuat beberapa project seperti story, animasi, dan game. Code pada Scratch 3.0 dapat disusun dengan cara drag and drop saja loh, disini teman-teman juga bisa belajar dan berlatih tentang </p>"},
+            { title: "Pengantar Scratch", 
+            content: "<p>Seperti yang teman-teman ketahui sebelumnya, aplikasi Scratch 3.0 bisa digunakan untuk membuat game dan animasi yang teman-teman sukai. Nah, sebelum kita membuat project di Scratch 3.0 kita kenalan dulu yuk dengan bagian-bagian dan fitur di Scratch 3.0</p>" },
+            { title: "Antarmuka Scratch 3.0 ", 
+            content: "<p>Berikut ini adalah bagian-bagian yang ada di dalam Scratch 3.0, di Simak ya supaya kenal lebih dekat dengan Scratch 3.0 </p>"
++ "<b>Canvas dan Sprite </b>"
++ "<p>Blok blok kode yang sudah kalian rancang akan berjalan dan tampil di canvas (bisa juga disebut Window). Di dalam canvas ini terdapat logo bendera hijau dan lingkaran merah yang berfungsi untuk menjalankan dan memberhentikan program. Di dalam Canvas terdapat karakter yang kalian pilih atau gunakan yang disebut dengan “Sprite”, dalam Sprite akan berisi code atau block-block perintah yang dirancang agar bisa bergerak, memiliki suara, berubah warna, dan lain-lain. Kalian juga bisa mengganti dan menambah </p>"
++ "<p>Sprite di menu New sprite dan pilih Choose sprite from library. Di sana akan ada banyak pilihan Sprite yang telah disediakan Scratch atau bisa juga menggunakan Sprite di luar Scratch. Pilih menu Upload sprite from file. </p>"
++ "<b>Backdrop </b>"
++ "<p>Backdrop adalah gambar latar belakang pada canvas. Pada menu New backdrop kalian bisa pilih backdrop yang sudah disediakan Scratch, yaitu di Choose backdrop from library atau bisa juga memilih backdrop yang ada di luar Scratch. Pilih Upload backdrop from file.</p>"
++ "<b>Script</b>"
++ "<p>Scripts adalah kumpulan blok blok perintah yang akan kalian gunakan untuk memprogram. Masing-masing blok memiliki fungsi-fungsi yang berbeda. </p>"
++ "<p>-> Motion Blocks digunakan untuk menggerakan Sprite. </p>"
++ "<p>-> Looks Blocks digunakan untuk sesuatu yang berhubungan dengan tampilan pada program. Seperti say, think, change color, dll. </p>"
++ "<p>-> Sound digunakan untuk memberikan atau memunculkan suara pada Sprite. </p>"
++ "<p>-> Events Block digunakan sebagai triggering atau permulaan code supaya program dapat berjalan. Events adalah block yang sangat penting dan sering digunakan di awal pembuatan program. </p>"
++ "<p>-> Control Block berfungsi mengontrol script yang digunakan. </p>"
++ "<p>-> Sensing berfungsi mendeteksi objek atau untuk sentuhan. </p>"
++ "<p>-> Operator berfungsi sebagai operasi aritmatika atau matematika dalam sebuah program.</p>"
++ "<p>-> Variables atau data blocks berfungsi menyimpan data pada program dengan menggunakan sebuah variable. </p>"}
+,
+{ title : "Instalasi Scratch 3.0",
+content: "<p>Setelah teman-teman tahu tentang Scratch 3.0, yuk sekarang kita install aplikasinya dulu supaya kalian bisa coba buat project di aplikasi ini. Nah, Scratch 3.0 memiliki 2 versi yang berbasis web dan juga desktop. Untuk versi web, kunjungi alamatnya di link ini ya <a class='text-blue-700' href='https://scratch.mit.edu'>https://scratch.mit.edu</a> dan pilih menu 'Create', maka tampilannya akan seperti gambar berikut ini. Namun ketika kalian menggunakan Scratch 3.0 berbasis web, diperlukan untuk membuat akun dan Sign Up supaya kalian dapat menyimpan project kalian secara online. </p>"
++ "<p>Jika ingin menggunakan aplikasi offline atau desktop, kalian perlu mendownload Scratch dengan mengunjungi link berikut ini <a class='text-blue-700' href='https://scratch.mit.edu/download/scratchlink'>https://scratch.mit.edu/download/scratchlink</a>. </p>"
++ "<p>Jika sudah terdownload, lakukan installasi seperti biasa sampai selesai terinstall dan buka aplikasi Scratch 3.0.</p>"
+},
+{title : "Membuat Aplikasi Scratch 3.0" ,
+content: "<p>Sekarang, yuk kita buat project pertama kalian menggunakan Scratch 3.0. Project ini adalah animasi sederhana yaitu balon yang memantul dan bergerak secara terus menerus, siapkan dulu sprite dan backgroundnya ya. </p>"
++ "<p>Setelah itu kita akan membuat code sederhana dengan langkah-langkah sebagai berikut </p>"
++ "<p>Klik block pada 'Events' dan tambahkan block When Green Flag Clicked. </p>"
++ "<p>Kemudian cari di bagian 'Control' dan tambahkan Forever.</p>"
++ "<p>Setelah itu pergi ke block 'Motion' dan tambahkan code 'Move 10 Steps' dan 'if on edge, bounce' masukkan kedua block motion tersebut ke dalam Forever.</p>"
++ "<p>Selesai deh! Sangat mudah kan?</p>"
+
+},
+{title : "Studi Kasus",
+content : "<p>Dari animasi balon yang sudah kalian buat sebelumnya. Bisakah kalian menambahkan sebuah program, supaya balon tersebut bisa bertambah banyak dan Ketika di klik akan menghilang serta mendapatkan score jika berhasil klik balon tersebut ? </p>"}
+            // Tambahkan lebih banyak materi belajar jika perlu
+        ]
+    },
+    scratchjr: {
+        title: "ScratchJr",
+        description: "ScratchJr adalah platform pemrograman visual yang dirancang untuk anak-anak usia 5 hingga 7 tahun. Aplikasi ini memungkinkan anak-anak untuk membuat cerita interaktif dan permainan sederhana sambil belajar prinsip dasar pemrograman. ScratchJr membantu anak-anak mengembangkan kemampuan berpikir kritis dan kreatif melalui eksplorasi dan eksperimen.",
+        image: "scratchjr.png",
+        learningMaterials: [
+            { title: "Pengenalan Dasar ScratchJr", content: "<p>Apakah teman-teman tahu atau pernah mendengar tentang Scratch JR ? Scratch JR ialah salah satu aplikasi pemrograman yang berbasis visual block, aplikasi ini bisa diinstal di laptop atau handphone lohh. Aplikasi Scratch JR sangat cocok untuk teman-teman yang baru belajar pemrograman, karena hanya Menyusun block codenya seperti bermain puzzle. Dengan aplikasi ini teman-teman bisa belajar mengenai pengenalan pola, pemecahan masalah, algoritma, dan ketrampilan, disini teman-teman bisa membuat game dan animasi yang sangat seru. Yuk kita cari tahu lebih lanjut tentang Scratch JR! </p>" },
+            { title: "Pengantar ScratchJr", content: "<p> Seperti yang teman-teman ketahui sebelumnya, aplikasi Scratch JR ini bisa digunakan untuk membuat game dan animasi yang teman-teman sukai. Di dalam Scratch JR temanteman bisa menambahkan karakter-karakter lucu sehingga hasil animasi yang dibuat sangat bagus dan seru loh.  </p>" },
+            {
+    title: "Antarmuka ScratchJR",
+    content: "<p>Yuk kenalan dengan antarmuka ScratchJR, yang dirancang untuk memudahkan anak-anak belajar pemrograman dengan visual block. Berikut ini adalah elemen-elemen utamanya:</p>"
+    + "<ul>"
+    + "<li><b>Tombol Perbesar:</b> Untuk memperbesar ukuran layar.</li>"
+    + "<li><b>Tombol Rumah:</b> Kembali ke beranda.</li>"
+    + "<li><b>Tombol Penghitung Langkah:</b> Untuk menghitung berapa banyak karakter bergerak atau berjalan.</li>"
+    + "<li><b>Tombol Background:</b> Memilih background atau wallpaper project.</li>"
+    + "<li><b>Tombol Nama Project:</b> Menuliskan nama atau judul project.</li>"
+    + "<li><b>Tombol Reset Karakter:</b> Mengembalikan karakter ke posisi semula.</li>"
+    + "<li><b>Tombol Start:</b> Menjalankan project.</li>"
+    + "<li><b>Tombol Tambah Layar:</b> Menambahkan layar atau canvas baru.</li>"
+    + "</ul>"
+    + "<p>Di bagian bawah, terdapat menu blok programming yang terbagi dalam beberapa kategori seperti Triggering blocks (Kuning), Motion (Biru), Looks (Ungu), Sounds (Hijau), Control (Oranye), dan End Blocks (Merah).</p>"
+    + "<p>Dengan antarmuka yang ramah anak, ScratchJR memungkinkan eksplorasi dan pembelajaran yang menyenangkan.</p>"
+},
+{
+  title: "Instalasi Aplikasi Scratch JR",
+  content: "<p>Aplikasi Scratch JR bisa diinstal di laptop dan handphone. Berikut ini adalah cara instalasinya:</p>"
+  + "<h4>Cara Install Menggunakan Handphone/Tablet:</h4>"
+  + "<ul>"
+  + "<li>Buka aplikasi Play Store di handphone dan cari 'Scratch JR'.</li>"
+  + "<li>Klik 'Download' dan tunggu sampai proses instalasi selesai.</li>"
+  + "<li>Buka aplikasi Scratch JR, pilih 'School', kemudian klik tombol home untuk memulai membuat project.</li>"
+  + "</ul>"
+  + "<h4>Cara Install di Laptop atau PC:</h4>"
+  + "<ul>"
+  + "<li>Buka Google atau web browser yang digunakan.</li>"
+  + "<li>Kunjungi <a class='text-blue-700' href='https://jfo8000.github.io/ScratchJr-Desktop/'>https://jfo8000.github.io/ScratchJr-Desktop/</a>.</li>"
+  + "<li>Scroll ke bawah dan pilih versi sesuai sistem operasi (iOS: 'Download (Mac)', Windows: 'Download (Win)').</li>"
+  + "<li>Tunggu sampai proses instalasi selesai, buka aplikasi Scratch JR, pilih 'school', kemudian klik tombol home untuk memulai membuat project.</li>"
+  + "</ul>"
+},
+{
+    title: "Membuat Project Dengan Scratch Jr",
+    content: "<p>Pertama, buka aplikasi Scratch JR dan klik tombol home. Pastikan tidak salah ya teman-teman.</p>"
+    + "<p>Setelah itu, klik tombol panah untuk membuat project baru.</p>"
+    + "<p>Di Scratch JR terdapat karakter default pada saat membuat new project bernama Tic. Karakter itu bisa dihapus dengan cara klik tahan Tic yang lama hingga muncul tanda X berwarna merah di atas.</p>"
+    + "<p>Sekarang yuk tambahkan background, dengan cara klik tombol dan tambahkan karakter dengan klik tombol yang berada di sebelah kiri. Pilih background dan karakternya terlebih dahulu, terdapat dua karakter yaitu Kelinci dan Kupu-Kupu.</p>"
+    + "<p>Kita akan membuat kupu-kupunya bisa bergerak ke kanan secara terus menerus. Untuk memulainya kita gunakan block code berwarna kuning bernama 'Event', kemudian pilih bendera warna hijau.</p>"
+    + "<p>Selanjutnya, kita gunakan block code berwarna biru yaitu 'Motion' dan kita pilih tanda arrow ke kanan. Angka satu dibawah tanda arrow dapat diganti sesuai yang kita inginkan, tetapi untuk kali ini tidak perlu diganti.</p>"
+    + "<p>Terakhir tambahkan code berwarna merah yang bernama 'End Block', disini kita pilih code warna merah nomor 2 untuk looping atau mengulangi secara terus menerus.</p>"
+    + "<p>Klik Start di bagian atas yaitu Bendera Berwarna hijau untuk menjalankan perintahnya. Nah, kupu-kupunya sudah bisa bergerak, lalu bagaimana dengan kelincinya? Apakah kamu bisa membuat kelincinya bergerak sendiri? Yuk coba!</p>"
+},
+{
+    title: "Studi Kasus",
+    content: "<p>Dari program sederhana yang sudah kamu buat, sekarang bisakah kamu membuat kelincinya bergerak dan melompat serta menambahkan beberapa karakter lainnya seperti matahari dan awan. Buatlah mataharinya bergerak berputar dan awan bisa bergerak ke kiri dan kanan secara terus menerus.</p>"
+    + "<p><b>SELAMAT MENCOBA!</b></p>"
+}
+
+
+
+            // Tambahkan lebih banyak materi belajar jika perlu
+        ]
+    },
+    minecraft: {
+        title: "minecraft",
+        description: "Minecraft adalah game sandbox yang memungkinkan pemain untuk membangun, menjelajah, dan bertahan hidup di dunia yang dibuat dari blok-blok besar. Pemain dapat berkreasi tanpa batasan dalam menghasilkan konstruksi, petualangan, dan bahkan permainan lain di dalam Minecraft.",
+        image: "minecraft.png",
+        learningMaterials: [
+  {
+    "title": "Pengenalan Dasar Minecraft",
+    "content": "<p>Minecraft adalah permainan 3D yang memberikan kebebasan kepada pemain untuk menjelajahi, membangun, dan berkreasi di dunia luas penuh kemungkinan. Dikenal dengan gameplay terbuka tanpa tujuan pasti, pemain ditantang untuk menentukan cara bermain mereka sendiri.</p>"
+    + "<p><strong>Fitur Utama:</strong></p>"
+    + "<ul>"
+    + "<li><strong>Dunia Luas:</strong> Jelajahi beragam bioma, gua tersembunyi, dan hadapi berbagai macam monster.</li>"
+    + "<li><strong>Membangun:</strong> Gunakan blok untuk membangun dari rumah sederhana hingga kastil yang megah.</li>"
+    + "<li><strong>Crafting:</strong> Kumpulkan sumber daya untuk menciptakan item seperti alat, senjata, dan baju besi.</li>"
+    + "<li><strong>Mode Permainan:</strong> Pilihan mode seperti Survival, Creative, dan Adventure.</li>"
+    + "<li><strong>Multiplayer:</strong> Bermain bersama teman secara online atau lokal.</li>"
+    + "</ul>"
+  },
+  {
+    "title": "User Interface dan Pengaturan",
+    "content": "<p><strong>Start Screen:</strong> Ganti tampilan karakter dengan ikon tertentu, termasuk default, recent, Education Edition skins, dan confirm untuk tampilan yang dipilih.</p>"
+    + "<p><strong>Settings Screen:</strong> Mengatur Keyboard and Mouse Settings dengan sensitivitas kamera, Invert Y-Axis, Auto Jump, dan Keyboard Layout. Controller Settings untuk sensitivitas, Invert Y-Axis, Auto Jump, dan Destroy Block (vibrate).</p>"
+    + "<p><strong>Menu dalam Game:</strong></p>"
+    + "<ul>"
+    + "<li><strong>Resume game:</strong> Kembali ke permainan.</li>"
+    + "<li><strong>Settings:</strong> Buka pengaturan.</li>"
+    + "<li><strong>Save & Quit:</strong> Kembali ke menu utama.</li>"
+    + "</ul>"
+    + "<p><strong>Tombol Import:</strong> Load world yang sudah disiapkan sebelumnya (.mcworld).</p>"
+  },
+  {
+    "title": "Memainkan Dunia Minecraft dalam Mode Creative",
+    "content": "<p>Dalam mode Creative, pemain bebas menggunakan semua jenis material tanpa harus mencarinya. Beberapa kreativitas yang dapat dibuat termasuk kubus dan mobil sederhana. Juga, pemain dapat menggunakan papan dan NPC dengan perintah tambahan untuk memberikan informasi atau instruksi dalam game.</p>"
+  }
+  ,
+  {
+  "title": "Instalasi Minecraft Education Edition",
+  "content": "<p>Untuk menginstal Minecraft Education Edition, ikuti langkah-langkah berikut:</p>"
+  + "<ol>"
+  + "<li>Buka alamat web: <a class='text-blue-700' href='http://minecraftedu.com/'>http://minecraftedu.com/</a> atau <a class='text-blue-700' href='http://education.minecraft.net/'>http://education.minecraft.net/</a>.</li>"
+  + "<li>Klik tombol <strong>Get Started</strong>.</li>"
+  + "<li>Pilih peran Anda: educator, administrator, atau student. Catatan: Minecraft Education Edition membutuhkan akun Office365.</li>"
+  + "<li>Untuk versi siswa, masukkan akun Office 365 Anda dan klik <strong>Submit</strong>.</li>"
+  + "<li>Masukkan kata sandi dan pilih <strong>Sign in</strong>. Pilih <strong>Keep me signed in</strong> jika menggunakan akun ini secara reguler.</li>"
+  + "<li>Di Windows Store for Business, scroll ke bawah untuk detail aplikasi. Klik <strong>Manage</strong>.</li>"
+  + "<li>Di halaman berikut, klik <strong>Install</strong> untuk mengunduh aplikasi.</li>"
+  + "</ol>"
+  + "<p>Setelah instalasi, Anda siap untuk memulai petualangan Anda di dunia Minecraft Education Edition!</p>"
+}
+
+]
+
+    },
+    roblox: {
+        title: "Roblox",
+        description: "Platform game gratis yang memberikan kebebasan untuk membuat dan memainkan game sendiri.",
+        image: "roblox.jpg",
+        learningMaterials: [
+        {
+        "title": "Pengenalan Dasar Roblox Studio",
+        "content": "<p>Roblox Studio adalah platform yang memungkinkan pengguna untuk tidak hanya membuat game tetapi juga bermain game bersama teman-teman. Mendukung belajar Computational Thinking, Kreativitas, Problem Solving, dan Desain.</p>"
+      },
+      {
+        "title": "Antarmuka Roblox Studio",
+        "content": "<p>Antarmuka termasuk Templates, New, My Games, Recent, Archive, dan Tour." 
+        + " Fitur-fitur utama di Top Menu, Explorer untuk melihat daftar objek, Toolbox untuk aset, dan Properties untuk editing objek.</p>"
+      },
+      {
+        "title": "Installasi Roblox Studio",
+        "content": "<ol>" 
+        + "<li>Buat akun Roblox di <a class='text-blue-700' href='https://www.roblox.com'>situs web resmi Roblox</a>.</li>" 
+        + "<li>Unduh aplikasi Roblox Studio dari <a class='text-blue-700' href='https://www.roblox.com/create'>situs web pembuatan Roblox</a>.</li>" 
+        + "<li>Ikuti petunjuk instalasi. Petunjuk lengkap tersedia di <a class='text-blue-700' href='https://developer.roblox.com/en-us/resources'>Developer Resources</a>.</li>" 
+        + "</ol>"
+      },
+      {
+        "title": "Membuat Project Di Roblox",
+        "content": "<ol>"
+        + "<li>Buka Roblox Studio dan pilih template Baseplate.</li>"
+        + "<li>Hapus objek yang tidak diperlukan.</li>"
+        + "<li>Buat path menggunakan Block.</li>"
+        + "<li>Atur ukuran, material, dan warna Block.</li>"
+        + "<li>Duplikasi Block untuk membuat path.</li>"
+        + "<li>Tambahkan Kill Bricks dan script untuk interaktivitas.</li>"
+        + "</ol>"
+      },
+      {
+        "title": "Studi Kasus",
+        "content": "<p>Buat rintangan di game obby yang melibatkan script untuk mengubah warna dan material.</p>"
+      }
+    ]
+    },
+    thunkable: {
+        title: "Thunkable",
+        description: "Thunkable adalah platform pengembangan aplikasi yang memanfaatkan drag and drop untuk memungkinkan pembuatan aplikasi mobile tanpa pengalaman coding. Thunkable mendukung platform Android dan iOS, membuatnya menjadi pilihan yang fleksibel untuk pengembang di semua level.",
+        image: "AI.jpg",
+        learningMaterials: [
+        {
+        "title": "Pengenalan Thunkable",
+        "content": "<p><a class='text-blue-700' href='https://thunkable.com/'>Thunkable</a> memudahkan pembuatan aplikasi dengan antarmuka drag and drop yang intuitif, " +
+                   "meniru konsep yang diperkenalkan oleh Scratch dari MIT. Ini memungkinkan pembuatan aplikasi " +
+                   "interaktif tanpa perlu menulis kode secara langsung.</p>"
+      },
+      {
+        "title": "Antarmuka Pengguna Thunkable",
+        "content": "<p>Antarmuka pengguna Thunkable terdiri dari berbagai komponen seperti Screen, Pallete, Component, " +
+                   "Properties, dan Media. Screen bertindak sebagai area kerja di mana komponen diletakkan dan diatur. " +
+                   "Pallete menyediakan komponen yang dapat digunakan, terbagi menjadi komponen yang tampak dan tidak tampak, " +
+                   "untuk dibangun dalam aplikasi Anda.</p>"
+      },
+      {
+        "title": "Blok Editor di Thunkable",
+        "content": "<p>Blok Editor memungkinkan pengguna untuk menyusun logika aplikasi mereka menggunakan blok yang " +
+                   "mirip dengan puzzle. Masing-masing blok menyediakan fungsi tertentu seperti kontrol pergerakan, penampilan, " +
+                   "atau logika yang dapat digabungkan untuk membangun fungsi yang kompleks.</p>"
+      },
+      {
+        "title": "Membangun Aplikasi Pertama Anda",
+        "content": "<p>Langkah demi langkah dalam membangun aplikasi kalkulator, mulai dari pembuatan proyek baru, " +
+                   "penyesuaian properti komponen, hingga mengatur blok logika untuk memastikan kalkulator beroperasi sesuai keinginan.</p>"
+      },
+      {
+        "title": "Uji dan Debug dengan Thunkable Live",
+        "content": "<p>Thunkable Live adalah fitur yang memungkinkan pengembang untuk menguji aplikasi mereka secara langsung " +
+                   "pada perangkat mobile. Ini memungkinkan perubahan instan dan melihat bagaimana aplikasi berjalan pada perangkat sebenarnya.</p>"
+      },
+      {
+        "title": "Publikasi Aplikasi ke App Stores",
+        "content": "<p>Setelah aplikasi diuji dan selesai, Thunkable menyediakan alat untuk membantu pengguna mempublikasikan " +
+                   "aplikasi mereka ke Google Play Store atau Apple App Store, memastikan semua persyaratan dan standar dipenuhi.</p>"
+      },
+      {
+        "title": "Studi Kasus: Membuat Aplikasi To-Do List",
+        "content": "<p>Sebagai proyek akhir, kursus ini akan membimbing pengguna melalui proses pembuatan aplikasi To-Do List, " +
+                   "menunjukkan cara mengintegrasikan berbagai komponen UI, menyusun blok logika, dan memanfaatkan storage lokal " +
+                   "untuk menyimpan item tugas.</p>"
+      }
+            // Tambahkan lebih banyak materi belajar jika perlu
+        ]
+    }
+    // Definisikan lebih banyak kursus jika perlu
+};
+
+function changeCourse(courseKey) {
+    const course = courseDetails[courseKey];
+    document.getElementById('course-title').textContent = course.title;
+    document.getElementById('course-description').textContent = course.description;
+    document.getElementById('course-image').src = course.image;
+
+    // Kosongkan konten pembelajaran yang ada
+    const learningMaterialsContainer = document.querySelector('.learning-materials');
+    learningMaterialsContainer.innerHTML = '';
+
+    // Isi ulang dengan data baru
+    course.learningMaterials.forEach(material => {
+        const detailElement = document.createElement('details');
+        detailElement.classList.add('material-item', 'bg-gray-200', 'p-4', 'rounded-lg' , 'mb-4');
+
+        const summaryElement = document.createElement('summary');
+        summaryElement.classList.add('font-bold', 'text-lg', 'text-blue-700', 'cursor-pointer');
+        summaryElement.textContent = material.title;
+
+        const contentElement = document.createElement('div');
+        contentElement.classList.add('text-black', 'text-sm', 'mt-2', 'font-serif');
+        contentElement.innerHTML = material.content;
+
+        detailElement.appendChild(summaryElement);
+        detailElement.appendChild(contentElement);
+
+        learningMaterialsContainer.appendChild(detailElement);
+    });
+}
+
+    
+    </script>
+    
 
 </body>
 </html>
