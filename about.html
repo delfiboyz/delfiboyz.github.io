@@ -1,518 +1,386 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kreafdemy - Tentang Kami</title>
-<link rel="stylesheet" href="output.css">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+  <!-- Title -->
+  <title>Tentang Kami - Kreafdemy</title>
+  
+  <!-- Meta Description -->
+  <meta name="description" content="Pelajari lebih lanjut tentang Kreafdemy, platform terbaik untuk belajar kreativitas online. Temukan kursus dalam desain, coding dan lainnya.">
+  
+  <!-- Meta Keywords -->
+  <meta name="keywords" content="Kreafdemy, tentang kami, kursus online, belajar kreatif, desain, coding platform online">
+  
+  <!-- Meta Author -->
+  <meta name="author" content="Kreafdemy Team">
 
-<style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .navbar {
-        background-color: #ffffff;
-        padding: 10px 5%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .navbar, .footer {
-        background-color: #ffffff; /* Adjusted to match design */
-    }
 
-    .navbar .logo { display: flex; align-items: center; }
-    .navbar .logo img {
-        max-height: 50px; /* Logo size */
+  <!-- Favicons -->
+  <link href="logo.webp" rel="icon">
+  <link href="logo.webp" rel="apple-touch-icon">
+  
+  <!-- Open Graph Tags for Social Media Sharing -->
+  <meta property="og:title" content="Tentang Kami - Kreafdemy">
+  <meta property="og:description" content="Pelajari lebih lanjut tentang Kreafdemy, platform terbaik untuk belajar kreativitas online. Temukan kursus dalam desain, coding dan lainnya.">
+  <meta property="og:image" content="https://www.kreafdemy.com/logo.webp">
+  <meta property="og:url" content="https://www.kreafdemy.com/about.html">
+  <meta property="og:type" content="website">
+  
+ 
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Kreafdemy",
+    "url": "https://www.kreafdemy.com",
+    "logo": "https://www.kreafdemy.com/logo.webp",
+    "description": "Pelajari lebih lanjut tentang Kreafdemy, platform terbaik untuk belajar kreativitas online.",
+    "sameAs": [
+      "https://www.facebook.com/Kreafdemy",
+      "https://www.instagram.com/Kreafdemy",
+      "https://twitter.com/Kreafdemy"
+    ]
+  }
+  </script>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+  
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+  <!-- Main CSS File -->
+  <link href="css/main.css?v=1.0" rel="stylesheet">
+  <link href="css/styles.css?v=1.0" rel="stylesheet">
+  
+  
+  <!-- Custom Styles -->
+  <style>
+    .bg-navbar {
+      background-color: rgb(255, 255, 255);
     }
-    .navbar .logo span { margin-left: 10px; font-size: 1.5em; font-weight: bold; color: #333; } /* Sesuaikan font-size sesuai dengan kebutuhan Anda */
-    .navbar ul { list-style: none; display: flex; }
-    .navbar li { padding: 10px 15px; }
-    .navbar a { text-decoration: none; color: #333; font-weight: 600; }
-    .hero {
-        background: url('aboutus.jpg') no-repeat center center/cover; /* Update this path */
-        
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        color: #fff;
-        height: 500px; /* Adjust height as needed */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: rgba(0, 0, 0, 0.5); /* Adjust color and opacity as needed */
-        z-index: 0;
-    }
-    .hero > * {
-        position: relative;
-        z-index: 1;
-    }
-    .hero h1 {
-        font-size: 3rem; /* Adjust size as needed */
-        text-transform: uppercase; /* If the design requires it */
-        letter-spacing: 1px; /* Adjust as needed */
-    }
-    .about-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px; /* Adjust the gap between the text and image as needed */
-        padding: 50px 10%; /* Add some padding around the content */
-        background-color: #f9f9f9; /* Match the background color to your design */
-    }
-    .about-image {
-        max-width: 600px; /* Set a max-width for the image container */
-    }
-    .about-image img {
-        width: 100%; /* Make the image responsive */
-        height: auto; /* Maintain the aspect ratio of the image */
-        border-radius: 10px; /* Optional: round the corners of the image */
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Optional: add a shadow to the image */
-    }
-    .about-container, .main-content {
-        background-color: #f9f9f9; /* Match design */
-    }
-    .about-title {
-        font-size: 2.5em;
-        color: #0056b3; /* Warna teks untuk judul */
-        margin: 0 0 20px 0; /* Spasi di bawah judul */
-    }
-    /* Deskripsi tentang Kreafdemy */
-    .about-description {
-        max-width: 600px; /* Set a max-width for the text container */
-        padding-right: 20px; /* Add padding to separate the text from the image */
-    }
-    .hero-title-container {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-        background: rgba(255, 255, 255, 0.8);
-        padding: 10px;
-        width: calc(100% - 40px);
-    }
-    .hero-title-container h1 {
-        margin: 0;
-        color: #0056b3;
-        font-size: 2.5em;
-    }
-   
-    .hero p { color: #fff; text-align: center; font-size: 1.2em; }
-    .main-content {
-        display: flex;
-        align-items: center; /* This will vertically align the image and description */
-        justify-content: center; /* This will horizontally center the items in the container */
-        max-width: 1200px; /* Adjust based on your design requirements */
-        margin: auto; /* This centers the main content horizontally */
-    }
-    .logo-circle {
-        width: 120px;
-        height: 120px;
-        background-color: #ffffff; /* Updated to match new design */
-        border-radius: 50%;
-        position: absolute;
-        top: -60px; /* Half of the height to move it above the card */
-        left: calc(50% - 60px); /* Center the circle */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-   
-    .card {
-        background-color: #fff;
-        border-radius: 16px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        width: 45%;
-        margin-top: 50px; /* This value should push the card down so the circle can be visible */
-        position: relative;
-        padding: 20px;
-        padding-top: 100px; /* Extra padding to account for the circle */
-        text-align: center;
-    }
-    .card img {
-        width: 50px; /* Width of the logo image */
-        height: auto; /* Maintain aspect ratio */
-    }
-    .card h2 {
-        margin-bottom: 20px;
-        color: #333;
-        font-size: 2rem;
-    }
-    .card p {
-        color: #666;
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-.background-visimisi{
-    background-image: url('visimisi.png');
-    
-    position: relative;
-    
-}
-    .vision-logo, .mission-logo {
-        /* Icons for vision and mission */
-        background-color: aquamarine;
-        background-size: contain;
-        background-repeat: no-repeat;
-        width: 100px; /* Adjust size as needed */
-        height: 100px; /* Adjust size as needed */
-        margin: 0 auto;
-    }
-    .vision-logo {
-        background-image: url('visi.jpg'); /* Path to your vision logo */
-    }
-    .mission-logo {
-        background-image: url('misi.jpg'); /* Path to your mission logo */
-    }
-
-    .vision, .mission {
-        flex: 1 1 300px; /* Flex basis of 300px with ability to grow and shrink */
-        margin: 10px; /* Spacing between the elements */
-        text-align: center; /* Center text */
-    }
-    .vision img, .mission img {
-        height: 60px; /* Fixed height for icons */
-        margin-bottom: 20px;
-    }
-    .section-title, .section-text {
-        margin-top: 30px; /* Space from the top of the card content */
-    }
-    .cta {
-        position: relative;
-        
-    text-align: center;
-    overflow: hidden;
-   background-image: url("Untitled.png");
-    background-size: cover; /* or contain, depending on how you want it displayed */
-    }
-    .cta .arrow-image {
-        position: absolute;
-        bottom: -50%; /* Adjust this to position the arrow at the bottom of the CTA section */
-        left: 50%;
-        transform: translate(-50%, 50%);
-        width: 100%; /* This will stretch the arrow to the full width of the container */
-        z-index: -1; /* This will ensure that the text is above the arrow image */
-    }
-    
-    .cta img {
-        position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: auto; /* Adjust if necessary */
-    max-width: none; /* This ensures that the image is not constrained by the max-width */
-    z-index: 10; /* Bring the image on top of other elements */
-    }
-    
-    .cta:before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 50%; /* Adjust based on the height of your arrow graphic */
-        background: url('path_to_arrow_image.png') no-repeat bottom center;
-        background-size: contain;
-        z-index: 0;
-    }
-    .cta span {
-        position: relative;
-        z-index: 1;
-    }
-    .cta h2 {
-        position: relative;
-    z-index: 2; /* Ensures the text is above the image */
-    font-size: 2.5rem; /* Adjust the size as needed */
-    color: #000000; /* This should be the text color */
-    padding: 40px 0; /* Adjust the padding as needed */
-    }
-    .footer {
-        background-color: #fff;
-        color: #333;
-    }
-    .footer h2 {
-        color: #333;
-        font-weight: bold;
-    }
-    
-    .footer a {
-        color: #0056b3;
-        text-decoration: none;
-    }
-    
-    .footer a:hover {
-        color: #333;
-    }
-    
-    .footer img {
-        max-width: 100px; /* Adjust as necessary */
-    }    
-    .footer-logo {
-        width: auto; /* Adjust as needed */
-        height: 100px; /* Adjust to match the size in your design */
-    }
-    .footer-tagline {
-        color: #333;
-        margin-top: 8px;
-    }
-    
-    .footer-logo img {
-        max-height: 3rem; /* Adjust the size as needed */
-    }
-    .footer-logo p {
-        color: #333;
-        margin-top: 0.5rem; /* Adjust the space between the logo and the text */
-        font-size: 0.875rem; /* Adjust the font size as needed */
-        line-height: 1.25rem;
-    }
-
-    .footer-text {
-        font-size: 0.9em;
-        margin: 0;
-    }
-    footer .text-gray-500 {
-        color: #333;
-        font-weight: bold;
-    }
-    footer .text-teal-600 {
-        color: #0056b3;
-    }
-    .footer .title-font {
-        font-size: 1.125rem;
-        margin-bottom: 20px;
-    }
-    
-    .footer .list-none a {
-        padding: 3px 0;
-        color: #333;
-        text-decoration: none;
-    }
-    
-    .footer .list-none a:hover {
-        color: #0056b3;
-    }
-    
-    .footer .border-t {
-        border-color: #dddddd;
-    }
-    
-    .footer p {
-        position: relative; /* Ubah menjadi relative atau hapus baris ini */
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin-top: 20px; /* Sesuaikan jarak atas sesuai kebutuhan */
-        font-size: 0.9em;
-        width: auto; /* Atau sesuaikan lebar sesuai kebutuhan */
-        box-sizing: border-box;
-        text-align: center; /* Tambahkan ini untuk memusatkan teks */
-    }
-    /* Responsiveness */
-    @media (max-width: 768px) {
-        .hero {
-            height: 300px; /* Adjusted for smaller screens */
+    footer.footer a, footer.footer p, footer.footer h4, footer.footer span {
+            color: #333;
+            transition: color 0.3s ease, background-color 0.3s ease;
         }
-        .hero-title-container h1 {
-            font-size: 2em; /* Smaller font size for smaller screens */
+        footer.footer a:hover, footer.footer p:hover, footer.footer h4:hover, footer.footer span:hover {
+            color: #000;
         }
-        .hero h1 { font-size: 2.2em; }
-        .hero p { font-size: 1em; }
-        .main-content {
-            flex-direction: column-reverse; /* Stack image on top of the text on small screens */
+        footer.footer:hover {
+            background-color: #e9ecef;
+            border-color: #666;
         }
-        .description, .image-container {
-            flex-basis: 100%;
-            padding: 0 1rem; /* Adjust padding for small screens */
-        }
-        .image-container img {
-            max-width: 80%; /* Adjust image size on small screens */
-            margin: 0 auto; /* Center the image */
-        }
-        .card {
-            width: 100%;
-            margin-top: 100px;
-            margin-bottom: 50px;
-        }
-        .logo-circle {
-            top: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .cta:before {
-            height: 25%; /* Smaller percentage for mobile */
-            background-size: cover;
-        }
-        .card img {
-            display: block; /* Change to block to remove bottom space */
-        margin: 0 auto; /* Center the image inside the circle */
-        width: 60px; /* Adjust the size as needed */
-        height: auto; /* Maintain aspect ratio */
-        }
-        .vision, .mission { margin-bottom: 20px; }
-        .footer {
-            background-color: chocolate;
-            color: #fff;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Center the items horizontally */
-        }
-        
-        .footer-logo {
-            height: 80px; /* Adjust to smaller size for mobile */
-        }
-        .footer-tagline {
-            font-size: 0.875rem;
-        }
-        .footer-logo img {
-            max-height: 2.5rem; /* Adjust for smaller screens */
-        }
-        .footer-logo p {
-            text-align: center;
-        }
-        .footer-text {
-            font-size: 0.9em;
-            margin: 0; /* Remove the default margin */
-        }
-        .cta .arrow-image {
-            bottom: -25%; /* Less negative so the arrow doesn't move too far down on smaller screens */
-        }
-        .footer p {
-            bottom: 10px;
-            left: 120px; /* Memberi ruang untuk logo */
-            right: 10px; /* Memberi ruang di sisi kanan */
-        }
-        footer .w-48 {
-            width: auto;
-            padding: 10px;
-        }
-    }
-</style>
+ 
+  </style>
 </head>
-<body>
 
-<header class="navbar">
-    <div class="logo"><a href="index.html"><img src="logo.webp" alt=""></a> Kreafdemy</div>
-    <nav>
+
+<body class="about-page">
+
+    <!-- Responsive navbar-->
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <img src="logo.webp" alt="Logo" style="height: 150px; width: auto; margin-right: 10px;">
+
+      </a>
+  
+      <nav id="navmenu" class="navmenu">
         <ul>
-            <li><a href="programpage.html">Program</a></li>
-            <li><a href="classpage.html">Kelas</a></li>
-            <li><a href="about.html">Tentang Kami</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
-            <li><a href="trialpage.html">trial page</a></li>
+          <li><a href="index.html">Home<br></a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="partnership.html">Partnership</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="dropdown"><a href="#"><span>Program</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="builder.html">Builder</a></li>
+              <li><a href="maker.html">Maker</a></li>
+              <li><a href="creator.html">Creator</a></li>
+           
+            </ul>
+          </li>
+       
         </ul>
-    </nav>
-</header>
-
-<div class="hero">
-    <h2 class="about-title">Tentang Kami</h2>
-</div>
-<!-- Main Content Section with Flexbox -->
-<div class="main-content flex flex-row-reverse items-center mx-auto my-8">
-
-    <!-- Description Container -->
-    <div class="description flex-1 px-6">
-        <h2 class="text-3xl font-semibold text-blue-800 mb-4">Kreafdemy</h2>
-        <p class="text-gray-600">
-            Tempat di mana anak-anak menemukan pesona dunia teknologi melalui pembelajaran koding yang menyenangkan dan interaktif. Di sini, kami tidak hanya mengajarkan anak-anak untuk menjadi pengguna teknologi, tetapi juga pencipta teknologi.
-        </p>
-        <p class="text-gray-600 mt-4">
-            Kami percaya bahwa setiap anak memiliki potensi yang tak terbatas, dan dengan ketekunan, bimbingan, mereka dapat mengembangkan musuh untuk anak-anak, kami menawarkan kurikulum yang disesuaikan untuk mengerti setiap pengembangan keterampilan koding dan pemrograman secara menyenangkan dan terstruktur.
-        </p>
-    </div>
-
-    <!-- Image Container -->
-    <div class="image-container flex-1 px-6">
-        <img src="Picture.png" alt="Children Learning" class="w-full h-auto">
-    </div>
-
-</div>
-
-<!-- Main Content Section with Flexbox for Vision and Mission -->
-<div class="main-content flex flex-row-reverse items-center mx-auto my-8 background-visimisi">
-    <!-- Sesuaikan bagian ini dengan path yang benar -->
-    <div class="card mission">
-        <div class="logo-circle mission-logo"></div>
-        <h2>Misi</h2>
-        <p>Memberikan anak-anak kesempatan untuk mempelajari keterampilan pemrograman komputer dengan cara yang menyenangkan, interaktif, dan mendidik.</p>
-    </div>
-
-    <div class="card vision">
-        <div class="logo-circle vision-logo"></div>
-        <h2>Visi</h2>
-        <p>Menciptakan lingkungan pembelajaran yang menarik dan mendukung, di mana anak-anak dapat mengembangkan keterampilan teknologi yang esensial sambil menjelajahi kreativitas dan inovasi.</p>
-    </div>
-</div>
-
-
-
-
-<!-- CTA Section -->
-<div class="cta relative text-black text-4xl font-bold py-16 flex justify-center items-center">
-    <h2 class="z-10 text-black-50">PERSIAPKAN MASA DEPAN ANAK ANDA SEKARANG!</h2>
-    <!-- Ensure the image source path is correct -->
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
   
-</div>
-
-
-
-<!-- Footer Section -->
-<footer class="footer bg-white p-5">
-    <div class="container mx-auto px-6">
-        <div class="sm:flex sm:mt-8">
-            <div class="sm:w-1/3 flex flex-col">
-                <img src="logo.webp" alt="Kreafdemy Logo" class="footer-logo">
-                <span class="footer-tagline text-sm mt-2">Code the future where kids shape Tomorrow</span>
-            </div>
-            <div class="sm:w-1/3 mt-8 sm:mt-0 flex flex-col">
-                <h2 class="text-gray-700 uppercase mb-2">KREAFDEMY</h2>
-                <span class="my-2"><a href="index.html" class="text-blue-700  text-md hover:text-blue-500">Beranda</a></span>
-                <span class="my-2"><a href="about.html" class="text-blue-700  text-md hover:text-blue-500">Tentang Kami</a></span>
-                <span class="my-2"><a href="kontak.html" class="text-blue-700  text-md hover:text-blue-500">FAQ</a></span>
-            </div>
-            <div class="sm:w-1/3 mt-8 sm:mt-0 flex flex-col">
-                <h2 class="text-gray-700 uppercase mb-2">PROGRAM</h2>
-                <span class="my-2"><a href="programpage.html" class="text-blue-700  text-md hover:text-blue-500">Scratch</a></span>
-                <span class="my-2"><a href="programpage.html" class="text-blue-700  text-md hover:text-blue-500">ScratchJr</a></span>
-                <span class="my-2"><a href="programpage.html" class="text-blue-700  text-md hover:text-blue-500">Minecraft</a></span>
-                <span class="my-2"><a href="programpage.html" class="text-blue-700  text-md hover:text-blue-500">Roblox</a></span>
-                <span class="my-2"><a href="programpage.html" class="text-blue-700  text-md hover:text-blue-500">AI Programming</a></span>
-            </div>
-            <div class="sm:w-1/3 mt-8 sm:mt-0 flex flex-col">
-                <h2 class="text-gray-700 uppercase mb-2">KONTAK KAMI</h2>
-                <span class="my-2"><a href="https://wa.me/qr/RWBCTLARAUE3H1" class="text-blue-700  text-md hover:text-blue-500">+62 823-1211-4235</a></span>
-                <span class="my-2"><a href="mailto:info@kreafdemy.id" class="text-blue-700  text-md hover:text-blue-500">info@kreafdemy.id</a></span>
-                <span class="my-2"><a href="https://www.instagram.com/kreaf_demyid?igsh=cnNhbmljdDZvMXdt" class="text-blue-700  text-md hover:text-blue-500">instagram @kreaf_demyid</a></span>              
-            </div>
-        </div>
+    
+  
     </div>
-    <div class="border-t mt-8">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex flex-col items-center">
-                <div class="sm:w-2/3 text-center py-4">
-                    <p class="text-sm text-blue-700 font-bold mb-2">
-                        © 2024 Kreafdemy. Semua hak dilindungi undang-undang.
-                    </p>
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1>Tentang Kami<br></h1>
+              <p class="mb-0">Selamat datang di Kreafdemy! Kami adalah platform pembelajaran yang didedikasikan untuk
+                mengajarkan keterampilan coding kepada anak-anak. Dengan pendekatan yang menyenangkan dan interaktif,
+                kami membantu anak-anak mempersiapkan masa depan mereka di dunia teknologi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index.html">Beranda</a></li>
+            <li class="current">Tentang Kami</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <!-- About Us Section -->
+    <section id="about-us" class="section about-us">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
+            <img src="about.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
+            <h3>Mengapa Memilih Kreafdemy?</h3>
+            <p class="fst-italic">
+              Di Kreafdemy, kami percaya bahwa setiap anak memiliki potensi besar untuk menjadi kreator masa depan. Kami
+              menawarkan berbagai kursus yang dirancang khusus untuk anak-anak, mulai dari pemrograman dasar hingga
+              pengembangan game.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> <span>Instruktur berpengalaman dan profesional.</span></li>
+              <li><i class="bi bi-check-circle"></i> <span>Metode pengajaran yang interaktif dan menyenangkan.</span>
+              </li>
+              <li><i class="bi bi-check-circle"></i> <span>Materi kursus yang selalu diperbarui sesuai dengan tren
+                  terbaru.</span></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /About Us Section -->
+
+    <!-- Counts Section -->
+    <section id="counts" class="section counts light-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Siswa</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Kursus</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Acara</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Pengajar</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Counts Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Testimoni</h2>
+        <p>Apa yang mereka katakan</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 20
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="testimoni1.jpeg" class="testimonial-img" alt="">
+                  <h3>Ibu Dian</h3>
+                  <h4>mama &amp; daned</h4>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Ketika anak mempunyai keinginan belajar coding dan kami orangtua yang bekerja setiap hari, tentunya kami tidak mempunyai banyak waktu untuk mengantar anak ketempat les setiap hari.
+                    Saat menemukan tempat kursus online, kami menemukan jalan bagi anak kami belajar coding tanpa kerepotan harus mengantar setiap hari.
+                    Dengan jadwal yang flexibel, membuat kami merasa diberikan kemudahan untuk anak kami belajar coding. Dengan tenaga pengajar yang baik dan berpengalaman, serta tim yang dengan tanggap menjawab segala pertanyaan kami.
+                    Kreafdemy adalah solusi terbaik untuk anak belajar coding secara online.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
                 </div>
-            </div>
-        </div>
-    </div>
-  </footer>
-  
+              </div>
+            </div><!-- End testimonial item -->
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="testimoni2.jpeg" class="testimonial-img" alt="">
+                  <h3>Ibu Desi</h3>
+                  <h4>mama kayla </h4>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Ketika anak mempunyai keinginan belajar coding dan kami orangtua yang bekerja setiap hari, tentunya kami tidak mempunyai banyak waktu untuk mengantar anak ketempat les setiap hari.
+                    Saat menemukan tempat kursus online, kami menemukan jalan bagi anak kami belajar coding tanpa kerepotan harus mengantar setiap hari.
+                    Dengan jadwal yang flexibel, membuat kami merasa diberikan kemudahan untuk anak kami belajar coding. Dengan tenaga pengajar yang baik dan berpengalaman, serta tim yang dengan tanggap menjawab segala pertanyaan kami.
+                    Kreafdemy adalah solusi terbaik untuk anak belajar coding secara online.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
 
+         
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+  </main><!-- End #main -->
+
+ 
+   <!-- Footer-->
+   <footer id="footer" class="footer position-relative light-background">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <img src="logo.webp" alt="Kreafdemy Logo" style="width: 150px !important; height: 150px !important; margin-right: 15px !important;">             
+            <span class="sitename" style="font-size: 26px; font-weight: 600;">Kreafdemy</span>
+
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Sovereign Plaza, lt 21Jl. TB Simatupang No.36 1, RT.1/RW.2, Cilandak Bar., Kec. Cilandak,</p>
+            <p>Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12430, Jakarta, Indonesia, 12430</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+62 823 1211 4235</span></p>
+            <p><strong>Email:</strong> <span>Kreafdemy@gmail.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+           
+            <a href="https://www.facebook.com/profile.php?id=61560890039838"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/kreafdemy_id?igsh=MWJxaWx3cGdsY2NxNQ=="><i class="bi bi-instagram"></i></a>
+           
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">about us</a></li>
+            <li><a href="courses.html">courses</a></li>
+            <li><a href="partnership.html">partnership</a></li>
+            <li><a href="about.html">blog</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>program kami</h4>
+          <ul>
+            <li><a href="builder.html">Builder Class</a></li>
+            <li><a href="maker.html">Maker Class</a></li>
+            <li><a href="creator.html">Creator Class</a></li>
+          </ul>
+        </div>
+
+        
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Kreafdemy</strong> <span>All Rights Reserved</span></p>
+      
+     
+    </div>
+
+  </footer>
+  <!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Main JS File -->
+  <script src="js/main.js"></script>
 
 </body>
+
 </html>

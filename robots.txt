@@ -1,0 +1,13 @@
+# Robots.txt file for Kreafdemy
+
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /private/
+Disallow: /temp/
+
+# Allow specific directories
+Allow: /wp-admin/admin-ajax.php
+
+# Sitemap location
+Sitemap: https://www.kreafdemy.com/sitemap.xml

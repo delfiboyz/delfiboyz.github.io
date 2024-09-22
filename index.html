@@ -1,468 +1,1393 @@
 
 <!DOCTYPE html>
 <html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kreafdemy - Program Kelas</title>
-<link rel="stylesheet" href="output.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Kreafdemy | School of Coding Kids" />
+    <meta name="keywords" content="Kreafdemy, kursus online, belajar kreatif, desain" />
+    <meta name="author" content="Kreafdemy Team" />
+    <meta name="robots" content="index, follow" />
 
 
-<style>
-  .hero {
-        background: url('indexheader.jpeg') no-repeat center center/cover; /* Update this path */
-        
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        color: #fff;
-        height: 500px; /* Adjust height as needed */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    <link rel="canonical" href="https://www.kreafdemy.com/" />
+    <title>Kreafdemy | School of Coding Kids</title>
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Kreafdemy - Belajar Kreatif Online" />
+    <meta property="og:description" content="Platform untuk belajar kreativitas online. Temukan kursus dalam desain, coding, dan lainnya." />
+    <meta property="og:image" content="https://www.kreafdemy.com/logo.webp" />
+    <meta property="og:url" content="https://www.kreafdemy.com/" />
+    <meta property="og:type" content="website" />
+
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Kreafdemy",
+      "url": "https://www.kreafdemy.com",
+      "logo": "https://www.kreafdemy.com/logo.webp",
+      "sameAs": [
+        "https://www.facebook.com/Kreafdemy",
+        "https://www.instagram.com/Kreafdemy"
+      ]
     }
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: rgba(0, 0, 0, 0.5); /* Adjust color and opacity as needed */
-        z-index: 0;
-    }
-    .hero > * {
-        position: relative;
-        z-index: 1;
-    }
-    .hero h1 {
-        font-size: 3rem; /* Adjust size as needed */
-        text-transform: uppercase; /* If the design requires it */
-        letter-spacing: 1px; /* Adjust as needed */
-    }
-    .hero p { color: #ffffff; text-align: center; font-size: 1.5em; }
+    </script>
 
-  
-  
+    <!-- Favicon-->
+  <!-- Favicons -->
+<link rel="icon" href="logo.png" sizes="32x32" type="image/png">
+<link rel="icon" href="logo.png" sizes="16x16" type="image/png">
 
-  /* Custom colors */
-  .bg-custom-orange {
-    background-color: #ffedd5;
-  }
-  .text-custom-orange {
-    color: #fb923c;
-  }
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" href="logo.png">
 
-     .hero-section {
-            /* Assuming you have a specific background image for the hero section */
-            background-image: url('path-to-hero-background.jpg');
-            background-position: center;
-            background-size: cover;
+<!-- WebP Fallback for Supported Browsers -->
+<link rel="icon" href="logo.webp" type="image/webp">
+<link rel="apple-touch-icon" href="logo.webp">
+
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+  <!-- Main CSS File -->
+  <link href="css/main.css?v=1.0" rel="stylesheet">
+  <link href="css/styles.css?v=1.0" rel="stylesheet">
+  <!-- jQuery and Bootstrap Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom Styles -->
+    <style> 
+        .alert {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            text-align: center;
         }
-        .benefit-card {
-            /* For rounded corners and shadows */
-            border-radius: 0.5rem; /* 8px */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
         }
-        /* Style adjustments for the carousel dots */
-         /* Karusel Item Styling */
-         .carousel-container {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 20px auto;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  min-height: 400px; /* Contoh, atur sesuai dengan tinggi maksimum gambar */
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+        }
+        .contact-form {
+            background: #ffffff;
+            margin: 5% auto;
+            padding: 3%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px #0000001a;
+        }
+        .contact-form h3 {
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .form-control {
+            border-radius: 20px;
+            box-shadow: 0px 2px 5px 0px #007bff1a;
+        }
+        .form-group label {
+            font-weight: bold;
+            color: #495057;
+        }
+        .btn-submit {
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            box-shadow: 0px 2px 5px 0px #007bff80;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+            box-shadow: 0px 4px 8px 0px #007bff60;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+        .text-start {
+            text-align: left;
+        }
+        .header-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .bg-header {
+            background-color: #3f94cb;
+        }
+        .bg-navbar {
+            background-color: #ffffff;
+        }
+        .bg-cta {
+            background-color: #3f94cb;
+        }
+        footer.footer {
+    border: 2px solid #333;
+    border-radius: 0; /* Menghilangkan border-radius untuk lebar penuh */
+    padding: 20px 0; /* Padding atas dan bawah */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin: 0; /* Hilangkan margin */
+    width: 100%; /* Lebar penuh */
+    background-color: #f8f9fa;
+    box-sizing: border-box;
 }
 
-
-.carousel-slide {
-  display: none; /* Semua slide tersembunyi kecuali yang aktif */
-  width: 100%;
-  padding: 20px;
-  text-align: center;
-  /* Tidak perlu 'position: absolute;' disini */
+.footer-top {
+    width: 100%; /* Pastikan footer-top juga mengambil lebar penuh */
+    margin: 0 auto; /* Pusatkan konten jika diperlukan */
+    padding: 0 20px; /* Tambahkan padding jika diperlukan */
 }
 
-.carousel-slide.active {
-  display: block; /* Hanya menampilkan slide yang aktif */
-}
-
-
-
-
-
-.carousel-slide img {
-  max-width: 100%; /* membatasi lebar gambar agar tidak lebih dari container */
-  max-height: 400px; /* mengatur tinggi maksimum gambar */
-  height: auto; /* memastikan rasio aspek tetap */
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-
-
-
-  @keyframes fadeEffect {
-    from {opacity: 0.4}
-    to {opacity: 1}
-  }
-
-  .carousel-dots {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
-
-  .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 5px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: block;
-    transition: background-color 0.6s ease;
-  }
-
-  .dot.active, .dot:hover {
-    background-color: #717171;
-  }
-
-  .slide-content {
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 20px;
+.copyright {
+    width: 100%; /* Pastikan copyright juga lebar penuh */
     margin-top: 20px;
-  }
+    padding: 10px 0;
+    background-color: #e9ecef;
+}
 
-  .slide-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-  }
 
-  .slide-text {
+        footer.footer a, footer.footer p, footer.footer h4, footer.footer span {
+            color: #333;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        footer.footer a:hover, footer.footer p:hover, footer.footer h4:hover, footer.footer span:hover {
+            color: #000;
+        }
+        footer.footer:hover {
+            background-color: #e9ecef;
+            border-color: #666;
+        }
+        .faq-section {
+            background: linear-gradient(135deg, #f0f2f5 0%, #65dedb 100%);
+            padding: 60px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .faq-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .faq-section h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: #007bff;
+            display: block;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        .accordion-button {
+            background-color: #ffffff;
+            color: #007bff;
+            font-weight: 600;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+            padding: 15px 20px;
+            transition: background-color 0.3s ease;
+        }
+        .accordion-button:hover {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+        .accordion-button:focus {
+            box-shadow: none;
+            border: none;
+        }
+        .accordion-item {
+            border: none;
+        }
+        .accordion-body {
+            font-size: 16px;
+            color: #333333;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+  /* Super Attractive Countdown Timer Styles */
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  text-align: center;
+  font-weight: bold;
+  animation: fadeIn 1.5s ease-in-out;
+  padding: 20px;
+  background: linear-gradient(120deg, #3f2b96, #a8c0ff);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-box {
+  background: linear-gradient(135deg, #ff7eb9, #ff758c);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(255, 94, 98, 0.6);
+  transition: transform 0.4s, box-shadow 0.4s, background 0.4s;
+  position: relative;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s;
+  transform: rotate(45deg);
+}
+
+.countdown-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(255, 94, 98, 0.8);
+  background: linear-gradient(135deg, #ff758c, #ff7eb9);
+}
+
+.countdown-box:hover::before {
+  opacity: 1;
+}
+
+.countdown-box span {
+  display: block;
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.countdown-box small {
+  display: block;
+  font-size: 0.9rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Countdown Timer yang Lebih Keren */
+/* Default Styling for Larger Screens */
+.countdown-timer {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4a00e0;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown-timer span {
+  display: inline-block;
+  font-size: 1.8rem;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  margin: 0 5px;
+}
+
+.countdown-timer .unit {
+  font-size: 0.9rem;
+  margin-top: -5px;
+  color: #ffd700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Styling for Smaller Screens (Mobile) */
+@media (max-width: 768px) {
+  .countdown-timer {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 10px; /* Pindahkan countdown timer ke atas tombol pembayaran */
+    padding: 10px 15px;
     font-size: 1rem;
-    color: #666;
-    line-height: 1.5;
+    width: auto;
+    text-align: center;
+    box-shadow: none;
   }
 
-        /* Ensuring the correct font is used */
-        body {
-            font-family: 'Your Custom Font', sans-serif;
-        }
-
-    .benefit-icon {
-      width: 50px; /* Example size, replace with actual sizes and add more as needed */
-    }
-
-
-    .custom-font {
-      font-family: 'Inter', sans-serif; /* Replace 'Inter' with your custom font */
-    }
-    /* You may need to add a link to the font in the <head> if it's not included yet */
-  
-    /* Responsive design adjustments */
-    @media (min-width: 768px) {
-      
-      .hero {
-            height: 1000px; /* Adjusted for smaller screens */
-        }
-        .hero-title-container h1 {
-            font-size: 2em; /* Smaller font size for smaller screens */
-        }
-        .hero h1 { font-size: 2.2em; }
-        .hero p { font-size: 2em; }
-    }
-  
-    /* Custom colors */
-    :root {
-      --primary-color: #5b21b6; /* Purple, for example */
-      --secondary-color: #10b981; /* Green, for example */
-    }
-  
-    .text-primary {
-      color: var(--primary-color);
-    }
-    .bg-secondary {
-      background-color: var(--secondary-color);
-    }
-  
-    /* Adding custom transition effects */
-  body{
-    background-image: url("headerkontak.jpg");
+  .countdown-timer span {
+    font-size: 1.5rem; /* Sesuaikan ukuran font untuk layar kecil */
   }
-  .py-96 {
-    padding-top: 24rem/* 384px */;
-    padding-bottom: 24rem/* 384px */;
-}
-.bg-black {
-    --tw-bg-opacity: 1;
-    background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-</style>
 
+  .countdown-timer .unit {
+    font-size: 0.8rem;
+  }
+}
+
+
+.expired {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-top: 15px;
+  animation: shake 0.5s;
+}
+
+
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+}
+
+    </style>
 
 </head>
-<body>
-<header class="navbar">
-    <div class="logo"><a href="index.html"><img src="logo.webp" alt=""></a> Kreafdemy</div>
-    <nav>
-        <ul>
-            <li><a href="programpage.html">Program</a></li>
-            <li><a href="classpage.html">Kelas</a></li>
-            <li><a href="about.html">Tentang Kami</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
-            <li><a href="trialpage.html">trial page</a></li>
-        </ul>
+
+
+    <body>
+   <!-- Responsive navbar-->
+   <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+    <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <img src="logo.webp" alt="Logo" style="height: 150px; width: auto; margin-right: 10px;">
+
+
+    </a>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html">Home<br></a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="partnership.html">Partnership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="dropdown"><a href="#"><span>Program</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li><a href="builder.html">Builder</a></li>
+            <li><a href="maker.html">Maker</a></li>
+            <li><a href="creator.html">Creator</a></li>
+         
+          </ul>
+        </li>
+     
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
-</header>
 
-<!-- Main Content -->
-<main>
-<!-- Hero Section -->
-<section class="bg-cover bg-center h-auto max-h-[500px] text-blue-500 py-32 flex justify-center items-center hero" >
-  <div class="text-center">
-    <h2 class="text-5xl font-bold py-3 px-8 rounded-full shadow-black shadow-2xl text-white">Empower Your Child's Future with Coding Skills</h2>
-    <p class="mt-8 text-xl font-bold py-3 px-8 rounded-full  text-white">Nyalakan kreativitas anak Anda dengan menciptakan kode yang memukau!</p>
-    <a href="classpage.html" class="text-5xl mt-8 inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-full">Find a course</a>
-  </div>
-</section>
-
-
- <!-- Benefits Section -->
- <section class="py-20 bg-white">
-    <div class="container mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Manfaat Coding untuk Anak</h2>
-      <div class="flex flex-wrap justify-center items-center gap-10">
-      <!-- Each benefit card -->
-     <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-10">
-          <div class="benefit-card bg-benefit-background bg-cover bg-no-repeat bg-center p-10 text-center rounded-lg shadow-xl">
-            <img src="Critical.jpg" alt="Critical Thinking" class="mx-auto mb-6 h-20 w-20">
-            <h3 class="text-2xl font-semibold mb-4 text-custom-orange">Critical Thinking</h3>
-            <p class="text-gray-600">Critical thinking membantu anak-anak dalam memecahkan masalah secara sistematis dan efektif.</p>
-          </div>
-        </div>
-     
-    <!-- Benefit 2 -->
-    <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-10">
-      <div class="benefit-card bg-benefit-background bg-cover bg-no-repeat bg-center p-10 text-center rounded-lg shadow-xl">
-        <img src="collaboration.jpg" alt="Collaboration" class="mx-auto mb-6 h-20 w-20">
-        <h3 class="text-2xl font-semibold mb-4 text-custom-orange">Collaboration</h3>
-       <p class="text-gray-600">Anak-anak belajar bagaimana bekerja sama, memecahkan masalah, dan berbagi ide dengan teman sebaya mereka.</p>
-      </div>
-    </div>
-    <!-- Benefit 3 -->
-    <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-10">
-      <div class="benefit-card bg-benefit-background bg-cover bg-no-repeat bg-center p-10 text-center rounded-lg shadow-xl">
-        <img src="Creativity.jpg" alt="Creativity" class="mx-auto mb-6 h-20 w-20">
-        <h3 class="text-2xl font-semibold mb-4 text-custom-orange">Creativity</h3>
-       <p class="text-gray-600">Coding membuka dunia kreativitas dan inovasi, memungkinkan anak-anak untuk menciptakan proyek mereka sendiri.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-  <!-- What Will Your Child Learn Section -->
-  <div class="carousel-container relative shadow-md">
-    <!-- Slide 1 (active by default) -->
-    <div class="carousel-slide active absolute w-full active" id="slide-1">
-      <img src="scratch.png" alt="Slide 1" class="w-full h-auto rounded-lg shadow-md">
-      <div class="slide-content bg-white p-4 rounded-lg mt-2 shadow-md">
-        <div class="slide-title text-2xl font-bold text-gray-800">Apa yang akan dipelajari anak anda?</div>
-        <div class="slide-text font-bold text-2xl text-blue-500 mt-2">Scratch</div>
-        <div class="slide-text text-gray-500 mt-2">Pernahkah kalian mengetahui tentang Scartch 3.0 ? Jika belum, yuk kita kenalan sedikit tentang Scratch 3.0. Aplikasi Scratch 3.0 merupakan bahasa pemrograman yang berbasis visual block dan sangat cocok digunakan oleh pemula. Nah, jika teman teman belajar menggunakan aplikasi Scratch 3.0, maka teman-teman bisa membuat beberapa project seperti story, animasi, dan game. Code pada Scratch 3.0 dapat disusun dengan cara drag and drop saja loh, disini teman-teman juga bisa belajar dan berlatih tentang computational thinking, algoritma, pemecahan masalah, kreatifitas dan lain-lain. </div>
-      </div>
-    </div>
-    <!-- Slides 2 to 5 (additional slides with different content for each) -->
-    <!-- ... -->
-    <div class="carousel-slide active absolute w-full" id="slide-2">
-      <img src="scratchjr.png" alt="Slide 2" class="w-full h-auto rounded-lg shadow-md">
-      <div class="slide-content bg-white p-4 rounded-lg mt-2 shadow-md">
-        <div class="slide-title text-2xl font-bold text-gray-800">Apa yang akan dipelajari anak anda?</div>
-        <div class="slide-text font-bold text-2xl text-blue-500 mt-2">ScratchJR</div>
-        <div class="slide-text text-gray-500 mt-2">Apakah teman-teman tahu atau pernah mendengar tentang Scratch JR ? Scratch JR ialah
-          salah satu aplikasi pemrograman yang berbasis visual block, aplikasi ini bisa diinstal di
-          laptop atau handphone lohh. Aplikasi Scratch JR sangat cocok untuk teman-teman yang
-          baru belajar pemrograman, karena hanya Menyusun block codenya seperti bermain
-          puzzle. Dengan aplikasi ini teman-teman bisa belajar mengenai pengenalan pola,
-          pemecahan masalah, algoritma, dan ketrampilan, disini teman-teman bisa membuat
-          game dan animasi yang sangat seru. Yuk kita cari tahu lebih lanjut tentang Scratch JR!</div>
-      </div>
-    </div>
-
-    <div class="carousel-slide active absolute w-full" id="slide-3">
-      <img src="minecraft.png" alt="Slide 3" class="w-full h-auto rounded-lg shadow-md">
-      <div class="slide-content bg-white p-4 rounded-lg mt-2 shadow-md">
-        <div class="slide-title text-2xl font-bold text-gray-800">Apa yang akan dipelajari anak anda?</div>
-        <div class="slide-text font-bold text-2xl text-blue-500 mt-2">Minecraft</div>
-        <div class="slide-text text-gray-500 mt-2">Minecraft adalah sebuah permainan bak pasir 3D yang memungkinkan pemainnya
-          untuk menjelajahi, membangun, dan berkreasi dalam dunia yang luas dan penuh dengan
-          kemungkinan. Permainan ini terkenal dengan gameplaynya yang terbuka dan tanpa
-          tujuan yang pasti, memberikan kebebasan kepada pemain untuk menentukan cara
-          bermain mereka sendiri.
-          </div>
-      </div>
-    </div>
-
-
-    <div class="carousel-slide active absolute w-full" id="slide-4">
-      <img src="roblox.jpg" alt="Slide 4" class="w-full h-auto rounded-lg shadow-md">
-      <div class="slide-content bg-white p-4 rounded-lg mt-2 shadow-md">
-        <div class="slide-title text-2xl font-bold text-gray-800">Apa yang akan dipelajari anak anda?</div>
-        <div class="slide-text font-bold text-2xl text-blue-500 mt-2">Roblox</div>
-        <div class="slide-text text-gray-500 mt-2">Pernahkan kalian bermain Roblox Player? Tahukah kalian jika kalian bisa membuat game
-          Roblox kalian sendiri ? Nah, untuk membuat game roblox kalian sendiri, kalian perlu
-          aplikasi bernama Roblox Studio. Roblox studio adalah platform game gratis yang
-          memberikan kebebasan untuk membuat dan memainkan game sendiri. Dengan
-          menggunakan Roblox Studio teman-teman tidak hanya membuat game tetapi juga dapat
-          bermain game Bersama teman-teman kalian yang lainnya. Dengan belajar Roblox Studio
-          teman-teman bisa belajar tentang Computational Thinking, Kreativitas, Problem Solving,
-          bahkan Desain. Karena dalam Roblox Studio perlu membuat alur game dan desain
-          tersendiri.</div>
-      </div>
-    </div>
-
-    <div class="carousel-slide active absolute w-full" id="slide-5">
-      <img src="AI.jpg" alt="Slide 5" class="w-full h-auto rounded-lg shadow-md">
-      <div class="slide-content bg-white p-4 rounded-lg mt-2 shadow-md">
-        <div class="slide-title text-2xl font-bold text-gray-800">Apa yang akan dipelajari anak anda?</div>
-        <div class="slide-text font-bold text-2xl text-blue-500 mt-2">AI programming</div>
-        <div class="slide-text text-gray-500 mt-2">Di bagian AI Programming ini, anak Anda akan berkenalan dengan dunia kecerdasan buatan yang menarik. Mereka akan mempelajari dasar-dasar membuat program yang bisa "berpikir" dan "belajar" mirip seperti manusia. Lewat permainan dan proyek kreatif, anak Anda akan diajak untuk mengembangkan kemampuan problem solving dan kreativitasnya. Kami akan menggunakan platform yang ramah anak untuk menjelaskan konsep AI secara sederhana dan menyenangkan. Bersiaplah untuk petualangan teknologi yang akan membuka pintu ke masa depan!</div>
-      </div>
-    </div>
-    <div class="carousel-dots flex justify-center p-4 absolute bottom-0 w-full">
-      <!-- Dots for each slide -->
-      <span class="dot active cursor-pointer block" onclick="currentSlide(1)"></span>
-      <span class="dot cursor-pointer block" onclick="currentSlide(2)"></span>
-      <span class="dot cursor-pointer block" onclick="currentSlide(3)"></span>
-      <span class="dot cursor-pointer block" onclick="currentSlide(4)"></span>
-      <span class="dot cursor-pointer block" onclick="currentSlide(5)"></span>
-    </div>
-  </div>
-
-<!-- Program Kelas Section -->
-<section class="py-96 bg-white">
-  <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Program Kelas</h2>
-    <div class="flex flex-wrap justify-center items-center gap-10">
-      <!-- private class card -->
-      <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-10">
-        <div class="class-card bg-custom-light-gray rounded-lg overflow-hidden shadow-xl">
-          <img src="privateclass.jpg" alt="Private Class" class="w-full h-64 object-cover">
-          <div class="p-6">
-            <h3 class="text-2xl font-semibold mb-4 text-gray-800">Private Class</h3>
-            <p class="text-gray-600 mb-6">Program yang dirancang khusus untuk mengembangkan kreativitas anak dengan bimbingan individual.</p>
-            <a href="#" class="text-blue-600 hover:text-blue-700 font-semibold">Lihat Program Kelas</a>
-          </div>
-        </div>
-      </div>
-     
-
-    <!-- Regular Class -->
-    <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-10">
-      <div class="class-card bg-custom-light-gray rounded-lg overflow-hidden shadow-xl">
-        <img src="regularclass.jpg" alt="Regular Class" class="w-full h-64 object-cover">
-        <div class="p-6">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Regular Class</h3>
-          <p class="text-gray-600 mb-6">Kelas reguler dengan kurikulum yang dirancang untuk memperkenalkan dunia teknologi dan coding.</p>
-          <a href="#" class="text-blue-600 hover:text-blue-700 font-semibold">Lihat Program Kelas</a>
-        </div>
-      </div>
-    </div>
-</section>
-
-
-<!-- Call to Action Section -->
-<section class="bg-orange-400 py-20 text-center text-white">
-  <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-bold mb-8 bg-black">Jadikan Kreafdemy sebagai Pilihan Course Coding Anak Anda!</h2>
-    <a href="kontak.html" class="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-full transition duration-300 hover:bg-blue-100">Daftar Sekarang</a>
-  </div>
-</section>
-</main>
-<!-- Footer Section -->
-<footer class="footer bg-white p-5">
-  <div class="container mx-auto px-6">
-      <div class="sm:flex sm:mt-8">
-          <div class="sm:w-1/3 flex flex-col">
-              <img src="logo.webp" alt="Kreafdemy Logo" class="footer-logo">
-              <span class="footer-tagline text-sm mt-2">Code the future where kids shape Tomorrow</span>
-          </div>
-          <div class="sm:w-1/3 mt-8 sm:mt-0 flex flex-col">
-              <h2 class="text-gray-700 uppercase mb-2">KREAFDEMY</h2>
-              <span class="my-2"><a href="index.html" class="text-blue-700  text-md hover:text-blue-500">Beranda</a></span>
-              <span class="my-2"><a href="about.html" class="text-blue-700  text-md hover:text-blue-500">Tentang Kami</a></span>
-              <span class="my-2"><a href="kontak.html" class="text-blue-700  text-md hover:text-blue-500">FAQ</a></span>
-          </div>
-          <div class="sm:w-1/3 mt-8 sm:mt-0 flex flex-col">
-              <h2 class="text-gray-700 uppercase mb-2">PROGRAM</h2>
-              <span class="my-2"><a href="programpage.html" class="text-blue-700  text-md hover:text-blue-500">Scratch</a></span>
-              <span class="my-2"><a href="programpage.html" class="text-blue-700  text-md hover:text-blue-500">ScratchJr</a></span>
-              <span class="my-2"><a href="programpage.html" class="text-blue-700  text-md hover:text-blue-500">Minecraft</a></span>
-              <span class="my-2"><a href="programpage.html" class="text-blue-700  text-md hover:text-blue-500">Roblox</a></span>
-              <span class="my-2"><a href="programpage.html" class="text-blue-700  text-md hover:text-blue-500">AI Programming</a></span>
-          </div>
-          <div class="sm:w-1/3 mt-8 sm:mt-0 flex flex-col">
-              <h2 class="text-gray-700 uppercase mb-2">KONTAK KAMI</h2>
-              <span class="my-2"><a href="https://wa.me/qr/RWBCTLARAUE3H1" class="text-blue-700  text-md hover:text-blue-500">+62 823-1211-4235</a></span>
-              <span class="my-2"><a href="mailto:info@kreafdemy.id" class="text-blue-700  text-md hover:text-blue-500">info@kreafdemy.id</a></span>
-              <span class="my-2"><a href="https://www.instagram.com/kreaf_demyid?igsh=cnNhbmljdDZvMXdt" class="text-blue-700  text-md hover:text-blue-500">instagram @kreaf_demyid</a></span>              
-          </div>
-      </div>
-  </div>
-  <div class="border-t mt-8">
-      <div class="container mx-auto px-6 py-4">
-          <div class="flex flex-col items-center">
-              <div class="sm:w-2/3 text-center py-4">
-                  <p class="text-sm text-blue-700 font-bold mb-2">
-                      © 2024 Kreafdemy. Semua hak dilindungi undang-undang.
-                  </p>
-              </div>
-          </div>
-      </div>
-  </div>
-</footer>
-
-
-
-<script>
-  // This is a simple example. For a production site, consider using a library or more robust code.
-  let currentSlideIndex = 1;
-    let slides = document.getElementsByClassName("carousel-slide");
-    let dots = document.getElementsByClassName("dot");
   
-    function currentSlide(n) {
-      showSlides(currentSlideIndex = n);
+
+  </div>
+
+        
+        <!-- Header-->
+        <header class="bg-header py-5">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <!-- Teks -->
+                    <div class="col-lg-6">
+                        <div class="text-start my-5">
+                          <h1 class="display-5 fw-bolder text-white mb-2" style="font-weight: bold; letter-spacing: 1px;">
+                            Empower Your Child's Future by Unlocking the World of Coding!
+                        </h1>
+                        
+                            <p class="lead text-white-500 mb-4" style="color: #ffffff; font-size: x-large; font-weight: bold;">
+                              Nyalakan imajinasi anak Anda dan buat mereka menjadi pencipta masa depan dengan kode yang menginspirasi!
+                          </p>
+                          
+                            <div class="d-grid gap-3 d-sm-flex">
+                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#trialForm">Book Your Free Trial Class</a>
+                             
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Gambar -->
+                    <div class="col-lg-6 d-flex justify-content-center">
+                        <img src="indexheader.png" alt="Gambar Deskriptif" class="header-image">
+                    </div>
+                </div>
+            </div>
+        </header>
+         <!-- Why Us Section -->
+    <section id="why-us" class="section why-us">
+
+        <div class="container">
+  
+          <div class="row gy-4">
+  
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="why-box">
+                  <h3>Kenapa Memilih Kreafdemy?</h3>
+                  <p>
+                    Kreafdemy menawarkan pendekatan pembelajaran yang inovatif dan menyenangkan untuk anak-anak dalam dunia coding. Dengan instruktur berpengalaman dan kurikulum yang dirancang untuk merangsang kreativitas, kami membantu anak-anak memahami konsep coding dengan cara yang mudah dan menyenangkan. 
+                    Kami percaya bahwa setiap anak memiliki potensi besar untuk berinovasi, dan kami di sini untuk membimbing mereka menuju masa depan yang cerah.
+                  </p>
+                  <div class="text-center">
+                    <a href="#" class="more-btn"><span>Pelajari Lebih Lanjut</span> <i class="bi bi-chevron-right"></i></a>
+                  </div>
+                </div>
+              </div><!-- End Why Box -->
+              
+  
+              <div class="col-lg-8 d-flex align-items-stretch">
+                <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+              
+                  <div class="col-xl-4">
+                    <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                      <i class="bi bi-clipboard-data"></i>
+                      <h4>Program Belajar Inovatif</h4>
+                      <p>Kreafdemy menyediakan program belajar yang dirancang untuk mengembangkan keterampilan coding anak-anak dengan metode pembelajaran yang inovatif dan interaktif.</p>
+                    </div>
+                  </div><!-- End Icon Box -->
+              
+                  <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                      <i class="bi bi-gem"></i>
+                      <h4>Instruktur Berpengalaman</h4>
+                      <p>Tim instruktur kami terdiri dari para profesional yang berpengalaman dalam mengajar anak-anak, memastikan setiap peserta mendapatkan pengalaman belajar terbaik.</p>
+                    </div>
+                  </div><!-- End Icon Box -->
+              
+                  <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                      <i class="bi bi-inboxes"></i>
+                      <h4>Lingkungan Belajar Mendukung</h4>
+                      <p>Kami menciptakan lingkungan belajar yang mendukung dan menyenangkan, di mana anak-anak dapat bereksplorasi dan mengembangkan kreativitas mereka tanpa batas.</p>
+                    </div>
+                  </div><!-- End Icon Box -->
+              
+                </div>
+              </div>
+              
+          </div>
+  
+        </div>
+  
+      </section><!-- /Why Us Section -->
+<!-- Features section-->
+<section class="py-5 border-bottom" id="features">
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                <h2 class="h4 fw-bolder">Kelas Coding Inovatif</h2>
+                <p>Jelajahi berbagai kelas coding kami yang dirancang untuk memicu kreativitas dan inovasi dalam pikiran muda. Bergabunglah dengan kami dan mulailah coding masa depanmu hari ini!</p>
+                <a class="text-decoration-none" href="#!">
+                    Pelajari Lebih Lanjut
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                <h2 class="h4 fw-bolder">Lingkungan Belajar Interaktif</h2>
+                <p>Kelas kami menawarkan lingkungan belajar yang interaktif dan mendukung, di mana anak-anak dapat belajar dengan cara yang menyenangkan dan menarik.</p>
+                <a class="text-decoration-none" href="#!">
+                    Pelajari Lebih Lanjut
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                <h2 class="h4 fw-bolder">Teknologi Terbaru</h2>
+                <p>Kami menggunakan teknologi terbaru untuk memastikan bahwa anak-anak mendapatkan pengalaman belajar terbaik dan terkini dalam dunia coding.</p>
+                <a class="text-decoration-none" href="#!">
+                    Pelajari Lebih Lanjut
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Testimoni</h2>
+          <p>Apa yang mereka katakan</p>
+        </div><!-- End Section Title -->
+  
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+  
+          <div class="swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 5000
+                },
+                "slidesPerView": "auto",
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "type": "bullets",
+                  "clickable": true
+                },
+                "breakpoints": {
+                  "320": {
+                    "slidesPerView": 1,
+                    "spaceBetween": 40
+                  },
+                  "1200": {
+                    "slidesPerView": 2,
+                    "spaceBetween": 20
+                  }
+                }
+              }
+            </script>
+            <div class="swiper-wrapper">
+  
+              <div class="swiper-slide">
+                <div class="testimonial-wrap">
+                  <div class="testimonial-item">
+                    <img src="testimoni1.jpeg" class="testimonial-img" alt="">
+                    <h3>Ibu Dian</h3>
+                    <h4>mama &amp; daned</h4>
+                    <p>
+                      <i class="bi bi-quote quote-icon-left"></i>
+                      Ketika anak mempunyai keinginan belajar coding dan kami orangtua yang bekerja setiap hari, tentunya kami tidak mempunyai banyak waktu untuk mengantar anak ketempat les setiap hari.
+                      Saat menemukan tempat kursus online, kami menemukan jalan bagi anak kami belajar coding tanpa kerepotan harus mengantar setiap hari.
+                      Dengan jadwal yang flexibel, membuat kami merasa diberikan kemudahan untuk anak kami belajar coding. Dengan tenaga pengajar yang baik dan berpengalaman, serta tim yang dengan tanggap menjawab segala pertanyaan kami.
+                      Kreafdemy adalah solusi terbaik untuk anak belajar coding secara online.
+                      <i class="bi bi-quote quote-icon-right"></i>
+                    </p>
+                  </div>
+                </div>
+              </div><!-- End testimonial item -->
+              <div class="swiper-slide">
+                <div class="testimonial-wrap">
+                  <div class="testimonial-item">
+                    <img src="testimoni2.jpeg" class="testimonial-img" alt="">
+                    <h3>Ibu Desi</h3>
+                    <h4>mama kayla </h4>
+                    <p>
+                      <i class="bi bi-quote quote-icon-left"></i>
+                      Ketika anak mempunyai keinginan belajar coding dan kami orangtua yang bekerja setiap hari, tentunya kami tidak mempunyai banyak waktu untuk mengantar anak ketempat les setiap hari.
+                      Saat menemukan tempat kursus online, kami menemukan jalan bagi anak kami belajar coding tanpa kerepotan harus mengantar setiap hari.
+                      Dengan jadwal yang flexibel, membuat kami merasa diberikan kemudahan untuk anak kami belajar coding. Dengan tenaga pengajar yang baik dan berpengalaman, serta tim yang dengan tanggap menjawab segala pertanyaan kami.
+                      Kreafdemy adalah solusi terbaik untuk anak belajar coding secara online.
+                      <i class="bi bi-quote quote-icon-right"></i>
+                    </p>
+                  </div>
+                </div>
+              </div><!-- End testimonial item -->
+  
+           
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+  
+        </div>
+  
+      </section><!-- /Testimonials Section -->
+
+ <!-- Partnership Section -->
+ <section id="partnership" class="events section">
+
+    <div class="container" data-aos="fade-up">
+  
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-stretch">
+          <div class="card">
+            <div class="card-img">
+              <img src="al-azhar.jpg" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><a href="">Roadshow ke Sekolah Al Azhar</a></h5>
+              <p class="card-text">Kreafdemy telah melakukan roadshow ke berbagai ekstrakurikuler di Sekolah Al Azhar untuk memperkenalkan program coding kami kepada siswa. Dalam acara ini, siswa mendapatkan kesempatan untuk belajar langsung dari para ahli dan melihat berbagai proyek menarik yang dapat mereka buat dengan coding.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-stretch">
+          <div class="card">
+            <div class="card-img">
+              <img src="suryabangsa.jpg" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><a href="">Roadshow ke Sekolah Surya Bangsa</a></h5>
+              <p class="card-text">Kreafdemy telah mengadakan roadshow ke Sekolah Surya Bangsa untuk memperkenalkan program coding interaktif kami. Para siswa sangat antusias mengikuti workshop yang kami adakan, di mana mereka belajar dasar-dasar pemrograman dan bagaimana menciptakan aplikasi sederhana. Roadshow ini bertujuan untuk menginspirasi siswa agar lebih tertarik dengan dunia teknologi dan coding.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-stretch">
+          <div class="card">
+            <div class="card-img">
+              <img src="al-huda.jpg" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><a href="">Roadshow ke SDIT Al Huda</a></h5>
+              <p class="card-text">Kreafdemy telah melaksanakan roadshow ke SDIT Al Huda untuk mengenalkan program coding kami kepada para siswa. Di acara ini, siswa diajak untuk memahami konsep-konsep dasar coding melalui permainan edukatif dan proyek kreatif. Kegiatan ini bertujuan untuk menumbuhkan minat siswa terhadap teknologi sejak dini dan mendorong mereka untuk mengembangkan keterampilan coding.</p>
+            </div>
+          </div>
+        </div>
+        
+        
+        <!-- Tambahkan lebih banyak card jika diperlukan -->
+      </div>
+  
+    </div>
+  
+  </section><!-- /Partnership Section -->
+  
+
+      
+        
+        <!-- Pricing section-->
+        <section class="bg-light py-5 border-bottom">
+            <div class="container px-5 my-5">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bolder text-black">Pilih Kelas Coding Anda</h2>
+                    <p class="lead mb-0">Paket harga yang fleksibel sesuai dengan kebutuhan Anda</p>
+                </div>
+                <section id="courses" class="courses section">
+                  <div class="container py-5">
+                    <!-- Classes -->
+                    <div class="row gy-4">
+                      <!-- Builder Class -->
+                      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                        <div class="course-item shadow rounded overflow-hidden position-relative">
+                          <!-- Discount Badge -->
+                          <div class="discount-badge position-absolute top-0 start-0 bg-danger text-white p-2 rounded-end">
+                            <i class="bi bi-tag-fill"></i> DISKON AKAN SEGERA BERAKHIR!
+                          </div>
+                          <img src="builder.png" class="img-fluid" alt="Builder Class">
+                          <div class="course-content p-4">
+                            <h3 class="course-title mb-3"><a href="courses.html" class="text-dark">Builder Class</a></h3>
+                            <p class="description text-muted">Mempelajari konsep dasar pengkodean dan menerapkannya pada sebuah proyek.</p>
+                            <ul class="course-details list-unstyled mb-4">
+                              <li><i class="bi bi-book"></i> Modul: Coding Fundamental & App Development 1</li>
+                              <li><i class="bi bi-gift"></i> Bonus: Lego Set, Tas, Mouse Pad</li>
+                              <li><i class="bi bi-award"></i> Sertifikat: Coding Fundamental</li>
+                            </ul>
+                            <div class="pricing-options bg-light p-3 rounded">
+                              <h4 class="text-primary">4x Pertemuan</h4>
+                              <p class="price">
+                                <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp550.000</span>
+                                <span class="text-dark" style="font-size: 1.5rem;">Rp350.000</span>
+                              </p>
+                              <hr>
+                              <h4 class="text-success">6x Pertemuan</h4>
+                              <p class="price">
+                                <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp722.000</span>
+                                <span class="text-dark" style="font-size: 1.5rem;">Rp522.000</span>
+                              </p>
+                              <hr>
+                              <h4 class="text-danger">36x Pertemuan</h4>
+                              <p class="price">
+                                <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp4.500.000</span>
+                                <span class="text-dark" style="font-size: 1.5rem;">Rp3.100.000</span>
+                              </p>
+                            </div>
+                               <a href="https://wa.me/6282312114235?text=Halo,%20saya%20telah%20melakukan%20pembayaran.%20Mohon%20konfirmasinya.%20Terima%20kasih."
+       style="background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; display: inline-block;">
+        Konfirmasi Pembayaran via WhatsApp
+    </a>
+                            <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#paymentModal" onclick="setClass('Builder Class')">Bukti Pembayaran</button>
+                          </div>
+                          <!-- Countdown Timer -->
+                          
+                         
+                     
+                          
+                          <div id="countdown-1" class="countdown-timer text-center position-relative">
+                            
+                            <div class="particle-background"></div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                
+                      <!-- Maker Class -->
+                      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                        <div class="course-item shadow rounded overflow-hidden position-relative">
+                          <!-- Discount Badge -->
+                          <div class="discount-badge position-absolute top-0 start-0 bg-danger text-white p-2 rounded-end">
+                            <i class="bi bi-tag-fill"></i> DISKON AKAN SEGERA BERAKHIR!
+                          </div>
+                          <img src="maker.png" class="img-fluid" alt="Maker Class">
+                          <div class="course-content p-4">
+                            <h3 class="course-title mb-3"><a href="courses.html" class="text-dark">Maker Class</a></h3>
+                            <p class="description text-muted">Menerapkan konsep coding dengan membangun aplikasi dan mengembangkan game, memahami ilmu pengetahuan melalui eksplorasi terprogram.</p>
+                            <ul class="course-details list-unstyled mb-4">
+                              <li><i class="bi bi-book"></i> Modul: App Development II, Game Development & Scientific Exploration</li>
+                              <li><i class="bi bi-gift"></i> Bonus: Lego Set, Tas, Mouse Pad</li>
+                              <li><i class="bi bi-award"></i> Sertifikat: App Development, Game Development</li>
+                            </ul>
+                            <div class="pricing-options bg-light p-3 rounded">
+                              <h4 class="text-primary">4x Pertemuan</h4>
+                              <p class="price">
+                                <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp550.000</span>
+                                <span class="text-dark" style="font-size: 1.5rem;">Rp350.000</span>
+                              </p>
+                              <hr>
+                              <h4 class="text-success">6x Pertemuan</h4>
+                              <p class="price">
+                                <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp722.000</span>
+                                <span class="text-dark" style="font-size: 1.5rem;">Rp522.000</span>
+                              </p>
+                              <hr>
+                              <h4 class="text-danger">36x Pertemuan</h4>
+                              <p class="price">
+                                <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp4.500.000</span>
+                                <span class="text-dark" style="font-size: 1.5rem;">Rp3.100.000</span>
+                              </p>
+                            </div>
+                             <a href="https://wa.me/6282312114235?text=Halo,%20saya%20telah%20melakukan%20pembayaran.%20Mohon%20konfirmasinya.%20Terima%20kasih."
+       style="background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; display: inline-block;">
+        Konfirmasi Pembayaran via WhatsApp
+    </a>
+                            <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#paymentModal" onclick="setClass('Maker Class')">Bukti Pembayaran</button>
+                          </div>
+                          <div id="countdown-2" class="countdown-timer text-center position-relative">
+                            <div class="particle-background"></div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                
+                      <!-- Creator Class -->
+                      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                        <div class="course-item shadow rounded overflow-hidden position-relative">
+                          <!-- Discount Badge -->
+                          <div class="discount-badge position-absolute top-0 start-0 bg-danger text-white p-2 rounded-end">
+                            <i class="bi bi-tag-fill"></i> DISKON AKAN SEGERA BERAKHIR!
+                          </div>
+                          <img src="creator.png" class="img-fluid" alt="Creator Class">
+                          <div class="course-content p-4">
+                            <h3 class="course-title mb-3"><a href="courses.html" class="text-dark">Creator Class</a></h3>
+                            <p class="description text-muted">Pelajari prinsip desain 3D & bangun kreasi keren, buat aplikasi Anda sendiri dan situs web.</p>
+                            <ul class="course-details list-unstyled mb-4">
+                              <li><i class="bi bi-book"></i> Modul: Design Thinking, dan HTML</li>
+                              <li><i class="bi bi-award"></i> Sertifikat: Modeling, Design Thinking, HTML/CSS</li>
+                              <li><i class="bi bi-gift"></i> Bonus: Lego Set, Tas, Mouse Pad</li>
+                            </ul>
+                            <div class="pricing-options bg-light p-3 rounded">
+                              <h4 class="text-primary">4x Pertemuan</h4>
+                              <p class="price">
+                                <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp550.000</span>
+                                <span class="text-dark" style="font-size: 1.5rem;">Rp350.000</span>
+                              </p>
+                              <hr>
+                              <h4 class="text-success">6x Pertemuan</h4>
+                              <p class="price">
+                                <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp722.000</span>
+                                <span class="text-dark" style="font-size: 1.5rem;">Rp522.000</span>
+                              </p>
+                              <hr>
+                              <h4 class="text-danger">36x Pertemuan</h4>
+                              <p class="price">
+                                <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp4.500.000</span>
+                                <span class="text-dark" style="font-size: 1.5rem;">Rp3.100.000</span>
+                              </p>
+                            </div>
+                             <a href="https://wa.me/6282312114235?text=Halo,%20saya%20telah%20melakukan%20pembayaran.%20Mohon%20konfirmasinya.%20Terima%20kasih."
+       style="background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; display: inline-block;">
+        Konfirmasi Pembayaran via WhatsApp
+    </a>
+                            <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#paymentModal" onclick="setClass('Creator Class')">Bukti Pembayaran</button>
+                          </div>
+                          <!-- Countdown Timer -->
+                       <!-- Countdown Timer -->
+                       <div id="countdown-3" class="countdown-timer text-center position-relative">
+                        <div class="particle-background"></div>
+                      </div>
+                      
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+ <!-- Countdown Timer Script -->
+ <script>
+  function startCountdown(elementId, endDate) {
+    const countdownElement = document.getElementById(elementId);
+  
+    function updateTimer() {
+      const now = new Date().getTime();
+      const distance = endDate - now;
+  
+      if (distance < 0) {
+        clearInterval(interval);
+        countdownElement.innerHTML = "Waktu Habis!";
+        countdownElement.classList.remove("blink");
+        countdownElement.classList.add("expired");
+        return;
+      }
+  
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+      countdownElement.innerHTML = `<span>${days}</span><div class="unit">Days</div>
+                                    <span>${hours}</span><div class="unit">Hours</div>
+                                    <span>${minutes}</span><div class="unit">Minutes</div>
+                                    <span>${seconds}</span><div class="unit">Seconds</div>`;
+  
+      if (distance < 60000) {
+        countdownElement.classList.add("blink");
+      } else {
+        countdownElement.classList.remove("blink");
+      }
     }
   
-    function showSlides(n) {
-  var i;
-  if (n > slides.length) { currentSlideIndex = 1 }
-  if (n < 1) { currentSlideIndex = slides.length }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+    updateTimer();
+    const interval = setInterval(updateTimer, 1000);
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[currentSlideIndex - 1].style.display = "block";
-  dots[currentSlideIndex - 1].className += " active";
-}
+  
+  // Mulai Countdown
+  startCountdown('countdown-1', new Date('2024-09-05T23:59:59').getTime());
+    startCountdown('countdown-2', new Date('2024-09-05T23:59:59').getTime());
+    startCountdown('countdown-3', new Date('2024-09-05T23:59:59').getTime());
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('countdown-1', {
+      particles: {
+        number: { value: 50, density: { enable: true, value_area: 800 } },  // Kurangi Jumlah Partikel
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3 },
+        size: { value: 2 },  // Kurangi Ukuran Partikel
+        line_linked: { enable: false },
+        move: { enable: true, speed: 1 }
+      }
+    });
+  
+    particlesJS('countdown-2', {
+      particles: {
+        number: { value: 50, density: { enable: true, value_area: 800 } },  // Kurangi Jumlah Partikel
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3 },
+        size: { value: 2 },  // Kurangi Ukuran Partikel
+        line_linked: { enable: false },
+        move: { enable: true, speed: 1 }
+      }
+    });
+  
+    particlesJS('countdown-3', {
+      particles: {
+        number: { value: 50, density: { enable: true, value_area: 800 } },  // Kurangi Jumlah Partikel
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3 },
+        size: { value: 2 },  // Kurangi Ukuran Partikel
+        line_linked: { enable: false },
+        move: { enable: true, speed: 1 }
+      }
+    });
+  </script>
+<!-- Payment Proof Modal -->
+<!-- Payment Proof Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="paymentModalLabel">Bukti Pembayaran</h5>
 
-    // Auto-advance slides every 3 seconds
-    setInterval(function() {
-      currentSlideIndex++;
-      if (currentSlideIndex > slides.length) { currentSlideIndex = 1; }
-      showSlides(currentSlideIndex);
-    }, 3000);
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <h5 class="modal-title"> Rekening Mandiri : 1190000123347</h5>
+            <h5 class="modal-title">Atas Nama : PT Edukasi Kreatif Anysha</h5>
+              <form id="paymentForm" enctype="multipart/form-data">
+                  <div class="form-group">
+                      <label for="name">Nama</label>
+                      <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan nama Anda" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email Anda" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="phone">Nomor Handphone</label>
+                      <input type="tel" class="form-control" id="phone" name="phone" placeholder="Masukkan nomor handphone Anda" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="class">Kelas yang Diambil</label>
+                      <input type="text" class="form-control" id="class" name="class" readonly>
+                  </div>
+                  <div class="form-group">
+                      <label for="screenshot">Screenshot Bukti Pembayaran</label>
+                      <input type="file" class="form-control" id="screenshot" name="screenshot" accept="image/*" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Kirim</button>
+              </form>
+              <div id="responseMessage" class="mt-3"></div>
+          </div>
+      </div>
+  </div>
+</div>
+  <div id="faq" class="container my-5">
+    <div class="faq-section">
+        <h2 class="text-center mb-4">FAQ - Kreafdemy</h2>
+
+        <div class="accordion" id="faqAccordion">
+
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="faq1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                        Berapa usia siswa yang bisa mendaftar?
+                    </button>
+                </h3>
+                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Siswa berusia antara 6 hingga 17 tahun dapat mendaftar di Kreafdemy.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="faq2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                        Apa device/perangkat yang dibutuhkan saat belajar Coding?
+                    </button>
+                </h3>
+                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Siswa membutuhkan laptop dengan spesifikasi standar atau PC untuk mengikuti pelajaran coding.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="faq3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                        Bagaimana jika anak saya sebelumnya belum pernah belajar coding, apakah bisa mendaftar?
+                    </button>
+                </h3>
+                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Tentu saja! Kreafdemy dirancang untuk pemula. Kami menyediakan materi dari dasar sehingga anak Anda bisa belajar coding tanpa pengalaman sebelumnya.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="faq4">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                        Apa itu coding?
+                    </button>
+                </h3>
+                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Coding adalah proses menulis instruksi yang dapat dijalankan oleh komputer untuk menjalankan tugas tertentu. Ini adalah keterampilan dasar dalam pengembangan software, website, aplikasi, dan banyak lagi.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h3 class="accordion-header" id="faq5">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                        Bagaimana sistem belajar coding di Kreafdemy?
+                    </button>
+                </h3>
+                <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="faq5" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Sistem belajar di Kreafdemy menggunakan pendekatan praktis dengan kombinasi teori dan latihan. Siswa akan belajar melalui modul interaktif dan mendapatkan bimbingan dari instruktur berpengalaman. Kami juga menyediakan tugas proyek untuk mempraktikkan apa yang sudah dipelajari.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+  
+        </section>
+       
+
+        <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <img src="trial.png" alt="Descriptive text for the image" class="img-fluid">
+              </div>
+              <div class="col-md-6">
+                <div class="card">
+                    <h3 class="text-center mb-4">Register for Trial Class</h3>
+                    <form id="trialForm" method="post" action="process_trial_class.php">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan nama lengkap" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="parentName" class="form-label">Nama Orang Tua</label>
+                            <input type="text" class="form-control" id="parentName" name="parentName" placeholder="Masukkan nama orang tua" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="age" class="form-label">Usia</label>
+                            <select class="form-select" id="age" name="age" required>
+                                <option value="" disabled selected>Pilih usia</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="trialDate" class="form-label">Tanggal Trial Class</label>
+                            <input type="date" class="form-control" id="trialDate" name="trialDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="trialTime" class="form-label">Waktu Trial Class</label>
+                            <input type="time" class="form-control" id="trialTime" name="trialTime" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Nomor HP</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Masukkan nomor HP" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email" required>
+                        </div>
+                        <button type="submit" class="btn btn-custom">Daftar Sekarang</button>
+                    </form>
+                    <div id="formResponse" class="mt-3"></div>
+                </div>
+            </div>
+            </div>
+          </div>
+        <!-- Testimonials 
+     
+        <section class="testimonials text-center bg-light py-5">
+            <div class="container">
+                <h2 class="mb-5">Apa kata mereka tentang Kreafdemy...</h2>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-1.jpg" alt="..." />
+                            <h5>Andi S.</h5>
+                            <p class="font-weight-light mb-0">"Kreafdemy memberikan pengalaman belajar coding yang menyenangkan dan mudah dipahami untuk anak-anak."</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-2.jpg" alt="..." />
+                            <h5>Mira K.</h5>
+                            <p class="font-weight-light mb-0">"Saya sangat terbantu dengan materi yang disediakan Kreafdemy, anak saya jadi lebih tertarik belajar teknologi."</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-3.jpg" alt="..." />
+                            <h5>Budi P.</h5>
+                            <p class="font-weight-light mb-0">"Program belajar di Kreafdemy sangat interaktif dan mendukung perkembangan kreativitas anak."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> section-->
+        
+      
+          
+        <!-- Contact section-->
+       <!-- Contact section
+<div class="container">
+    <div class="contact-form">
+        <h3>Contact Us</h3>
+        <form id="contactForm" action="contact.php" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="reason">Reason for Contact</label>
+                <select class="form-control" id="reason" name="reason" required>
+                    <option value="" disabled selected>Select a reason</option>
+                    <option value="partnership">Partnership</option>
+                    <option value="ask_about_class">Ask about Class</option>
+                    <option value="free_trial_booking">Free Trial Booking</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-submit">Send Message</button>
+            </div>
+            <div id="contactFormResponse" class="mt-3"></div>
+        </form>
+    </div>
+</div>-->
+<div class="bg-cta">
+    <div class="container">
+      <!-- row -->
+      <div class="row align-items-center g-0">
+        <div class="col-xl-6 col-lg-6 col-md-12">
+          <!-- heading -->
+          <div>
+            <h1 class="text-white display-4 fw-bold pe-lg-8">Get Your Free Coding Class Today!
+            </h1>
+            <!-- text -->
+            <p class="text-white mb-4 lead">
+                Rasakan keseruan belajar coding bersama kami. Daftarkan diri Anda untuk mendapatkan kelas gratis sekarang
+            </p>
+            <!-- btn -->
+            <a href="#trialForm" class="btn btn-dark">Daftar Kelas Coba Gratis</a>
+          </div>
+        </div>
+        <!-- img -->
+        <div class=" col-xl-6 col-lg-6 col-md-12 text-lg-end text-center pt-6">
+          <img src="cta.png" alt="" class="img-fluid">
+        </div>
+      </div>
+    </div>
+   </div>
+
+
+
+        <!-- Footer-->
+        <footer id="footer" class="footer position-relative light-background">
+          <div class="footer-top">
+              <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                  <a href="index.html" class="logo d-flex align-items-center">
+                    <img src="logo_landscape.png" alt="Kreafdemy Logo" style="width: 250px !important; height: 150px !important; margin-right: 15px !important;">             
+              
+
+                  </a>
+                  <div class="footer-contact pt-3">
+                    <p>Sovereign Plaza, lt 21Jl. TB Simatupang No.36 1, RT.1/RW.2, Cilandak Bar., Kec. Cilandak,</p>
+                    <p>Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12430, Jakarta, Indonesia, 12430</p>
+                    <p class="mt-3"><strong>Phone:</strong> <span>+62 823 1211 4235</span></p>
+                    <p><strong>Email:</strong> <span>Kreafdemy@gmail.com</span></p>
+                  </div>
+                  <div class="social-links d-flex mt-4">
+                   
+                    <a href="https://www.facebook.com/profile.php?id=61560890039838"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/kreafdemy_id?igsh=MWJxaWx3cGdsY2NxNQ=="><i class="bi bi-instagram"></i></a>
+                   
+                  </div>
+                </div>
+        
+                <div class="col-lg-2 col-md-3 footer-links">
+                  <h4>Useful Links</h4>
+                  <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">about us</a></li>
+                    <li><a href="courses.html">courses</a></li>
+                    <li><a href="partnership.html">partnership</a></li>
+                    <li><a href="about.html">blog</a></li>
+                  </ul>
+                </div>
+        
+                <div class="col-lg-2 col-md-3 footer-links">
+                  <h4>program kami</h4>
+                  <ul>
+                    <li><a href="builder.html">Builder Class</a></li>
+                    <li><a href="maker.html">Maker Class</a></li>
+                    <li><a href="creator.html">Creator Class</a></li>
+                  </ul>
+                </div>
+        
+                
+        
+              </div>
+            </div>
+        
+            <div class="container copyright text-center mt-4">
+              <p>© <span>Copyright</span> <strong class="px-1 sitename">Kreafdemy</strong> <span>All Rights Reserved</span></p>
+              
+             
+            </div>
+        
+          </footer>
+        <!-- Bootstrap core JS-->
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+       
+        <!-- Include Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+       
+
+  <script>
+    $(document).ready(function () {
+        $('#trialForm').on('submit', function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            var formData = $(this).serialize(); // Serialize the form data
+
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'), // URL to send the form data
+                data: formData,
+                success: function (response) {
+                    var jsonResponse = JSON.parse(response); // Parse the JSON response
+                    if (jsonResponse.status === 'success') {
+                        $('#formResponse').html('<div class="alert alert-success">' + jsonResponse.message + '</div>'); // Show success message
+                    } else {
+                        $('#formResponse').html('<div class="alert alert-danger">' + jsonResponse.message + '</div>'); // Show error message
+                    }
+                },
+                error: function (xhr, status, error) {
+                    $('#formResponse').html('<div class="alert alert-danger">Terjadi kesalahan. Silakan coba lagi nanti.</div>'); // Show error message
+                }
+            });
+        });
+
+   
+        $('#contactForm').on('submit', function (e) {
+    e.preventDefault(); // Prevent the default form submission
+    var formData = $(this).serialize(); // Serialize the form data
+
+    $.ajax({
+        type: 'POST',
+        url: $(this).attr('action'), // URL to send the form data
+        data: formData,
+        success: function (response) {
+            var jsonResponse = JSON.parse(response); // Parse the JSON response
+            if (jsonResponse.status === 'success') {
+                $('#contactFormResponse').html('<div class="alert alert-success">' + jsonResponse.message + '</div>'); // Show success message
+            } else {
+                $('#contactFormResponse').html('<div class="alert alert-danger">' + jsonResponse.message + '</div>'); // Show error message
+            }
+        },
+        error: function (xhr, status, error) {
+            $('#contactFormResponse').html('<div class="alert alert-danger">Terjadi kesalahan. Silakan coba lagi nanti.</div>'); // Show error message
+        }
+    });
+});
+
+
+    });
 </script>
+<script>
+  function setClass(className) {
+    document.getElementById('class').value = className;
+  }
 
-</body>
+  $(document).ready(function () {
+      $('#paymentForm').on('submit', function (e) {
+          e.preventDefault();
+          var formData = new FormData(this);
+
+          $.ajax({
+              type: 'POST',
+              url: 'process_payment.php',
+              data: formData,
+              contentType: false,
+              processData: false,
+              success: function (response) {
+                  $('#responseMessage').html(response);
+                  $('#paymentForm')[0].reset();
+              },
+              error: function () {
+                  $('#responseMessage').html('<div class="alert alert-danger">Terjadi kesalahan, silahkan coba lagi.</div>');
+              }
+          });
+      });
+  });
+  </script>
+ <!-- Bootstrap JS and Popper.js -->
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+
+ <script src="js/main.js"></script>
+
+    </body>
 </html>

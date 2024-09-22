@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+  <title>Courses - Kreafdemy | Pilih Kursus Online Kreatif dan Inovatif</title>
+  
+  <!-- Meta Description -->
+  <meta content="Temukan beragam kursus online kreatif dan inovatif di Kreafdemy. Kembangkan keterampilan Anda dalam desain, teknologi, seni, dan banyak lagi dengan instruktur terbaik." name="description">
+  
+  <!-- Meta Keywords -->
+  <meta content="Kreafdemy, kursus online, kreatif, inovatif, belajar desain, belajar teknologi, kursus seni, kursus online terbaik" name="keywords">
+  
+  <!-- Favicons -->
+  <link href="logo.webp" rel="icon">
+  <link href="logo.webp" rel="apple-touch-icon">
+
+  <!-- Open Graph Tags for Social Media Sharing -->
+  <meta property="og:title" content="Courses - Kreafdemy | Pilih Kursus Online Kreatif dan Inovatif">
+  <meta property="og:description" content="Temukan beragam kursus online kreatif dan inovatif di Kreafdemy. Kembangkan keterampilan Anda dalam desain, teknologi, seni, dan banyak lagi dengan instruktur terbaik.">
+  <meta property="og:image" content="https://www.kreafdemy.com/logo.webp">
+  <meta property="og:url" content="https://www.kreafdemy.com/courses.html">
+  <meta property="og:type" content="website">
+  
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- jQuery and Bootstrap Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  
+  <!-- Main CSS File -->
+  <link href="css/main.css?v=1.0" rel="stylesheet">
+  <link href="css/styles.css?v=1.0" rel="stylesheet">
+  <!-- Custom Styles -->
+  <style>
+    .bg-navbar {
+        background-color: #ffffff;
+    }
+    footer.footer a, footer.footer p, footer.footer h4, footer.footer span {
+            color: #333;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        footer.footer a:hover, footer.footer p:hover, footer.footer h4:hover, footer.footer span:hover {
+            color: #000;
+        }
+        footer.footer:hover {
+            background-color: #e9ecef;
+            border-color: #666;
+        }
+ 
+  /* Super Attractive Countdown Timer Styles */
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  text-align: center;
+  font-weight: bold;
+  animation: fadeIn 1.5s ease-in-out;
+  padding: 20px;
+  background: linear-gradient(120deg, #3f2b96, #a8c0ff);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-box {
+  background: linear-gradient(135deg, #ff7eb9, #ff758c);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(255, 94, 98, 0.6);
+  transition: transform 0.4s, box-shadow 0.4s, background 0.4s;
+  position: relative;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s;
+  transform: rotate(45deg);
+}
+
+.countdown-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(255, 94, 98, 0.8);
+  background: linear-gradient(135deg, #ff758c, #ff7eb9);
+}
+
+.countdown-box:hover::before {
+  opacity: 1;
+}
+
+.countdown-box span {
+  display: block;
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.countdown-box small {
+  display: block;
+  font-size: 0.9rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Countdown Timer yang Lebih Keren */
+/* Default Styling for Larger Screens */
+.countdown-timer {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4a00e0;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown-timer span {
+  display: inline-block;
+  font-size: 1.8rem;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  margin: 0 5px;
+}
+
+.countdown-timer .unit {
+  font-size: 0.9rem;
+  margin-top: -5px;
+  color: #ffd700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Styling for Smaller Screens (Mobile) */
+@media (max-width: 768px) {
+  .countdown-timer {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 10px; /* Pindahkan countdown timer ke atas tombol pembayaran */
+    padding: 10px 15px;
+    font-size: 1rem;
+    width: auto;
+    text-align: center;
+    box-shadow: none;
+  }
+
+  .countdown-timer span {
+    font-size: 1.5rem; /* Sesuaikan ukuran font untuk layar kecil */
+  }
+
+  .countdown-timer .unit {
+    font-size: 0.8rem;
+  }
+}
+
+
+.expired {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-top: 15px;
+  animation: shake 0.5s;
+}
+
+
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+}
+
+
+  </style>
+</head>
+
+
+<body class="courses-page">
+   <!-- Responsive navbar-->
+   <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+    <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <img src="logo.webp" alt="Logo" style="height: 150px; width: auto; margin-right: 10px;">
+
+    </a>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html">Home<br></a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="partnership.html">Partnership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="dropdown"><a href="#"><span>Program</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li><a href="builder.html">Builder</a></li>
+            <li><a href="maker.html">Maker</a></li>
+            <li><a href="creator.html">Creator</a></li>
+         
+          </ul>
+        </li>
+     
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+
+  
+
+  </div>
+
+
+  <main class="main">
+
+   <!-- Page Title -->
+<div class="page-title" data-aos="fade">
+    <div class="heading">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1>Kreafdemy Courses</h1>
+            <p class="mb-0">
+              Temukan berbagai kursus menarik di Kreafdemy yang dirancang untuk mengembangkan keterampilan coding dan kreativitas anak-anak. Dari pengenalan dasar hingga proyek lanjutan, kami menyediakan program yang sesuai dengan setiap tingkat keahlian. Bergabunglah dengan kami untuk menjelajahi dunia teknologi dengan cara yang menyenangkan dan interaktif.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li class="current">Courses</li>
+        </ol>
+      </div>
+    </nav>
+  </div><!-- End Page Title -->
+  <section id="courses" class="courses section">
+    <div class="container py-5">
+      <!-- Classes -->
+      <div class="row gy-4">
+        <!-- Builder Class -->
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+          <div class="course-item shadow rounded overflow-hidden position-relative">
+            <!-- Discount Badge -->
+            <div class="discount-badge position-absolute top-0 start-0 bg-danger text-white p-2 rounded-end">
+              <i class="bi bi-tag-fill"></i> DISKON AKAN SEGERA BERAKHIR!
+            </div>
+            <img src="builder.png" class="img-fluid" alt="Builder Class">
+            <div class="course-content p-4">
+              <h3 class="course-title mb-3"><a href="courses.html" class="text-dark">Builder Class</a></h3>
+              <p class="description text-muted">Mempelajari konsep dasar pengkodean dan menerapkannya pada sebuah proyek.</p>
+              <ul class="course-details list-unstyled mb-4">
+                <li><i class="bi bi-book"></i> Modul: Coding Fundamental & App Development 1</li>
+                <li><i class="bi bi-gift"></i> Bonus: Lego Set, Tas, Mouse Pad</li>
+                <li><i class="bi bi-award"></i> Sertifikat: Coding Fundamental</li>
+              </ul>
+              <div class="pricing-options bg-light p-3 rounded">
+                <h4 class="text-primary">4x Pertemuan</h4>
+                <p class="price">
+                  <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp550.000</span>
+                  <span class="text-dark" style="font-size: 1.5rem;">Rp350.000</span>
+                </p>
+                <hr>
+                <h4 class="text-success">6x Pertemuan</h4>
+                <p class="price">
+                  <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp722.000</span>
+                  <span class="text-dark" style="font-size: 1.5rem;">Rp522.000</span>
+                </p>
+                <hr>
+                <h4 class="text-danger">36x Pertemuan</h4>
+                <p class="price">
+                  <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp4.500.000</span>
+                  <span class="text-dark" style="font-size: 1.5rem;">Rp3.100.000</span>
+                </p>
+              </div>
+              <a href="https://wa.me/6282312114235?text=Halo,%20saya%20telah%20melakukan%20pembayaran.%20Mohon%20konfirmasinya.%20Terima%20kasih."
+       style="background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; display: inline-block;">
+        Konfirmasi Pembayaran via WhatsApp
+    </a>
+              <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#paymentModal" onclick="setClass('Builder Class')">Bukti Pembayaran</button>
+            </div>
+            <!-- Countdown Timer -->
+            
+           
+       
+            
+            <div id="countdown-1" class="countdown-timer text-center position-relative">
+              
+              <div class="particle-background"></div>
+            </div>
+            
+          </div>
+        </div>
+  
+        <!-- Maker Class -->
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+          <div class="course-item shadow rounded overflow-hidden position-relative">
+            <!-- Discount Badge -->
+            <div class="discount-badge position-absolute top-0 start-0 bg-danger text-white p-2 rounded-end">
+              <i class="bi bi-tag-fill"></i> DISKON AKAN SEGERA BERAKHIR!
+            </div>
+            <img src="maker.png" class="img-fluid" alt="Maker Class">
+            <div class="course-content p-4">
+              <h3 class="course-title mb-3"><a href="courses.html" class="text-dark">Maker Class</a></h3>
+              <p class="description text-muted">Menerapkan konsep coding dengan membangun aplikasi dan mengembangkan game, memahami ilmu pengetahuan melalui eksplorasi terprogram.</p>
+              <ul class="course-details list-unstyled mb-4">
+                <li><i class="bi bi-book"></i> Modul: App Development II, Game Development & Scientific Exploration</li>
+                <li><i class="bi bi-gift"></i> Bonus: Lego Set, Tas, Mouse Pad</li>
+                <li><i class="bi bi-award"></i> Sertifikat: App Development, Game Development</li>
+              </ul>
+              <div class="pricing-options bg-light p-3 rounded">
+                <h4 class="text-primary">4x Pertemuan</h4>
+                <p class="price">
+                  <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp550.000</span>
+                  <span class="text-dark" style="font-size: 1.5rem;">Rp350.000</span>
+                </p>
+                <hr>
+                <h4 class="text-success">6x Pertemuan</h4>
+                <p class="price">
+                  <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp722.000</span>
+                  <span class="text-dark" style="font-size: 1.5rem;">Rp522.000</span>
+                </p>
+                <hr>
+                <h4 class="text-danger">36x Pertemuan</h4>
+                <p class="price">
+                  <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp4.500.000</span>
+                  <span class="text-dark" style="font-size: 1.5rem;">Rp3.100.000</span>
+                </p>
+              </div>
+              <a href="https://wa.me/6282312114235?text=Halo,%20saya%20telah%20melakukan%20pembayaran.%20Mohon%20konfirmasinya.%20Terima%20kasih."
+       style="background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; display: inline-block;">
+        Konfirmasi Pembayaran via WhatsApp
+    </a>
+              <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#paymentModal" onclick="setClass('Maker Class')">Bukti Pembayaran</button>
+            </div>
+            <div id="countdown-2" class="countdown-timer text-center position-relative">
+              <div class="particle-background"></div>
+            </div>
+            
+          </div>
+        </div>
+  
+        <!-- Creator Class -->
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+          <div class="course-item shadow rounded overflow-hidden position-relative">
+            <!-- Discount Badge -->
+            <div class="discount-badge position-absolute top-0 start-0 bg-danger text-white p-2 rounded-end">
+              <i class="bi bi-tag-fill"></i> DISKON AKAN SEGERA BERAKHIR!
+            </div>
+            <img src="creator.png" class="img-fluid" alt="Creator Class">
+            <div class="course-content p-4">
+              <h3 class="course-title mb-3"><a href="courses.html" class="text-dark">Creator Class</a></h3>
+              <p class="description text-muted">Pelajari prinsip desain 3D & bangun kreasi keren, buat aplikasi Anda sendiri dan situs web.</p>
+              <ul class="course-details list-unstyled mb-4">
+                <li><i class="bi bi-book"></i> Modul: Design Thinking, dan HTML</li>
+                <li><i class="bi bi-award"></i> Sertifikat: Modeling, Design Thinking, HTML/CSS</li>
+                <li><i class="bi bi-gift"></i> Bonus: Lego Set, Tas, Mouse Pad</li>
+              </ul>
+              <div class="pricing-options bg-light p-3 rounded">
+                <h4 class="text-primary">4x Pertemuan</h4>
+                <p class="price">
+                  <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp550.000</span>
+                  <span class="text-dark" style="font-size: 1.5rem;">Rp350.000</span>
+                </p>
+                <hr>
+                <h4 class="text-success">6x Pertemuan</h4>
+                <p class="price">
+                  <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp722.000</span>
+                  <span class="text-dark" style="font-size: 1.5rem;">Rp522.000</span>
+                </p>
+                <hr>
+                <h4 class="text-danger">36x Pertemuan</h4>
+                <p class="price">
+                  <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp4.500.000</span>
+                  <span class="text-dark" style="font-size: 1.5rem;">Rp3.100.000</span>
+                </p>
+              </div>
+              <a href="https://wa.me/6282312114235?text=Halo,%20saya%20telah%20melakukan%20pembayaran.%20Mohon%20konfirmasinya.%20Terima%20kasih."
+       style="background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; display: inline-block;">
+        Konfirmasi Pembayaran via WhatsApp
+    </a>
+              <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#paymentModal" onclick="setClass('Creator Class')">Bukti Pembayaran</button>
+            </div>
+            <!-- Countdown Timer -->
+         <!-- Countdown Timer -->
+         <div id="countdown-3" class="countdown-timer text-center position-relative">
+          <div class="particle-background"></div>
+        </div>
+        
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+ <!-- Countdown Timer Script -->
+<script>
+function startCountdown(elementId, endDate) {
+  const countdownElement = document.getElementById(elementId);
+
+  function updateTimer() {
+    const now = new Date().getTime();
+    const distance = endDate - now;
+
+    if (distance < 0) {
+      clearInterval(interval);
+      countdownElement.innerHTML = "Waktu Habis!";
+      countdownElement.classList.remove("blink");
+      countdownElement.classList.add("expired");
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownElement.innerHTML = `<span>${days}</span><div class="unit">Days</div>
+                                  <span>${hours}</span><div class="unit">Hours</div>
+                                  <span>${minutes}</span><div class="unit">Minutes</div>
+                                  <span>${seconds}</span><div class="unit">Seconds</div>`;
+
+    if (distance < 60000) {
+      countdownElement.classList.add("blink");
+    } else {
+      countdownElement.classList.remove("blink");
+    }
+  }
+
+  updateTimer();
+  const interval = setInterval(updateTimer, 1000);
+}
+
+// Mulai Countdown
+startCountdown('countdown-1', new Date('2024-09-30T23:59:59').getTime());
+  startCountdown('countdown-2', new Date('2024-09-30T23:59:59').getTime());
+  startCountdown('countdown-3', new Date('2024-09-30T23:59:59').getTime());
+</script>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  particlesJS('countdown-1', {
+    particles: {
+      number: { value: 50, density: { enable: true, value_area: 800 } },  // Kurangi Jumlah Partikel
+      color: { value: "#ffffff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.3 },
+      size: { value: 2 },  // Kurangi Ukuran Partikel
+      line_linked: { enable: false },
+      move: { enable: true, speed: 1 }
+    }
+  });
+
+  particlesJS('countdown-2', {
+    particles: {
+      number: { value: 50, density: { enable: true, value_area: 800 } },  // Kurangi Jumlah Partikel
+      color: { value: "#ffffff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.3 },
+      size: { value: 2 },  // Kurangi Ukuran Partikel
+      line_linked: { enable: false },
+      move: { enable: true, speed: 1 }
+    }
+  });
+
+  particlesJS('countdown-3', {
+    particles: {
+      number: { value: 50, density: { enable: true, value_area: 800 } },  // Kurangi Jumlah Partikel
+      color: { value: "#ffffff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.3 },
+      size: { value: 2 },  // Kurangi Ukuran Partikel
+      line_linked: { enable: false },
+      move: { enable: true, speed: 1 }
+    }
+  });
+</script>
+
+
+  
+  
+
+  </main>
+
+    <!-- Footer-->
+    <footer id="footer" class="footer position-relative light-background">
+      <div class="container footer-top">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6 footer-about">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <img src="logo_landscape.png" alt="Kreafdemy Logo" style="width: 250px !important; height: 150px !important; margin-right: 15px !important;">             
+           
+
+            </a>
+            <div class="footer-contact pt-3">
+              <p>Sovereign Plaza, lt 21Jl. TB Simatupang No.36 1, RT.1/RW.2, Cilandak Bar., Kec. Cilandak,</p>
+              <p>Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12430, Jakarta, Indonesia, 12430</p>
+              <p class="mt-3"><strong>Phone:</strong> <span>+62 823 1211 4235</span></p>
+              <p><strong>Email:</strong> <span>Kreafdemy@gmail.com</span></p>
+            </div>
+            <div class="social-links d-flex mt-4">
+             
+              <a href="https://www.facebook.com/profile.php?id=61560890039838"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/kreafdemy_id?igsh=MWJxaWx3cGdsY2NxNQ=="><i class="bi bi-instagram"></i></a>
+             
+            </div>
+          </div>
+  
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">about us</a></li>
+              <li><a href="courses.html">courses</a></li>
+              <li><a href="partnership.html">partnership</a></li>
+              <li><a href="about.html">blog</a></li>
+            </ul>
+          </div>
+  
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>program kami</h4>
+            <ul>
+              <li><a href="builder.html">Builder Class</a></li>
+              <li><a href="maker.html">Maker Class</a></li>
+              <li><a href="creator.html">Creator Class</a></li>
+            </ul>
+          </div>
+  
+          
+  
+        </div>
+      </div>
+  
+      <div class="container copyright text-center mt-4">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Kreafdemy</strong> <span>All Rights Reserved</span></p>
+        
+       
+      </div>
+  
+    </footer>
+
+
+
+<!-- Payment Proof Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="paymentModalLabel">Bukti Pembayaran</h5>
+
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <h5 class="modal-title"> Rekening Mandiri : 1190000123347</h5>
+            <h5 class="modal-title">Atas Nama : PT Edukasi Kreatif Anysha</h5>
+              <form id="paymentForm" enctype="multipart/form-data">
+                  <div class="form-group">
+                      <label for="name">Nama</label>
+                      <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan nama Anda" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email Anda" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="phone">Nomor Handphone</label>
+                      <input type="tel" class="form-control" id="phone" name="phone" placeholder="Masukkan nomor handphone Anda" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="class">Kelas yang Diambil</label>
+                      <input type="text" class="form-control" id="class" name="class" readonly>
+                  </div>
+                  <div class="form-group">
+                      <label for="screenshot">Screenshot Bukti Pembayaran</label>
+                      <input type="file" class="form-control" id="screenshot" name="screenshot" accept="image/*" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Kirim</button>
+              </form>
+              <div id="responseMessage" class="mt-3"></div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    function setClass(className) {
+      document.getElementById('class').value = className;
+    }
+
+    $(document).ready(function () {
+        $('#paymentForm').on('submit', function (e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+
+            $.ajax({
+                type: 'POST',
+                url: 'process_payment.php',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    $('#responseMessage').html(response);
+                    $('#paymentForm')[0].reset();
+                },
+                error: function () {
+                    $('#responseMessage').html('<div class="alert alert-danger">Terjadi kesalahan, silahkan coba lagi.</div>');
+                }
+            });
+        });
+    });
+    </script>
+</body>
+
+</html>
