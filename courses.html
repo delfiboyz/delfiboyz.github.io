@@ -357,19 +357,19 @@
                 <h4 class="text-primary">4x Pertemuan</h4>
                 <p class="price">
                   <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp550.000</span>
-                  <span class="text-dark" style="font-size: 1.5rem;">Rp350.000</span>
+                  <span class="text-dark" style="font-size: 1.5rem;">Rp400.000</span>
                 </p>
                 <hr>
                 <h4 class="text-success">6x Pertemuan</h4>
                 <p class="price">
                   <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp722.000</span>
-                  <span class="text-dark" style="font-size: 1.5rem;">Rp522.000</span>
+                  <span class="text-dark" style="font-size: 1.5rem;">Rp622.000</span>
                 </p>
                 <hr>
                 <h4 class="text-danger">36x Pertemuan</h4>
                 <p class="price">
-                  <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp4.500.000</span>
-                  <span class="text-dark" style="font-size: 1.5rem;">Rp3.100.000</span>
+                  <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp5.000.000</span>
+                  <span class="text-dark" style="font-size: 1.5rem;">Rp3.733.000</span>
                 </p>
               </div>
               <a href="https://wa.me/6282312114235?text=Halo,%20saya%20telah%20melakukan%20pembayaran.%20Mohon%20konfirmasinya.%20Terima%20kasih."
@@ -405,19 +405,19 @@
                 <h4 class="text-primary">4x Pertemuan</h4>
                 <p class="price">
                   <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp550.000</span>
-                  <span class="text-dark" style="font-size: 1.5rem;">Rp350.000</span>
+                  <span class="text-dark" style="font-size: 1.5rem;">Rp450.000</span>
                 </p>
                 <hr>
                 <h4 class="text-success">6x Pertemuan</h4>
                 <p class="price">
-                  <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp722.000</span>
-                  <span class="text-dark" style="font-size: 1.5rem;">Rp522.000</span>
+                  <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp800.000</span>
+                  <span class="text-dark" style="font-size: 1.5rem;">Rp675.000</span>
                 </p>
                 <hr>
                 <h4 class="text-danger">36x Pertemuan</h4>
                 <p class="price">
-                  <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp4.500.000</span>
-                  <span class="text-dark" style="font-size: 1.5rem;">Rp3.100.000</span>
+                  <span class="text-danger text-decoration-line-through" style="font-size: 1.2rem;">Rp5.000.000</span>
+                  <span class="text-dark" style="font-size: 1.5rem;">Rp4.032.000</span>
                 </p>
               </div>
               <a href="https://wa.me/6282312114235?text=Halo,%20saya%20telah%20melakukan%20pembayaran.%20Mohon%20konfirmasinya.%20Terima%20kasih."
@@ -440,48 +440,49 @@
   </section>
   
  <!-- Countdown Timer Script -->
-<script>
-function startCountdown(elementId, endDate) {
-  const countdownElement = document.getElementById(elementId);
-
-  function updateTimer() {
-    const now = new Date().getTime();
-    const distance = endDate - now;
-
-    if (distance < 0) {
-      clearInterval(interval);
-      countdownElement.innerHTML = "Waktu Habis!";
-      countdownElement.classList.remove("blink");
-      countdownElement.classList.add("expired");
-      return;
+ <script>
+  function startCountdown(elementId, duration) {
+    const countdownElement = document.getElementById(elementId);
+    const endDate = new Date().getTime() + duration;
+  
+    function updateTimer() {
+      const now = new Date().getTime();
+      const distance = endDate - now;
+  
+      if (distance < 0) {
+        clearInterval(interval);
+        countdownElement.innerHTML = "Waktu Habis!";
+        countdownElement.classList.remove("blink");
+        countdownElement.classList.add("expired");
+        return;
+      }
+  
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+      countdownElement.innerHTML = `<span>${hours}</span><div class="unit">Hours</div>
+                                    <span>${minutes}</span><div class="unit">Minutes</div>
+                                    <span>${seconds}</span><div class="unit">Seconds</div>`;
+  
+      if (distance < 60000) {
+        countdownElement.classList.add("blink");
+      } else {
+        countdownElement.classList.remove("blink");
+      }
     }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    countdownElement.innerHTML = `<span>${days}</span><div class="unit">Days</div>
-                                  <span>${hours}</span><div class="unit">Hours</div>
-                                  <span>${minutes}</span><div class="unit">Minutes</div>
-                                  <span>${seconds}</span><div class="unit">Seconds</div>`;
-
-    if (distance < 60000) {
-      countdownElement.classList.add("blink");
-    } else {
-      countdownElement.classList.remove("blink");
-    }
+  
+    updateTimer();
+    const interval = setInterval(updateTimer, 1000);
   }
-
-  updateTimer();
-  const interval = setInterval(updateTimer, 1000);
-}
-
-// Mulai Countdown
-startCountdown('countdown-1', new Date('2024-09-30T23:59:59').getTime());
-  startCountdown('countdown-2', new Date('2024-09-30T23:59:59').getTime());
-  startCountdown('countdown-3', new Date('2024-09-30T23:59:59').getTime());
-</script>
+  
+  // Mulai Countdown selama 2 jam (120 menit)
+  const twoHoursInMillis = 2 * 60 * 60 * 1000;
+  startCountdown('countdown-1', twoHoursInMillis);
+  startCountdown('countdown-2', twoHoursInMillis);
+  startCountdown('countdown-3', twoHoursInMillis);
+  </script>
+  
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
@@ -646,7 +647,7 @@ startCountdown('countdown-1', new Date('2024-09-30T23:59:59').getTime());
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="js/main.js"></script>
   <script>
     function setClass(className) {
       document.getElementById('class').value = className;
