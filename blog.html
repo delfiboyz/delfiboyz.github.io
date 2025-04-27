@@ -26,6 +26,49 @@
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+
+        <style>
+   .blog-card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #fff;
+    }
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .blog-image {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+    .card-body h5 {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    .card-body p {
+      font-size: 1rem;
+      margin-top: 10px;
+      color: #555;
+    }
+    .cta-btn {
+      background: #0d6efd;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 50px;
+      margin-top: 20px;
+      transition: background 0.3s ease;
+      font-weight: bold;
+    }
+    .cta-btn:hover {
+      background: #6610f2;
+    }
+
+        </style>
     </head>
 
     <body>
@@ -158,112 +201,68 @@
     <!-- Fact End -->
 
 
-        <!-- Blog Start -->
-        <div class="container-fluid blog py-5 my-5">
-            <div class="container py-5">
-                <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
-                    <h5 class="text-primary">Our Blog</h5>
-                    <h1>Latest Blog & News</h1>
-                </div>
-                <div class="row g-5 justify-content-center">
-                    <div class="col-lg-6 col-xl-4 wow fadeIn" data-wow-delay=".3s">
-                        <div class="blog-item position-relative bg-light rounded">
-                            <img src="img/blog-1.jpg" class="img-fluid w-100 rounded-top" alt="">
-                            <span class="position-absolute px-4 py-3 bg-primary text-white rounded" style="top: -28px; right: 20px;">Web Design</span>
-                            <div class="blog-btn d-flex justify-content-between position-relative px-3" style="margin-top: -75px;">
-                                <div class="blog-icon btn btn-secondary px-3 rounded-pill my-auto">
-                                    <a href="" class="btn text-white">Read More</a>
-                                </div>
-                                <div class="blog-btn-icon btn btn-secondary px-4 py-3 rounded-pill ">
-                                    <div class="blog-icon-1">
-                                        <p class="text-white px-2">Share<i class="fa fa-arrow-right ms-3"></i></p>
-                                    </div>
-                                    <div class="blog-icon-2">
-                                        <a href="" class="btn me-1"><i class="fab fa-facebook-f text-white"></i></a>
-                                        <a href="" class="btn me-1"><i class="fab fa-twitter text-white"></i></a>
-                                        <a href="" class="btn me-1"><i class="fab fa-instagram text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog-content text-center position-relative px-3" style="margin-top: -25px;">
-                                <img src="img/admin.jpg" class="img-fluid rounded-circle border border-4 border-white mb-3" alt="">
-                                <h5 class="">By Daniel Martin</h5>
-                                <span class="text-secondary">24 March 2023</span>
-                                <p class="py-2">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum. Aliquam dolor eget urna ultricies tincidunt libero sit amet</p>
-                            </div>
-                            <div class="blog-coment d-flex justify-content-between px-4 py-2 border bg-primary rounded-bottom">
-                                <a href="" class="text-white"><small><i class="fas fa-share me-2 text-secondary"></i>5324 Share</small></a>
-                                <a href="" class="text-white"><small><i class="fa fa-comments me-2 text-secondary"></i>5 Comments</small></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-4 wow fadeIn" data-wow-delay=".5s">
-                        <div class="blog-item position-relative bg-light rounded">
-                            <img src="img/blog-2.jpg" class="img-fluid w-100 rounded-top" alt="">
-                            <span class="position-absolute px-4 py-3 bg-primary text-white rounded" style="top: -28px; right: 20px;">Development</span>
-                            <div class="blog-btn d-flex justify-content-between position-relative px-3" style="margin-top: -75px;">
-                                <div class="blog-icon btn btn-secondary px-3 rounded-pill my-auto">
-                                    <a href="" class="btn text-white ">Read More</a>
-                                </div>
-                                <div class="blog-btn-icon btn btn-secondary px-4 py-3 rounded-pill ">
-                                    <div class="blog-icon-1">
-                                        <p class="text-white px-2">Share<i class="fa fa-arrow-right ms-3"></i></p>
-                                    </div>
-                                    <div class="blog-icon-2">
-                                        <a href="" class="btn me-1"><i class="fab fa-facebook-f text-white"></i></a>
-                                        <a href="" class="btn me-1"><i class="fab fa-twitter text-white"></i></a>
-                                        <a href="" class="btn me-1"><i class="fab fa-instagram text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog-content text-center position-relative px-3" style="margin-top: -25px;">
-                                <img src="img/admin.jpg" class="img-fluid rounded-circle border border-4 border-white mb-3" alt="">
-                                <h5 class="">By Daniel Martin</h5>
-                                <span class="text-secondary">23 April 2023</span>
-                                <p class="py-2">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum. Aliquam dolor eget urna ultricies tincidunt libero sit amet</p>
-                            </div>
-                            <div class="blog-coment d-flex justify-content-between px-4 py-2 border bg-primary rounded-bottom">
-                                <a href="" class="text-white"><small><i class="fas fa-share me-2 text-secondary"></i>5324 Share</small></a>
-                                <a href="" class="text-white"><small><i class="fa fa-comments me-2 text-secondary"></i>5 Comments</small></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-4 wow fadeIn" data-wow-delay=".7s">
-                        <div class="blog-item position-relative bg-light rounded">
-                            <img src="img/blog-3.jpg" class="img-fluid w-100 rounded-top" alt="">
-                            <span class="position-absolute px-4 py-3 bg-primary text-white rounded" style="top: -28px; right: 20px;">Mobile App</span>
-                            <div class="blog-btn d-flex justify-content-between position-relative px-3" style="margin-top: -75px;">
-                                <div class="blog-icon btn btn-secondary px-3 rounded-pill my-auto">
-                                    <a href="" class="btn text-white ">Read More</a>
-                                </div>
-                                <div class="blog-btn-icon btn btn-secondary px-4 py-3 rounded-pill ">
-                                    <div class="blog-icon-1">
-                                        <p class="text-white px-2">Share<i class="fa fa-arrow-right ms-3"></i></p>
-                                    </div>
-                                    <div class="blog-icon-2">
-                                        <a href="" class="btn me-1"><i class="fab fa-facebook-f text-white"></i></a>
-                                        <a href="" class="btn me-1"><i class="fab fa-twitter text-white"></i></a>
-                                        <a href="" class="btn me-1"><i class="fab fa-instagram text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog-content text-center position-relative px-3" style="margin-top: -25px;">
-                                <img src="img/admin.jpg" class="img-fluid rounded-circle border border-4 border-white mb-3" alt="">
-                                <h5 class="">By Daniel Martin</h5>
-                                <span class="text-secondary">30 jan 2023</span>
-                                <p class="py-2">Lorem ipsum dolor sit amet elit. Sed efficitur quis purus ut interdum. Aliquam dolor eget urna ultricies tincidunt libero sit amet</p>
-                            </div>
-                            <div class="blog-coments d-flex justify-content-between px-4 py-2 border bg-primary rounded-bottom">
-                                <a href="" class="text-white"><small><i class="fas fa-share me-2 text-secondary"></i>5324 Share</small></a>
-                                <a href="" class="text-white"><small><i class="fa fa-comments me-2 text-secondary"></i>5 Comments</small></a>
-                            </div>
-                        </div>
+    <div class="row g-4">
+       <!-- Blog Detail Start -->
+<div class="container py-5">
+    <div class="container">
+        <div class="text-center mx-auto pb-5">
+            <h5 class="text-primary">Blog Certifindo</h5>
+            <h1>5 Tips Lulus Sertifikasi Internasional</h1>
+            <p class="text-muted">Pelajari strategi efektif untuk mempersiapkan ujian sertifikasi dan meningkatkan peluang Anda untuk sukses.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow-sm border-0 rounded">
+                    <img src="img/blog-sertifikasi.jpg" class="card-img-top" alt="Tips Lulus Sertifikasi">
+                    <div class="card-body">
+                        <p class="card-text">Sertifikasi internasional adalah salah satu cara untuk meningkatkan kredibilitas dan karier Anda di industri tertentu. Persiapan yang matang sangat diperlukan untuk memastikan Anda bisa lulus dengan baik. Berikut adalah 5 tips untuk membantu Anda mempersiapkan ujian sertifikasi internasional:</p>
+                        <h3>1. Pahami Materi Ujian</h3>
+                        <p class="card-text">Setiap ujian sertifikasi memiliki materi yang berbeda. Pastikan Anda mempelajari panduan dan silabus yang relevan dengan ujian yang akan diambil.</p>
+                        <h3>2. Gunakan Sumber Belajar yang Terpercaya</h3>
+                        <p class="card-text">Pilih buku dan kursus yang sudah teruji dan diakui oleh profesional di bidangnya untuk memastikan pemahaman yang mendalam.</p>
+                        <h3>3. Ikuti Simulasi Ujian</h3>
+                        <p class="card-text">Mengerjakan simulasi ujian akan membantu Anda memahami tipe soal yang akan keluar dan meningkatkan kecepatan dalam mengerjakan soal.</p>
+                        <h3>4. Jangan Lupa Beristirahat</h3>
+                        <p class="card-text">Jaga kondisi tubuh dan pikiran Anda dengan cukup tidur dan istirahat di antara sesi belajar untuk menjaga daya ingat yang optimal.</p>
+                        <h3>5. Diskusikan dengan Teman atau Mentor</h3>
+                        <p class="card-text">Belajar bersama teman atau mentor bisa memberi perspektif yang berbeda dan membantu Anda memahami konsep yang sulit.</p>
+                        <p class="text-muted mt-5">Semoga tips-tips di atas bisa membantu Anda dalam mempersiapkan ujian sertifikasi internasional. Jangan ragu untuk menghubungi kami untuk informasi lebih lanjut mengenai kursus dan pelatihan yang bisa membantu Anda dalam persiapan ujian.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Blog End -->
+    </div>
+</div>
+<!-- Blog Detail End -->
 
+    
+        <!-- Blog 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card blog-card">
+            <img src="https://source.unsplash.com/400x300/?teamwork,communication" class="blog-image" alt="Pelatihan Soft Skill">
+            <div class="card-body">
+              <h5>Pelatihan Soft Skill: Rahasia Kesuksesan di Dunia Kerja Modern</h5>
+              <p>Soft skill seperti komunikasi dan adaptasi kini menjadi faktor penting dalam mencapai kesuksesan di dunia kerja.</p>
+              <a href="#" class="btn cta-btn">Baca Selengkapnya</a>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Blog 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card blog-card">
+            <img src="https://source.unsplash.com/400x300/?future,technology,career" class="blog-image" alt="Tren Karir 2025">
+            <div class="card-body">
+              <h5>Tren Profesi 2025: 5 Karier dengan Permintaan Tertinggi</h5>
+              <p>Menyambut tahun 2025, kenali profesi-profesi yang memiliki permintaan tinggi untuk merancang masa depan karirmu.</p>
+              <a href="#" class="btn cta-btn">Baca Selengkapnya</a>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    
+</div>
 
         <!-- Footer Start -->
     <div class="container-fluid footer bg-dark wow fadeIn" data-wow-delay=".3s">
