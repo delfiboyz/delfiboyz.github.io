@@ -396,11 +396,77 @@
                     </div>
                 </div>
             </article>
+
+           <!-- 7. SERTIFIKASI AUDIT SMK3 (KEMNAKER) -->
+<article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s" id="item-sertifikasi-smk3" hidden>
+  <div class="services-item bg-light">
+    <div class="p-4 text-center services-content">
+      <div class="services-content-icon">
+        <i class="fas fa-clipboard-check fa-7x mb-4 text-primary"></i>
+        <h3 class="h5 mb-3">SERTIFIKASI AUDIT SMK3 (KEMNAKER)</h3>
+        <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Detail</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 8. IJIN USAHA JASA PERTAMBANGAN (IUJP) -->
+<article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".8s" id="item-ijin-usaha" hidden>
+  <div class="services-item bg-light">
+    <div class="p-4 text-center services-content">
+      <div class="services-content-icon">
+        <i class="fas fa-file-signature fa-7x mb-4 text-primary"></i>
+        <h3 class="h5 mb-3">IJIN USAHA JASA PERTAMBANGAN (IUJP)</h3>
+        <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Detail</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 9. SERTIFIKAT TENAGA AHLI PERTAMBANGAN POP, POM DAN POU -->
+<article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".9s" id="item-sertifikat-tenaga-ahli" hidden>
+  <div class="services-item bg-light">
+    <div class="p-4 text-center services-content">
+      <div class="services-content-icon">
+        <i class="fas fa-user-graduate fa-7x mb-4 text-primary"></i>
+        <h3 class="h5 mb-3">SERTIFIKAT TENAGA AHLI PERTAMBANGAN POP, POM DAN POU</h3>
+        <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Detail</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 10. SERTIFIKAT LAIK OPERASI (SLO) ALAT GENSET -->
+<article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="1.0s" id="item-slo-genset" hidden>
+  <div class="services-item bg-light">
+    <div class="p-4 text-center services-content">
+      <div class="services-content-icon">
+        <i class="fas fa-bolt fa-7x mb-4 text-primary"></i>
+        <h3 class="h5 mb-3">SERTIFIKAT LAIK OPERASI (SLO) ALAT GENSET</h3>
+        <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Detail</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- 11. JAMINAN PROYEK (SURETY BOND) -->
+<article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="1.1s" id="item-surety-bond" hidden>
+  <div class="services-item bg-light">
+    <div class="p-4 text-center services-content">
+      <div class="services-content-icon">
+        <i class="fas fa-shield-alt fa-7x mb-4 text-primary"></i>
+        <h3 class="h5 mb-3">JAMINAN PROYEK (SURETY BOND)</h3>
+        <a href="#" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Detail</a>
+      </div>
+    </div>
+  </div>
+</article>
+
         </div>
         <div class="container text-center my-5">
-          <a href="service.html" class="btn btn-primary btn-lg px-5 w-50">
+          <button class="btn btn-primary btn-lg px-5 w-50" id="layanan-lainnya">
            ==> Layanan Lainnya <==
-          </a>
+          </button>
         </div>
         
     </div>
@@ -797,7 +863,20 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+<script>
 
+   document.getElementById('layanan-lainnya').onclick = function() {
+    
+    document.getElementById('layanan-lainnya').hidden = true;
+   document.getElementById("item-sertifikasi-smk3").hidden = false;
+   document.getElementById("item-ijin-usaha").hidden = false;
+   document.getElementById("item-sertifikat-tenaga-ahli").hidden = false;
+   document.getElementById("item-slo-genset").hidden = false;
+   document.getElementById("item-surety-bond").hidden = false;
+   
+   
+   }
+</script>
 
 </body>
 
