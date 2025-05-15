@@ -120,3 +120,20 @@ function sendFormToWhatsApp() {
     var whatsappURL = `https://wa.me/${phoneNumber}?text=${fullMessage}`;
     window.open(whatsappURL, '_blank');
 }
+
+
+ function toggleWaOptions() {
+    const options = document.getElementById('waOptions');
+    options.classList.toggle('d-none');
+  }
+
+  // Klik di luar akan menyembunyikan pilihan
+  document.addEventListener('click', function (event) {
+    const waOptions = document.getElementById('waOptions');
+    const trigger = event.target.closest('.btn');
+    const insideOptions = event.target.closest('#waOptions');
+
+    if (!insideOptions && !trigger) {
+      waOptions.classList.add('d-none');
+    }
+  });
