@@ -1,0 +1,6 @@
+# Allow all crawlers to access everything
+User-agent: *
+Disallow:
+
+# Optional: point to your sitemap
+Sitemap: https://delfiboyz.github.io/sitemap.xml
