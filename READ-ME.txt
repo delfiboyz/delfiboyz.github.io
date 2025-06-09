@@ -1,6 +1,6 @@
-  =>  Template Name    : HighTech - IT Solutions Website Template
+  =>  Template Name    : Pigra - Personal Portfolio Website Template
 
-  =>  Template Link    : https://htmlcodex.com/it-solutions-website-template
+  =>  Template Link    : https://htmlcodex.com/personal-portfolio-website-template
 
   =>  Template License : https://htmlcodex.com/license (or read the LICENSE.txt file)
 

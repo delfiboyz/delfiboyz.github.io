@@ -9,13 +9,38 @@
             }
         }, 1);
     };
-    spinner();
+    spinner(0);
     
     
     // Initiate the wowjs
     new WOW().init();
-    
-    
+
+
+
+   // testimonial carousel
+   $(".testimonial-carousel").owlCarousel({
+    autoplay: true,
+    items: 1,
+    smartSpeed: 1500,
+    dots: true,
+    dotsData: true,
+    loop: true,
+    margin: 25,
+    nav : true,
+    navText : [
+        '<i class="bi bi-arrow-left"></i>',
+        '<i class="bi bi-arrow-right"></i>'
+    ]
+    });
+
+
+    // Facts counter
+    $('[data-toggle="counter-up"]').counterUp({
+        delay: 5,
+        time: 2000
+    });
+
+
    // Back to top button
    $(window).scroll(function () {
     if ($(this).scrollTop() > 300) {
@@ -30,110 +55,5 @@
     });
 
 
-    // Team carousel
-    $(".team-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        center: false,
-        dots: false,
-        loop: true,
-        margin: 50,
-        nav : true,
-        navText : [
-            '<i class="bi bi-arrow-left"></i>',
-            '<i class="bi bi-arrow-right"></i>'
-        ],
-        responsiveClass: true,
-        responsive: {
-            0:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:3
-            }
-        }
-    });
-
-
-    // Testimonial carousel
-
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1500,
-        center: true,
-        dots: true,
-        loop: true,
-        margin: 0,
-        nav : true,
-        navText: false,
-        responsiveClass: true,
-        responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:3
-            }
-        }
-    });
-
-
-     // Fact Counter
-
-     $(document).ready(function(){
-        $('.counter-value').each(function(){
-            $(this).prop('Counter',0).animate({
-                Counter: $(this).text()
-            },{
-                duration: 2000,
-                easing: 'easeInQuad',
-                step: function (now){
-                    $(this).text(Math.ceil(now));
-                }
-            });
-        });
-    });
-
-
-
 })(jQuery);
 
-// function form contact
-
-function sendFormToWhatsApp() {
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var message = document.getElementById('message').value;
-
-    var fullMessage = `Hallo, saya ${name}%0AEmail: ${email}%0APesan: ${message}`;
-    var phoneNumber = "6281281103575"; // <-- Ganti dengan nomor WhatsApp tujuan (format 62 untuk Indonesia)
-
-    var whatsappURL = `https://wa.me/${phoneNumber}?text=${fullMessage}`;
-    window.open(whatsappURL, '_blank');
-}
-
-
- function toggleWaOptions() {
-    const options = document.getElementById('waOptions');
-    options.classList.toggle('d-none');
-  }
-
-  // Klik di luar akan menyembunyikan pilihan
-  document.addEventListener('click', function (event) {
-    const waOptions = document.getElementById('waOptions');
-    const trigger = event.target.closest('.btn');
-    const insideOptions = event.target.closest('#waOptions');
-
-    if (!insideOptions && !trigger) {
-      waOptions.classList.add('d-none');
-    }
-  });
