@@ -58,868 +58,366 @@
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
   <!-- Link ke Sitemap -->
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"><style>
-  /* Red Team Hacking Mode */
-  body {
-    background-color: #000;
-    color: #ff0000;
-    font-family: 'Courier New', Courier, monospace;
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<style>
+  /* ====== Malware Extreme Mode - Dark Cyberpunk Red Alert ====== */
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+  html, body {
+    margin: 0; padding: 0;
+    height: 100%;
+    background: #070000;
+    overflow: hidden;
+    font-family: 'Share Tech Mono', monospace;
+    color: #ff1100;
+    text-shadow:
+      0 0 10px #ff2200,
+      0 0 20px #ff4400,
+      0 0 30px #ff6600;
   }
 
-  a, p, h1, h2, h3, h4, h5, h6, span {
-    color: #ff3333 !important;
-    text-shadow: 0 0 5px #ff0000;
+  /* Virus tentacles overlay (CSS animated) */
+  .virus-tentacles {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,0,0,0.3) 10px, transparent 20px),
+      radial-gradient(circle at 50% 60%, rgba(255,50,50,0.2) 15px, transparent 30px),
+      radial-gradient(circle at 80% 30%, rgba(255,0,0,0.4) 20px, transparent 40px);
+    animation: tentaclesPulse 5s ease-in-out infinite;
+    mix-blend-mode: screen;
+    filter: blur(6px);
+    z-index: 5;
   }
 
-  .bg-light {
-    background-color: #111 !important;
+  @keyframes tentaclesPulse {
+    0%, 100% {
+      background-position: 15% 20%, 50% 60%, 80% 30%;
+      opacity: 0.4;
+    }
+    50% {
+      background-position: 10% 25%, 45% 65%, 85% 35%;
+      opacity: 0.7;
+    }
   }
 
-  .bg-dark {
-    background-color: #000 !important;
+  /* Flicker noise scanline background overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top:0; left:0; width: 100vw; height: 100vh;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(255, 0, 0, 0.08),
+      rgba(255, 0, 0, 0.12) 2px,
+      rgba(0,0,0,0) 3px,
+      rgba(255, 0, 0, 0.05) 5px
+    );
+    pointer-events: none;
+    animation: flickerScanline 1.5s infinite;
+    mix-blend-mode: screen;
+    z-index: 2;
   }
 
-  .text-dark {
-    color: #ff5555 !important;
+  @keyframes flickerScanline {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.35; }
   }
 
-  .text-white {
-    color: #ff3333 !important;
-  }
-
-  .btn-primary {
-    background-color: #ff0000 !important;
-    border: 1px solid #ff3333 !important;
-  }
-
-  .btn-primary:hover {
-    background-color: #cc0000 !important;
-  }
-
-  .navbar,
-  .nav-section {
-    background-color: #000 !important;
-    border-right: 1px solid #ff0000;
-  }
-
-  .nav-link.active,
-  .nav-link:hover {
-    background-color: #330000 !important;
-    color: #ff0000 !important;
-  }
-
-  .spinner-border {
-    border-color: #ff0000 transparent #ff0000 transparent !important;
-  }
-
-  /* Optional Glitch Effect */
-  .glitch {
-    color: #ff0000;
+  /* Hacker glitch text + flicker */
+  h1, h2, h3, p, a, span {
+    animation: glitchText 3s infinite;
     position: relative;
-    animation: glitch 1s infinite;
+    color: #ff3300;
+    text-shadow:
+      0 0 10px #ff2200,
+      0 0 20px #ff4400,
+      0 0 30px #ff6600,
+      0 0 50px #ff4400;
   }
 
-  @keyframes glitch {
+  @keyframes glitchText {
     0% {
-      text-shadow: 2px 2px #00ffea, -2px -2px #ff0000;
+      clip-path: inset(0 0 0 0);
+      text-shadow:
+        2px 0 #ff0000,
+        -2px 0 #ff6600;
+      transform: translate(0);
+      opacity: 1;
+    }
+    10% {
+      clip-path: inset(10% 0 20% 0);
+      text-shadow:
+        -2px 0 #ff2200,
+        2px 0 #ff4400;
+      transform: translate(-2px, 1px);
+      opacity: 0.9;
     }
     20% {
-      text-shadow: -2px -2px #00ffea, 2px 2px #ff0000;
+      clip-path: inset(30% 0 30% 0);
+      text-shadow:
+        3px 3px #ff3300,
+        -3px -3px #ff6600;
+      transform: translate(2px, -1px);
+      opacity: 0.7;
+    }
+    30% {
+      clip-path: inset(20% 0 10% 0);
+      text-shadow:
+        -3px -3px #ff1100,
+        3px 3px #ff3300;
+      transform: translate(-1px, 2px);
+      opacity: 0.8;
     }
     40% {
-      text-shadow: 2px -2px #00ffea, -2px 2px #ff0000;
-    }
-    60% {
-      text-shadow: -2px 2px #00ffea, 2px -2px #ff0000;
-    }
-    80% {
-      text-shadow: 2px 2px #00ffea, -2px -2px #ff0000;
+      clip-path: inset(0 0 0 0);
+      text-shadow:
+        2px 0 #ff4400,
+        -2px 0 #ff6600;
+      transform: translate(0);
+      opacity: 1;
     }
     100% {
-      text-shadow: -2px -2px #00ffea, 2px 2px #ff0000;
+      clip-path: inset(0 0 0 0);
+      text-shadow:
+        0 0 20px #ff6600;
+      transform: translate(0);
+      opacity: 1;
     }
   }
 
-  .display-6, .sub-title {
-    font-weight: bold;
-    letter-spacing: 1px;
+  /* Red Alert blinking overlay */
+  .red-alert {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(255, 0, 0, 0.12);
+    animation: redAlertFlash 4s infinite;
+    pointer-events: none;
+    z-index: 6;
   }
-</style>
 
+  @keyframes redAlertFlash {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.3; }
+  }
+
+  /* Terminal blinking cursor at random position */
+  .cursor {
+    position: fixed;
+    width: 10px; height: 20px;
+    background: #ff3300;
+    animation: cursorBlink 1.2s steps(2, start) infinite;
+    mix-blend-mode: screen;
+    z-index: 10;
+    pointer-events: none;
+    border-radius: 2px;
+    filter: drop-shadow(0 0 2px #ff0000);
+  }
+
+  @keyframes cursorBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Buttons with flicker glitch + code inject effect */
+  .btn-malware {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #cc0000, #ff3300);
+    border: 3px solid #ff0000;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    box-shadow:
+      0 0 12px #ff0000,
+      inset 0 0 20px #cc0000;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    transition: background 0.3s ease;
+    mix-blend-mode: screen;
+  }
+
+  .btn-malware::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -50%;
+    width: 200%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.2) 0,
+      rgba(255,255,255,0.3) 2px,
+      rgba(255,255,255,0.2) 4px
+    );
+    animation: btnGlitchMove 3s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes btnGlitchMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+  }
+
+  .btn-malware:hover {
+    background: linear-gradient(45deg, #ff0000, #cc0000);
+    box-shadow:
+      0 0 20px #ff6600,
+      inset 0 0 30px #ff0000;
+  }
+
+  /* Code inject glitch flicker on button text */
+  .btn-malware span {
+    position: relative;
+    display: inline-block;
+    animation: codeInjectGlitch 3s infinite;
+  }
+
+  @keyframes codeInjectGlitch {
+    0%, 100% {
+      text-shadow:
+        1px 0 #ff0000,
+        -1px 0 #cc0000;
+      transform: translate(0);
+    }
+    10%, 30% {
+      text-shadow:
+        2px 2px #ff3300,
+        -2px -2px #ff6600;
+      transform: translate(-1px, 1px);
+    }
+    20%, 40% {
+      text-shadow:
+        -2px -2px #ff3300,
+        2px 2px #cc0000;
+      transform: translate(1px, -1px);
+    }
+    50%, 70% {
+      text-shadow:
+        0 0 15px #ff6600;
+      transform: translate(0);
+    }
+  }
+
+  /* Random error code line running at bottom */
+  .error-code {
+    position: fixed;
+    bottom: 0; left: 0; width: 100%;
+    background: #200000cc;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75rem;
+    color: #ff2200;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 6px 10px;
+    box-sizing: border-box;
+    animation: errorCodeScroll 10s linear infinite;
+    z-index: 9;
+  }
+
+  @keyframes errorCodeScroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+
+  .glitch {
+  color: #ff0000;
+  position: relative;
+  animation: glitch 1s infinite;
+  font-weight: bold;
+  text-shadow: 2px 0 #000;
+}
+
+@keyframes glitch {
+  0% { transform: none; }
+  20% { transform: skew(-5deg); }
+  40% { transform: skew(5deg); }
+  60% { transform: translateX(2px); }
+  80% { transform: translateX(-2px); }
+  100% { transform: none; }
+}
+
+html, body {
+  margin: 0; padding: 0;
+  background: #070000;
+  overflow-y: auto; /* ✅ scrolling works */
+  font-family: 'Share Tech Mono', monospace;
+  color: #ff1100;
+  text-shadow:
+    0 0 10px #ff2200,
+    0 0 20px #ff4400,
+    0 0 30px #ff6600;
+}
+
+
+</style>
 
 
 </head>
 
 
 <body>
+<div class="virus-tentacles"></div>
+<div class="red-alert"></div>
+<div class="error-code">[ERROR] ↳ Injecting RAT payload to target machine | [C2 Beacon Active] | [Status: Compromised]</div>
 
-    <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <!-- Spinner End -->
+<section style="padding: 6vh 10vw;">
+  <h1 class="glitch">Red Team Operations: Malware Simulation Interface</h1>
 
+  <p>
+    Welcome to the Offensive Cyber Simulation Environment. This lab is designed for ethical red team operators, malware analysts, and cybersecurity researchers to explore adversary tactics using real-world frameworks and threat emulation — <strong>for educational and authorized penetration testing only.</strong>
+  </p>
 
-    <!-- Navbar Start -->
-    <div class="container-fluid nav-section border-0">
-        <nav class="navbar navbar-light">
-            <div class="navbar-nav flex-column">
-                <a href="#pigraHome" class="nav-item nav-link active"><span class="fa fa-home"></span> Home</a>
-                <a href="#pigraAbout" class="nav-item nav-link"><span class="far fa-address-card"></span> About</a>
-                <a href="#pigraService" class="nav-item nav-link"><span class="fab fa-servicestack"></span> Service</a>
-                <a href="#pigraContact" class="nav-item nav-link"><span class="fas fa-address-book"></span> Contact</a>
-            </div>
-        </nav>
-    </div>
-    <!-- Navbar End -->
+  <h2>💀 Simulated Malware Arsenal</h2>
+  <ul>
+    <li><strong>RAT.exe</strong> – Inspired by <a href="https://github.com/quasar/QuasarRAT" target="_blank">Quasar</a> and <a href="https://www.vx-underground.org/" target="_blank">njRAT samples</a>.</li>
+    <li><strong>PhantomStealer</strong> – Based on behavior of <a href="https://malpedia.caad.fkie.fraunhofer.de/details/win.redline" target="_blank">RedLine Stealer</a> and <a href="https://malpedia.caad.fkie.fraunhofer.de/details/win.vidar" target="_blank">Vidar</a>.</li>
+    <li><strong>WormInjector</strong> – Modeled after <a href="https://attack.mitre.org/techniques/T1210/" target="_blank">MS17-010 EternalBlue</a> exploits used by WannaCry.</li>
+    <li><strong>CrimsonLoader</strong> – Dropper using LOLBAS techniques (<a href="https://lolbas-project.github.io/" target="_blank">LOLBAS Project</a>).</li>
+    <li><strong>SleepyCat</strong> – Fileless malware concept using syscalls & in-memory injection, inspired by <a href="https://github.com/CCob/ThreadStackSpoofer" target="_blank">ThreadStackSpoofer</a>.</li>
+  </ul>
 
-    <!-- Header Start -->
-    <div class="container-fluid" id="pigraHome">
-        <div class="container">
-            <div class="row g-0">
-                <div class="col-12 col-lg-3">
-                    <div class="header-content bg-dark h-100 pt-6 pe-6 pb-6">
-                        <a href="index.html" class="navbar-brand d-inline-flex pb-5 wow fadeInUp" data-wow-delay="0.1s">
-                            <h1 class="display-6 text-white mb-0">Portofolio</h1>
-                        </a>
-                        <div class="text-start d-flex flex-column justify-content-center wow fadeInUp"
-                            data-wow-delay="0.3s">
-                            <p class="text-white sub-title">👋 Hello I'm Delfi</p>
-<h1 class="display-6 text-white mb-0 glitch">Full Stack Developer Based in Indonesia</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-9">
-                    <div class="header-img d-flex h-100 pt-6 ps-6 pb-6">
-                        <div class="row g-5">
-                            <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="bg-light p-4" style="border-radius: 68% 32% 100% 0% / 0% 75% 25% 100%;">
-                                    <img src="img/hero.webp" class="img-fluid w-100"
-                                        style="border-radius: 68% 32% 100% 0% / 0% 75% 25% 100%;" alt="Image">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <h1 class="display-6 mb-4">Full Stack Developer</h1>
-                                <p class="mb-4">
-                                    I am a seasoned Full Stack Developer proficient in technologies ranging from PHP
-                                    (Laravel, Zend Framework) and Java to JavaScript (ReactJS, Next.js). Serving as the
-                                    Head of Information Technology at Kreafdemy and having worked as a Full Stack
-                                    Developer on projects like 28mholshopstore and as an intern at Agate Game, I have
-                                    built responsive, secure, and visually appealing web and mobile applications. I’m
-                                    experienced working with VPS environments (OpenLiteSpeed, Django, Apache as a
-                                    reverse proxy), using both relational and non-relational databases (MySQL, MongoDB),
-                                    and following best practices in CI/CD and version control (Git). Beyond technical
-                                    expertise, I prioritize user experience (UX) and SEO optimization to ensure every
-                                    feature I develop is both functional and engaging for end users.
-                                </p>
+  <h2>🎯 Attack Chain Simulation</h2>
+  <ul>
+    <li><strong>Initial Access:</strong> Weaponized documents from <a href="https://bazaar.abuse.ch/" target="_blank">MalwareBazaar</a>, spear phishing, USB HID injection.</li>
+    <li><strong>Execution:</strong> Living-off-the-land binaries: <code>mshta.exe</code>, <code>regsvr32.exe</code>, <code>rundll32.exe</code>.</li>
+    <li><strong>Persistence:</strong> Registry keys, scheduled tasks, WMI permanent event consumers.</li>
+    <li><strong>Privilege Escalation:</strong> CVE chaining from sources like <a href="https://exploit-db.com" target="_blank">Exploit-DB</a>.</li>
+    <li><strong>Exfiltration:</strong> DNS tunneling, encrypted HTTPS POST to simulated C2 domains.</li>
+  </ul>
 
+  <h2>📡 Simulated C2 Infrastructure</h2>
+  <p>
+    <code>c2.ghostops.internal</code><br>
+    <code>rat.delfinet.local</code><br>
+    <code>dropzone.secops.dev</code><br>
+  </p>
 
-
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="fas fa-map-marker-alt text-primary me-3"></i>
-                                    <p class="text-dark mb-0">Jakarta</p>
-                                </div>
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="fas fa-envelope text-primary me-3"></i>
-                                    <p class="text-dark mb-0">delfiboyz@gmail.com</p>
-                                </div>
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="fab fa-instagram text-primary me-3"></i>
-                                    <p class="text-dark mb-0">@delfi_boyz_morningstar</p>
-                                </div>
-                               
-                                <div class="d-flex">
-                                    <a class="btn btn-primary btn-sm-square me-3" href="#"><i
-                                            class="fab fa-instagram text-white"></i></a>
-                                    <a class="btn btn-primary btn-sm-square me-0" href="#"><i
-                                            class="fab fa-linkedin-in text-white"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Header End -->
-
-
-    <!-- About Start -->
-    <div class="container-fluid" id="pigraAbout">
-        <div class="container">
-            <div class="row g-0">
-                <div class="col-12 col-lg-3">
-                    <div class="about-header bg-dark h-100 pt-6 pe-6 pb-6">
-                        <div class="text-start d-flex flex-column justify-content-center wow fadeInUp"
-                            data-wow-delay="0.1s">
-                            <p class="text-white sub-title">About Me</p>
-                            <h1 class="display-6 text-white mb-0">Full Stack Developer based in Jakarta, Indonesian since 2015</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-9">
-                    <div class="about-content h-100 pt-6 ps-6 pb-6">
-                        <div class="row g-5">
-                            <div class="col-xl-5">
-                                <div class="about-img bg-light p-4 wow fadeInUp" data-wow-delay="0.1s">
-                                    <img src="img/about.jpeg" class="img-fluid w-100" alt="Image">
-                                    <div class="sosial-icon">
-                                
-                                        <a class="btn btn-primary btn-sm-square mb-3" href="https://github.com/delfiboyz"><i
-                                                class="fab fa-github text-white"></i></a>
-                                        <a class="btn btn-primary btn-sm-square mb-3" href="#"><i
-                                                class="fab fa-instagram text-white"></i></a>
-                                        <a class="btn btn-primary btn-sm-square mb-0" href="#"><i
-                                                class="fab fa-linkedin-in text-white"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-7 wow fadeInUp" data-wow-delay="0.3s">
-                               <h4 class="mb-4">Hello, I'm Delfi, Based in Jakarta</h4>
-<p class="mb-4">
-I am a passionate Full Stack Developer with over 5 years of experience building responsive and secure web applications. Currently serving as Head of Information Technology at Kreafdemy, I specialize in PHP (Laravel, Zend Framework), JavaScript (ReactJS, Next.js), and database management (MySQL, MongoDB). I thrive in VPS environments (OpenLiteSpeed, Django, Apache reverse proxy) and prioritize clean code, user-centric design, and SEO best practices. When I’m not coding, you’ll find me shooting at the range, exploring new tech trends, or working on open-source projects to give back to the developer community.
-</p>
-
-                                <div class="row g-4 mb-4">
-                                    <div class="col-6">
-                                       
-                                        <p><strong class="fw-bold text-dark">instagram :</strong>@delfi_boyz_morningstar</p>
-                                        <p class="mb-0"><strong class="fw-bold text-dark">Address :</strong> Jakarta, Indonesia</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p><strong class="fw-bold text-dark">Nationality :</strong> Jakarta, Indonesia</p>
-                                        <p><strong class="fw-bold text-dark">Email :</strong> delfiboyz@gmail.com</p>
-                                        <p class="mb-0"><strong class="fw-bold text-dark">Freelancer :</strong>
-                                            Available</p>
-                                    </div>
-                                </div>
-                                <a href="#" class="btn btn-primary py-2 px-4"> <i
-                                        class="fas fa-download me-2"></i>Download My CV</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-
-
-    <!-- Education Start -->
-    <div class="container-fluid">
-        <div class="container">
-            <div class="row g-0">
-                <div class="col-lg-3">
-                    <div class="education-header bg-dark h-100 pt-6 pe-6 pb-6">
-                        <div class="text-start d-flex flex-column justify-content-center wow fadeInUp"
-                            data-wow-delay="0.1s">
-                            <p class="text-white sub-title">Education</p>
-                            <h1 class="display-6 text-white mb-0">S1</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="education-content h-100 pt-6 ps-6 pb-6">
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="education-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <p class="fs-5 mb-0 me-4">Universitas Persada Indonesia Y.A.I</p>
-                                        <div>
-                                            <span class="fa fa-calendar me-1"></span>2024
-                                        </div>
-                                    </div>
-                                  <h4 class="mb-3">Bachelor of Informatics, Universitas Persada Indonesia Y.A.I</h4>
-<p class="mb-0">
-Graduating with a 3.39 GPA, I earned my Bachelor of Informatics from Universitas Persada Indonesia Y.A.I, where I developed a strong foundation in software engineering, algorithms, and database systems. Throughout my studies, I consistently ranked among the top of my class, undertaking rigorous coursework in artificial intelligence, web and mobile application development, and cybersecurity. My academic achievements were complemented by hands-on projects, including a real-time emotion detection system using machine learning and OpenCV, which sharpened my problem‐solving skills and attention to detail. With a passion for innovation and excellence, I am well-prepared to contribute to cutting-edge technology initiatives and thrive in fast-paced development environments.
-</p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Education End -->
-
-    <!-- Experience Start -->
-    <div class="container-fluid">
-        <div class="container">
-            <div class="row g-0">
-                <div class="col-lg-3">
-                    <div class="experience-header bg-dark h-100 pt-6 pe-6 pb-6">
-                        <div class="text-start d-flex flex-column justify-content-center wow fadeInUp"
-                            data-wow-delay="0.1s">
-                            <p class="text-white sub-title">Experience</p>
-                            <h1 class="display-6 text-white mb-0">My real work experience</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="experience-content h-100 pt-6 ps-6 pb-6">
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.1s">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <p class="fs-5 mb-0 me-4">Historian</p>
-                                        <div>
-                                            <span class="fa fa-calendar me-1"></span> 2023 - 2024
-                                        </div>
-                                    </div>
-                                  <h4 class="mb-3">Full Stack Developer, Kreafdemy</h4>
-<p class="mb-0">
-As a Full Stack Developer at Kreafdemy, I design and build end-to-end web applications using technologies such as PHP (Laravel), JavaScript (ReactJS, Next.js), and MySQL. I collaborate closely with the UI/UX team to create responsive, user-friendly interfaces, implement RESTful APIs, and ensure seamless integration between front-end and back-end components. My responsibilities also include optimizing application performance, maintaining CI/CD pipelines with Git, and deploying services on our VPS environment (OpenLiteSpeed, Apache reverse proxy). By prioritizing clean code, security best practices, and SEO optimization, I help deliver robust solutions that enhance user engagement and drive growth for Kreafdemy.
-</p>
-
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.3s">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <p class="fs-5 mb-0 me-4">Historian</p>
-                                        <div>
-                                            <span class="fa fa-calendar me-1"></span> 2024 - 2025
-                                        </div>
-                                    </div>
-                                   <h4 class="mb-3">Full Stack Developer, Vision Code</h4>
-<p class="mb-0">
-As a Full Stack Developer at Vision Code, I architect and implement robust web applications using PHP (Laravel), JavaScript (ReactJS, Next.js), and relational databases (MySQL). I work closely with cross-functional teams to translate requirements into scalable solutions, develop RESTful APIs, and integrate third-party services. By maintaining clean code standards, implementing automated testing, and managing CI/CD pipelines with Git, I ensure consistent, high-quality deployments. Additionally, I optimize performance, enforce security best practices, and continuously refine the user experience to align with Vision Code’s commitment to innovation and excellence.
-</p>
-
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="experience-item rounded p-4 h-100 wow fadeInUp" data-wow-delay="0.5s">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <p class="fs-5 mb-0 me-4">Historian</p>
-                                        <div>
-                                            <span class="fa fa-calendar me-1"></span> 2021 - 2022
-                                        </div>
-                                    </div>
-                                    <h4 class="mb-3">Game Programming Intern, Agate Game</h4>
-<p class="mb-0">
-During my internship at Agate Game as a Game Programming Intern, I worked closely with senior developers to implement core gameplay mechanics using Unity and C#. I collaborated with artists and designers to integrate assets, optimize performance, and debug game logic. I contributed to level scripting, prototyping new features, and performing playtesting to identify and fix bugs. This hands-on experience sharpened my problem-solving skills, introduced me to version control workflows (Git), and taught me how to iterate quickly on game design to deliver engaging and polished experiences.
-</p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Exparience End -->
-
-
-    <!-- Skills Start -->
-    <div class="container-fluid">
-        <div class="container">
-            <div class="row g-0">
-                <div class="col-lg-3">
-                    <div class="skills-header h-100 bg-dark pt-6 pe-6 pb-6">
-                        <div class="text-start d-flex flex-column justify-content-center wow fadeInUp"
-                            data-wow-delay="0.1s">
-                            <p class="text-white sub-title">Skills</p>
-                            <h1 class="display-6 text-white mb-0">My expertise skills</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="skills-content h-100 pt-6 ps-6 pb-6">
-                        <div class="row g-4">
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp"
-                                    data-wow-delay="0.1s">
-                                    <div class="text-primary text-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
-<path fill="#ffd600" d="M6,42V6h36v36H6z"></path><path fill="#000001" d="M29.538 32.947c.692 1.124 1.444 2.201 3.037 2.201 1.338 0 2.04-.665 2.04-1.585 0-1.101-.726-1.492-2.198-2.133l-.807-.344c-2.329-.988-3.878-2.226-3.878-4.841 0-2.41 1.845-4.244 4.728-4.244 2.053 0 3.528.711 4.592 2.573l-2.514 1.607c-.553-.988-1.151-1.377-2.078-1.377-.946 0-1.545.597-1.545 1.377 0 .964.6 1.354 1.985 1.951l.807.344C36.452 29.645 38 30.839 38 33.523 38 36.415 35.716 38 32.65 38c-2.999 0-4.702-1.505-5.65-3.368L29.538 32.947zM17.952 33.029c.506.906 1.275 1.603 2.381 1.603 1.058 0 1.667-.418 1.667-2.043V22h3.333v11.101c0 3.367-1.953 4.899-4.805 4.899-2.577 0-4.437-1.746-5.195-3.368L17.952 33.029z"></path>
-</svg></div>
-                                
-                                    <p class="mb-0">Javascript</p>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp"
-                                    data-wow-delay="0.3s">
-                                    <div class="text-primary text-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 104.5c171.4 0 303.2 72.2 303.2 151.5S491.3 407.5 320 407.5c-171.4 0-303.2-72.2-303.2-151.5S148.7 104.5 320 104.5m0-16.8C143.3 87.7 0 163 0 256s143.3 168.3 320 168.3S640 349 640 256 496.7 87.7 320 87.7zM218.2 242.5c-7.9 40.5-35.8 36.3-70.1 36.3l13.7-70.6c38 0 63.8-4.1 56.4 34.3zM97.4 350.3h36.7l8.7-44.8c41.1 0 66.6 3 90.2-19.1 26.1-24 32.9-66.7 14.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7L97.4 350.3zm185.7-213.6h36.5l-8.7 44.8c31.5 0 60.7-2.3 74.8 10.7 14.8 13.6 7.7 31-8.3 113.1h-37c15.4-79.4 18.3-86 12.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8 96.6h-36.5l32.7-168.6zM505 242.5c-8 41.1-36.7 36.3-70.1 36.3l13.7-70.6c38.2 0 63.8-4.1 56.4 34.3zM384.2 350.3H421l8.7-44.8c43.2 0 67.1 2.5 90.2-19.1 26.1-24 32.9-66.7 14.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417l-32.8 168.7z"/></svg>
-                                    </div>
-                                    
-                                    <p class="mb-0">PHP</p>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp"
-                                    data-wow-delay="0.5s">
-                                    <div class="text-primary text-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4 .1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8 .1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3 .1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg>
-                                    </div>
-                                    
-                                    <p class="mb-0">Python</p>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp"
-                                    data-wow-delay="0.7s">
-                                    <div class="text-primary text-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="#9B4F96" d="M115.4 30.7L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.4 1 3.5l106.8-62c-.6-1.2-1.5-2.1-2.4-2.7z"/><path fill="#68217A" d="M10.7 95.3c.5.8 1.2 1.5 1.9 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c0-.9-.1-1.9-.6-2.8l-106.6 62z"/><path fill="#fff" d="M85.3 76.1C81.1 83.5 73.1 88.5 64 88.5c-13.5 0-24.5-11-24.5-24.5s11-24.5 24.5-24.5c9.1 0 17.1 5 21.3 12.5l13-7.5c-6.8-11.9-19.6-20-34.3-20-21.8 0-39.5 17.7-39.5 39.5s17.7 39.5 39.5 39.5c14.6 0 27.4-8 34.2-19.8l-12.9-7.6zM97 66.2l.9-4.3h-4.2v-4.7h5.1L100 51h4.9l-1.2 6.1h3.8l1.2-6.1h4.8l-1.2 6.1h2.4v4.7h-3.3l-.9 4.3h4.2v4.7h-5.1l-1.2 6h-4.9l1.2-6h-3.8l-1.2 6h-4.8l1.2-6h-2.4v-4.7H97zm4.8 0h3.8l.9-4.3h-3.8l-.9 4.3z"/></svg></div>
-                                   
-                                    <p class="mb-0">C#</p>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp"
-                                    data-wow-delay="0.1s">
-                                    <div class="text-primary text-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M504.4 115.8a5.7 5.7 0 0 0 -.3-.7 8.5 8.5 0 0 0 -.5-1.3 6 6 0 0 0 -.5-.7 9.4 9.4 0 0 0 -.7-.9c-.2-.2-.5-.4-.8-.6a8.8 8.8 0 0 0 -.9-.7L404.4 55.6a8 8 0 0 0 -8 0L300.1 111h0a8.1 8.1 0 0 0 -.9 .7 7.7 7.7 0 0 0 -.8 .6 8.2 8.2 0 0 0 -.7 .9c-.2 .2-.4 .5-.5 .7a9.7 9.7 0 0 0 -.5 1.3c-.1 .2-.2 .4-.3 .7a8.1 8.1 0 0 0 -.3 2.1V223.2l-80.2 46.2V63.4a7.8 7.8 0 0 0 -.3-2.1c-.1-.2-.2-.5-.3-.7a8.4 8.4 0 0 0 -.5-1.2c-.1-.3-.4-.5-.5-.7a9.4 9.4 0 0 0 -.7-.9 9.5 9.5 0 0 0 -.8-.6 9.8 9.8 0 0 0 -.9-.7h0L115.6 1.1a8 8 0 0 0 -8 0L11.3 56.5h0a6.5 6.5 0 0 0 -.9 .7 7.8 7.8 0 0 0 -.8 .6 8.2 8.2 0 0 0 -.7 .9c-.2 .3-.4 .5-.6 .7a7.9 7.9 0 0 0 -.5 1.2 6.5 6.5 0 0 0 -.3 .7 8.2 8.2 0 0 0 -.3 2.1v329.7a8 8 0 0 0 4 7l192.5 110.8a8.8 8.8 0 0 0 1.3 .5c.2 .1 .4 .2 .6 .3a7.9 7.9 0 0 0 4.1 0c.2-.1 .4-.2 .6-.2a8.6 8.6 0 0 0 1.4-.6L404.4 400.1a8 8 0 0 0 4-7V287.9l92.2-53.1a8 8 0 0 0 4-7V117.9A8.6 8.6 0 0 0 504.4 115.8zM111.6 17.3h0l80.2 46.2-80.2 46.2L31.4 63.4zm88.3 60V278.6l-46.5 26.8-33.7 19.4V123.5l46.5-26.8zm0 412.8L23.4 388.5V77.3L57.1 96.7l46.5 26.8V338.7a6.9 6.9 0 0 0 .1 .9 8 8 0 0 0 .2 1.2h0a5.9 5.9 0 0 0 .4 .9 6.4 6.4 0 0 0 .4 1v0a8.5 8.5 0 0 0 .6 .8 7.6 7.6 0 0 0 .7 .8l0 0c.2 .2 .5 .4 .8 .6a8.9 8.9 0 0 0 .9 .7l0 0 0 0 92.2 52.2zm8-106.2-80.1-45.3 84.1-48.4 92.3-53.1 80.1 46.1-58.8 33.6zm184.5 4.6L215.9 490.1V397.8L346.6 323.2l45.8-26.2zm0-119.1L358.7 250l-46.5-26.8V131.8l33.7 19.4L392.4 178zm8-105.3-80.2-46.2 80.2-46.2 80.2 46.2zm8 105.3V178L455 151.2l33.7-19.4v91.4h0z"/></svg></div>
-                                   
-                                    <p class="mb-0">Laravel</p>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                <div class="skills-item text-center rounded p-4 h-100 wow fadeInUp"
-                                    data-wow-delay="0.3s">
-                                    <div class="text-primary text-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
-<path fill="#212121" d="M18.974,31.5c0,0.828-0.671,1.5-1.5,1.5s-1.5-0.672-1.5-1.5v-14c0-0.653,0.423-1.231,1.045-1.43 c0.625-0.198,1.302,0.03,1.679,0.563l16.777,23.704C40.617,36.709,44,30.735,44,24c0-11-9-20-20-20S4,13,4,24s9,20,20,20 c3.192,0,6.206-0.777,8.89-2.122L18.974,22.216V31.5z M28.974,16.5c0-0.828,0.671-1.5,1.5-1.5s1.5,0.672,1.5,1.5v13.84l-3-4.227 V16.5z"></path>
-</svg>
-                                    </div>
-                                    <p class="mb-0">Next Js</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Skills End -->
-
-
-   <!-- Service Start -->
-<div class="container-fluid" id="pigraService">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-lg-3">
-                <div class="service-header h-100 bg-dark pt-6 pe-6 pb-6">
-                    <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                        <p class="text-white sub-title">Layanan Saya</p>
-                        <h1 class="display-6 text-white mb-0">Apa yang Bisa Saya Bantu</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="service-content h-100 pt-6 ps-6 pb-6">
-                    <div class="row g-4">
-                        <!-- Service Item: Pengembangan Web -->
-                        <div class="col-12">
-                            <div class="service-item p-4 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="row g-4 align-items-center">
-                                    <div class="col-xl-2">
-                                        <i class="fas fa-laptop-code fa-3x"></i>
-                                    </div>
-                                    <div class="col-xl-3">
-                                        <a href="#" class="h4 mb-0">Pengembangan Web</a>
-                                    </div>
-                                    <div class="col-xl-4">
-                                        <p class="mb-0">Membangun situs web responsif, SEO-friendly, dan performa tinggi yang disesuaikan dengan kebutuhan bisnis Anda.</p>
-                                    </div>
-                                    <div class="col-xl-3">
-                                        <p><i class="fa fa-check me-2"></i> HTML5 & CSS3</p>
-                                        <p><i class="fa fa-check me-2"></i> JavaScript & Framework</p>
-                                        <p class="mb-0"><i class="fa fa-check me-2"></i> API & Integrasi Backend</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Service Item: Aplikasi Mobile -->
-                        <div class="col-12">
-                            <div class="service-item p-4 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="row g-4 align-items-center">
-                                    <div class="col-xl-2">
-                                        <i class="fab fa-android fa-3x"></i>
-                                    </div>
-                                    <div class="col-xl-3">
-                                        <a href="#" class="h4 mb-0">Aplikasi Mobile</a>
-                                    </div>
-                                    <div class="col-xl-4">
-                                        <p class="mb-0">Mendesain dan mengembangkan aplikasi Android dan iOS dengan UI/UX menarik dan performa optimal.</p>
-                                    </div>
-                                    <div class="col-xl-3">
-                                        <p><i class="fa fa-check me-2"></i> Flutter / React Native</p>
-                                        <p><i class="fa fa-check me-2"></i> Integrasi REST API</p>
-                                        <p class="mb-0"><i class="fa fa-check me-2"></i> Testing & Debugging</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Service Item: Otomasi & Script -->
-                        <div class="col-12">
-                            <div class="service-item p-4 wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="row g-4 align-items-center">
-                                    <div class="col-xl-2">
-                                        <i class="fas fa-robot fa-3x"></i>
-                                    </div>
-                                    <div class="col-xl-3">
-                                        <a href="#" class="h4 mb-0">Otomasi & Script</a>
-                                    </div>
-                                    <div class="col-xl-4">
-                                        <p class="mb-0">Membuat skrip otomatisasi dan alat internal untuk meningkatkan efisiensi kerja dan mengurangi tugas manual.</p>
-                                    </div>
-                                    <div class="col-xl-3">
-                                        <p><i class="fa fa-check me-2"></i> Python / Bash</p>
-                                        <p><i class="fa fa-check me-2"></i> Data Processing</p>
-                                        <p class="mb-0"><i class="fa fa-check me-2"></i> Scheduling & Cron Jobs</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Service Item: Konsultasi & Dukungan -->
-                        <div class="col-12">
-                            <div class="service-item p-4 wow fadeInUp" data-wow-delay="0.7s">
-                                <div class="row g-4 align-items-center">
-                                    <div class="col-xl-2">
-                                        <i class="fas fa-comments fa-3x"></i>
-                                    </div>
-                                    <div class="col-xl-3">
-                                        <a href="#" class="h4 mb-0">Konsultasi & Dukungan</a>
-                                    </div>
-                                    <div class="col-xl-4">
-                                        <p class="mb-0">Memberikan saran teknis, review kode, serta dukungan pemeliharaan untuk proyek jangka panjang Anda.</p>
-                                    </div>
-                                    <div class="col-xl-3">
-                                        <p><i class="fa fa-check me-2"></i> Code Review</p>
-                                        <p><i class="fa fa-check me-2"></i> Troubleshooting</p>
-                                        <p class="mb-0"><i class="fa fa-check me-2"></i> Dokumentasi & Training</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Service End -->
-
-
-  <!-- Portfolio Start -->
-<div class="container-fluid">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-lg-3">
-                <div class="portfolio-header h-100 bg-dark pt-6 pe-6 pb-6">
-                    <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-                        <p class="text-white sub-title">Portfolio</p>
-                        <h1 class="display-6 text-white mb-0">My Recent Works</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="portfolio-content h-100 pt-6 ps-6 pb-6">
-                    <!-- Portfolio Item: Kreafdemy -->
-                    <div class="portfolio-item py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="row g-4 align-items-center">
-                            <div class="col-xl-6">
-                                <h4 class="text-body">Fullstack Development</h4>
-                                <h1 class="display-6 mb-0">Kreafdemy - Fullstack Developer</h1>
-                            </div>
-                            <div class="col-9 col-xl-4">
-                                <div class="portfolio-img">
-                                    <div class="portfolio-img-inner">
-                                        <img src="img/logo.webp" class="img-fluid" alt="Kreafdemy">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 col-xl-2">
-                                <div class="view-img">
-                                    <a href="img/logo.webp" class="btn btn-primary btn-lg-square" data-lightbox="kreafdemy"><i class="fas fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Portfolio Item: Agate -->
-                    <div class="portfolio-item py-5 border-bottom wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="row g-4 align-items-center">
-                            <div class="col-xl-6">
-                                <h4 class="text-body">Game Development</h4>
-                                <h1 class="display-6 mb-0">Agate - Game Developer</h1>
-                            </div>
-                            <div class="col-9 col-xl-4">
-                                <div class="portfolio-img">
-                                    <div class="portfolio-img-inner">
-                                        <img src="img/agate.jpg" class="img-fluid" alt="Agate">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 col-xl-2">
-                                <div class="view-img">
-                                    <a href="img/agate.jpg" class="btn btn-primary btn-lg-square" data-lightbox="agate"><i class="fas fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Portfolio Item: Vision Code -->
-                    <div class="portfolio-item py-5 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="row g-4 align-items-center">
-                            <div class="col-xl-6">
-                                <h4 class="text-body">Fullstack Development</h4>
-                                <h1 class="display-6 mb-0">Vision Code - Fullstack Developer</h1>
-                            </div>
-                            <div class="col-9 col-xl-4">
-                                <div class="portfolio-img">
-                                    <div class="portfolio-img-inner">
-                                        <img src="img/visioncode.jpg" class="img-fluid" alt="Vision Code">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 col-xl-2">
-                                <div class="view-img">
-                                    <a href="img/visioncode.jpg" class="btn btn-primary btn-lg-square" data-lightbox="visioncode"><i class="fas fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Portfolio End -->
-
-
-
- <!-- Testimonial Start -->
-<div class="container-fluid">
-  <div class="container">
-    <div class="row g-0">
-      <div class="col-lg-3">
-        <div class="testimonial-header h-100 bg-dark pt-6 pe-6 pb-6">
-          <div class="text-start d-flex flex-column justify-content-center wow fadeInUp" data-wow-delay="0.1s">
-            <p class="text-white sub-title">Testimoni</p>
-            <h1 class="display-6 text-white mb-0">Apa Kata Klien</h1>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="testimonial-content h-100 pt-6 ps-6 pb-6">
-          <div class="testimonial-carousel owl-carousel bg-light wow fadeInUp" data-wow-delay="0.1s">
-
-            <!-- Item 1 -->
-            <div class="testimonial-item px-4 py-5">
-              <div class="text-center mb-4">
-                <i class="fas fa-user-circle fa-4x text-primary"></i>
-              </div>
-              <div class="text-center mb-3">
-                <h5 class="mb-1">Rini Susanti</h5>
-                <p class="mb-0"><em>Owner Toko Distro</em></p>
-              </div>
-              <p class="text-center">“Terima kasih atas bantuan pengembangan website kami—loading super cepat dan tampilan sangat responsif!”</p>
-              <div class="d-flex justify-content-center mt-3">
-                <i class="fas fa-star text-primary"></i>
-                <i class="fas fa-star text-primary"></i>
-                <i class="fas fa-star text-primary"></i>
-                <i class="fas fa-star text-primary"></i>
-                <i class="fas fa-star-half-alt text-primary"></i>
-              </div>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="testimonial-item px-4 py-5">
-              <div class="text-center mb-4">
-                <i class="fas fa-user-circle fa-4x text-primary"></i>
-              </div>
-              <div class="text-center mb-3">
-                <h5 class="mb-1">Adi Prasetyo</h5>
-                <p class="mb-0"><em>Produkt Manager Aplikasi</em></p>
-              </div>
-              <p class="text-center">“Otomasi tugas harian kami dengan skrip Python sangat membantu—banyak waktu kerja yang terpangkas!”</p>
-              <div class="d-flex justify-content-center mt-3">
-                <i class="fas fa-star text-primary"></i>
-                <i class="fas fa-star text-primary"></i>
-                <i class="fas fa-star text-primary"></i>
-                <i class="fas fa-star text-primary"></i>
-                <i class="fas fa-star text-primary"></i>
-              </div>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="testimonial-item px-4 py-5">
-              <div class="text-center mb-4">
-                <i class="fas fa-user-circle fa-4x text-primary"></i>
-              </div>
-              <div class="text-center mb-3">
-                <h5 class="mb-1">Maya Kartika</h5>
-                <p class="mb-0"><em>Founder Startup Edu</em></p>
-              </div>
-              <p class="text-center">“Konsultasi kode dan review-nya sangat detail. Proyek kami jadi lebih stabil dan terstruktur!”</p>
-              <div class="d-flex justify-content-center mt-3">
-                <i class="fas fa-star text-primary"></i>
-                <i class="fas fa-star text-primary"></i>
-                <i class="fas fa-star text-primary"></i>
-                <i class="fas fa-star text-primary"></i>
-                <i class="fas fa-star-half-alt text-primary"></i>
-              </div>
-            </div>
-
-          </div> <!-- .owl-carousel -->
-        </div>
-      </div>
-    </div>
+  <div style="margin-top: 3rem;">
+    <button class="btn-malware"><span>Deploy Payload</span></button>
+    <button class="btn-malware"><span>Trigger Exploit Chain</span></button>
+    <button class="btn-malware"><span>Exfiltrate Data</span></button>
   </div>
-</div>
-<!-- Testimonial End -->
 
+  <h2 style="margin-top: 5rem;">🔗 Malware Research Resources</h2>
+  <ul>
+    <li>📂 <a href="https://www.vx-underground.org/" target="_blank">VX Underground</a> – The largest malware collection on the internet.</li>
+    <li>🧬 <a href="https://malpedia.caad.fkie.fraunhofer.de/" target="_blank">Malpedia</a> – Malware family encyclopedia & threat actor mappings.</li>
+    <li>🧪 <a href="https://bazaar.abuse.ch/" target="_blank">MalwareBazaar</a> – Free repository of real malware samples.</li>
+    <li>📉 <a href="https://www.virustotal.com/" target="_blank">VirusTotal</a> – Sandbox analysis and signature scanning.</li>
+    <li>⚠️ <a href="https://any.run/" target="_blank">Any.Run</a> – Interactive malware sandbox environment.</li>
+    <li>🛠 <a href="https://github.com/topics/red-team" target="_blank">GitHub – Red Team Tools</a> – Collection of real tools for adversary simulation.</li>
+  </ul>
 
-
-    <!-- Contact Start -->
-    <div class="container-fluid" id="pigraContact">
-        <div class="container">
-            <div class="row g-0">
-                <div class="col-lg-3">
-                    <div class="contact-header h-100 bg-dark pt-6 pe-6 pb-6">
-                        <div class="text-start d-flex flex-column justify-content-center wow fadeInUp"
-                            data-wow-delay="0.1s">
-                            <p class="text-white sub-title">Contact Me</p>
-                            <h1 class="display-6 text-white mb-0">Let’s Start A New Project</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="contact-content h-100 pt-6 ps-6 pb-6">
-                        <div class="bg-light p-4">
-                            <div class="row g-5">
-                                <div class="col-xl-5 wow fadeInUp" data-wow-delay="0.1s">
-                                   <p class="mb-4">
-  Ready to bring your idea to life? Drop me a line below and I’ll respond within 24 hours. Whether you’re looking for a striking website, a smooth mobile app, or a solid backend solution, I’m here to turn your vision into reality!
-</p>
-
-                                    <div class="d-flex mb-4">
-                                        <div class="btn-xl-square bg-primary text-white me-3">
-                                            <i class="fas fa-map-marker-alt"></i>
-                                        </div>
-                                        <div>
-                                            <h4>Address</h4>
-                                            <p class="mb-0">Jakarta, Indonesia</p>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex mb-4">
-                                        <div class="btn-xl-square bg-primary text-white me-3">
-                                            <i class="fas fa-envelope"></i>
-                                        </div>
-                                        <div>
-                                            <h4>Mail Us</h4>
-                                            <p class="mb-0">delfiboyz@gmail.com</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-7 wow fadeInUp" data-wow-delay="0.3s">
-                                    <div>
-                                      <form action="https://getform.io/f/bllzqryb" method="POST">
-  <div class="row g-3">
-    <div class="col-lg-12 col-xl-6">
-      <div class="form-floating">
-        <input type="text"
-               class="form-control border-0"
-               id="name"
-               name="name"
-               placeholder="Your Name"
-               required>
-        <label for="name">Your Name</label>
-      </div>
-    </div>
-    <div class="col-lg-12 col-xl-6">
-      <div class="form-floating">
-        <input type="email"
-               class="form-control border-0"
-               id="email"
-               name="email"
-               placeholder="Your Email"
-               required>
-        <label for="email">Your Email</label>
-      </div>
-    </div>
-    <div class="col-lg-12 col-xl-6">
-      <div class="form-floating">
-        <input type="tel"
-               class="form-control border-0"
-               id="phone"
-               name="phone"
-               placeholder="Phone">
-        <label for="phone">Your Phone</label>
-      </div>
-    </div>
-    <div class="col-12">
-      <div class="form-floating">
-        <textarea class="form-control border-0"
-                  id="message"
-                  name="message"
-                  placeholder="Leave a message here"
-                  style="height: 120px"
-                  required></textarea>
-        <label for="message">Message</label>
-      </div>
-    </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary w-100 py-3">
-        Send Message
-      </button>
-    </div>
-  </div>
-</form>
-
-                                    </div>
-                                </div>
-                                <div class="col-12 wow fadeInUp" data-wow-delay="0.5s">
-                                    <div class="rounded">
-                                        <iframe class="rounded w-100" style="height: 400px;"
-                                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63465.83309984757!2d106.79526486476118!3d-6.182311414050194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f436b8c94b07%3A0x6ea6d5398b7c82f6!2sJakarta%20Pusat%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1749313742062!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Contact End -->
-
-
-    <!-- Footer Start -->
-    <div class="container-fluid footer bg-dark border-bottom-0">
-        <div class="container wow fadeIn" data-wow-delay="0.1s">
-            <div class="row g-0">
-                <div class="col-12">
-                    <div class="footer-content h-100 pt-6 ps-6 pb-6">
-                        <div class="row g-4 align-items-center">
-                            <div class="col-12 text-center">
-                                <div class="d-flex justify-content-center">
-                                  
-                                    <a class="btn btn-light btn-md-square me-3" href="https://www.instagram.com/delfi_boyz_morningstar/reels/"><i
-                                            class="fab fa-instagram"></i></a>
-                                    <a class="btn btn-light btn-md-square me-0" href="https://www.linkedin.com/in/delfi-fikri-mukarom-709ba6313/?originalSubdomain=id"><i
-                                            class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-12 text-center">
-                                <span class="text-body"><a href="#" class="border-bottom text-white"><i
-                                            class="fas fa-copyright text-body me-2"></i>Delfi Fikri Mukarom</a>, All right
-                                    reserved.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
-
+  <h2>📚 Disclaimer & Ethics</h2>
+  <p>
+    All content is for <strong>cybersecurity education</strong> and <strong>authorized red team simulation</strong>. No real malware is executed here. Use of offensive tools in real environments must comply with local laws and be authorized by the system owner.
+  </p>
+</section>
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -931,6 +429,25 @@ During my internship at Agate Game as a Game Programming Intern, I worked closel
     <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
+
+<script>
+  // Randomly move hacker cursor every 1.5s for chaotic vibe
+  const cursor = document.createElement('div');
+  cursor.className = 'cursor';
+  document.body.appendChild(cursor);
+
+  function moveCursorRandom() {
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const x = Math.random() * vw;
+    const y = Math.random() * vh;
+    cursor.style.left = `${x}px`;
+    cursor.style.top = `${y}px`;
+  }
+
+  setInterval(moveCursorRandom, 1500);
+  moveCursorRandom();
+</script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
