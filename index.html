@@ -241,6 +241,75 @@ code {
     <li>⚠️ <a href="https://any.run/" target="_blank">Any.Run</a> – Interactive sandbox for analyzing malware behavior live.</li>
     <li>🛠 <a href="https://github.com/topics/red-team" target="_blank">GitHub Red Team Tools</a> – Curated tools for offensive cyber research and simulation.</li>
   </ul>
+ <h2 style="margin-top: 5rem;">🔍 Google Dorking 2025: Advanced Search for Attack Surface Discovery</h2>
+  <p>
+    <strong>Google Dorking</strong> is the art of using advanced Google search operators to find sensitive information unintentionally exposed online. Attackers use this to identify vulnerable servers, leaked credentials, and open directories.
+  </p>
+  <p>
+    In 2025, dorking has evolved with new operators and indexed data from cloud services and IoT devices, making reconnaissance faster and deeper than ever.
+  </p>
+  <h3>Common Google Dorks Examples:</h3>
+<ul>
+  <li><code>intitle:"index of" "backup"</code> — Finds publicly accessible backup directories that may contain sensitive data.</li>
+  <li><code>filetype:env db_password</code> — Searches for environment files leaking database passwords or API keys.</li>
+  <li><code>site:gov confidential</code> — Targets government domains looking for confidential documents or leaks.</li>
+  <li><code>inurl:"/admin/login.php"</code> — Locates exposed admin login pages potentially vulnerable to brute force or exploits.</li>
+  <li><code>ext:log "error" "password"</code> — Finds exposed log files containing error messages and sometimes passwords.</li>
+  <li><code>filetype:sql "insert into" "password"</code> — Finds SQL dump files containing password hashes or credentials.</li>
+  <li><code>intitle:"index of" "private"</code> — Searches for directories named “private” potentially containing confidential files.</li>
+  <li><code>intext:"confidential" filetype:pdf</code> — Finds PDF documents marked confidential and exposed publicly.</li>
+  <li><code>allinurl: admin config</code> — Finds URLs that contain both “admin” and “config”, often revealing admin panels or config files.</li>
+  <li><code>ext:bak OR ext:old OR ext:backup</code> — Finds backup files left accessible on web servers.</li>
+  <li><code>site:edu "student records"</code> — Targets educational domains for exposed student information.</li>
+  <li><code>intitle:"phpinfo()" "published by the PHP Group"</code> — Finds publicly accessible PHP info pages revealing server configuration.</li>
+  <li><code>inurl:"?id=" AND "union select"</code> — Detects potential SQL injection vulnerable pages with URL parameters.</li>
+  <li><code>filetype:xls "password"</code> — Finds Excel files containing plaintext passwords.</li>
+</ul>
+  <p>
+    <strong>Defensive Tip:</strong> Regularly audit your public-facing assets using Google dorks to identify and remediate accidental leaks.
+  </p>
+<h2 style="margin-top: 5rem;">💉 SQL Injection 2025: Breaching Databases with Malicious Queries</h2>
+<p>
+  <strong>SQL Injection (SQLi)</strong> remains one of the most dangerous web vulnerabilities, allowing attackers to execute arbitrary SQL commands on backend databases. It can lead to data theft, unauthorized access, and even full system takeover.
+</p>
+<p>
+  In 2025, attackers leverage automated tools and AI-enhanced payloads to find and exploit SQLi flaws faster, including advanced blind injections and second-order attacks.
+</p>
+
+<h3>Common SQL Injection Payload Examples:</h3>
+<ul>
+  <li><code>' OR '1'='1'; --</code> — Bypass authentication by always evaluating true.</li>
+  <li><code>UNION SELECT username, password FROM users;</code> — Extract data from other tables.</li>
+  <li><code>'; DROP TABLE users; --</code> — Destructive payload to delete entire tables.</li>
+  <li><code>AND 1=CAST((SELECT TOP 1 password FROM users) AS INT); --</code> — Blind SQLi extracting hashed passwords.</li>
+</ul>
+
+<p><strong>Defensive Tips:</strong> Use prepared statements with parameterized queries, sanitize all user inputs, and regularly test applications with automated SQLi scanners.</p>
+
+
+<h2 style="margin-top: 5rem;">💣 Ransomware 2025: Digital Hostage Tactics</h2>
+<p>
+  <strong>Ransomware</strong> attacks continue to evolve, locking down critical systems and demanding hefty ransoms—often in cryptocurrencies—to restore access.<br>
+  Modern ransomware uses advanced encryption algorithms, double extortion tactics (stealing data before encrypting), and targeted attacks on high-value organizations.
+</p>
+
+<h3>How Ransomware Spreads:</h3>
+<ul>
+  <li>Phishing emails with malicious attachments or links.</li>
+  <li>Exploitation of vulnerable public-facing servers (e.g., RDP, VPN).</li>
+  <li>Use of trojans and droppers like <em>CrimsonLoader</em> to deploy payloads silently.</li>
+  <li>Supply chain compromises, injecting malicious code into trusted software updates.</li>
+</ul>
+
+<h3>Signs of Infection:</h3>
+<ul>
+  <li>Files suddenly inaccessible, renamed with strange extensions.</li>
+  <li>Ransom notes demanding payment in Bitcoin or Monero.</li>
+  <li>Unusual network traffic to external IPs or C2 servers.</li>
+  <li>Disabled security tools and system backups.</li>
+</ul>
+
+<p><strong>Prevention:</strong> Maintain up-to-date backups offline, patch vulnerabilities quickly, educate users on phishing, and implement endpoint detection & response (EDR) solutions.</p>
 
   <h2>📚 Ethical Use Disclaimer</h2>
   <p>
