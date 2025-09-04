@@ -363,31 +363,33 @@ html, body {
 <body>
 <div class="virus-tentacles"></div>
 <div class="red-alert"></div>
-<div class="error-code">[ERROR] ↳ Injecting RAT payload to target machine | [C2 Beacon Active] | [Status: Compromised]</div>
+<div class="error-code">[ERROR] ↳ Injecting RAT payload into target | [C2 Beacon Detected] | [Status: System Breached]</div>
 
 <section style="padding: 6vh 10vw;">
-  <h1 class="glitch">Red Team Operations: Malware Simulation Interface</h1>
+  <h1 class="glitch">Red Team Operations: Malware Simulation Console</h1>
 
   <p>
-    Welcome to the Offensive Cyber Simulation Environment. This lab is designed for ethical red team operators, malware analysts, and cybersecurity researchers to explore adversary tactics using real-world frameworks and threat emulation — <strong>for educational and authorized penetration testing only.</strong>
+    Welcome to the <strong>Offensive Cyber Simulation Lab</strong>. This environment is purpose-built for <strong>red team operators, malware researchers, and adversary emulation specialists</strong> to study advanced techniques, tactics, and procedures (TTPs). <br>
+    All scenarios presented here are for <strong>authorized simulation, training, and educational use only</strong>.
   </p>
 
   <h2>💀 Simulated Malware Arsenal</h2>
   <ul>
-    <li><strong>RAT.exe</strong> – Inspired by <a href="https://github.com/quasar/QuasarRAT" target="_blank">Quasar</a> and <a href="https://www.vx-underground.org/" target="_blank">njRAT samples</a>.</li>
-    <li><strong>PhantomStealer</strong> – Based on behavior of <a href="https://malpedia.caad.fkie.fraunhofer.de/details/win.redline" target="_blank">RedLine Stealer</a> and <a href="https://malpedia.caad.fkie.fraunhofer.de/details/win.vidar" target="_blank">Vidar</a>.</li>
-    <li><strong>WormInjector</strong> – Modeled after <a href="https://attack.mitre.org/techniques/T1210/" target="_blank">MS17-010 EternalBlue</a> exploits used by WannaCry.</li>
-    <li><strong>CrimsonLoader</strong> – Dropper using LOLBAS techniques (<a href="https://lolbas-project.github.io/" target="_blank">LOLBAS Project</a>).</li>
-    <li><strong>SleepyCat</strong> – Fileless malware concept using syscalls & in-memory injection, inspired by <a href="https://github.com/CCob/ThreadStackSpoofer" target="_blank">ThreadStackSpoofer</a>.</li>
+    <li><strong>RAT.exe</strong> – A full-featured remote access trojan, modeled after <a href="https://github.com/quasar/QuasarRAT" target="_blank">Quasar</a> and <a href="https://www.vx-underground.org/" target="_blank">njRAT</a>.</li>
+    <li><strong>PhantomStealer</strong> – Credential and data thief mimicking <a href="https://malpedia.caad.fkie.fraunhofer.de/details/win.redline" target="_blank">RedLine</a> and <a href="https://malpedia.caad.fkie.fraunhofer.de/details/win.vidar" target="_blank">Vidar</a>.</li>
+    <li><strong>WormInjector</strong> – A network-spreading payload leveraging SMBv1 EternalBlue vulnerabilities, similar to WannaCry.</li>
+    <li><strong>CrimsonLoader</strong> – Polymorphic dropper using <a href="https://lolbas-project.github.io/" target="_blank">LOLBAS</a> tactics and PowerShell stagers.</li>
+    <li><strong>SleepyCat</strong> – Stealthy fileless implant using direct system calls and in-memory injection. Based on tools like <a href="https://github.com/CCob/ThreadStackSpoofer" target="_blank">ThreadStackSpoofer</a>.</li>
   </ul>
 
-  <h2>🎯 Attack Chain Simulation</h2>
+  <h2>🎯 Simulated Attack Chain</h2>
   <ul>
-    <li><strong>Initial Access:</strong> Weaponized documents from <a href="https://bazaar.abuse.ch/" target="_blank">MalwareBazaar</a>, spear phishing, USB HID injection.</li>
-    <li><strong>Execution:</strong> Living-off-the-land binaries: <code>mshta.exe</code>, <code>regsvr32.exe</code>, <code>rundll32.exe</code>.</li>
-    <li><strong>Persistence:</strong> Registry keys, scheduled tasks, WMI permanent event consumers.</li>
-    <li><strong>Privilege Escalation:</strong> CVE chaining from sources like <a href="https://exploit-db.com" target="_blank">Exploit-DB</a>.</li>
-    <li><strong>Exfiltration:</strong> DNS tunneling, encrypted HTTPS POST to simulated C2 domains.</li>
+    <li><strong>Initial Access:</strong> Spear-phishing, malicious Office/HTA payloads from <a href="https://bazaar.abuse.ch/" target="_blank">MalwareBazaar</a>, USB HID attacks.</li>
+    <li><strong>Execution:</strong> Living-off-the-land binaries (<code>mshta</code>, <code>regsvr32</code>, <code>rundll32</code>), obfuscated script execution.</li>
+    <li><strong>Persistence:</strong> Scheduled tasks, registry run keys, WMI event consumers.</li>
+    <li><strong>Privilege Escalation:</strong> Local CVEs, token impersonation, DLL sideloading. Source: <a href="https://exploit-db.com" target="_blank">Exploit-DB</a>.</li>
+    <li><strong>Defense Evasion:</strong> AMSI & ETW bypass, API unhooking, custom packers.</li>
+    <li><strong>Exfiltration:</strong> Encrypted data channels over HTTPS, DNS tunneling, staging to simulated C2 endpoints.</li>
   </ul>
 
   <h2>📡 Simulated C2 Infrastructure</h2>
@@ -403,19 +405,20 @@ html, body {
     <button class="btn-malware"><span>Exfiltrate Data</span></button>
   </div>
 
-  <h2 style="margin-top: 5rem;">🔗 Malware Research Resources</h2>
+  <h2 style="margin-top: 5rem;">🔗 Malware Research & Intelligence Sources</h2>
   <ul>
-    <li>📂 <a href="https://www.vx-underground.org/" target="_blank">VX Underground</a> – The largest malware collection on the internet.</li>
-    <li>🧬 <a href="https://malpedia.caad.fkie.fraunhofer.de/" target="_blank">Malpedia</a> – Malware family encyclopedia & threat actor mappings.</li>
-    <li>🧪 <a href="https://bazaar.abuse.ch/" target="_blank">MalwareBazaar</a> – Free repository of real malware samples.</li>
-    <li>📉 <a href="https://www.virustotal.com/" target="_blank">VirusTotal</a> – Sandbox analysis and signature scanning.</li>
-    <li>⚠️ <a href="https://any.run/" target="_blank">Any.Run</a> – Interactive malware sandbox environment.</li>
-    <li>🛠 <a href="https://github.com/topics/red-team" target="_blank">GitHub – Red Team Tools</a> – Collection of real tools for adversary simulation.</li>
+    <li>📂 <a href="https://www.vx-underground.org/" target="_blank">VX Underground</a> – Largest public malware archive for research purposes.</li>
+    <li>🧬 <a href="https://malpedia.caad.fkie.fraunhofer.de/" target="_blank">Malpedia</a> – Threat actor profiles and malware family details.</li>
+    <li>🧪 <a href="https://bazaar.abuse.ch/" target="_blank">MalwareBazaar</a> – Real-world payload samples contributed by analysts.</li>
+    <li>📉 <a href="https://www.virustotal.com/" target="_blank">VirusTotal</a> – Static and dynamic analysis platform.</li>
+    <li>⚠️ <a href="https://any.run/" target="_blank">Any.Run</a> – Interactive sandbox for analyzing malware behavior live.</li>
+    <li>🛠 <a href="https://github.com/topics/red-team" target="_blank">GitHub Red Team Tools</a> – Curated tools for offensive cyber research and simulation.</li>
   </ul>
 
-  <h2>📚 Disclaimer & Ethics</h2>
+  <h2>📚 Ethical Use Disclaimer</h2>
   <p>
-    All content is for <strong>cybersecurity education</strong> and <strong>authorized red team simulation</strong>. No real malware is executed here. Use of offensive tools in real environments must comply with local laws and be authorized by the system owner.
+    This simulation environment is designed solely for <strong>educational use, cyber defense training, and legal red teaming engagements</strong>. <br>
+    No real malware is executed or transmitted. Always operate under authorized conditions and comply with all applicable laws and ethical guidelines.
   </p>
 </section>
 
