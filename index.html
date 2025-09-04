@@ -55,9 +55,99 @@
   <!-- Custom & Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
   <!-- Link ke Sitemap -->
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"><style>
+  /* Red Team Hacking Mode */
+  body {
+    background-color: #000;
+    color: #ff0000;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  a, p, h1, h2, h3, h4, h5, h6, span {
+    color: #ff3333 !important;
+    text-shadow: 0 0 5px #ff0000;
+  }
+
+  .bg-light {
+    background-color: #111 !important;
+  }
+
+  .bg-dark {
+    background-color: #000 !important;
+  }
+
+  .text-dark {
+    color: #ff5555 !important;
+  }
+
+  .text-white {
+    color: #ff3333 !important;
+  }
+
+  .btn-primary {
+    background-color: #ff0000 !important;
+    border: 1px solid #ff3333 !important;
+  }
+
+  .btn-primary:hover {
+    background-color: #cc0000 !important;
+  }
+
+  .navbar,
+  .nav-section {
+    background-color: #000 !important;
+    border-right: 1px solid #ff0000;
+  }
+
+  .nav-link.active,
+  .nav-link:hover {
+    background-color: #330000 !important;
+    color: #ff0000 !important;
+  }
+
+  .spinner-border {
+    border-color: #ff0000 transparent #ff0000 transparent !important;
+  }
+
+  /* Optional Glitch Effect */
+  .glitch {
+    color: #ff0000;
+    position: relative;
+    animation: glitch 1s infinite;
+  }
+
+  @keyframes glitch {
+    0% {
+      text-shadow: 2px 2px #00ffea, -2px -2px #ff0000;
+    }
+    20% {
+      text-shadow: -2px -2px #00ffea, 2px 2px #ff0000;
+    }
+    40% {
+      text-shadow: 2px -2px #00ffea, -2px 2px #ff0000;
+    }
+    60% {
+      text-shadow: -2px 2px #00ffea, 2px -2px #ff0000;
+    }
+    80% {
+      text-shadow: 2px 2px #00ffea, -2px -2px #ff0000;
+    }
+    100% {
+      text-shadow: -2px -2px #00ffea, 2px 2px #ff0000;
+    }
+  }
+
+  .display-6, .sub-title {
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+</style>
+
+
+
 </head>
 
 
@@ -98,7 +188,7 @@
                         <div class="text-start d-flex flex-column justify-content-center wow fadeInUp"
                             data-wow-delay="0.3s">
                             <p class="text-white sub-title">👋 Hello I'm Delfi</p>
-                            <h1 class="display-6 text-white mb-0">Full Stack Developer Based in Indonesia</h1>
+<h1 class="display-6 text-white mb-0 glitch">Full Stack Developer Based in Indonesia</h1>
                         </div>
                     </div>
                 </div>
@@ -598,141 +688,6 @@ During my internship at Agate Game as a Game Programming Intern, I worked closel
 </div>
 <!-- Portfolio End -->
 
-
-    <!-- Blog Start 
-    <div class="container-fluid" id="pigraBlog">
-        <div class="container">
-            <div class="row g-0">
-                <div class="col-lg-3">
-                    <div class="blog-header h-100 bg-dark pt-6 pe-6 pb-6">
-                        <div class="text-start d-flex flex-column justify-content-center wow fadeInUp"
-                            data-wow-delay="0.1s">
-                            <p class="text-white sub-title">Blog</p>
-                            <h1 class="display-6 text-white mb-0">Recent Posts</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="blog-content h-100 pt-6 ps-6 pb-6">
-                        <div class="row g-4">
-                            <div class="col-xl-6">
-                                <div class="blog-item wow fadeInUp" data-wow-delay="0.1s">
-                                    <div class="row g-4">
-                                        <div class="col-4">
-                                            <div class="blog-item-img bg-dark h-100">
-                                                <a href="#">
-                                                    <img src="img/blog-1.jpg" class="img-fluid w-100 h-100"
-                                                        style="object-fit: cover;" alt="Image">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-8">
-                                            <div class="h-100">
-                                                <p class="text-body mb-3"><i class="fa fa-calendar-alt me-2"></i>
-                                                    November 12, 2024</p>
-                                                <a href="#" class="d-inline-block h4 mb-4">Secrets of the Mobile
-                                                    Application</a>
-                                                <div class="py-2 px-3 bg-light d-flex justify-content-between">
-                                                    <p class="mb-0 text-body">By <a href="#" class="h6">Bernard</a></p>
-                                                    <p class="mb-0 text-body">In <a href="#" class="h6">Design</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="blog-item wow fadeInUp" data-wow-delay="0.3s">
-                                    <div class="row g-4">
-                                        <div class="col-4">
-                                            <div class="blog-item-img bg-dark h-100">
-                                                <a href="#">
-                                                    <img src="img/blog-2.jpg" class="img-fluid w-100 h-100"
-                                                        style="object-fit: cover;" alt="Image">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-8">
-                                            <div class="h-100">
-                                                <p class="text-body mb-3"><i class="fa fa-calendar-alt me-2"></i>
-                                                    November 18, 2024</p>
-                                                <a href="#" class="d-inline-block h4 mb-4">How to Create Quality Figma
-                                                    Design</a>
-                                                <div class="py-2 px-3 bg-light d-flex justify-content-between">
-                                                    <p class="mb-0 text-body">By <a href="#" class="h6">Walker</a></p>
-                                                    <p class="mb-0 text-body">In <a href="#" class="h6">Media</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="blog-item wow fadeInUp" data-wow-delay="0.5s">
-                                    <div class="row g-4">
-                                        <div class="col-4">
-                                            <div class="blog-item-img bg-dark h-100">
-                                                <a href="#">
-                                                    <img src="img/blog-3.jpg" class="img-fluid w-100 h-100"
-                                                        style="object-fit: cover;" alt="Image">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-8">
-                                            <div class="h-100">
-                                                <p class="text-body mb-3"><i class="fa fa-calendar-alt me-2"></i>
-                                                    November 23, 2025</p>
-                                                <a href="#" class="d-inline-block h4 mb-4">Tutorials for Learning
-                                                    Development</a>
-                                                <div class="py-2 px-3 bg-light d-flex justify-content-between">
-                                                    <p class="mb-0 text-body">By <a href="#" class="h6">Jacob</a></p>
-                                                    <p class="mb-0 text-body">In <a href="#" class="h6">Lifestyle</a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="blog-item wow fadeInUp" data-wow-delay="0.7s">
-                                    <div class="row g-4">
-                                        <div class="col-4">
-                                            <div class="blog-item-img bg-dark h-100">
-                                                <a href="#">
-                                                    <img src="img/blog-4.jpg" class="img-fluid w-100 h-100"
-                                                        style="object-fit: cover;" alt="Image">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-8">
-                                            <div class="h-100">
-                                                <p class="text-body mb-3"><i class="fa fa-calendar-alt me-2"></i>
-                                                    November 26, 2025</p>
-                                                <a href="#" class="d-inline-block h4 mb-4">Tutorials for Learning
-                                                    Development</a>
-                                                <div class="py-2 px-3 bg-light d-flex justify-content-between">
-                                                    <p class="mb-0 text-body">By <a href="#" class="h6">Perkel</a></p>
-                                                    <p class="mb-0 text-body">In <a href="#" class="h6">Design</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 wow fadeInUp" data-wow-delay="0.9s">
-                                <div class="blog-btn d-flex justify-content-center">
-                                    <p class="mb-0 me-2">For More Works Visit</p>
-                                    <a href="#" class="btn d-inline-block p-0">Our Blog</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Blog End -->
 
 
  <!-- Testimonial Start -->
