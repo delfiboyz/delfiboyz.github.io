@@ -60,297 +60,124 @@
   <!-- Link ke Sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 <style>
-  /* ====== Malware Extreme Mode - Dark Cyberpunk Red Alert ====== */
-  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
-  html, body {
-    margin: 0; padding: 0;
-    height: 100%;
-    background: #070000;
-    overflow: hidden;
-    font-family: 'Share Tech Mono', monospace;
-    color: #ff1100;
-    text-shadow:
-      0 0 10px #ff2200,
-      0 0 20px #ff4400,
-      0 0 30px #ff6600;
-  }
-
-  /* Virus tentacles overlay (CSS animated) */
-  .virus-tentacles {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    pointer-events: none;
-    background:
-      radial-gradient(circle at 15% 20%, rgba(255,0,0,0.3) 10px, transparent 20px),
-      radial-gradient(circle at 50% 60%, rgba(255,50,50,0.2) 15px, transparent 30px),
-      radial-gradient(circle at 80% 30%, rgba(255,0,0,0.4) 20px, transparent 40px);
-    animation: tentaclesPulse 5s ease-in-out infinite;
-    mix-blend-mode: screen;
-    filter: blur(6px);
-    z-index: 5;
-  }
-
-  @keyframes tentaclesPulse {
-    0%, 100% {
-      background-position: 15% 20%, 50% 60%, 80% 30%;
-      opacity: 0.4;
-    }
-    50% {
-      background-position: 10% 25%, 45% 65%, 85% 35%;
-      opacity: 0.7;
-    }
-  }
-
-  /* Flicker noise scanline background overlay */
-  body::before {
-    content: "";
-    position: fixed;
-    top:0; left:0; width: 100vw; height: 100vh;
-    background: repeating-linear-gradient(
-      0deg,
-      rgba(255, 0, 0, 0.08),
-      rgba(255, 0, 0, 0.12) 2px,
-      rgba(0,0,0,0) 3px,
-      rgba(255, 0, 0, 0.05) 5px
-    );
-    pointer-events: none;
-    animation: flickerScanline 1.5s infinite;
-    mix-blend-mode: screen;
-    z-index: 2;
-  }
-
-  @keyframes flickerScanline {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 0.35; }
-  }
-
-  /* Hacker glitch text + flicker */
-  h1, h2, h3, p, a, span {
-    animation: glitchText 3s infinite;
-    position: relative;
-    color: #ff3300;
-    text-shadow:
-      0 0 10px #ff2200,
-      0 0 20px #ff4400,
-      0 0 30px #ff6600,
-      0 0 50px #ff4400;
-  }
-
-  @keyframes glitchText {
-    0% {
-      clip-path: inset(0 0 0 0);
-      text-shadow:
-        2px 0 #ff0000,
-        -2px 0 #ff6600;
-      transform: translate(0);
-      opacity: 1;
-    }
-    10% {
-      clip-path: inset(10% 0 20% 0);
-      text-shadow:
-        -2px 0 #ff2200,
-        2px 0 #ff4400;
-      transform: translate(-2px, 1px);
-      opacity: 0.9;
-    }
-    20% {
-      clip-path: inset(30% 0 30% 0);
-      text-shadow:
-        3px 3px #ff3300,
-        -3px -3px #ff6600;
-      transform: translate(2px, -1px);
-      opacity: 0.7;
-    }
-    30% {
-      clip-path: inset(20% 0 10% 0);
-      text-shadow:
-        -3px -3px #ff1100,
-        3px 3px #ff3300;
-      transform: translate(-1px, 2px);
-      opacity: 0.8;
-    }
-    40% {
-      clip-path: inset(0 0 0 0);
-      text-shadow:
-        2px 0 #ff4400,
-        -2px 0 #ff6600;
-      transform: translate(0);
-      opacity: 1;
-    }
-    100% {
-      clip-path: inset(0 0 0 0);
-      text-shadow:
-        0 0 20px #ff6600;
-      transform: translate(0);
-      opacity: 1;
-    }
-  }
-
-  /* Red Alert blinking overlay */
-  .red-alert {
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(255, 0, 0, 0.12);
-    animation: redAlertFlash 4s infinite;
-    pointer-events: none;
-    z-index: 6;
-  }
-
-  @keyframes redAlertFlash {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 0.3; }
-  }
-
-  /* Terminal blinking cursor at random position */
-  .cursor {
-    position: fixed;
-    width: 10px; height: 20px;
-    background: #ff3300;
-    animation: cursorBlink 1.2s steps(2, start) infinite;
-    mix-blend-mode: screen;
-    z-index: 10;
-    pointer-events: none;
-    border-radius: 2px;
-    filter: drop-shadow(0 0 2px #ff0000);
-  }
-
-  @keyframes cursorBlink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-  }
-
-  /* Buttons with flicker glitch + code inject effect */
-  .btn-malware {
-    padding: 12px 24px;
-    font-size: 1.2rem;
-    background: linear-gradient(45deg, #cc0000, #ff3300);
-    border: 3px solid #ff0000;
-    color: #fff;
-    font-weight: 700;
-    text-transform: uppercase;
-    box-shadow:
-      0 0 12px #ff0000,
-      inset 0 0 20px #cc0000;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    user-select: none;
-    transition: background 0.3s ease;
-    mix-blend-mode: screen;
-  }
-
-  .btn-malware::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -50%;
-    width: 200%;
-    height: 100%;
-    background: repeating-linear-gradient(
-      45deg,
-      rgba(255,255,255,0.2) 0,
-      rgba(255,255,255,0.3) 2px,
-      rgba(255,255,255,0.2) 4px
-    );
-    animation: btnGlitchMove 3s linear infinite;
-    pointer-events: none;
-  }
-
-  @keyframes btnGlitchMove {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(100%); }
-  }
-
-  .btn-malware:hover {
-    background: linear-gradient(45deg, #ff0000, #cc0000);
-    box-shadow:
-      0 0 20px #ff6600,
-      inset 0 0 30px #ff0000;
-  }
-
-  /* Code inject glitch flicker on button text */
-  .btn-malware span {
-    position: relative;
-    display: inline-block;
-    animation: codeInjectGlitch 3s infinite;
-  }
-
-  @keyframes codeInjectGlitch {
-    0%, 100% {
-      text-shadow:
-        1px 0 #ff0000,
-        -1px 0 #cc0000;
-      transform: translate(0);
-    }
-    10%, 30% {
-      text-shadow:
-        2px 2px #ff3300,
-        -2px -2px #ff6600;
-      transform: translate(-1px, 1px);
-    }
-    20%, 40% {
-      text-shadow:
-        -2px -2px #ff3300,
-        2px 2px #cc0000;
-      transform: translate(1px, -1px);
-    }
-    50%, 70% {
-      text-shadow:
-        0 0 15px #ff6600;
-      transform: translate(0);
-    }
-  }
-
-  /* Random error code line running at bottom */
-  .error-code {
-    position: fixed;
-    bottom: 0; left: 0; width: 100%;
-    background: #200000cc;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.75rem;
-    color: #ff2200;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 6px 10px;
-    box-sizing: border-box;
-    animation: errorCodeScroll 10s linear infinite;
-    z-index: 9;
-  }
-
-  @keyframes errorCodeScroll {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-
-
-  .glitch {
-  color: #ff0000;
-  position: relative;
-  animation: glitch 1s infinite;
-  font-weight: bold;
-  text-shadow: 2px 0 #000;
+/* Base font for clarity with a techy vibe */
+body, section {
+  font-family: 'Consolas', 'Courier New', monospace;
+  color: #f0f0f0;
+  background-color: #121212;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
 }
 
-@keyframes glitch {
-  0% { transform: none; }
-  20% { transform: skew(-5deg); }
-  40% { transform: skew(5deg); }
-  60% { transform: translateX(2px); }
-  80% { transform: translateX(-2px); }
-  100% { transform: none; }
-}
-
-html, body {
-  margin: 0; padding: 0;
-  background: #070000;
-  overflow-y: auto; /* ✅ scrolling works */
-  font-family: 'Share Tech Mono', monospace;
-  color: #ff1100;
+/* Headers with glitchy, aggressive red glow */
+h1.glitch {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ff2a2a;
+  text-transform: uppercase;
   text-shadow:
-    0 0 10px #ff2200,
-    0 0 20px #ff4400,
-    0 0 30px #ff6600;
+    0 0 5px #ff2a2a,
+    0 0 10px #ff2a2a,
+    0 0 20px #ff0000,
+    0 0 30px #ff0000,
+    0 0 40px #ff0000,
+    0 0 50px #ff0000,
+    0 0 75px #ff0000;
+  letter-spacing: 0.1em;
+  user-select: none;
+  margin-bottom: 1.5rem;
+}
+
+/* Section headings */
+h2 {
+  color: #e03e3e;
+  border-bottom: 2px solid #ff0000;
+  padding-bottom: 0.3em;
+  margin-top: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Paragraph text */
+p {
+  font-size: 1.1rem;
+  max-width: 900px;
+  color: #ddd;
+}
+
+/* Links styled with strong red accent */
+a {
+  color: #ff4c4c;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #ff1a1a;
+  text-decoration: underline;
+}
+
+/* List styling */
+ul {
+  max-width: 900px;
+  margin-left: 1rem;
+  color: #ccc;
+  font-size: 1rem;
+}
+ul li {
+  margin-bottom: 0.7rem;
+}
+
+/* Code snippets */
+code {
+  background-color: #2a2a2a;
+  color: #ff5555;
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+}
+
+/* Error code bar on top */
+.error-code {
+  background-color: #3f0000;
+  color: #ff4444;
+  font-family: 'Consolas', monospace;
+  font-weight: 700;
+  padding: 0.8em 1.2em;
+  border-left: 5px solid #ff0000;
+  letter-spacing: 0.05em;
+  user-select: none;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 15px #ff0000aa;
+}
+
+/* Buttons with aggressive red glow */
+.btn-malware {
+  background: #8b0000;
+  border: none;
+  color: #fff;
+  padding: 1em 2em;
+  margin-right: 1rem;
+  font-weight: 700;
+  font-family: 'Consolas', monospace;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 4px;
+  box-shadow:
+    0 0 8px #ff0000,
+    0 0 15px #ff0000,
+    inset 0 0 10px #ff4c4c;
+  transition: background 0.3s ease;
+}
+.btn-malware:hover {
+  background: #ff1a1a;
+  box-shadow:
+    0 0 12px #ff4444,
+    0 0 25px #ff4444,
+    inset 0 0 15px #ff6666;
 }
 
 
