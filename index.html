@@ -230,9 +230,137 @@
     footer{padding:16px 20px;flex-direction:column;gap:8px;text-align:center;}
     nav{padding:0 20px;}
   }
+
+  /* ════════════ MODERN / INTERACTIVE LAYER ════════════ */
+
+  /* Boot overlay */
+  #boot{position:fixed;inset:0;z-index:10000;background:var(--bg);display:flex;
+    align-items:center;justify-content:center;flex-direction:column;gap:14px;
+    font-family:var(--mono);transition:opacity .6s ease,visibility .6s;}
+  #boot.done{opacity:0;visibility:hidden;}
+  .boot-logo{font-family:var(--display);font-size:clamp(20px,5vw,40px);font-weight:900;
+    letter-spacing:8px;color:#fff;text-transform:uppercase;}
+  .boot-logo span{color:var(--red);}
+  .boot-lines{width:min(440px,80vw);font-size:11px;color:var(--green);line-height:1.9;min-height:120px;}
+  .boot-lines .ok{color:var(--green);}.boot-lines .pend{color:var(--text-dim);}
+  .boot-bar{width:min(440px,80vw);height:2px;background:var(--border);overflow:hidden;}
+  .boot-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--green));
+    box-shadow:0 0 10px var(--red);animation:bootfill 2.1s cubic-bezier(.4,0,.2,1) forwards;}
+  @keyframes bootfill{to{width:100%}}
+  .boot-cursor{display:inline-block;width:8px;height:14px;background:var(--green);
+    margin-left:2px;animation:blink 1s step-end infinite;vertical-align:middle;}
+
+  /* Scroll progress */
+  #progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:200;
+    background:linear-gradient(90deg,var(--red),var(--amber),var(--green));
+    box-shadow:0 0 8px var(--red);transition:width .1s linear;}
+
+  /* Scroll reveal */
+  .reveal{opacity:0;transform:translateY(24px);
+    transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* Card micro-interaction */
+  .tool-card{transition:border-color .2s,transform .25s ease,box-shadow .25s ease;}
+  .tool-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(255,0,51,.08);}
+  .tool-card::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:0;
+    background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(255,0,51,.09),transparent 45%);
+    transition:opacity .3s;}
+  .tool-card:hover::after{opacity:1;}
+  .sidebar-item,.nav-btn,.copy-btn,.check-box,.lang-btn{transition:all .2s;}
+  .timeline-item{transition:border-left-color .2s,transform .25s ease,box-shadow .25s ease;}
+  .timeline-item:hover{transform:translateX(4px);}
+
+  /* animated count badge pop */
+  .sidebar-item .count{transition:transform .2s;}
+  .sidebar-item:hover .count{transform:scale(1.12);}
+
+  /* Active section pulse on nav */
+  .nav-btn.active{position:relative;}
+  .nav-btn.active::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:2px;
+    background:var(--red);box-shadow:0 0 8px var(--red);}
+
+  /* Mobile nav toggle */
+  .nav-toggle{display:none;}
+
+  /* Command palette */
+  #cmdk{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.72);
+    backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;padding-top:14vh;}
+  #cmdk.open{display:flex;animation:fadeIn .15s ease;}
+  .cmdk-box{width:min(560px,92vw);background:var(--bg2);border:1px solid rgba(255,0,51,.4);
+    box-shadow:0 20px 60px rgba(0,0,0,.6);}
+  .cmdk-input{width:100%;background:#000;border:none;border-bottom:1px solid var(--border);
+    color:var(--text);font-family:var(--mono);font-size:14px;padding:16px 18px;outline:none;letter-spacing:1px;}
+  .cmdk-input::placeholder{color:var(--text-dim);}
+  .cmdk-list{max-height:52vh;overflow-y:auto;}
+  .cmdk-item{display:flex;align-items:center;gap:12px;padding:12px 18px;cursor:crosshair;
+    font-family:var(--mono);font-size:12px;color:var(--text-dim);border-bottom:1px solid rgba(255,255,255,.03);}
+  .cmdk-item .k{font-size:10px;color:var(--text-dim);margin-left:auto;border:1px solid var(--border);padding:1px 6px;}
+  .cmdk-item .ci{color:var(--red);font-size:9px;}
+  .cmdk-item:hover,.cmdk-item.sel{background:rgba(255,0,51,.08);color:#fff;}
+  .cmdk-hint{padding:8px 18px;font-family:var(--mono);font-size:9px;color:var(--text-dim);
+    letter-spacing:1px;border-top:1px solid var(--border);display:flex;gap:16px;flex-wrap:wrap;}
+  .cmdk-hint b{color:var(--amber);}
+
+  /* Toast */
+  #toast{position:fixed;bottom:24px;left:50%;translate:-50% 0;
+    z-index:9500;background:var(--bg2);border:1px solid var(--green);border-left:3px solid var(--green);
+    color:var(--green);font-family:var(--mono);font-size:11px;padding:10px 18px;letter-spacing:1px;
+    opacity:0;transform:translateY(20px);transition:opacity .25s,transform .25s;pointer-events:none;}
+  #toast.show{opacity:1;transform:translateY(0);}
+
+  /* Back-to-top FAB */
+  #toTop{position:fixed;right:22px;bottom:22px;z-index:150;width:42px;height:42px;
+    border:1px solid rgba(255,0,51,.4);background:var(--bg2);color:var(--red);font-family:var(--mono);
+    cursor:crosshair;display:flex;align-items:center;justify-content:center;font-size:16px;
+    opacity:0;transform:translateY(16px);transition:all .3s;pointer-events:none;}
+  #toTop.show{opacity:1;transform:none;pointer-events:auto;}
+  #toTop:hover{background:var(--red);color:#fff;box-shadow:0 0 16px rgba(255,0,51,.5);}
+
+  /* checklist progress meter */
+  .check-meter{height:3px;background:var(--border);margin-top:12px;overflow:hidden;}
+  .check-meter i{display:block;height:100%;width:0;background:var(--green);
+    box-shadow:0 0 8px var(--green);transition:width .4s ease;}
+
+  @media(max-width:900px){
+    .nav-toggle{display:flex;align-items:center;gap:8px;width:100%;padding:14px 0;
+      background:none;border:none;color:var(--red);font-family:var(--mono);font-size:12px;
+      letter-spacing:2px;cursor:crosshair;}
+    nav{flex-wrap:wrap;}
+    nav.collapsed .nav-btn{display:none;}
+    .nav-btn{flex:1 1 auto;text-align:center;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001s !important;transition-duration:.05s !important;}
+    .reveal{opacity:1;transform:none;}
+  }
 </style>
 </head>
 <body>
+
+<div id="progress"></div>
+
+<div id="boot">
+  <div class="boot-logo">RED <span>TEAM</span> OPS</div>
+  <div class="boot-lines" id="bootLines"></div>
+  <div class="boot-bar"><i></i></div>
+</div>
+
+<div id="cmdk">
+  <div class="cmdk-box" onclick="event.stopPropagation()">
+    <input class="cmdk-input" id="cmdkInput" autocomplete="off" spellcheck="false"
+      data-placeholder-en="Jump to section…  (type to filter)"
+      data-placeholder-id="Lompat ke bagian…  (ketik untuk filter)"
+      placeholder="Jump to section…  (type to filter)">
+    <div class="cmdk-list" id="cmdkList"></div>
+    <div class="cmdk-hint">
+      <span><b>↑↓</b> navigate</span><span><b>↵</b> open</span><span><b>esc</b> close</span><span><b>1–9</b> quick jump</span>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<button id="toTop" onclick="scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
 <header>
   <div class="header-top">
@@ -265,7 +393,8 @@
   </span> ⚠
 </div>
 
-<nav>
+<nav id="mainNav" class="collapsed">
+  <button class="nav-toggle" onclick="toggleNav()" data-en="☰ MENU" data-id="☰ MENU">☰ MENU</button>
   <button class="nav-btn active" onclick="showSection('overview')"><span class="nav-num">01.</span><span data-en="OVERVIEW" data-id="RINGKASAN">OVERVIEW</span></button>
   <button class="nav-btn" onclick="showSection('recon')"><span class="nav-num">02.</span>RECON</button>
   <button class="nav-btn" onclick="showSection('dorks')"><span class="nav-num">03.</span>GOOGLE DORKS</button>
@@ -1148,6 +1277,10 @@ curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas
         <div class="section-title"><span>//</span> PENTEST CHECKLIST</div>
         <div class="section-badge" data-en="ENGAGEMENT TRACKER" data-id="PELACAK PENUGASAN">ENGAGEMENT TRACKER</div>
       </div>
+      <div class="alert-box info" style="justify-content:space-between;align-items:center;">
+        <span><span data-en="PROGRESS" data-id="PROGRES">PROGRESS</span> · <b data-check-count>0/0</b></span>
+        <span style="flex:1;max-width:360px;"><span class="check-meter" style="margin-top:0;display:block;"><i></i></span></span>
+      </div>
       <div class="cat-grid">
         <div class="checklist">
           <div class="checklist-title" data-en="📋 RECON PHASE" data-id="📋 FASE PENGINTAIAN">📋 RECON PHASE</div>
@@ -1229,13 +1362,21 @@ curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas
 
   /* ── NAVIGATION ── */
   function showSection(id){
+    const target=document.getElementById('sec-'+id);
+    if(!target)return;
     document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
     document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-    document.getElementById('sec-'+id).classList.add('active');
+    target.classList.add('active');
     document.querySelectorAll('.nav-btn').forEach(b=>{
       if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+id+"'"))b.classList.add('active');
     });
+    try{localStorage.setItem('rt_section',id);}catch(e){}
+    revealScan();                       // re-run scroll reveal for the newly shown section
+    document.getElementById('mainNav').classList.add('collapsed'); // close mobile menu
+    window.scrollTo({top:0,behavior:'smooth'});
   }
+
+  function toggleNav(){document.getElementById('mainNav').classList.toggle('collapsed');}
 
   /* ── COPY PAYLOAD ── */
   function copyPayload(btn){
@@ -1244,12 +1385,39 @@ curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas
       const orig=btn.textContent;
       btn.textContent=currentLang==='en'?'COPIED!':'TERSALIN!';
       btn.classList.add('copied');
+      toast(currentLang==='en'?'✓ copied to clipboard':'✓ disalin ke clipboard');
       setTimeout(()=>{btn.textContent=orig;btn.classList.remove('copied');},2000);
     });
   }
 
-  /* ── CHECKLIST ── */
-  function toggleCheck(el){el.classList.toggle('checked');}
+  /* ── CHECKLIST (with persistence + progress meter) ── */
+  function toggleCheck(el){
+    el.classList.toggle('checked');
+    saveChecks();
+    updateCheckMeter();
+  }
+  function checkKey(el){
+    const list=[...document.querySelectorAll('.check-box')];
+    return list.indexOf(el);
+  }
+  function saveChecks(){
+    const state=[...document.querySelectorAll('.check-box')].map(c=>c.classList.contains('checked')?1:0);
+    try{localStorage.setItem('rt_checks',JSON.stringify(state));}catch(e){}
+  }
+  function restoreChecks(){
+    try{
+      const state=JSON.parse(localStorage.getItem('rt_checks')||'[]');
+      document.querySelectorAll('.check-box').forEach((c,i)=>{if(state[i])c.classList.add('checked');});
+    }catch(e){}
+  }
+  function updateCheckMeter(){
+    const all=document.querySelectorAll('.check-box');
+    if(!all.length)return;
+    const done=document.querySelectorAll('.check-box.checked').length;
+    const pct=Math.round(done/all.length*100);
+    document.querySelectorAll('.check-meter i').forEach(bar=>bar.style.width=pct+'%');
+    document.querySelectorAll('[data-check-count]').forEach(el=>el.textContent=done+'/'+all.length);
+  }
 
   /* ── DORK FILTER ── */
   function filterDorks(){
@@ -1290,7 +1458,154 @@ curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas
 
     // Update html lang attribute
     document.documentElement.lang = lang;
+    try{localStorage.setItem('rt_lang',lang);}catch(e){}
+    buildCmdk();  // refresh command palette labels for the active language
   }
+
+  /* ══════════════════════════════════════════════════════
+     SCROLL PROGRESS + BACK TO TOP
+  ══════════════════════════════════════════════════════ */
+  const progressEl=document.getElementById('progress');
+  const toTopEl=document.getElementById('toTop');
+  function onScroll(){
+    const h=document.documentElement;
+    const max=h.scrollHeight-h.clientHeight;
+    const pct=max>0?(h.scrollTop/max)*100:0;
+    progressEl.style.width=pct+'%';
+    toTopEl.classList.toggle('show',h.scrollTop>400);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+
+  /* ══════════════════════════════════════════════════════
+     SCROLL REVEAL (IntersectionObserver)
+  ══════════════════════════════════════════════════════ */
+  let io;
+  function revealScan(){
+    if(!io)return;
+    const active=document.querySelector('.section.active');
+    if(!active)return;
+    const items=active.querySelectorAll('.tool-card,.timeline-item,.checklist,.terminal,.payload-block,.alert-box,.dork-table,.risk-grid');
+    items.forEach((el,i)=>{
+      if(el.classList.contains('reveal'))return;
+      el.classList.add('reveal');
+      el.style.transitionDelay=Math.min(i*45,400)+'ms';
+      io.observe(el);
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════
+     POINTER GLOW on cards
+  ══════════════════════════════════════════════════════ */
+  document.addEventListener('pointermove',e=>{
+    const card=e.target.closest('.tool-card');
+    if(!card)return;
+    const r=card.getBoundingClientRect();
+    card.style.setProperty('--mx',(e.clientX-r.left)+'px');
+    card.style.setProperty('--my',(e.clientY-r.top)+'px');
+  });
+
+  /* ══════════════════════════════════════════════════════
+     TOAST
+  ══════════════════════════════════════════════════════ */
+  let toastT;
+  function toast(msg){
+    const t=document.getElementById('toast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),1800);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     COMMAND PALETTE  (Ctrl/⌘ + K)
+  ══════════════════════════════════════════════════════ */
+  const SECTIONS=[
+    ['overview','01','OVERVIEW','RINGKASAN'],['recon','02','RECON','RECON'],
+    ['dorks','03','GOOGLE DORKS','GOOGLE DORKS'],['payloads','04','PAYLOADS','PAYLOADS'],
+    ['network','05','NETWORK','JARINGAN'],['webapp','06','WEB APP','WEB APP'],
+    ['postex','07','POST-EXPLOIT','PASCA-EKSPLOIT'],['physical','08','PHYSICAL','FISIK'],
+    ['checklist','09','CHECKLIST','CHECKLIST']
+  ];
+  let cmdkSel=0, cmdkFiltered=SECTIONS;
+  const cmdk=document.getElementById('cmdk');
+  const cmdkInput=document.getElementById('cmdkInput');
+  const cmdkList=document.getElementById('cmdkList');
+
+  function buildCmdk(q=''){
+    const label=s=>currentLang==='en'?s[2]:s[3];
+    cmdkFiltered=SECTIONS.filter(s=>label(s).toLowerCase().includes(q.toLowerCase())||s[1].includes(q));
+    if(cmdkSel>=cmdkFiltered.length)cmdkSel=0;
+    cmdkList.innerHTML=cmdkFiltered.map((s,i)=>
+      `<div class="cmdk-item ${i===cmdkSel?'sel':''}" data-id="${s[0]}" onclick="cmdkGo('${s[0]}')">
+         <span class="ci">//</span><span>${label(s)}</span><span class="k">${s[1]}</span></div>`).join('')
+      || `<div class="cmdk-item">no match</div>`;
+  }
+  function openCmdk(){cmdk.classList.add('open');cmdkInput.value='';cmdkSel=0;buildCmdk();cmdkInput.focus();}
+  function closeCmdk(){cmdk.classList.remove('open');}
+  function cmdkGo(id){closeCmdk();showSection(id);}
+  cmdk.addEventListener('click',closeCmdk);
+  cmdkInput.addEventListener('input',()=>{cmdkSel=0;buildCmdk(cmdkInput.value);});
+  cmdkInput.addEventListener('keydown',e=>{
+    if(e.key==='ArrowDown'){e.preventDefault();cmdkSel=(cmdkSel+1)%cmdkFiltered.length;buildCmdk(cmdkInput.value);}
+    else if(e.key==='ArrowUp'){e.preventDefault();cmdkSel=(cmdkSel-1+cmdkFiltered.length)%cmdkFiltered.length;buildCmdk(cmdkInput.value);}
+    else if(e.key==='Enter'){e.preventDefault();if(cmdkFiltered[cmdkSel])cmdkGo(cmdkFiltered[cmdkSel][0]);}
+  });
+
+  /* ══════════════════════════════════════════════════════
+     GLOBAL KEYBOARD SHORTCUTS
+  ══════════════════════════════════════════════════════ */
+  document.addEventListener('keydown',e=>{
+    const typing=/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName);
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openCmdk();return;}
+    if(e.key==='Escape'){closeCmdk();return;}
+    if(typing)return;
+    if(e.key==='/'){e.preventDefault();const d=document.getElementById('dorkSearch');if(d){showSection('dorks');setTimeout(()=>d.focus(),50);}return;}
+    if(e.key>='1'&&e.key<='9'){const s=SECTIONS[+e.key-1];if(s)showSection(s[0]);}
+  });
+
+  /* ══════════════════════════════════════════════════════
+     BOOT SEQUENCE
+  ══════════════════════════════════════════════════════ */
+  function runBoot(){
+    const lines=[
+      ['init secure shell','ok'],['loading tactical modules','ok'],
+      ['mounting reference database','ok'],['verifying authorized scope','ok'],
+      ['arming interface','ok']
+    ];
+    const box=document.getElementById('bootLines');
+    let i=0;
+    (function next(){
+      if(i<lines.length){
+        box.innerHTML+=`<div><span class="pend">[ .. ]</span> ${lines[i][0]} <span class="ok">[ OK ]</span></div>`;
+        i++;setTimeout(next,340);
+      }else{
+        box.innerHTML+=`<div class="ok">&gt; system ready<span class="boot-cursor"></span></div>`;
+      }
+    })();
+    setTimeout(()=>document.getElementById('boot').classList.add('done'),2300);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     INIT
+  ══════════════════════════════════════════════════════ */
+  window.addEventListener('DOMContentLoaded',()=>{
+    io=new IntersectionObserver(entries=>{
+      entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.08});
+
+    // restore language
+    let savedLang='en';try{savedLang=localStorage.getItem('rt_lang')||'en';}catch(e){}
+    setLang(savedLang);
+
+    // restore checklist
+    restoreChecks();updateCheckMeter();
+
+    // restore last section
+    let sec='overview';try{sec=localStorage.getItem('rt_section')||'overview';}catch(e){}
+    showSection(sec);
+
+    buildCmdk();
+    runBoot();
+    onScroll();
+  });
 </script>
 </body>
 </html>
