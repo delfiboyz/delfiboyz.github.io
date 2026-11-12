@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://delfiboyz.github.io/">
 <meta property="og:title" content="Delfi Fikri Mukarom — Projects">
-<meta property="og:description" content="Kumpulan proyek web, mobile, game, AI/ML, dan keamanan yang saya bangun.">
+<meta property="og:description" content="Kumpulan proyek web, mobile, game, AI/ML, dan keamanan yang saya bangun — plus dashboard Live OSINT 3D.">
 <meta name="theme-color" content="#0b0f14">
 <link rel="icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,18 +47,25 @@
   --radius: 14px;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* 3D globe */
+  --globe-ocean: #0d1620; --globe-rim: #1f4a5e; --globe-land: #3ddc97; --globe-land-night: #1b4f3d;
+  --globe-city: #ffd27a; --globe-atmo: #4cc2ff; --globe-atmo-strength: 1.1; --globe-light: 2.2;
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
     --bg: #f6f8fa; --bg-2: #eef2f5; --card: #ffffff; --card-hover: #f9fbfc;
     --line: #d8dee4; --text: #1f2328; --muted: #59636e;
     --accent: #0a8f5c; --accent-2: #0969da; --warn: #9a6700;
+    --globe-ocean: #dde7ee; --globe-rim: #ffffff; --globe-land: #0a8f5c; --globe-land-night: #3f6f5d;
+    --globe-city: #c77800; --globe-atmo: #0969da; --globe-atmo-strength: 0.7; --globe-light: 2.6;
   }
 }
 :root[data-theme="light"] {
   --bg: #f6f8fa; --bg-2: #eef2f5; --card: #ffffff; --card-hover: #f9fbfc;
   --line: #d8dee4; --text: #1f2328; --muted: #59636e;
   --accent: #0a8f5c; --accent-2: #0969da; --warn: #9a6700;
+  --globe-ocean: #dde7ee; --globe-rim: #ffffff; --globe-land: #0a8f5c; --globe-land-night: #3f6f5d;
+  --globe-city: #c77800; --globe-atmo: #0969da; --globe-atmo-strength: 0.7; --globe-light: 2.6;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -90,10 +97,53 @@ nav.links a:hover { color: var(--text); }
   border-radius: 8px; width: 34px; height: 34px; cursor: pointer; font-size: 15px;
 }
 .theme-btn:hover { color: var(--text); border-color: var(--muted); }
+nav.links a.nav-live { color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+.live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: inline-block; flex: none;
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent); animation: live 1.8s infinite; }
+.live-dot.off { background: var(--muted); animation: none; }
+@keyframes live { 70% { box-shadow: 0 0 0 7px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+nav.links a { white-space: nowrap; }
 @media (max-width: 640px) { nav.links { gap: 14px; } nav.links a.opt { display: none; } }
+@media (max-width: 520px) { .brand span { display: none; } }
+@media (max-width: 400px) { nav.links a.opt-xs { display: none; } }
 
 /* ---------- hero ---------- */
-.hero { padding: 72px 0 48px; }
+.hero { padding: 56px 0 48px; overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: 16px 32px; align-items: center; }
+.hero .stats { grid-column: 1 / -1; }
+.globe-box { position: relative; width: 100%; max-width: 500px; justify-self: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.globe-stage { position: relative; width: 100%; aspect-ratio: 1; }
+#heroGlobe { position: absolute; inset: -4%; }
+#heroGlobe::before {
+  content: ""; position: absolute; inset: 18%; border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%);
+  filter: blur(30px); opacity: 0; transition: opacity 1.2s;
+}
+#heroGlobe.ready::before { opacity: 1; }
+#heroGlobe.no-webgl { display: none; }
+.globe-canvas { position: relative; display: block; width: 100%; height: 100%; opacity: 0; animation: globe-in 1.4s .1s ease-out forwards; }
+@keyframes globe-in { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+.globe-tip {
+  position: absolute; left: 0; top: 0; z-index: 3; pointer-events: none; max-width: 260px;
+  background: color-mix(in srgb, var(--card) 92%, transparent); border: 1px solid var(--line); border-radius: 10px;
+  padding: 8px 10px; font-size: 12.5px; line-height: 1.45; box-shadow: 0 8px 24px rgba(0,0,0,.25); backdrop-filter: blur(6px);
+}
+.globe-tip span { color: var(--muted); }
+.globe-badge { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 6px; max-width: 100%; }
+.globe-badge .pill {
+  display: inline-flex; align-items: center; gap: 8px; font: 12px var(--mono); color: var(--muted);
+  background: color-mix(in srgb, var(--card) 85%, transparent); border: 1px solid var(--line);
+  padding: 5px 12px; border-radius: 999px; backdrop-filter: blur(6px); text-align: center;
+}
+.globe-badge .pill b { color: var(--accent); }
+.globe-badge a { font: 600 13px var(--sans); color: var(--accent); }
+.globe-badge a:hover { text-decoration: underline; }
+@media (max-width: 860px) {
+  .hero { padding-top: 40px; }
+  .hero .wrap { grid-template-columns: 1fr; }
+  .globe-box { max-width: 400px; margin-top: 8px; }
+  .globe-badge .pill { font-size: 11px; white-space: normal; }
+}
 .prompt { font-family: var(--mono); font-size: 14px; color: var(--accent); margin-bottom: 16px; }
 .prompt::after { content: "▋"; animation: blink 1s steps(1) infinite; margin-left: 4px; }
 @keyframes blink { 50% { opacity: 0; } }
@@ -154,6 +204,12 @@ section { padding: 48px 0; }
   padding: 20px; transition: border-color .15s, transform .15s, background .15s;
 }
 .card:hover { border-color: color-mix(in srgb, var(--accent) 60%, var(--line)); background: var(--card-hover); transform: translateY(-2px); }
+.card { position: relative; transform-style: preserve-3d; }
+.card::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .2s;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), color-mix(in srgb, var(--accent) 13%, transparent), transparent 60%);
+}
+.card:hover::after { opacity: 1; }
 .card .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .card .cat { font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--accent-2); }
 .card .year { font: 12px var(--mono); color: var(--muted); }
@@ -200,7 +256,8 @@ footer a:hover { color: var(--accent); }
   <div class="wrap">
     <a class="brand" href="#">delfiboyz<span>.github.io</span></a>
     <nav class="links">
-      <a href="#projects">Proyek</a>
+      <a class="nav-live" href="osint/"><span class="live-dot"></span>Live OSINT</a>
+      <a class="opt-xs" href="#projects">Proyek</a>
       <a class="opt" href="#archive">Arsip</a>
       <a class="opt" href="#stack">Stack</a>
       <a href="https://github.com/delfiboyz" target="_blank" rel="noopener">GitHub</a>
@@ -212,6 +269,7 @@ footer a:hover { color: var(--accent); }
 <main>
   <section class="hero">
     <div class="wrap">
+      <div class="hero-text">
       <div class="prompt">~$ whoami</div>
       <h1>Delfi Fikri Mukarom<br><span class="grad">builds things that run.</span></h1>
       <p class="lead">
@@ -220,6 +278,7 @@ footer a:hover { color: var(--accent); }
       </p>
       <div class="cta">
         <a class="btn primary" href="#projects">Lihat proyek</a>
+        <a class="btn" href="osint/"><span class="live-dot"></span>Live OSINT 3D</a>
         <a class="btn" href="https://github.com/delfiboyz" target="_blank" rel="noopener">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
           GitHub
@@ -228,6 +287,15 @@ footer a:hover { color: var(--accent); }
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.15C0 .52.52 0 1.17 0h13.66C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.17 1.15H1.17C.52 16 0 15.48 0 14.85V1.15zM4.94 13.4V6.17H2.54v7.23h2.4zM3.74 5.18c.84 0 1.36-.56 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.32 1.25h.02zm4.91 8.22V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.21.66 1.21 1.64v3.87h2.4V9.26c0-2.22-1.18-3.25-2.77-3.25-1.28 0-1.85.7-2.17 1.2v.02h-.01l.01-.02V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg>
           LinkedIn
         </a>
+      </div>
+      </div>
+
+      <div class="globe-box">
+        <div class="globe-stage"><div id="heroGlobe" aria-label="Globe 3D interaktif dengan data gempa live dari USGS" role="img"></div></div>
+        <div class="globe-badge">
+          <span class="pill" id="liveBadge" hidden></span>
+          <a href="osint/">Buka dashboard Live OSINT →</a>
+        </div>
       </div>
 
       <div class="stats" id="stats"></div>
@@ -520,5 +588,6 @@ document.getElementById("year").textContent = new Date().getFullYear();
 renderChips();
 renderProjects();
 </script>
+<script type="module" src="js/dist/home.js"></script>
 </body>
 </html>

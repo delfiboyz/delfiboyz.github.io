@@ -1,0 +1,12 @@
+{
+  "name": "delfiboyz.github.io",
+  "private": true,
+  "description": "Portfolio + Live OSINT 3D globe. Sources in js/src, bundled to js/dist for GitHub Pages.",
+  "scripts": {
+    "build": "rm -rf js/dist && esbuild js/src/home.js js/src/osint.js --bundle --splitting --format=esm --minify --target=es2020 --outdir=js/dist --chunk-names=globe-[hash] --legal-comments=eof"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "three": "0.186.1"
+  }
+}

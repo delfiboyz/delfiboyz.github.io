@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live OSINT 3D — delfiboyz</title>
+<meta name="description" content="Dashboard OSINT live dengan globe 3D: gempa (USGS), peristiwa alam (NASA EONET), posisi ISS, relay exit Tor, aktivitas geomagnetik (NOAA), advisori keamanan GitHub, dan CISA KEV — semuanya dari sumber publik terbuka.">
+<meta name="author" content="Delfi Fikri Mukarom">
+<link rel="canonical" href="https://delfiboyz.github.io/osint/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://delfiboyz.github.io/osint/">
+<meta property="og:title" content="Live OSINT 3D — delfiboyz">
+<meta property="og:description" content="Globe 3D dengan data intelijen sumber terbuka yang diperbarui secara live.">
+<meta name="theme-color" content="#0b0f14">
+<link rel="icon" href="../favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link rel="modulepreload" href="../js/dist/osint.js">
+<style>
+:root {
+  --bg: #0b0f14; --bg-2: #10161d; --card: #131b23; --card-hover: #17212b; --line: #22303c;
+  --text: #e6edf3; --muted: #8b98a5; --accent: #3ddc97; --accent-2: #4cc2ff; --warn: #ffb547; --bad: #ff5d6c;
+  --radius: 14px;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --globe-ocean: #0d1620; --globe-rim: #1f4a5e; --globe-land: #3ddc97; --globe-land-night: #1b4f3d;
+  --globe-city: #ffd27a; --globe-atmo: #4cc2ff; --globe-atmo-strength: 1.1; --globe-light: 2.2;
+  --c-iss: #e6edf3; --c-tor: #b48cff; --c-you: #3ddc97; --c-aurora: #3ddc97;
+  --sev-critical: #ff4d6a; --sev-high: #ff7a3d; --sev-moderate: #f0b429; --sev-low: #8b98a5;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f6f8fa; --bg-2: #eef2f5; --card: #ffffff; --card-hover: #f9fbfc; --line: #d8dee4;
+    --text: #1f2328; --muted: #59636e; --accent: #0a8f5c; --accent-2: #0969da; --warn: #9a6700; --bad: #cf222e;
+    --globe-ocean: #dde7ee; --globe-rim: #ffffff; --globe-land: #0a8f5c; --globe-land-night: #3f6f5d;
+    --globe-city: #c77800; --globe-atmo: #0969da; --globe-atmo-strength: 0.7; --globe-light: 2.6;
+    --c-iss: #0969da; --c-tor: #8250df; --c-you: #0a8f5c; --c-aurora: #0a8f5c;
+    --sev-critical: #cf222e; --sev-high: #d4501a; --sev-moderate: #9a6700; --sev-low: #59636e;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f6f8fa; --bg-2: #eef2f5; --card: #ffffff; --card-hover: #f9fbfc; --line: #d8dee4;
+  --text: #1f2328; --muted: #59636e; --accent: #0a8f5c; --accent-2: #0969da; --warn: #9a6700; --bad: #cf222e;
+  --globe-ocean: #dde7ee; --globe-rim: #ffffff; --globe-land: #0a8f5c; --globe-land-night: #3f6f5d;
+  --globe-city: #c77800; --globe-atmo: #0969da; --globe-atmo-strength: 0.7; --globe-light: 2.6;
+  --c-iss: #0969da; --c-tor: #8250df; --c-you: #0a8f5c; --c-aurora: #0a8f5c;
+  --sev-critical: #cf222e; --sev-high: #d4501a; --sev-moderate: #9a6700; --sev-low: #59636e;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; }
+
+/* ---------- header ---------- */
+header.top {
+  position: sticky; top: 0; z-index: 20; height: 56px;
+  background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+header.top .bar { height: 100%; padding: 0 16px; display: flex; align-items: center; gap: 16px; }
+.brand { font-family: var(--mono); font-weight: 600; color: var(--accent); white-space: nowrap; }
+.brand span { color: var(--muted); }
+.brand:hover span { color: var(--text); }
+.title { display: flex; align-items: center; gap: 8px; font: 600 13px var(--mono); letter-spacing: .08em; }
+.right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.clock { font: 13px var(--mono); color: var(--muted); white-space: nowrap; }
+.theme-btn {
+  background: none; border: 1px solid var(--line); color: var(--muted);
+  border-radius: 8px; width: 34px; height: 34px; cursor: pointer; font-size: 15px;
+}
+.theme-btn:hover { color: var(--text); border-color: var(--muted); }
+.live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: inline-block; flex: none;
+  animation: live 1.8s infinite; }
+@keyframes live { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent); } 70%, 100% { box-shadow: 0 0 0 7px transparent; } }
+@media (max-width: 560px) { .brand span, .clock .lbl { display: none; } }
+
+/* ---------- layout ---------- */
+.dash { display: grid; grid-template-columns: minmax(0, 1fr) 400px; height: calc(100vh - 56px); height: calc(100dvh - 56px); }
+.stage { position: relative; min-height: 0; overflow: hidden;
+  background: radial-gradient(ellipse at 50% 45%, color-mix(in srgb, var(--accent-2) 7%, var(--bg)), var(--bg) 70%); }
+#globe { position: absolute; inset: 0; }
+.side { border-left: 1px solid var(--line); background: var(--bg-2); overflow-y: auto; min-height: 0; display: flex; flex-direction: column; }
+@media (max-width: 960px) {
+  .dash { display: block; height: auto; }
+  .stage { height: 64vh; height: 64svh; min-height: 380px; }
+  .side { border-left: 0; border-top: 1px solid var(--line); overflow: visible; }
+}
+
+/* ---------- stage overlays ---------- */
+.hud { position: absolute; left: 16px; top: 14px; right: 16px; pointer-events: none; z-index: 2; }
+.hud h1 { font-size: clamp(18px, 2.2vw, 24px); letter-spacing: -0.01em; }
+.hud h1::before { content: "# "; color: var(--accent); font-family: var(--mono); }
+.hud p { color: var(--muted); font-size: 13px; max-width: 460px; margin-top: 2px; }
+.layers {
+  position: absolute; left: 12px; right: 12px; bottom: 12px; z-index: 2;
+  display: flex; gap: 6px; flex-wrap: wrap;
+}
+.layer {
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  padding: 5px 10px 5px 8px; border-radius: 999px; font: 500 12px var(--sans); color: var(--muted);
+  background: color-mix(in srgb, var(--card) 86%, transparent); border: 1px solid var(--line); backdrop-filter: blur(6px);
+}
+.layer:hover { color: var(--text); }
+.layer .sw { width: 10px; height: 10px; border-radius: 3px; background: var(--c); flex: none; }
+.layer[aria-pressed="false"] { opacity: .55; }
+.layer[aria-pressed="false"] .sw { background: transparent; box-shadow: inset 0 0 0 1.5px var(--c); }
+.layer .n { font: 11px var(--mono); color: var(--text); }
+.st { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); flex: none; }
+.st.live { background: var(--accent); }
+.st.loading { background: var(--warn); animation: blink 1s infinite; }
+.st.error { background: var(--bad); }
+@keyframes blink { 50% { opacity: .3; } }
+.hint { position: absolute; right: 16px; top: 16px; font: 11px var(--mono); color: var(--muted); z-index: 2; pointer-events: none; text-align: right; }
+@media (max-width: 960px) { .hint { display: none; } .layers { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .layer { flex: none; } }
+.toast {
+  position: absolute; z-index: 4; left: 50%; top: 84px; transform: translate(-50%, -10px); opacity: 0; pointer-events: none;
+  transition: .3s; display: flex; align-items: center; gap: 10px; max-width: calc(100% - 32px);
+  background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--c, var(--accent));
+  padding: 8px 12px; border-radius: 10px; font-size: 13px; box-shadow: 0 10px 30px rgba(0,0,0,.3); cursor: pointer;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.toast b { font-family: var(--mono); }
+.nogl { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; color: var(--muted); padding: 24px; }
+
+.globe-canvas { display: block; width: 100%; height: 100%; opacity: 0; animation: fadein 1.2s ease-out forwards; }
+@keyframes fadein { to { opacity: 1; } }
+.globe-tip {
+  position: absolute; left: 0; top: 0; z-index: 5; pointer-events: none; max-width: 280px;
+  background: color-mix(in srgb, var(--card) 94%, transparent); border: 1px solid var(--line); border-radius: 10px;
+  padding: 8px 10px; font-size: 12.5px; line-height: 1.45; box-shadow: 0 8px 24px rgba(0,0,0,.28); backdrop-filter: blur(6px);
+}
+.globe-tip .k { font: 600 10.5px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--c, var(--accent-2)); }
+.globe-tip span { color: var(--muted); }
+.globe-label {
+  position: absolute; left: 0; top: 0; z-index: 3; pointer-events: none; white-space: nowrap;
+  font: 600 11px var(--mono); color: var(--text); padding: 2px 6px; border-radius: 6px;
+  background: color-mix(in srgb, var(--card) 80%, transparent); border: 1px solid var(--line); transition: opacity .3s;
+}
+
+/* ---------- sidebar ---------- */
+.kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 14px; }
+.kpi { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; min-width: 0; }
+.kpi .lb { font: 600 10.5px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+.kpi .lb i { width: 8px; height: 8px; border-radius: 2px; background: var(--c); flex: none; }
+.kpi b { display: block; font: 600 22px var(--mono); margin-top: 2px; letter-spacing: -0.02em; }
+.kpi small { display: block; color: var(--muted); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 960px) and (min-width: 600px) { .kpis { grid-template-columns: repeat(3, 1fr); } }
+
+.tabs { display: flex; gap: 4px; padding: 0 14px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg-2); z-index: 2; }
+.tab {
+  background: none; border: 0; border-bottom: 2px solid transparent; padding: 10px 10px; cursor: pointer;
+  font: 600 13px var(--sans); color: var(--muted); margin-bottom: -1px;
+}
+.tab:hover { color: var(--text); }
+.tab[aria-selected="true"] { color: var(--text); border-bottom-color: var(--accent); }
+.panel { padding: 12px 14px 18px; flex: 1; }
+.panel[hidden] { display: none; }
+.panel h3 { font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin: 14px 0 8px; display: flex; justify-content: space-between; gap: 8px; }
+.panel h3:first-child { margin-top: 2px; }
+.panel h3 a { color: var(--accent-2); text-transform: none; letter-spacing: 0; font-weight: 400; }
+.note { color: var(--muted); font-size: 12px; margin: 6px 0 10px; }
+
+.filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.fchip { font: 500 12px var(--sans); padding: 4px 10px; border-radius: 999px; cursor: pointer; border: 1px solid var(--line); background: var(--card); color: var(--muted); }
+.fchip[aria-pressed="true"] { background: var(--accent); color: #04130c; border-color: var(--accent); }
+
+.list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.ev { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 10px; align-items: start; padding: 8px; border-radius: 10px; cursor: default; }
+.ev.geo { cursor: pointer; }
+.ev:hover, .ev:focus-visible { background: var(--card); outline: none; }
+.ev .ico {
+  font: 600 11.5px var(--mono); text-align: center; padding: 3px 0; border-radius: 7px; margin-top: 1px;
+  color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
+  white-space: nowrap; overflow: hidden;
+}
+.ev .t { font-size: 13.5px; overflow-wrap: anywhere; }
+.ev .t a:hover { text-decoration: underline; }
+.ev small { display: block; color: var(--muted); font-size: 12px; }
+.ev .new { font: 600 10px var(--mono); color: var(--accent); margin-left: 6px; }
+.empty { color: var(--muted); font-size: 13px; padding: 10px 8px; }
+
+.adv .ico { font-size: 10px; text-transform: uppercase; }
+.pill { display: inline-block; font: 11px var(--mono); padding: 1px 6px; border-radius: 6px; background: var(--card); border: 1px solid var(--line); color: var(--muted); margin: 3px 4px 0 0; }
+.pill.rw { color: var(--bad); border-color: color-mix(in srgb, var(--bad) 45%, transparent); }
+
+.stats3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 8px; }
+.stats3 div { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; }
+.stats3 b { display: block; font: 600 18px var(--mono); }
+.stats3 span { font-size: 11.5px; color: var(--muted); }
+
+.bars { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.bars li { display: grid; grid-template-columns: minmax(0, 1fr) 44px; gap: 8px; align-items: center; font-size: 13px; cursor: pointer; }
+.bars li:hover .nm { color: var(--accent); }
+.bars .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bars .track { grid-column: 1 / -1; height: 4px; border-radius: 4px; background: var(--card); overflow: hidden; margin-top: -3px; }
+.bars .track i { display: block; height: 100%; background: var(--c-tor); border-radius: 4px; }
+.bars .v { font: 12px var(--mono); text-align: right; color: var(--muted); }
+
+.kv { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 4px 12px; font-size: 13px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+.kv dt { color: var(--muted); }
+.kv dd { font-family: var(--mono); font-size: 12px; overflow-wrap: anywhere; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+  padding: 9px 14px; border-radius: 10px; font-weight: 600; font-size: 13.5px;
+  border: 1px solid var(--accent); background: var(--accent); color: #04130c;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn:disabled { opacity: .6; cursor: progress; }
+.btn.ghost { background: var(--card); color: var(--text); border-color: var(--line); }
+.btn.more { width: 100%; justify-content: center; margin-top: 8px; font-weight: 500; }
+.verdict { margin-top: 10px; font-size: 13px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); }
+.verdict.warn { border-color: color-mix(in srgb, var(--warn) 50%, var(--line)); }
+.verdict.ok { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+
+.sources { padding: 12px 14px 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+.sources ul { list-style: none; display: grid; gap: 4px; margin: 8px 0 10px; }
+.sources li { display: flex; align-items: center; gap: 8px; }
+.sources li a { color: var(--text); }
+.sources li a:hover { color: var(--accent); }
+.sources li .when { margin-left: auto; font-family: var(--mono); font-size: 11px; }
+.sources p a { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="../">← delfiboyz<span>.github.io</span></a>
+    <div class="title"><span class="live-dot"></span>LIVE OSINT</div>
+    <div class="right">
+      <span class="clock" id="clock"><span class="lbl">UTC </span>--:--:--</span>
+      <button class="theme-btn" id="themeBtn" aria-label="Ganti tema">◐</button>
+    </div>
+  </div>
+</header>
+
+<main class="dash">
+  <section class="stage" aria-label="Globe 3D">
+    <div id="globe"></div>
+    <div class="hud">
+      <h1>Peta Intelijen Sumber Terbuka</h1>
+      <p>Data publik yang diperbarui otomatis, diambil langsung oleh browser Anda. Sisi gelap globe = malam saat ini.</p>
+    </div>
+    <div class="hint">seret untuk memutar · scroll untuk zoom<br>klik titik untuk detail</div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="layers" id="layers" aria-label="Lapisan data"></div>
+  </section>
+
+  <aside class="side">
+    <div class="kpis" id="kpis"></div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p-feed" id="t-feed">Linimasa</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-cyber" id="t-cyber">Siber</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-you" id="t-you">Jejak Anda</button>
+    </div>
+
+    <div class="panel" id="p-feed" role="tabpanel" aria-labelledby="t-feed">
+      <div class="filters" id="feedFilters"></div>
+      <ul class="list" id="feed"><li class="empty">Memuat data live…</li></ul>
+    </div>
+
+    <div class="panel" id="p-cyber" role="tabpanel" aria-labelledby="t-cyber" hidden>
+      <h3>Advisori keamanan terbaru <a href="https://github.com/advisories" target="_blank" rel="noopener">GitHub ↗</a></h3>
+      <ul class="list adv" id="advisories"><li class="empty">Memuat…</li></ul>
+
+      <h3>CVE yang aktif dieksploitasi <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">CISA KEV ↗</a></h3>
+      <div class="stats3" id="kevStats"></div>
+      <ul class="list" id="kev"><li class="empty">Memuat…</li></ul>
+
+      <h3>Relay exit Tor per negara <a href="https://metrics.torproject.org/" target="_blank" rel="noopener">Tor Metrics ↗</a></h3>
+      <ul class="bars" id="torTop"><li class="empty">Memuat…</li></ul>
+    </div>
+
+    <div class="panel" id="p-you" role="tabpanel" aria-labelledby="t-you" hidden>
+      <h3>Yang bisa dibaca setiap situs dari browser Anda</h3>
+      <p class="note">Dihitung di perangkat Anda. Tidak ada yang dikirim atau disimpan.</p>
+      <dl class="kv" id="fp"></dl>
+
+      <h3>IP publik &amp; perkiraan lokasi</h3>
+      <p class="note">Opsional. Tombol ini mengirim permintaan ke <b>ipwho.is</b> (cadangan: ipapi.co) — layanan pihak ketiga yang melihat IP Anda. Situs ini tidak menyimpan apa pun.</p>
+      <button class="btn" id="ipBtn">Cek IP publik saya</button>
+      <div id="ipOut"></div>
+    </div>
+
+    <div class="sources">
+      <b>Sumber data</b>
+      <ul id="sources"></ul>
+      <p>Semua data berasal dari sumber publik terbuka dan diambil langsung oleh browser Anda. Situs ini statis: tanpa server, tanpa cookie, tanpa pelacakan. Kode: <a href="https://github.com/delfiboyz/delfiboyz.github.io" target="_blank" rel="noopener">GitHub</a>.</p>
+    </div>
+  </aside>
+</main>
+
+<script>
+// apply the saved theme before first paint
+try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (_) {}
+</script>
+<script type="module" src="../js/dist/osint.js"></script>
+</body>
+</html>
