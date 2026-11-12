@@ -66,6 +66,8 @@ header.top .bar { height: 100%; padding: 0 16px; display: flex; align-items: cen
 .title { display: flex; align-items: center; gap: 8px; font: 600 13px var(--mono); letter-spacing: .08em; }
 .right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
 .clock { font: 13px var(--mono); color: var(--muted); white-space: nowrap; }
+.hdr-link { font-size: 13px; color: var(--muted); white-space: nowrap; }
+.hdr-link:hover { color: var(--text); }
 .theme-btn {
   background: none; border: 1px solid var(--line); color: var(--muted);
   border-radius: 8px; width: 34px; height: 34px; cursor: pointer; font-size: 15px;
@@ -149,7 +151,10 @@ header.top .bar { height: 100%; padding: 0 16px; display: flex; align-items: cen
 @media (max-width: 960px) and (min-width: 600px) { .kpis { grid-template-columns: repeat(3, 1fr); } }
 
 .tabs { display: flex; gap: 4px; padding: 0 14px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg-2); z-index: 2; }
+.tabs { overflow-x: auto; scrollbar-width: none; }
+.side > * { flex-shrink: 0; }
 .tab {
+  white-space: nowrap; flex: none;
   background: none; border: 0; border-bottom: 2px solid transparent; padding: 10px 10px; cursor: pointer;
   font: 600 13px var(--sans); color: var(--muted); margin-bottom: -1px;
 }
@@ -214,6 +219,13 @@ header.top .bar { height: 100%; padding: 0 16px; display: flex; align-items: cen
 .verdict.warn { border-color: color-mix(in srgb, var(--warn) 50%, var(--line)); }
 .verdict.ok { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
 
+.wbform { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.wbform input { grid-column: 1 / -1; font-family: var(--mono); }
+.wbform input, .wbform select { padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--text); font-size: 13.5px; min-width: 0; }
+.wbform input:focus, .wbform select:focus { outline: none; border-color: var(--accent); }
+.wbform .btn { grid-column: 1 / -1; justify-content: center; }
+a.fchip { display: inline-block; }
+a.fchip:hover { color: var(--text); }
 .sources { padding: 12px 14px 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
 .sources ul { list-style: none; display: grid; gap: 4px; margin: 8px 0 10px; }
 .sources li { display: flex; align-items: center; gap: 8px; }
@@ -230,6 +242,7 @@ header.top .bar { height: 100%; padding: 0 16px; display: flex; align-items: cen
     <a class="brand" href="../">← delfiboyz<span>.github.io</span></a>
     <div class="title"><span class="live-dot"></span>LIVE OSINT</div>
     <div class="right">
+      <a class="hdr-link" href="wayback/">Wayback</a>
       <span class="clock" id="clock"><span class="lbl">UTC </span>--:--:--</span>
       <button class="theme-btn" id="themeBtn" aria-label="Ganti tema">◐</button>
     </div>
@@ -255,6 +268,7 @@ header.top .bar { height: 100%; padding: 0 16px; display: flex; align-items: cen
       <button class="tab" role="tab" aria-selected="true" aria-controls="p-feed" id="t-feed">Linimasa</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-cyber" id="t-cyber">Siber</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-you" id="t-you">Jejak Anda</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-wb" id="t-wb">Arsip Web</button>
     </div>
 
     <div class="panel" id="p-feed" role="tabpanel" aria-labelledby="t-feed">
@@ -283,6 +297,27 @@ header.top .bar { height: 100%; padding: 0 16px; display: flex; align-items: cen
       <p class="note">Opsional. Tombol ini mengirim permintaan ke <b>ipwho.is</b> (cadangan: ipapi.co) — layanan pihak ketiga yang melihat IP Anda. Situs ini tidak menyimpan apa pun.</p>
       <button class="btn" id="ipBtn">Cek IP publik saya</button>
       <div id="ipOut"></div>
+    </div>
+
+    <div class="panel" id="p-wb" role="tabpanel" aria-labelledby="t-wb" hidden>
+      <h3>Wayback Machine OSINT <a href="wayback/">Buka alat lengkap →</a></h3>
+      <p class="note">Telusuri riwayat arsip sebuah situs lewat API Wayback Machine (Internet Archive): skyline 3D tangkapan, kalender, perubahan konten &amp; diff, daftar URL, peta situs, subdomain, robots.txt lama, parameter, dan file menarik.</p>
+      <form class="wbform" action="wayback/" method="get">
+        <input name="url" type="text" inputmode="url" placeholder="domain atau URL, mis. example.com" required spellcheck="false" aria-label="Domain atau URL">
+        <select name="mode" aria-label="Cakupan">
+          <option value="domain">Domain + subdomain</option><option value="host">Host saja</option><option value="prefix">Prefix path</option><option value="exact">URL persis</option>
+        </select>
+        <select name="tab" aria-label="Mulai dari">
+          <option value="summary">Ringkasan</option><option value="calendar">Kalender</option><option value="changes">Perubahan</option><option value="urls">URL</option><option value="sitemap">Peta Situs</option><option value="subdomains">Subdomain</option><option value="osint">Temuan OSINT</option>
+        </select>
+        <button class="btn">Telusuri arsip</button>
+      </form>
+      <h3>Coba</h3>
+      <div class="filters">
+        <a class="fchip" href="wayback/?url=delfiboyz.github.io">delfiboyz.github.io</a>
+        <a class="fchip" href="wayback/?url=example.com&amp;tab=calendar">example.com · kalender</a>
+        <a class="fchip" href="wayback/?url=nasa.gov&amp;tab=subdomains">nasa.gov · subdomain</a>
+      </div>
     </div>
 
     <div class="sources">

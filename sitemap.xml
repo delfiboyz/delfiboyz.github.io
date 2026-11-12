@@ -18,6 +18,11 @@
   <priority>0.90</priority>
 </url>
 <url>
+  <loc>https://delfiboyz.github.io/osint/wayback/</loc>
+  <lastmod>2026-11-12T00:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://delfiboyz.github.io/index.html</loc>
   <lastmod>2026-10-30T00:00:00+00:00</lastmod>
   <priority>0.80</priority>
